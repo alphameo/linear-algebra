@@ -1,11 +1,9 @@
 package ru.vsu.cs.course2.a1pha.linear_algebra.vectors;
 
-import ru.vsu.cs.course2.a1pha.linear_algebra.Copyable;
-
 /**
  * IVector2
  */
-public interface Vector2<Vec> extends VectorOperations<Vec>, Copyable<Vec> {
+public interface Vector2<VecType> extends Vector<VecType> {
 
     float x();
 

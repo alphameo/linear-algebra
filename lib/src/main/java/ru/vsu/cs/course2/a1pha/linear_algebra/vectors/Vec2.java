@@ -1,92 +1,119 @@
 package ru.vsu.cs.course2.a1pha.linear_algebra.vectors;
 
-import ru.vsu.cs.course2.a1pha.linear_algebra.Checker;
+import ru.vsu.cs.course2.a1pha.linear_algebra.Copyable;
 
 /**
  * Vec2
  */
-public class Vec2 implements Vector2<Vec2> {
-    public float x;
-    public float y;
+public class Vec2 implements Vector2<Vec2>, Copyable<Vec2> {
+    private final Vec vector;
 
-    public Vec2(float x, float y) {
-        this.x = x;
-        this.y = y;
+    public Vec2(final float x, final float y) {
+        vector = new Vec(x, y);
+    }
+
+    @Override
+    public float get(final int i) {
+        return vector.get(i);
     }
 
     @Override
     public float x() {
-        return x;
+        return vector.get(0);
     }
 
     @Override
     public float y() {
-        return y;
+        return vector.get(1);
     }
 
     @Override
-    public void setX(float value) {
-        x = value;
+    public void set(final int i, final float value) {
+        vector.set(i, value);
     }
 
     @Override
-    public void setY(float value) {
-        y = value;
+    public void setX(final float value) {
+        vector.set(0, value);
     }
 
     @Override
-    public void divide(float divisor) throws ArithmeticException {
-        Checker.checkDivisor(divisor);
-
-        x /= divisor;
-        y /= divisor;
+    public void setY(final float value) {
+        vector.set(2, value);
     }
 
     @Override
-    public void multiply(float multiplier) {
-        x *= multiplier;
-        y *= multiplier;
+    public int size() {
+        return 2;
     }
 
     @Override
     public float length() {
-        return (float) Math.sqrt(x * x + y * y);
+        return vector.length();
     }
 
     @Override
-    public void add(Vec2 other) {
-        x += other.x;
+    public void add(final Vec2 other) {
+        UncheckedVectorOperations.addTo(this, other);
     }
 
     @Override
-    public Vec2 plus(Vec2 other) {
-        Vec2 result = this.copy();
+    public Vec2 plus(final Vec2 other) {
+        final Vec2 result = copy();
         result.add(other);
 
         return result;
     }
 
     @Override
-    public void subtract(Vec2 other) {
-        x -= other.x;
-        y -= other.y;
+    public void subtract(final Vec2 other) {
+        UncheckedVectorOperations.subtractFrom(this, other);
     }
 
     @Override
-    public Vec2 minus(Vec2 other) {
-        Vec2 result = this.copy();
+    public Vec2 minus(final Vec2 other) {
+        final Vec2 result = copy();
         result.subtract(other);
 
         return result;
     }
 
     @Override
-    public float dot(Vec2 other) {
-        return x * other.x + y * other.y;
+    public float dot(final Vec2 other) {
+        return UncheckedVectorOperations.dot(this, other);
+    }
+
+    @Override
+    public void divide(final float divisor) {
+        vector.divide(divisor);
+    }
+
+    @Override
+    public void multiply(final float multiplier) {
+        vector.multiply(multiplier);
+    }
+
+    @Override
+    public boolean equalTo(final Vec2 other) {
+        return UncheckedVectorOperations.equalTo(this, other);
     }
 
     @Override
     public Vec2 copy() {
-        return new Vec2(x, y);
+        return new Vec2(this.x(), this.y());
+    }
+
+    @Override
+    public void normalize() {
+        vector.normalize();
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
+    public Vec3 toVec3() {
+        return new Vec3(x(), y(), 1);
     }
 }

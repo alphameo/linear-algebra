@@ -1,11 +1,9 @@
 package ru.vsu.cs.course2.a1pha.linear_algebra.vectors;
 
-import ru.vsu.cs.course2.a1pha.linear_algebra.Copyable;
-
 /**
  * Vector3
  */
-public interface Vector3<Vec> extends VectorOperations<Vec>, Copyable<Vec> {
+public interface Vector3<VecType> extends Vector<VecType> {
 
     float x();
 
@@ -19,5 +17,5 @@ public interface Vector3<Vec> extends VectorOperations<Vec>, Copyable<Vec> {
 
     void setZ(float value);
 
-    Vec cross(Vec other);
+    VecType cross(VecType other);
 }

@@ -3,7 +3,7 @@ package ru.vsu.cs.course2.a1pha.linear_algebra;
 /**
  * Checker
  */
-public class Checker {
+public class NumberChecker {
 
     public static void checkDivisor(float divisor) throws ArithmeticException {
 
