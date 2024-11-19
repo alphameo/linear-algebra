@@ -5,7 +5,7 @@ import ru.vsu.cs.course2.a1pha.linear_algebra.Copyable;
 /**
  * Vec4
  */
-public class Vec4 implements Vector4<Vec4>, Copyable<Vec4> {
+public class Vec4 implements Vector4 {
 
     private final Vec vector;
 

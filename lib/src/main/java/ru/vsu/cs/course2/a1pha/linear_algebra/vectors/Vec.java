@@ -3,12 +3,11 @@ package ru.vsu.cs.course2.a1pha.linear_algebra.vectors;
 import java.util.Arrays;
 
 import ru.vsu.cs.course2.a1pha.linear_algebra.NumberChecker;
-import ru.vsu.cs.course2.a1pha.linear_algebra.Copyable;
 
 /**
  * Vector
  */
-public class Vec implements ArbitraryVector, Copyable<Vec> {
+public class Vec implements ArbitraryVector {
 
     private float[] entries;
 
@@ -44,11 +43,6 @@ public class Vec implements ArbitraryVector, Copyable<Vec> {
     }
 
     @Override
-    public void normalize() {
-        divide(length());
-    }
-
-    @Override
     public void add(final ArbitraryVector other) {
         checkSameVectorLength(this, other, "Addition denied");
 
@@ -56,26 +50,10 @@ public class Vec implements ArbitraryVector, Copyable<Vec> {
     }
 
     @Override
-    public ArbitraryVector plus(final ArbitraryVector other) {
-        final ArbitraryVector result = copy();
-        result.add(other);
-
-        return result;
-    }
-
-    @Override
     public void subtract(final ArbitraryVector other) {
         checkSameVectorLength(this, other, "Subtraction denied");
 
         UncheckedVectorOperations.subtractFrom(this, other);
-    }
-
-    @Override
-    public ArbitraryVector minus(final ArbitraryVector other) {
-        final ArbitraryVector result = copy();
-        result.subtract(other);
-
-        return result;
     }
 
     @Override
@@ -135,11 +113,12 @@ public class Vec implements ArbitraryVector, Copyable<Vec> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final ArbitraryVector other = (Vec) obj;
+        final ArbitraryVector other = (ArbitraryVector) obj;
         return equalsTo(other);
     }
 
-    private static void checkSameVectorLength(final ArbitraryVector v1, final ArbitraryVector v2, final String errMessage) {
+    private static void checkSameVectorLength(final ArbitraryVector v1, final ArbitraryVector v2,
+            final String errMessage) {
         if (v1.length() != v2.length()) {
             throw new IllegalArgumentException(String.format("%s: vectors with different lengths (%d and %d)",
                     errMessage, v1.length(), v2.length()));

@@ -1,11 +1,9 @@
 package ru.vsu.cs.course2.a1pha.linear_algebra.vectors;
 
-import ru.vsu.cs.course2.a1pha.linear_algebra.Copyable;
-
 /**
  * Vec3
  */
-public class Vec3 implements Vector3<Vec3>, Copyable<Vec3> {
+public class Vec3 implements Vector3 {
 
     Vec vector;
 
@@ -64,33 +62,17 @@ public class Vec3 implements Vector3<Vec3>, Copyable<Vec3> {
     }
 
     @Override
-    public void add(final Vec3 other) {
+    public void add(final Vector3 other) {
         UncheckedVectorOperations.addTo(this, other);
     }
 
     @Override
-    public Vec3 plus(final Vec3 other) {
-        final Vec3 result = copy();
-        result.add(other);
-
-        return result;
-    }
-
-    @Override
-    public void subtract(final Vec3 other) {
+    public void subtract(final Vector3 other) {
         UncheckedVectorOperations.subtractFrom(this, other);
     }
 
     @Override
-    public Vec3 minus(final Vec3 other) {
-        final Vec3 result = copy();
-        result.subtract(other);
-
-        return result;
-    }
-
-    @Override
-    public float dot(final Vec3 other) {
+    public float dot(final Vector3 other) {
         return UncheckedVectorOperations.dot(this, other);
     }
 
@@ -105,17 +87,17 @@ public class Vec3 implements Vector3<Vec3>, Copyable<Vec3> {
     }
 
     @Override
-    public boolean equalTo(final Vec3 other) {
+    public boolean equalsTo(final Vector3 other) {
         return UncheckedVectorOperations.equalTo(this, other);
     }
 
     @Override
-    public Vec3 copy() {
+    public Vector3 copy() {
         return new Vec3(this.x(), this.y(), this.z());
     }
 
     @Override
-    public Vec3 cross(final Vec3 other) {
+    public Vector3 cross(final Vector3 other) {
         return new Vec3(
                 this.z() * other.y() - this.y() * other.z(),
                 this.x() * other.z() - this.z() * other.x(),
@@ -123,16 +105,12 @@ public class Vec3 implements Vector3<Vec3>, Copyable<Vec3> {
     }
 
     @Override
-    public void normalize() {
-        vector.normalize();
+    public String toString() {
+        return vector.toString();
     }
 
     @Override
-    public String toString() {
-        return super.toString();
-    }
-
-    Vec4 toVec4() {
+    public Vector4 toVec4() {
         return new Vec4(x(), y(), z(), 1);
     }
 }

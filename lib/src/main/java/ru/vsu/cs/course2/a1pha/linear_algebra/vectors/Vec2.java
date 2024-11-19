@@ -1,11 +1,9 @@
 package ru.vsu.cs.course2.a1pha.linear_algebra.vectors;
 
-import ru.vsu.cs.course2.a1pha.linear_algebra.Copyable;
-
 /**
  * Vec2
  */
-public class Vec2 implements Vector2, Copyable<Vec2> {
+public class Vec2 implements Vector2 {
     private final Vec vector;
 
     public Vec2(final float x, final float y) {
@@ -54,28 +52,12 @@ public class Vec2 implements Vector2, Copyable<Vec2> {
 
     @Override
     public void add(final Vector2 other) {
-        vector.add(other);
-    }
-
-    @Override
-    public Vector2 plus(final Vector2 other) {
-        final Vector2 result = copy();
-        result.add(other);
-
-        return result;
+        UncheckedVectorOperations.subtractFrom(this, other);
     }
 
     @Override
     public void subtract(final Vector2 other) {
         UncheckedVectorOperations.subtractFrom(this, other);
-    }
-
-    @Override
-    public Vector2 minus(final Vector2 other) {
-        final Vector2 result = copy();
-        result.subtract(other);
-
-        return result;
     }
 
     @Override
@@ -104,13 +86,8 @@ public class Vec2 implements Vector2, Copyable<Vec2> {
     }
 
     @Override
-    public void normalize() {
-        vector.normalize();
-    }
-
-    @Override
     public String toString() {
-        return super.toString();
+        return vector.toString();
     }
 
     public Vector3 toVec3() {
