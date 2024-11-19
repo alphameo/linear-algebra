@@ -74,33 +74,17 @@ public class Vec4 implements Vector4 {
     }
 
     @Override
-    public void add(final Vec4 other) {
+    public void add(final Vector4 other) {
         UncheckedVectorOperations.addTo(this, other);
     }
 
     @Override
-    public Vec4 plus(final Vec4 other) {
-        final Vec4 result = copy();
-        result.add(other);
-
-        return result;
-    }
-
-    @Override
-    public void subtract(final Vec4 other) {
+    public void subtract(final Vector4 other) {
         UncheckedVectorOperations.subtractFrom(this, other);
     }
 
     @Override
-    public Vec4 minus(final Vec4 other) {
-        final Vec4 result = copy();
-        result.subtract(other);
-
-        return result;
-    }
-
-    @Override
-    public float dot(final Vec4 other) {
+    public float dot(final Vector4 other) {
         return UncheckedVectorOperations.dot(this, other);
     }
 
@@ -115,12 +99,12 @@ public class Vec4 implements Vector4 {
     }
 
     @Override
-    public boolean equalTo(final Vec4 other) {
+    public boolean equalsTo(final Vector4 other) {
         return UncheckedVectorOperations.equalTo(this, other);
     }
 
     @Override
-    public Vec4 copy() {
+    public Vector4 copy() {
         return new Vec4(this.x(), this.y(), this.z(), this.w());
     }
 
