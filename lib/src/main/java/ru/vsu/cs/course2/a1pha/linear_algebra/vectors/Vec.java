@@ -8,7 +8,7 @@ import ru.vsu.cs.course2.a1pha.linear_algebra.Copyable;
 /**
  * Vector
  */
-public class Vec implements Vector<Vec>, Copyable<Vec> {
+public class Vec implements ArbitraryVector, Copyable<Vec> {
 
     private float[] entries;
 
@@ -44,37 +44,42 @@ public class Vec implements Vector<Vec>, Copyable<Vec> {
     }
 
     @Override
-    public void add(final Vec other) {
+    public void normalize() {
+        divide(length());
+    }
+
+    @Override
+    public void add(final ArbitraryVector other) {
         checkSameVectorLength(this, other, "Addition denied");
 
         UncheckedVectorOperations.addTo(this, other);
     }
 
     @Override
-    public Vec plus(final Vec other) {
-        final Vec result = copy();
+    public ArbitraryVector plus(final ArbitraryVector other) {
+        final ArbitraryVector result = copy();
         result.add(other);
 
         return result;
     }
 
     @Override
-    public void subtract(final Vec other) {
+    public void subtract(final ArbitraryVector other) {
         checkSameVectorLength(this, other, "Subtraction denied");
 
         UncheckedVectorOperations.subtractFrom(this, other);
     }
 
     @Override
-    public Vec minus(final Vec other) {
-        final Vec result = copy();
+    public ArbitraryVector minus(final ArbitraryVector other) {
+        final ArbitraryVector result = copy();
         result.subtract(other);
 
         return result;
     }
 
     @Override
-    public float dot(final Vec other) {
+    public float dot(final ArbitraryVector other) {
         checkSameVectorLength(this, other, "Scalar product denied");
 
         return UncheckedVectorOperations.dot(this, other);
@@ -96,7 +101,7 @@ public class Vec implements Vector<Vec>, Copyable<Vec> {
     }
 
     @Override
-    public boolean equalTo(final Vec other) {
+    public boolean equalsTo(final ArbitraryVector other) {
         checkSameVectorLength(this, other, "Equalization denied");
         return UncheckedVectorOperations.equalTo(this, other);
     }
@@ -130,16 +135,11 @@ public class Vec implements Vector<Vec>, Copyable<Vec> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Vec other = (Vec) obj;
-        return Arrays.equals(entries, other.entries);
+        final ArbitraryVector other = (Vec) obj;
+        return equalsTo(other);
     }
 
-    @Override
-    public void normalize() {
-        divide(length());
-    }
-
-    private static void checkSameVectorLength(final Vec v1, final Vec v2, final String errMessage) {
+    private static void checkSameVectorLength(final ArbitraryVector v1, final ArbitraryVector v2, final String errMessage) {
         if (v1.length() != v2.length()) {
             throw new IllegalArgumentException(String.format("%s: vectors with different lengths (%d and %d)",
                     errMessage, v1.length(), v2.length()));

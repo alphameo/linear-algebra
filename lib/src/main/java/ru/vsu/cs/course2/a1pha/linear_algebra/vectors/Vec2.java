@@ -5,7 +5,7 @@ import ru.vsu.cs.course2.a1pha.linear_algebra.Copyable;
 /**
  * Vec2
  */
-public class Vec2 implements Vector2<Vec2>, Copyable<Vec2> {
+public class Vec2 implements Vector2, Copyable<Vec2> {
     private final Vec vector;
 
     public Vec2(final float x, final float y) {
@@ -53,33 +53,33 @@ public class Vec2 implements Vector2<Vec2>, Copyable<Vec2> {
     }
 
     @Override
-    public void add(final Vec2 other) {
-        UncheckedVectorOperations.addTo(this, other);
+    public void add(final Vector2 other) {
+        vector.add(other);
     }
 
     @Override
-    public Vec2 plus(final Vec2 other) {
-        final Vec2 result = copy();
+    public Vector2 plus(final Vector2 other) {
+        final Vector2 result = copy();
         result.add(other);
 
         return result;
     }
 
     @Override
-    public void subtract(final Vec2 other) {
+    public void subtract(final Vector2 other) {
         UncheckedVectorOperations.subtractFrom(this, other);
     }
 
     @Override
-    public Vec2 minus(final Vec2 other) {
-        final Vec2 result = copy();
+    public Vector2 minus(final Vector2 other) {
+        final Vector2 result = copy();
         result.subtract(other);
 
         return result;
     }
 
     @Override
-    public float dot(final Vec2 other) {
+    public float dot(final Vector2 other) {
         return UncheckedVectorOperations.dot(this, other);
     }
 
@@ -94,7 +94,7 @@ public class Vec2 implements Vector2<Vec2>, Copyable<Vec2> {
     }
 
     @Override
-    public boolean equalTo(final Vec2 other) {
+    public boolean equalsTo(final Vector2 other) {
         return UncheckedVectorOperations.equalTo(this, other);
     }
 
@@ -113,7 +113,7 @@ public class Vec2 implements Vector2<Vec2>, Copyable<Vec2> {
         return super.toString();
     }
 
-    public Vec3 toVec3() {
+    public Vector3 toVec3() {
         return new Vec3(x(), y(), 1);
     }
 }
