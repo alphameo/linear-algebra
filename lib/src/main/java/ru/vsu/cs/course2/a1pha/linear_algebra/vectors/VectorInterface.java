@@ -7,7 +7,7 @@ import ru.vsu.cs.course2.a1pha.linear_algebra.ScalarOperatable;
 /**
  * Vector
  */
-public interface VectorInterface<T extends VectorInterface<T>> extends ScalarOperatable, Copyable<T>, Equatable<T> {
+public interface VectorInterface<VecType extends VectorInterface<VecType>> extends ScalarOperatable, Copyable<VecType>, Equatable<VecType> {
 
     float get(int index);
 
@@ -21,23 +21,23 @@ public interface VectorInterface<T extends VectorInterface<T>> extends ScalarOpe
 
     float length();
 
-    void add(T vec);
+    void add(VecType vec);
 
-    default T plus(final T vec) {
-        final T result = copy();
+    default VecType plus(final VecType vec) {
+        final VecType result = copy();
         result.add(vec);
 
         return result;
     }
 
-    void subtract(T vec);
+    void subtract(VecType vec);
 
-    default T minus(final T vec) {
-        final T result = copy();
+    default VecType minus(final VecType vec) {
+        final VecType result = copy();
         result.add(vec);
 
         return result;
     };
 
-    float dot(T vec);
+    float dot(VecType vec);
 }
