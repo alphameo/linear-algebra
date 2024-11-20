@@ -8,8 +8,8 @@ import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.VectorInterface;
 /**
  * MatrixOperatable
  */
-public interface MatrixInterface<MatrType extends MatrixInterface<MatrType>>
-        extends ScalarOperatable, Copyable<MatrType>, Equatable<MatrType> {
+public interface MatrixInterface<M extends MatrixInterface<M>>
+        extends ScalarOperatable, Copyable<M>, Equatable<M> {
 
     float get(int row, int col);
 
@@ -21,26 +21,26 @@ public interface MatrixInterface<MatrType extends MatrixInterface<MatrType>>
 
     void transpose();
 
-    default MatrType transposed() {
-        final MatrType result = copy();
+    default M transposed() {
+        final M result = copy();
         result.transpose();
 
         return result;
     }
 
-    void add(MatrType matr);
+    void add(M matr);
 
-    default MatrType plus(final MatrType matr) {
-        final MatrType result = copy();
+    default M plus(final M matr) {
+        final M result = copy();
         result.add(matr);
 
         return result;
     }
 
-    void subtract(MatrType matr);
+    void subtract(M matr);
 
-    default MatrType minus(final MatrType matr) {
-        final MatrType result = copy();
+    default M minus(final M matr) {
+        final M result = copy();
         result.subtract(matr);
 
         return result;
@@ -48,8 +48,8 @@ public interface MatrixInterface<MatrType extends MatrixInterface<MatrType>>
 
     void triangulate();
 
-    default MatrType triangularTable() {
-        final MatrType result = copy();
+    default M triangularTable() {
+        final M result = copy();
         result.triangulate();
 
         return result;
@@ -59,7 +59,7 @@ public interface MatrixInterface<MatrType extends MatrixInterface<MatrType>>
 
     void swapCols(int c1, int c2);
 
-    MatrType product(MatrType matr);
+    M product(M matr);
 
     <T extends VectorInterface<T>> T product(VectorInterface<T> vec);
 
