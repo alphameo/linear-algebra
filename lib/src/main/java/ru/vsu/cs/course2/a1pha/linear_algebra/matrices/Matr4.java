@@ -41,19 +41,19 @@ public class Matr4 implements Matrix4 {
 
     @Override
     public float det() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'det'");
+        return matrix.det();
     }
 
     @Override
     public Matrix4 invertible() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'invertible'");
+        return UncheckedMatrixOperations.invertibleMatrix(this);
     }
 
     @Override
-    public void transpose() {
+    public Matrix4 transpose() {
         matrix.transpose();
+
+        return this;
     }
 
     @Override
@@ -105,13 +105,17 @@ public class Matr4 implements Matrix4 {
     }
 
     @Override
-    public void divide(final float divisor) {
+    public Matrix4 divide(final float divisor) {
         matrix.divide(divisor);
+
+        return this;
     }
 
     @Override
-    public void multiply(final float multiplier) {
+    public Matrix4 multiply(final float multiplier) {
         matrix.multiply(multiplier);
+
+        return this;
     }
 
     @Override
@@ -136,6 +140,14 @@ public class Matr4 implements Matrix4 {
     public Vector4 product(final Vector4 vec) {
         final Vector4 result = new Vec4();
         UncheckedMatrixOperations.product(this, vec, result);
+
+        return result;
+    }
+
+    @Override
+    public Matrix4 cofactorMatrix() {
+        Matrix4 result = new Matr4();
+        UncheckedMatrixOperations.cofactorMatrix(this, result);
 
         return result;
     }

@@ -66,13 +66,17 @@ public class Vec3 implements Vector3 {
     }
 
     @Override
-    public void add(final Vector3 other) {
+    public Vector3 add(final Vector3 other) {
         UncheckedVectorOperations.addTo(this, other);
+
+        return this;
     }
 
     @Override
-    public void subtract(final Vector3 other) {
+    public Vector3 subtract(final Vector3 other) {
         UncheckedVectorOperations.subtractFrom(this, other);
+
+        return this;
     }
 
     @Override
@@ -81,13 +85,17 @@ public class Vec3 implements Vector3 {
     }
 
     @Override
-    public void divide(final float divisor) {
+    public Vector3 divide(final float divisor) {
         vector.divide(divisor);
+
+        return this;
     }
 
     @Override
-    public void multiply(final float multiplier) {
+    public Vector3 multiply(final float multiplier) {
         vector.multiply(multiplier);
+
+        return this;
     }
 
     @Override

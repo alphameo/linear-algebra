@@ -9,7 +9,7 @@ import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.VectorInterface;
  * MatrixOperatable
  */
 public interface MatrixInterface<M extends MatrixInterface<M>>
-        extends ScalarOperatable, Copyable<M>, Equatable<M> {
+        extends ScalarOperatable<M>, Copyable<M>, Equatable<M> {
 
     float get(int row, int col);
 
@@ -19,7 +19,7 @@ public interface MatrixInterface<M extends MatrixInterface<M>>
 
     int height();
 
-    void transpose();
+    M transpose();
 
     default M transposed() {
         final M result = copy();

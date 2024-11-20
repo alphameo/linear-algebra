@@ -55,13 +55,17 @@ public class Vec2 implements Vector2 {
     }
 
     @Override
-    public void add(final Vector2 other) {
+    public Vector2 add(final Vector2 other) {
         UncheckedVectorOperations.subtractFrom(this, other);
+
+        return this;
     }
 
     @Override
-    public void subtract(final Vector2 other) {
+    public Vector2 subtract(final Vector2 other) {
         UncheckedVectorOperations.subtractFrom(this, other);
+
+        return this;
     }
 
     @Override
@@ -70,13 +74,17 @@ public class Vec2 implements Vector2 {
     }
 
     @Override
-    public void divide(final float divisor) {
+    public Vector2 divide(final float divisor) {
         vector.divide(divisor);
+
+        return this;
     }
 
     @Override
-    public void multiply(final float multiplier) {
+    public Vector2 multiply(final float multiplier) {
         vector.multiply(multiplier);
+
+        return this;
     }
 
     @Override

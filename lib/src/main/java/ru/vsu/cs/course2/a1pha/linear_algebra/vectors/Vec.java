@@ -48,17 +48,19 @@ public class Vec implements Vector {
     }
 
     @Override
-    public void add(final Vector other) {
+    public Vector add(final Vector other) {
         checkSameVectorLength(this, other, "Addition denied");
-
         UncheckedVectorOperations.addTo(this, other);
+
+        return this;
     }
 
     @Override
-    public void subtract(final Vector other) {
+    public Vector subtract(final Vector other) {
         checkSameVectorLength(this, other, "Subtraction denied");
-
         UncheckedVectorOperations.subtractFrom(this, other);
+
+        return this;
     }
 
     @Override
@@ -69,18 +71,22 @@ public class Vec implements Vector {
     }
 
     @Override
-    public void divide(final float divisor) throws ArithmeticException {
+    public Vector divide(final float divisor) throws ArithmeticException {
         NumberChecker.checkDivisor(divisor);
         for (int i = 0; i < entries.length; i++) {
             entries[i] /= divisor;
         }
+
+        return this;
     }
 
     @Override
-    public void multiply(final float multiplier) {
+    public Vector multiply(final float multiplier) {
         for (int i = 0; i < entries.length; i++) {
             entries[i] *= multiplier;
         }
+
+        return this;
     }
 
     @Override

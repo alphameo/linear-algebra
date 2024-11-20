@@ -46,13 +46,14 @@ public class Matr3 implements Matrix3 {
 
     @Override
     public Matrix3 invertible() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'invertible'");
+        return UncheckedMatrixOperations.invertibleMatrix(this);
     }
 
     @Override
-    public void transpose() {
+    public Matrix3 transpose() {
         matrix.transpose();
+
+        return this;
     }
 
     @Override
@@ -104,13 +105,17 @@ public class Matr3 implements Matrix3 {
     }
 
     @Override
-    public void divide(final float divisor) {
+    public Matrix3 divide(final float divisor) {
         matrix.divide(divisor);
+
+        return this;
     }
 
     @Override
-    public void multiply(final float multiplier) {
+    public Matrix3 multiply(final float multiplier) {
         matrix.multiply(multiplier);
+
+        return this;
     }
 
     @Override
@@ -135,6 +140,14 @@ public class Matr3 implements Matrix3 {
     public Vector3 product(final Vector3 vec) {
         final Vector3 result = new Vec3();
         UncheckedMatrixOperations.product(this, vec, result);
+
+        return result;
+    }
+
+    @Override
+    public Matrix3 cofactorMatrix() {
+        Matrix3 result = new Matr3();
+        UncheckedMatrixOperations.cofactorMatrix(this, result);
 
         return result;
     }

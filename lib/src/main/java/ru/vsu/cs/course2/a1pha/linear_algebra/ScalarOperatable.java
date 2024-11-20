@@ -3,9 +3,9 @@ package ru.vsu.cs.course2.a1pha.linear_algebra;
 /**
  * ScalarOperations
  */
-public interface ScalarOperatable {
+public interface ScalarOperatable<T> {
 
-    void divide(float divisor);
+    T divide(float divisor);
 
-    void multiply(float multiplier);
+    T multiply(float multiplier);
 }

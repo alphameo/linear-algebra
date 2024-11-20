@@ -76,13 +76,17 @@ public class Vec4 implements Vector4 {
     }
 
     @Override
-    public void add(final Vector4 other) {
+    public Vector4 add(final Vector4 other) {
         UncheckedVectorOperations.addTo(this, other);
+
+        return this;
     }
 
     @Override
-    public void subtract(final Vector4 other) {
+    public Vector4 subtract(final Vector4 other) {
         UncheckedVectorOperations.subtractFrom(this, other);
+
+        return this;
     }
 
     @Override
@@ -91,13 +95,17 @@ public class Vec4 implements Vector4 {
     }
 
     @Override
-    public void divide(final float divisor) {
+    public Vector4 divide(final float divisor) {
         vector.divide(divisor);
+
+        return this;
     }
 
     @Override
-    public void multiply(final float multiplier) {
+    public Vector4 multiply(final float multiplier) {
         vector.multiply(multiplier);
+
+        return this;
     }
 
     @Override
@@ -111,8 +119,10 @@ public class Vec4 implements Vector4 {
     }
 
     @Override
-    public void normalize() {
+    public Vector4 normalize() {
         vector.normalize();
+
+        return this;
     }
 
     @Override

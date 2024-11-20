@@ -112,7 +112,7 @@ public class SqMatr implements SquareMatrix {
     }
 
     @Override
-    public void transpose() {
+    public SquareMatrix transpose() {
         for (int i = 0; i < size(); i++) {
             for (int j = i + 1; j < size(); j++) {
                 float tmp = matrix.get(i, j);
@@ -120,6 +120,8 @@ public class SqMatr implements SquareMatrix {
                 matrix.set(j, i, tmp);
             }
         }
+
+        return this;
     }
 
     @Override
@@ -167,13 +169,17 @@ public class SqMatr implements SquareMatrix {
     }
 
     @Override
-    public void divide(float divisor) {
+    public SquareMatrix divide(float divisor) {
         matrix.divide(divisor);
+
+        return this;
     }
 
     @Override
-    public void multiply(float multiplier) {
+    public SquareMatrix multiply(float multiplier) {
         matrix.multiply(multiplier);
+
+        return this;
     }
 
     @Override

@@ -48,7 +48,7 @@ public class Matr implements Matrix {
     }
 
     @Override
-    public void transpose() {
+    public Matrix transpose() {
         float[][] result = new float[entries[0].length][entries.length];
         for (int i = 0; i < entries.length; i++) {
             for (int j = 0; i < entries[0].length; j++) {
@@ -56,6 +56,8 @@ public class Matr implements Matrix {
             }
         }
         entries = result;
+
+        return this;
     }
 
     @Override
@@ -117,7 +119,7 @@ public class Matr implements Matrix {
     }
 
     @Override
-    public void divide(float divisor) {
+    public Matrix divide(float divisor) {
         NumberChecker.checkDivisor(divisor);
 
         for (int i = 0; i < entries.length; i++) {
@@ -125,15 +127,19 @@ public class Matr implements Matrix {
                 entries[i][j] /= divisor;
             }
         }
+
+        return this;
     }
 
     @Override
-    public void multiply(float multiplier) {
+    public Matrix multiply(float multiplier) {
         for (int i = 0; i < entries.length; i++) {
             for (int j = 0; j < entries[0].length; j++) {
                 entries[i][j] *= multiplier;
             }
         }
+
+        return this;
     }
 
     @Override

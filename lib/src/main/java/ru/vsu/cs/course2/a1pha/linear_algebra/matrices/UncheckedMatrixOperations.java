@@ -62,7 +62,7 @@ public class UncheckedMatrixOperations {
 
     public static <SM extends SquareMatrixInterface<SM>> SM invertibleMatrix(SM matr) {
         SM cofactorMatrix = matr.cofactorMatrix();
-        double determinant = 0;
+        float determinant = 0;
 
         for (int i = 0; i < matr.width(); i++) {
             determinant += matr.get(0, i) * cofactorMatrix.get(0, i);
