@@ -5,6 +5,8 @@ package ru.vsu.cs.course2.a1pha.linear_algebra;
  */
 public class NumberChecker {
 
+    public static final float EPS = 0.000001f;
+
     public static void checkDivisor(float divisor) throws ArithmeticException {
 
         if (Float.compare(divisor, 0f) == 0) {

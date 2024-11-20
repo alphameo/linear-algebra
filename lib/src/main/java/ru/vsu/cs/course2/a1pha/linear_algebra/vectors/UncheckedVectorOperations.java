@@ -1,5 +1,7 @@
 package ru.vsu.cs.course2.a1pha.linear_algebra.vectors;
 
+import ru.vsu.cs.course2.a1pha.linear_algebra.NumberChecker;
+
 /**
  * UncheckedVectorOperations
  */
@@ -30,7 +32,7 @@ public class UncheckedVectorOperations {
 
     public static <V extends VectorInterface<V>> boolean equalTo(final V v1, final V v2) {
         for (int i = 0; i < v1.size(); i++) {
-            if (v1.get(i) != v2.get(i)) {
+            if (Math.abs(v1.get(i) - v2.get(i)) < NumberChecker.EPS) {
                 return false;
             }
         }
