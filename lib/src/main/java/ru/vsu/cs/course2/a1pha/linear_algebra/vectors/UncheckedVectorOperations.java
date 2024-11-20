@@ -5,8 +5,8 @@ package ru.vsu.cs.course2.a1pha.linear_algebra.vectors;
  */
 public class UncheckedVectorOperations {
 
-    public static <VecType extends VectorInterface<VecType>> void addTo(final VecType targetV,
-            final VecType termV) {
+    public static <V extends VectorInterface<V>> void addTo(final V targetV,
+            final V termV) {
         for (int i = 0; i < targetV.size(); i++) {
             targetV.set(i, targetV.get(i) + termV.get(i));
         }
