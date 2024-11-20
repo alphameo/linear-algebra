@@ -43,15 +43,72 @@ public class SqMatr implements SquareMatrix {
     }
 
     @Override
-    public float determinatn() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'determinatn'");
+    public SquareMatrix cofactorMatrix() {
+        SquareMatrix result = new SqMatr(this.size());
+        UncheckedMatrixOperations.cofactorMatrix(this, result);
+
+        return result;
+    }
+
+    @Override
+    public float det() {
+        if (this.size() == 1) {
+            return this.get(0, 0);
+        } else if (this.size() == 2) {
+            return UncheckedMatrixOperations.determinant2(this);
+        } else if (this.size() == 3) {
+            return UncheckedMatrixOperations.determinant3(this);
+        }
+
+        float determinant = 0;
+
+        for (int i = 0; i < this.width(); i++) {
+            determinant += this.get(0, i) * this.cofactor(0, i);
+        }
+
+        return determinant;
     }
 
     @Override
     public SquareMatrix invertible() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'invertible'");
+        return UncheckedMatrixOperations.invertibleMatrix(this);
+    }
+
+    @Override
+    public void swapRows(int r1, int r2) {
+        matrix.swapRows(r1, r2);
+    }
+
+    @Override
+    public void swapCols(int c1, int c2) {
+        swapCols(c1, c2);
+    }
+
+    @Override
+    public void triangulate() {
+        matrix.triangulate();
+    }
+
+    @Override
+    public SquareMatrix minorMatrix(int row, int col) {
+        SquareMatrix result = new SqMatr(size() - 1);
+        int destRow = 0;
+        int destCol = 0;
+        for (int i = 0; i < this.size(); i++) {
+            if (i == row) {
+                continue;
+            }
+            for (int j = 0; j < this.size(); j++) {
+                if (j == col) {
+                    continue;
+                }
+
+                result.set(destRow, destCol, this.get(i, j));
+                destCol++;
+            }
+            destRow++;
+        }
+        return result;
     }
 
     @Override
@@ -77,14 +134,15 @@ public class SqMatr implements SquareMatrix {
 
     @Override
     public SquareMatrix product(SquareMatrix matr) {
-        // return UncheckedMatrixOperations.
-        throw new UnsupportedOperationException();
+        SquareMatrix result = new SqMatr(size());
+        UncheckedMatrixOperations.product(this, matr, result);
+
+        return result;
     }
 
     @Override
-    public <T extends VectorInterface<T>> T product(VectorInterface<T> vec) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'product'");
+    public <T extends VectorInterface<T>> T product(T vec) {
+        return product(vec);
     }
 
     @Override

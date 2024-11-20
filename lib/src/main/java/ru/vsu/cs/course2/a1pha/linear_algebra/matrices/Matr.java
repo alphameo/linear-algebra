@@ -79,23 +79,13 @@ public class Matr implements Matrix {
         }
 
         Matr result = new Matr(this.height(), matr.width());
-
-        for (int i = 0; i < this.height(); i++) {
-            for (int j = 0; j < matr.width(); j++) {
-                float value = 0;
-                for (int elem = 0; elem < matr.height(); elem++) {
-                    value += this.get(i, elem) * matr.get(elem, j);
-                }
-
-                result.set(i, j, value);
-            }
-        }
+        UncheckedMatrixOperations.product(this, matr, result);
 
         return result;
     }
 
     @Override
-    public <V extends VectorInterface<V>> V product(VectorInterface<V> vec) {
+    public <V extends VectorInterface<V>> V product(V vec) {
         if (this.width() != vec.size()) {
             throw new IllegalArgumentException(
                     String.format("Product denied: matrix with size %dx%d and vector with size", this.height(),
@@ -103,15 +93,7 @@ public class Matr implements Matrix {
         }
 
         V result = vec.copy();
-
-        for (int i = 0; i < this.height(); i++) {
-            float value = 0;
-            for (int elem = 0; elem < vec.size(); elem++) {
-                value += this.get(i, elem) * vec.get(elem);
-            }
-
-            result.set(i, value);
-        }
+        UncheckedMatrixOperations.product(this, vec, result);
 
         return result;
     }

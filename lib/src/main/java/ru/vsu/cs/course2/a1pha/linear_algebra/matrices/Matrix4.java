@@ -1,11 +1,11 @@
 package ru.vsu.cs.course2.a1pha.linear_algebra.matrices;
 
-import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.Vector3;
+import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.Vector4;
 
 /**
- * Matr3
+ * Matrix4
  */
-public interface Matrix3 extends SquareMatrixInterface<Matrix3> {
+public interface Matrix4 extends SquareMatrixInterface<Matrix4> {
 
     @Override
     default int height() {
@@ -17,5 +17,5 @@ public interface Matrix3 extends SquareMatrixInterface<Matrix3> {
         return 3;
     }
 
-    Vector3 product(Vector3 vec);
+    Vector4 product(Vector4 vec);
 }

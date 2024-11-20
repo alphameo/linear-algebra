@@ -1,23 +1,23 @@
 package ru.vsu.cs.course2.a1pha.linear_algebra.matrices;
 
-import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.Vec3;
-import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.Vector3;
+import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.Vec4;
+import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.Vector4;
 import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.VectorInterface;
 
 /**
- * Matr3
+ * Matr4
  */
-public class Matr3 implements Matrix3 {
+public class Matr4 implements Matrix4 {
 
     SquareMatrix matrix;
 
-    public Matr3() {
-        matrix = new SqMatr(3);
+    public Matr4() {
+        matrix = new SqMatr(4);
     }
 
-    public Matr3(final float entries[][]) {
+    public Matr4(final float entries[][]) {
         matrix = new SqMatr(entries);
-        if (matrix.width() != 3) {
+        if (matrix.width() != 4) {
             throw new IllegalArgumentException(String.format(
                     "Square matrix 3x3 creation denied: input data has size %dx%d", matrix.height(),
                     matrix.width()));
@@ -41,11 +41,12 @@ public class Matr3 implements Matrix3 {
 
     @Override
     public float det() {
-        return UncheckedMatrixOperations.determinant3(matrix);
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'det'");
     }
 
     @Override
-    public Matrix3 invertible() {
+    public Matrix4 invertible() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'invertible'");
     }
@@ -58,6 +59,16 @@ public class Matr3 implements Matrix3 {
     @Override
     public SquareMatrix minorMatrix(int row, int col) {
         return matrix.minorMatrix(row, col);
+    }
+
+    @Override
+    public void add(final Matrix4 matr) {
+        UncheckedMatrixOperations.addTo(this, matr);
+    }
+
+    @Override
+    public void subtract(final Matrix4 matr) {
+        UncheckedMatrixOperations.subtractFrom(this, matr);
     }
 
     @Override
@@ -76,25 +87,15 @@ public class Matr3 implements Matrix3 {
     }
 
     @Override
-    public void add(final Matrix3 matr) {
-        UncheckedMatrixOperations.addTo(this, matr);
-    }
-
-    @Override
-    public void subtract(final Matrix3 matr) {
-        UncheckedMatrixOperations.subtractFrom(this, matr);
-    }
-
-    @Override
-    public Matrix3 product(final Matrix3 matr) {
-        final Matrix3 result = new Matr3();
+    public Matrix4 product(final Matrix4 matr) {
+        final Matrix4 result = new Matr4();
         UncheckedMatrixOperations.product(this, matr, result);
 
         return result;
     }
 
     @Override
-    public <T extends VectorInterface<T>> T product(final T vec) {
+    public <V extends VectorInterface<V>> V product(final V vec) {
         return matrix.product(vec);
     }
 
@@ -114,8 +115,8 @@ public class Matr3 implements Matrix3 {
     }
 
     @Override
-    public Matrix3 copy() {
-        final Matrix3 result = new Matr3();
+    public Matrix4 copy() {
+        final Matrix4 result = new Matr4();
 
         for (int i = 0; i < size(); i++) {
             for (int j = 0; j < size(); j++) {
@@ -127,13 +128,13 @@ public class Matr3 implements Matrix3 {
     }
 
     @Override
-    public boolean equalsTo(final Matrix3 matr) {
-        return UncheckedMatrixOperations.equalTo(this, matr);
+    public boolean equalsTo(final Matrix4 other) {
+        return UncheckedMatrixOperations.equalTo(this, other);
     }
 
     @Override
-    public Vector3 product(final Vector3 vec) {
-        final Vector3 result = new Vec3();
+    public Vector4 product(final Vector4 vec) {
+        final Vector4 result = new Vec4();
         UncheckedMatrixOperations.product(this, vec, result);
 
         return result;

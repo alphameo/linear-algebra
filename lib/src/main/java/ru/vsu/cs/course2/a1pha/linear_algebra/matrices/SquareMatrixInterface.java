@@ -17,7 +17,16 @@ public interface SquareMatrixInterface<M extends SquareMatrixInterface<M>>
 
     boolean isDiagonal();
 
-    float determinatn();
+    float det();
 
     M invertible();
+
+    SquareMatrix minorMatrix(int row, int col);
+
+    default float cofactor(int row, int col) {
+        int coefficient = (row + col) % 2 == 0 ? 1 : -1;
+        return coefficient * this.minorMatrix(row, col).det();
+    }
+
+    M cofactorMatrix();
 }
