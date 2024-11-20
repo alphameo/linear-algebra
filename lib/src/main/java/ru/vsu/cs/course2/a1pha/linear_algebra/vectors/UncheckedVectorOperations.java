@@ -12,14 +12,14 @@ public class UncheckedVectorOperations {
         }
     }
 
-    public static <VecType extends VectorInterface<VecType>> void subtractFrom(final VecType targetV,
-            final VecType subtrahendV) {
+    public static <V extends VectorInterface<V>> void subtractFrom(final V targetV,
+            final V subtrahendV) {
         for (int i = 0; i < targetV.size(); i++) {
             targetV.set(i, targetV.get(i) - subtrahendV.get(i));
         }
     }
 
-    public static <VecType extends VectorInterface<VecType>> float dot(final VecType v1, final VecType v2) {
+    public static <V extends VectorInterface<V>> float dot(final V v1, final V v2) {
         float sum = 0;
         for (int i = 0; i < v1.size(); i++) {
             sum += v1.get(i) * v2.get(i);
@@ -28,7 +28,7 @@ public class UncheckedVectorOperations {
         return sum;
     }
 
-    public static <VecType extends VectorInterface<VecType>> boolean equalTo(final VecType v1, final VecType v2) {
+    public static <V extends VectorInterface<V>> boolean equalTo(final V v1, final V v2) {
         for (int i = 0; i < v1.size(); i++) {
             if (v1.get(i) != v2.get(i)) {
                 return false;
@@ -37,5 +37,4 @@ public class UncheckedVectorOperations {
 
         return true;
     }
-
 }
