@@ -7,6 +7,10 @@ public class Vec4 implements Vector4 {
 
     private final Vec vector;
 
+    public Vec4() {
+        vector = new Vec(4);
+    }
+
     public Vec4(final float x, final float y, final float z, final float w) {
         vector = new Vec(x, y, z, w);
     }

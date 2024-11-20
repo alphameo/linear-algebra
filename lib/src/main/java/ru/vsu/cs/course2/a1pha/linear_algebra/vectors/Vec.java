@@ -11,7 +11,12 @@ public class Vec implements Vector {
 
     private float[] entries;
 
+    public Vec(int size) {
+        this.entries = new float[entries.length];
+    }
+
     public Vec(final float... entries) {
+        this(entries.length);
         for (int i = 0; i < entries.length; i++) {
             this.entries[i] = entries[i];
         }

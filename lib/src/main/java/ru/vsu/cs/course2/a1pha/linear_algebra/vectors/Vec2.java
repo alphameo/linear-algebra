@@ -6,6 +6,10 @@ package ru.vsu.cs.course2.a1pha.linear_algebra.vectors;
 public class Vec2 implements Vector2 {
     private final Vec vector;
 
+    public Vec2() {
+        vector = new Vec(2);
+    }
+
     public Vec2(final float x, final float y) {
         vector = new Vec(x, y);
     }

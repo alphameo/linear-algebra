@@ -7,6 +7,10 @@ public class Vec3 implements Vector3 {
 
     Vec vector;
 
+    public Vec3() {
+        vector = new Vec(3);
+    }
+
     public Vec3(final float x, final float y, final float z) {
         vector = new Vec(x, y, z);
     }
