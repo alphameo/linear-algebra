@@ -7,7 +7,7 @@ import ru.vsu.cs.course2.a1pha.linear_algebra.NumberChecker;
 /**
  * Vector
  */
-public class Vec implements ArbitraryVector {
+public class Vec implements Vector {
 
     private float[] entries;
 
@@ -43,21 +43,21 @@ public class Vec implements ArbitraryVector {
     }
 
     @Override
-    public void add(final ArbitraryVector other) {
+    public void add(final Vector other) {
         checkSameVectorLength(this, other, "Addition denied");
 
         UncheckedVectorOperations.addTo(this, other);
     }
 
     @Override
-    public void subtract(final ArbitraryVector other) {
+    public void subtract(final Vector other) {
         checkSameVectorLength(this, other, "Subtraction denied");
 
         UncheckedVectorOperations.subtractFrom(this, other);
     }
 
     @Override
-    public float dot(final ArbitraryVector other) {
+    public float dot(final Vector other) {
         checkSameVectorLength(this, other, "Scalar product denied");
 
         return UncheckedVectorOperations.dot(this, other);
@@ -79,7 +79,7 @@ public class Vec implements ArbitraryVector {
     }
 
     @Override
-    public boolean equalsTo(final ArbitraryVector other) {
+    public boolean equalsTo(final Vector other) {
         checkSameVectorLength(this, other, "Equalization denied");
         return UncheckedVectorOperations.equalTo(this, other);
     }
@@ -113,11 +113,11 @@ public class Vec implements ArbitraryVector {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final ArbitraryVector other = (ArbitraryVector) obj;
+        final Vector other = (Vector) obj;
         return equalsTo(other);
     }
 
-    private static void checkSameVectorLength(final ArbitraryVector v1, final ArbitraryVector v2,
+    private static void checkSameVectorLength(final Vector v1, final Vector v2,
             final String errMessage) {
         if (v1.length() != v2.length()) {
             throw new IllegalArgumentException(String.format("%s: vectors with different lengths (%d and %d)",
