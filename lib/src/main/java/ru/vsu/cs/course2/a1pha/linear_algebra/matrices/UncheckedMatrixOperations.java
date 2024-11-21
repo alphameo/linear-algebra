@@ -51,8 +51,13 @@ public class UncheckedMatrixOperations {
         }
     }
 
-    public static <SM extends SquareMatrixInterface<SM>> void cofactorMatrix(final SM matr,
-            final SM outMatr) {
+    public static <M extends MatrixInterface<M>> float cofactor(M matr, int row, int col) {
+        int coefficient = (row + col) % 2 == 0 ? 1 : -1;
+        return coefficient * matr.minorMatrix(row, col).det();
+    }
+
+    public static <M extends MatrixInterface<M>> void cofactorMatrix(final M matr,
+            final M outMatr) {
         for (int i = 0; i < matr.height(); i++) {
             for (int j = 0; j < matr.width(); j++) {
                 outMatr.set(i, j, matr.cofactor(i, j));
@@ -60,8 +65,26 @@ public class UncheckedMatrixOperations {
         }
     }
 
-    public static <SM extends SquareMatrixInterface<SM>> SM invertibleMatrix(SM matr) {
-        SM cofactorMatrix = matr.cofactorMatrix();
+    public static <M extends MatrixInterface<M>> void minor(final M matr, int row, int col, M outMatr) {
+        int destRow = 0;
+        int destCol = 0;
+        for (int i = 0; i < matr.width(); i++) {
+            if (i == row) {
+                continue;
+            }
+            for (int j = 0; j < matr.width(); j++) {
+                if (j == col) {
+                    continue;
+                }
+                outMatr.set(destRow, destCol, matr.get(i, j));
+                destCol++;
+            }
+            destRow++;
+        }
+    }
+
+    public static <M extends MatrixInterface<M>> M invertibleMatrix(M matr) {
+        M cofactorMatrix = matr.cofactorMatrix();
         float determinant = 0;
 
         for (int i = 0; i < matr.width(); i++) {
@@ -99,5 +122,23 @@ public class UncheckedMatrixOperations {
                 - matr.get(0, 2) * matr.get(1, 1) * matr.get(2, 0)
                 - matr.get(0, 0) * matr.get(1, 2) * matr.get(2, 1)
                 - matr.get(0, 1) * matr.get(1, 0) * matr.get(2, 2);
+    }
+
+    public static <M extends MatrixInterface<M>> float determinant(final M matr) {
+        if (matr.width() == 1) {
+            return matr.get(0, 0);
+        } else if (matr.width() == 2) {
+            return UncheckedMatrixOperations.determinant2(matr);
+        } else if (matr.width() == 3) {
+            return UncheckedMatrixOperations.determinant3(matr);
+        }
+
+        float determinant = 0;
+
+        for (int i = 0; i < matr.width(); i++) {
+            determinant += matr.get(0, i) * matr.cofactor(0, i);
+        }
+
+        return determinant;
     }
 }

@@ -27,6 +27,11 @@ public class Matr implements Matrix {
         entries = new float[height][width];
     }
 
+    public Matr(int size) {
+        entries = new float[size][size];
+
+    }
+
     @Override
     public float get(int row, int col) {
         return entries[row][col];
@@ -225,5 +230,63 @@ public class Matr implements Matrix {
             throw new IllegalArgumentException(String.format("%s: matrices with different sizes (%dx%d and %dx%d)",
                     errMessage, m1.height(), m1.width(), m2.height(), m2.width()));
         }
+    }
+
+    @Override
+    public float det() {
+        if (!this.isSquare()) {
+            throw new UnsupportedOperationException("Determinant does not exists: matrix is not square");
+        }
+
+        return UncheckedMatrixOperations.determinant(this);
+    }
+
+    @Override
+    public Matrix invertible() {
+        if (!this.isSquare()) {
+            throw new UnsupportedOperationException("Invertible matrix does not exists: matrix is not square");
+        }
+
+        return UncheckedMatrixOperations.invertibleMatrix(this);
+    }
+
+    @Override
+    public Matrix minorMatrix(int row, int col) {
+        if (!this.isSquare()) {
+            throw new UnsupportedOperationException("Minors do not exist: matrix is not square");
+        }
+        Matrix result = new Matr(this.height(), this.width());
+        UncheckedMatrixOperations.cofactorMatrix(this, result);
+
+        return result;
+    }
+
+    @Override
+    public float cofactor(int row, int col) {
+        return UncheckedMatrixOperations.cofactor(this, row, col);
+    }
+
+    @Override
+    public Matrix cofactorMatrix() {
+        Matrix result = new Matr(this.height(), this.width());
+        UncheckedMatrixOperations.cofactorMatrix(this, result);
+
+        return result;
+    }
+
+    @Override
+    public boolean isDiagonal() {
+        for (int i = 0; i < height(); i++) {
+            for (int j = 0; j < width(); j++) {
+                if (i == j) {
+                    continue;
+                }
+                if (Math.abs(this.get(i, j)) < NumberChecker.EPS) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 }

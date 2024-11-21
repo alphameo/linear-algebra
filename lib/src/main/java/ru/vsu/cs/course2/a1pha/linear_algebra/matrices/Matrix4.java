@@ -17,5 +17,10 @@ public interface Matrix4 extends SquareMatrixInterface<Matrix4> {
         return 3;
     }
 
+    @Override
+    default boolean isSquare() {
+        return true;
+    }
+
     Vector4 product(Vector4 vec);
 }

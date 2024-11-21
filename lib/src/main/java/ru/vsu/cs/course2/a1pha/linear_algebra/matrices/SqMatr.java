@@ -52,21 +52,7 @@ public class SqMatr implements SquareMatrix {
 
     @Override
     public float det() {
-        if (this.size() == 1) {
-            return this.get(0, 0);
-        } else if (this.size() == 2) {
-            return UncheckedMatrixOperations.determinant2(this);
-        } else if (this.size() == 3) {
-            return UncheckedMatrixOperations.determinant3(this);
-        }
-
-        float determinant = 0;
-
-        for (int i = 0; i < this.width(); i++) {
-            determinant += this.get(0, i) * this.cofactor(0, i);
-        }
-
-        return determinant;
+        return UncheckedMatrixOperations.determinant(this);
     }
 
     @Override
@@ -91,24 +77,7 @@ public class SqMatr implements SquareMatrix {
 
     @Override
     public SquareMatrix minorMatrix(int row, int col) {
-        SquareMatrix result = new SqMatr(size() - 1);
-        int destRow = 0;
-        int destCol = 0;
-        for (int i = 0; i < this.size(); i++) {
-            if (i == row) {
-                continue;
-            }
-            for (int j = 0; j < this.size(); j++) {
-                if (j == col) {
-                    continue;
-                }
-
-                result.set(destRow, destCol, this.get(i, j));
-                destCol++;
-            }
-            destRow++;
-        }
-        return result;
+        
     }
 
     @Override

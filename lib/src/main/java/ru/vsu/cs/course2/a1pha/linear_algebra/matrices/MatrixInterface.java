@@ -46,10 +46,6 @@ public interface MatrixInterface<M extends MatrixInterface<M>>
         return result;
     }
 
-    void swapRows(int r1, int r2);
-
-    void swapCols(int c1, int c2);
-
     void triangulate();
 
     default M triangularTable() {
@@ -59,11 +55,27 @@ public interface MatrixInterface<M extends MatrixInterface<M>>
         return result;
     }
 
+    void swapRows(int r1, int r2);
+
+    void swapCols(int c1, int c2);
+
     M product(M matr);
 
     <V extends VectorInterface<V>> V product(V vec);
 
+    float det();
+
+    M invertible();
+
+    M minorMatrix(int row, int col);
+
+    float cofactor(int row, int col);
+
+    M cofactorMatrix();
+
     boolean isSquare();
 
     boolean isZeroed();
+
+    boolean isDiagonal();
 }
