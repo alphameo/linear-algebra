@@ -22,7 +22,7 @@ public final class Vec3 implements Vector3 {
     @Override
     public void set(final int index, final float value) {
         if (index < 0 || index > 2) {
-            throw new IllegalArgumentException("Vec3::get: index out of bounds");
+            throw new IllegalArgumentException("Vec3::set: index out of bounds");
         }
 
         values[index] = value;
