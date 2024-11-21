@@ -41,4 +41,26 @@ public final class VectorMath {
 
         return sum;
     }
+
+    public static Vector cross(final Vector v1, final Vector v2) {
+        final int size = v1.size();
+
+        if (size != v2.size()) {
+            throw new IllegalArgumentException("VectorMath::cross: vector sizes are not equal");
+        }
+
+        // TODO
+        // probably should be a OperationNotSupportedException.
+        // also, more vector sizes can be supported (at least size == 2).
+        if (size != 3) {
+            throw new IllegalArgumentException("VectorMath::cross: vector sizes are not 3");
+        }
+
+        final float value1 = v1.get(2) * v2.get(1) - v1.get(1) * v2.get(2);
+        final float value2 = v1.get(0) * v2.get(2) - v1.get(2) * v2.get(0);
+        final float value3 = v1.get(1) * v2.get(0) - v1.get(0) * v2.get(1);
+
+        // TODO
+        return null;
+    }
 }
