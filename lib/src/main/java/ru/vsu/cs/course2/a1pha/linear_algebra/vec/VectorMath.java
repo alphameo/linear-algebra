@@ -30,7 +30,7 @@ public final class VectorMath {
         final int size = v1.size();
 
         if (size != v2.size()) {
-            throw new IllegalArgumentException("VectorMath::subtract: vector sizes are not equal");
+            throw new IllegalArgumentException("VectorMath::dot: vector sizes are not equal");
         }
 
         float sum = 0;
