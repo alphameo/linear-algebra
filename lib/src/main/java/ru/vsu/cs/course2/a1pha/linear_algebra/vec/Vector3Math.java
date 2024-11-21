@@ -23,4 +23,12 @@ public final class Vector3Math {
 
         return sum;
     }
+
+    public static Vector3 cross(final Vector3 v1, final Vector3 v2) {
+        final float x = v1.z() * v2.y() - v1.y() * v2.z();
+        final float y = v1.x() * v2.z() - v1.z() * v2.x();
+        final float z = v1.y() * v2.x() - v1.x() * v2.y();
+
+        return new Vec3(x, y, z);
+    }
 }
