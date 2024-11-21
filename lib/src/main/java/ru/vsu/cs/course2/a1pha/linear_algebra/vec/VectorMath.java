@@ -60,7 +60,6 @@ public final class VectorMath {
         final float value2 = v1.get(0) * v2.get(2) - v1.get(2) * v2.get(0);
         final float value3 = v1.get(1) * v2.get(0) - v1.get(0) * v2.get(1);
 
-        // TODO
-        return null;
+        return new Vec(value1, value2, value3);
     }
 }
