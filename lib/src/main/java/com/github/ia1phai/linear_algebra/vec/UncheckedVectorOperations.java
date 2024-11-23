@@ -53,9 +53,9 @@ public class UncheckedVectorOperations {
     }
 
     public static void cross(final Vector v1, final Vector v2, final Vector out) {
-        out.set(0, v1.get(2) * v2.get(1) - v1.get(1) * v2.get(2));
-        out.set(1, v1.get(1) * v2.get(2) - v1.get(2) * v2.get(0));
-        out.set(2, v1.get(1) * v2.get(0) - v1.get(0) * v2.get(1));
+        out.set(0, v1.get(1) * v2.get(2) - v1.get(2) * v2.get(1));
+        out.set(1, v1.get(2) * v2.get(0) - v1.get(0) * v2.get(2));
+        out.set(2, v1.get(0) * v2.get(1) - v1.get(1) * v2.get(0));
     }
 
     public static boolean equals(final Vector v1, final Vector v2) {
