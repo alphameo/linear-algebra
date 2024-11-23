@@ -40,7 +40,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     @Override
-    public float get(Matrix4Row row, Matrix4Col col) {
+    public float get(final Matrix4Row row, final Matrix4Col col) {
         return matrix.get(row.ordinal(), col.ordinal());
     }
 
@@ -50,7 +50,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     @Override
-    public void set(Matrix4Row row, Matrix4Col col, float value) {
+    public void set(final Matrix4Row row, final Matrix4Col col, final float value) {
         matrix.set(row.ordinal(), col.ordinal(), value);
     }
 
@@ -118,14 +118,14 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     public Vector4 product(final Vector4 vec) {
-        Vector4 result = new Vec4();
+        final Vector4 result = new Vec4();
         UncheckedMatrixOperation.product(this, vec, result);
 
         return result;
     }
 
     public Matrix4 triangulate() {
-        Matrix4 result = new Mat4();
+        final Matrix4 result = new Mat4();
         UncheckedMatrixOperation.triangulate(this, this.width());
 
         return result;
@@ -140,14 +140,14 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     public Matrix4 invertible() {
-        Matrix4 result = new Mat4();
+        final Matrix4 result = new Mat4();
 
         UncheckedMatrixOperation.invertibleMatrix(this, result);
 
         return result;
     }
 
-    public Matrix minorMatrix(int row, int col) {
+    public Matrix minorMatrix(final int row, final int col) {
         return UncheckedMatrixOperation.minorMatrix(this, row, col);
     }
 
@@ -156,7 +156,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     public Matrix3 cofactorMatrix() {
-        Matrix3 result = new Mat3();
+        final Matrix3 result = new Mat3();
         UncheckedMatrixOperation.cofactorMatrix(this, result);
 
         return result;
