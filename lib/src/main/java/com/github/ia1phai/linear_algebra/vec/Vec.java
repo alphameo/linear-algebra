@@ -47,67 +47,52 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
     }
 
     public float length() {
-        return UncheckedVectorMath.length(this);
+        return VecMath.length(this);
     }
 
     public Vector multiply(final float multiplier) {
-        UncheckedVectorMath.multiply(this, multiplier);
+        VecMath.multiply(this, multiplier);
         return this;
     }
 
     public Vector divide(final float divisor) throws ArithmeticException {
-        NumberChecker.checkDivisor(divisor);
-        UncheckedVectorMath.divide(this, divisor);
+        VecMath.divide(this, divisor);
 
         return this;
     }
 
-    public Vector add(final Vector vec) {
-        checkSameVectorSizes(this, vec, "Addition denied");
-        UncheckedVectorMath.add(this, vec);
+    public Vector add(final Vector v) {
+        VecMath.add(this, v);
 
         return this;
     }
 
-    public Vector plus(final Vector vec) {
-        return this.copy().add(vec);
+    public Vector plus(final Vector v) {
+        return this.copy().add(v);
     }
 
-    public Vector subtract(final Vector vec) {
-        checkSameVectorSizes(this, vec, "Subtraction denied");
-        UncheckedVectorMath.subtract(this, vec);
+    public Vector subtract(final Vector v) {
+        VecMath.subtract(this, v);
 
         return this;
     }
 
-    public Vector minus(final Vector vec) {
-        return this.copy().subtract(vec);
+    public Vector minus(final Vector v) {
+        return this.copy().subtract(v);
     }
 
-    public float dot(final Vector vec) {
-        checkSameVectorSizes(this, vec, "Scalar product denied");
+    public float dot(final Vector v) {
 
-        return UncheckedVectorMath.dot(this, vec);
+        return VecMath.dot(this, v);
     }
 
-    public Vector cross(final Vector3 other) {
-        if (size() != 3) {
-            throw new IllegalArgumentException(
-                    String.format(String.format("Cross product denien: vector size must be 3, but given are %d, %d"),
-                            this.size(), other.size()));
-        }
-
-        final Vector result = new Vec(3);
-
-        UncheckedVectorMath.cross(this, other, result);
-        return result;
+    public Vector cross(final Vector v) {
+        return VecMath.cross(this, v);
     }
 
     @Override
-    public boolean equalsTo(final Vector other) {
-        checkSameVectorSizes(this, other, "Equalization denied");
-
-        return UncheckedVectorMath.equals(this, other);
+    public boolean equalsTo(final Vector v) {
+        return VecMath.equals(this, v);
     }
 
     @Override
@@ -141,13 +126,5 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
         }
         final Vector other = (Vector) obj;
         return equalsTo(other);
-    }
-
-    private static void checkSameVectorSizes(final Vector v1, final Vector v2,
-            final String errMessage) {
-        if (v1.size() != v2.size()) {
-            throw new IllegalArgumentException(String.format("%s: vectors with different lengths (%d and %d)",
-                    errMessage, v1.size(), v2.size()));
-        }
     }
 }

@@ -3,7 +3,7 @@ package com.github.ia1phai.linear_algebra.vec;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static com.github.ia1phai.linear_algebra.vec.UncheckedVectorOperations.*;
+import static com.github.ia1phai.linear_algebra.vec.VecMath.*;
 
 /**
  * TestVec
@@ -97,6 +97,14 @@ public class TestUncheckedVectorOperations {
         Vector v1 = new Vec(-12, 3, 4);
         Vector v2 = new Vec(-12, 3, 4);
 
-        Assertions.assertTrue(UncheckedVectorOperations.equals(v1, v2));
+        Assertions.assertTrue(VecMath.equals(v1, v2));
+    }
+
+    @Test
+    public void testNotEquals() {
+        Vector v1 = new Vec(-12, 3, 4);
+        Vector v2 = new Vec(-12, 4, 4);
+
+        Assertions.assertTrue(!VecMath.equals(v1, v2));
     }
 }

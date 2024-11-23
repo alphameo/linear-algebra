@@ -7,44 +7,54 @@ import com.github.ia1phai.linear_algebra.Equatable;
  * Vec2
  */
 public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
-    private final Vec vector;
+
+    float[] entries;
 
     public Vec2() {
-        vector = new Vec(2);
+        entries = new float[2];
     }
 
     public Vec2(final float x, final float y) {
-        vector = new Vec(x, y);
+        entries[0] = x;
+        entries[1] = y;
     }
 
     @Override
     public float get(final int i) {
-        return vector.get(i);
+        if (i < 0 || i > 2) {
+            throw new IllegalArgumentException(String.format("Index %d is out of Vec2 bounds", i));
+        }
+
+        return entries[i];
     }
 
     @Override
     public float x() {
-        return vector.get(0);
+        return entries[0];
     }
 
     @Override
     public float y() {
-        return vector.get(1);
+        return entries[1];
     }
 
     @Override
     public void set(final int i, final float value) {
-        vector.set(i, value);
+        if (i < 0 || i > 2) {
+            throw new IllegalArgumentException(String.format("Index %d is out of Vec2 bounds", i));
+        }
+
+        entries[i] = value;
     }
 
     @Override
     public void setX(final float value) {
-        vector.set(0, value);
+        entries[0] = value;
     }
 
     @Override
     public void setY(final float value) {
-        vector.set(2, value);
+        entries[1] = value;
     }
 
     public int size() {
@@ -52,48 +62,60 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
     }
 
     public float length() {
-        return vector.length();
+        return Vec2Math.length(this);
     }
 
     public Vector2 multiply(final float multiplier) {
-        UncheckedVectorMath.multiply(this, multiplier);
+        Vec2Math.multiply(this, multiplier);
 
         return this;
     }
 
     public Vector2 divide(final float divisor) {
-        UncheckedVectorMath.divide(this, divisor);
+        Vec2Math.divide(this, divisor);
 
         return this;
     }
 
-    public Vector2 add(final Vector2 other) {
-        UncheckedVectorMath.add(this, other);
+    public Vector2 add(final Vector2 v) {
+        Vec2Math.add(this, v);
 
         return this;
     }
 
-    public Vector2 plus(final Vector2 vec) {
-        return this.copy().add(vec);
+    public Vector2 plus(final Vector2 v) {
+        return this.copy().add(v);
     }
 
-    public Vector2 subtract(final Vector2 other) {
-        UncheckedVectorMath.subtract(this, other);
+    public Vector2 subtract(final Vector2 v) {
+        Vec2Math.subtract(this, v);
 
         return this;
     }
 
-    public Vector2 minus(final Vector2 vec) {
-        return this.copy().add(vec);
+    public Vector2 minus(final Vector2 v) {
+        return this.copy().add(v);
     }
 
-    public float dot(final Vector2 other) {
-        return UncheckedVectorMath.dot(this, other);
+    public float dot(final Vector2 v) {
+        return Vec2Math.dot(this, v);
+    }
+
+    public Vector3 toVec3() {
+        return new Vec3(x(), y(), 1);
+    }
+
+    public static Vector2 zeroVec() {
+        return new Vec2();
+    }
+
+    public static Vector2 unitVec() {
+        return new Vec2(1, 1);
     }
 
     @Override
-    public boolean equalsTo(final Vector2 other) {
-        return UncheckedVectorMath.equals(this, other);
+    public boolean equalsTo(final Vector2 v) {
+        return Vec2Math.equals(this, v);
     }
 
     @Override
@@ -101,12 +123,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
         return new Vec2(this.x(), this.y());
     }
 
-    public Vector3 toVec3() {
-        return new Vec3(x(), y(), 1);
-    }
-
     @Override
     public String toString() {
-        return vector.toString();
+        return String.format("[%d, %d]", x(), y());
     }
 }

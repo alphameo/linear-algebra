@@ -7,78 +7,88 @@ import com.github.ia1phai.linear_algebra.Equatable;
  * Vec2
  */
 public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
-    private final Vec vector;
+
+    float[] entries;
 
     public Vec3() {
-        vector = new Vec(3);
+        entries = new float[3];
     }
 
     public Vec3(final float x, final float y, final float z) {
-        vector = new Vec(x, y, z);
+        entries[0] = x;
+        entries[1] = y;
+        entries[2] = z;
     }
 
     @Override
     public float get(final int i) {
-        return vector.get(i);
+        if (i < 0 || i > 3) {
+            throw new IllegalArgumentException(String.format("Index %d is out of Vec3 bounds", i));
+        }
+
+        return entries[i];
     }
 
     @Override
     public float x() {
-        return vector.get(0);
+        return entries[0];
     }
 
     @Override
     public float y() {
-        return vector.get(1);
+        return entries[1];
     }
 
     @Override
     public float z() {
-        return vector.get(2);
+        return entries[2];
     }
 
     @Override
     public void set(final int i, final float value) {
-        vector.set(i, value);
+        if (i < 0 || i > 3) {
+            throw new IllegalArgumentException(String.format("Index %d is out of Vec3 bounds", i));
+        }
+        entries[i] = value;
     }
 
     @Override
     public void setX(final float value) {
-        vector.set(0, value);
+        entries[0] = value;
     }
 
     @Override
     public void setY(final float value) {
-        vector.set(2, value);
+        entries[1] = value;
     }
 
     @Override
     public void setZ(final float value) {
-        vector.set(2, value);
+        entries[2] = value;
     }
 
     public int size() {
-        return 2;
+        return 3;
     }
 
     public float length() {
-        return vector.length();
+        return Vec3Math.length(this);
     }
 
     public Vector3 multiply(final float multiplier) {
-        UncheckedVectorMath.multiply(this, multiplier);
+        Vec3Math.multiply(this, multiplier);
 
         return this;
     }
 
     public Vector3 divide(final float divisor) {
-        UncheckedVectorMath.divide(this, divisor);
+        Vec3Math.divide(this, divisor);
 
         return this;
     }
 
     public Vector3 add(final Vector3 other) {
-        UncheckedVectorMath.add(this, other);
+        Vec3Math.add(this, other);
 
         return this;
     }
@@ -88,7 +98,7 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
     }
 
     public Vector3 subtract(final Vector3 other) {
-        UncheckedVectorMath.subtract(this, other);
+        Vec3Math.subtract(this, other);
 
         return this;
     }
@@ -98,19 +108,19 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
     }
 
     public float dot(final Vector3 other) {
-        return UncheckedVectorMath.dot(this, other);
+        return Vec3Math.dot(this, other);
     }
 
     public Vector3 cross(final Vector3 vec) {
         final Vector3 result = new Vec3();
-        UncheckedVectorMath.cross(this, vec, result);
+        Vec3Math.cross(this, vec, result);
 
         return result;
     }
 
     @Override
     public boolean equalsTo(final Vector3 other) {
-        return UncheckedVectorMath.equals(this, other);
+        return Vec3Math.equals(this, other);
     }
 
     @Override
@@ -122,16 +132,16 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
         return new Vec4(x(), y(), z(), 1);
     }
 
-    @Override
-    public String toString() {
-        return vector.toString();
-    }
-
     public static Vector3 zeroVector() {
         return new Vec3();
     }
 
     public static Vector3 unitVector() {
         return new Vec3(1, 1, 1);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("[%d, %d, %d]", x(), y(), z());
     }
 }
