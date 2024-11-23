@@ -133,7 +133,7 @@ public class Matr4 implements Matrix4 {
 
     @Override
     public boolean equalsTo(final Matrix4 other) {
-        return UncheckedMatrixOperations.equalTo(this, other);
+        return UncheckedMatrixOperations.equals(this, other);
     }
 
     @Override

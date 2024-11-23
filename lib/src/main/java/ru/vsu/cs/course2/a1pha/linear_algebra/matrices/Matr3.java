@@ -1,5 +1,6 @@
 package ru.vsu.cs.course2.a1pha.linear_algebra.matrices;
 
+import ru.vsu.cs.course2.a1pha.linear_algebra.Copyable;
 import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.Vec3;
 import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.Vector3;
 import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.VectorInterface;
@@ -7,16 +8,16 @@ import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.VectorInterface;
 /**
  * Matr3
  */
-public class Matr3 implements Matrix3 {
+public class Matr3 implements Matrix3, Copyable<Matr3> {
 
-    SquareMatrix matrix;
+    Matr matrix;
 
     public Matr3() {
-        matrix = new SqMatr(3);
+        matrix = new Matr(3);
     }
 
     public Matr3(final float entries[][]) {
-        matrix = new SqMatr(entries);
+        matrix = new Matr(entries);
         if (matrix.width() != 3) {
             throw new IllegalArgumentException(String.format(
                     "Square matrix 3x3 creation denied: input data has size %dx%d", matrix.height(),
@@ -32,11 +33,6 @@ public class Matr3 implements Matrix3 {
     @Override
     public void set(final int row, final int col, final float value) {
         matrix.set(row, col, value);
-    }
-
-    @Override
-    public boolean isDiagonal() {
-        return matrix.isDiagonal();
     }
 
     @Override
@@ -133,7 +129,7 @@ public class Matr3 implements Matrix3 {
 
     @Override
     public boolean equalsTo(final Matrix3 matr) {
-        return UncheckedMatrixOperations.equalTo(this, matr);
+        return UncheckedMatrixOperations.equals(this, matr);
     }
 
     @Override
@@ -144,7 +140,10 @@ public class Matr3 implements Matrix3 {
         return result;
     }
 
-    @Override
+    public boolean isDiagonal() {
+        return matrix.isDiagonal();
+    }
+
     public Matrix3 cofactorMatrix() {
         Matrix3 result = new Matr3();
         UncheckedMatrixOperations.cofactorMatrix(this, result);

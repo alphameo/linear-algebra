@@ -7,13 +7,7 @@ import ru.vsu.cs.course2.a1pha.linear_algebra.ScalarOperatable;
 /**
  * Vector
  */
-public interface VectorInterface<V extends VectorInterface<V>> extends ScalarOperatable<V>, Copyable<V>, Equatable<V> {
-
-    float get(int index);
-
-    void set(int index, float value);
-
-    int size();
+public interface VectorInterface<V extends VectorInterface<V>> extends ScalarOperatable<V> {
 
     default V normalize() {
         return divide(length());

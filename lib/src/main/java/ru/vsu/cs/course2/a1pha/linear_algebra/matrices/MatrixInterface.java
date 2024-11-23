@@ -1,67 +1,37 @@
 package ru.vsu.cs.course2.a1pha.linear_algebra.matrices;
 
-import ru.vsu.cs.course2.a1pha.linear_algebra.Copyable;
-import ru.vsu.cs.course2.a1pha.linear_algebra.Equatable;
 import ru.vsu.cs.course2.a1pha.linear_algebra.ScalarOperatable;
-import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.VectorInterface;
+import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.Vector;
 
 /**
  * MatrixOperatable
  */
 public interface MatrixInterface<M extends MatrixInterface<M>>
-        extends ScalarOperatable<M>, Copyable<M>, Equatable<M> {
-
-    float get(int row, int col);
-
-    void set(int row, int col, float value);
-
-    int width();
-
-    int height();
+        extends ScalarOperatable<M> {
 
     M transpose();
 
-    default M transposed() {
-        final M result = copy();
-        result.transpose();
+    M transposed();
 
-        return result;
-    }
+    M add(M matr);
 
-    void add(M matr);
+    M plus(final M matr);
 
-    default M plus(final M matr) {
-        final M result = copy();
-        result.add(matr);
+    M subtract(M matr);
 
-        return result;
-    }
+    M minus(final M matr);
 
-    void subtract(M matr);
+    M triangulate();
 
-    default M minus(final M matr) {
-        final M result = copy();
-        result.subtract(matr);
+    M triangularTable();
 
-        return result;
-    }
+    M swapRows(int r1, int r2);
 
-    void triangulate();
-
-    default M triangularTable() {
-        final M result = copy();
-        result.triangulate();
-
-        return result;
-    }
-
-    void swapRows(int r1, int r2);
-
-    void swapCols(int c1, int c2);
+    M swapCols(int c1, int c2);
 
     M product(M matr);
 
-    <V extends VectorInterface<V>> V product(V vec);
+    Vector product(Vector vec);
 
     float det();
 
