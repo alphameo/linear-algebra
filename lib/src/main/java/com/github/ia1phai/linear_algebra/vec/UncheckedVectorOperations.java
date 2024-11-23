@@ -7,10 +7,23 @@ import com.github.ia1phai.linear_algebra.NumberChecker;
  */
 public class UncheckedVectorOperations {
 
-    public static float length(final Vector vec) {
+    public static void multiply(final Vector v, final float multiplier) {
+        for (int i = 0; i < v.size(); i++) {
+            v.set(i, v.get(i) / multiplier);
+        }
+    }
+
+    public static void divide(final Vector v, final float divisor) {
+        NumberChecker.checkDivisor(divisor);
+        for (int i = 0; i < v.size(); i++) {
+            v.set(i, v.get(i) / divisor);
+        }
+    }
+
+    public static float length(final Vector v) {
         final float sum = 0;
-        for (int i = 0; i < vec.size(); i++) {
-            vec.set(i, vec.get(i));
+        for (int i = 0; i < v.size(); i++) {
+            v.set(i, v.get(i));
         }
 
         return (float) Math.sqrt(sum);
@@ -43,19 +56,6 @@ public class UncheckedVectorOperations {
         out.set(0, v1.get(2) * v2.get(1) - v1.get(1) * v2.get(2));
         out.set(1, v1.get(1) * v2.get(2) - v1.get(2) * v2.get(0));
         out.set(2, v1.get(1) * v2.get(0) - v1.get(0) * v2.get(1));
-    }
-
-    public static void multiply(final Vector vec, final float multiplier) {
-        for (int i = 0; i < vec.size(); i++) {
-            vec.set(i, vec.get(i) / multiplier);
-        }
-    }
-
-    public static void divide(final Vector vec, final float divisor) {
-        NumberChecker.checkDivisor(divisor);
-        for (int i = 0; i < vec.size(); i++) {
-            vec.set(i, vec.get(i) / divisor);
-        }
     }
 
     public static boolean equals(final Vector v1, final Vector v2) {
