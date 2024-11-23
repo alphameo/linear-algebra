@@ -8,6 +8,34 @@ import com.github.ia1phai.linear_algebra.vec.Vector;
  */
 public class UncheckedMatrixOperation {
 
+    public static void transposeSquare(final Matrix m) {
+        for (int i = 0; i < m.width(); i++) {
+            for (int j = i + 1; j < m.width(); j++) {
+                final float tmp = m.get(i, j);
+                m.set(i, j, m.get(j, i));
+                m.set(j, i, tmp);
+            }
+        }
+    }
+
+    public static void swapRows(final Matrix m, final int r1, final int r2) {
+        float tmp;
+        for (int i = 0; i < m.width(); i++) {
+            tmp = m.get(r1, i);
+            m.set(r1, i, m.get(r2, i));
+            m.set(r2, i, tmp);
+        }
+    }
+
+    public static void swapColumns(final Matrix m, final int c1, final int c2) {
+        float tmp;
+        for (int i = 0; i < m.height(); i++) {
+            tmp = m.get(i, c1);
+            m.set(i, c1, m.get(i, c2));
+            m.set(i, c2, tmp);
+        }
+    }
+
     public static void multiply(final Matrix m, final float multiplier) {
         for (int i = 0; i < m.height(); i++) {
             for (int j = 0; j < m.width(); j++) {
@@ -33,7 +61,7 @@ public class UncheckedMatrixOperation {
         }
     }
 
-    public static void subtractFrom(final Matrix targetM,
+    public static void subtract(final Matrix targetM,
             final Matrix subtrahendM) {
         for (int i = 0; i < targetM.height(); i++) {
             for (int j = 0; i < subtrahendM.width(); j++) {
@@ -65,86 +93,6 @@ public class UncheckedMatrixOperation {
             }
 
             outV.set(i, value);
-        }
-    }
-
-    public static float cofactor(final Matrix m, final int row, final int col) {
-        final int coefficient = (row + col) % 2 == 0 ? 1 : -1;
-        return coefficient * determinant(minorMatrix(m, row, col));
-    }
-
-    public static Matrix minorMatrix(final Matrix m, final int row, final int col) {
-        final Matrix result = new Mat(m.width() - 1);
-        int destRow = 0;
-        int destCol = 0;
-        for (int i = 0; i < m.width(); i++) {
-            if (i == row) {
-                continue;
-            }
-            for (int j = 0; j < m.width(); j++) {
-                if (j == col) {
-                    continue;
-                }
-
-                result.set(destRow, destCol, m.get(i, j));
-                destCol++;
-            }
-            destRow++;
-        }
-        return result;
-    }
-
-    public static Matrix cofactorMatrix(final Matrix m, final Matrix outM) {
-        for (int i = 0; i < m.height(); i++) {
-            for (int j = 0; j < m.width(); j++) {
-                outM.set(i, j, cofactor(m, i, j));
-            }
-        }
-
-        return outM;
-    }
-
-    public static void minor(final Matrix m, final int row, final int col, final Matrix outM) {
-        int destRow = 0;
-        int destCol = 0;
-        for (int i = 0; i < m.width(); i++) {
-            if (i == row) {
-                continue;
-            }
-            for (int j = 0; j < m.width(); j++) {
-                if (j == col) {
-                    continue;
-                }
-                outM.set(destRow, destCol, m.get(i, j));
-                destCol++;
-            }
-            destRow++;
-        }
-    }
-
-    public static Matrix invertibleMatrix(final Matrix m, final Matrix outM) {
-        cofactorMatrix(m, outM);
-        float determinant = 0;
-
-        for (int i = 0; i < m.width(); i++) {
-            determinant += m.get(0, i) * outM.get(0, i);
-        }
-
-        if (determinant == 0) {
-            throw new RuntimeException("Invertible matrix does not exitst: determinant is 0");
-        }
-        transposeSquare(outM);
-        multiply(outM, 1 / determinant);
-        return outM;
-    }
-
-    public static void transposeSquare(final Matrix m) {
-        for (int i = 0; i < m.width(); i++) {
-            for (int j = i + 1; j < m.width(); j++) {
-                final float tmp = m.get(i, j);
-                m.set(i, j, m.get(j, i));
-                m.set(j, i, tmp);
-            }
         }
     }
 
@@ -185,36 +133,6 @@ public class UncheckedMatrixOperation {
 
     }
 
-    public static void swapRows(final Matrix m, final int r1, final int r2) {
-        float tmp;
-        for (int i = 0; i < m.width(); i++) {
-            tmp = m.get(r1, i);
-            m.set(r1, i, m.get(r2, i));
-            m.set(r2, i, tmp);
-        }
-    }
-
-    public static void swapColumns(final Matrix m, final int c1, final int c2) {
-        float tmp;
-        for (int i = 0; i < m.height(); i++) {
-            tmp = m.get(i, c1);
-            m.set(i, c1, m.get(i, c2));
-            m.set(i, c2, tmp);
-        }
-    }
-
-    public static boolean equals(final Matrix targetM, final Matrix subtrahendM) {
-        for (int i = 0; i < targetM.height(); i++) {
-            for (int j = 0; i < subtrahendM.width(); j++) {
-                if (Math.abs(targetM.get(i, j) - subtrahendM.get(i, j)) < NumberChecker.EPS) {
-                    return false;
-                }
-            }
-        }
-
-        return true;
-    }
-
     public static float determinant2(final Matrix m) {
         return m.get(0, 0) * m.get(1, 1)
                 - m.get(0, 1) * m.get(1, 0);
@@ -246,4 +164,87 @@ public class UncheckedMatrixOperation {
 
         return determinant;
     }
+
+    public static Matrix invertibleMatrix(final Matrix m, final Matrix outM) {
+        cofactorMatrix(m, outM);
+        float determinant = 0;
+
+        for (int i = 0; i < m.width(); i++) {
+            determinant += m.get(0, i) * outM.get(0, i);
+        }
+
+        if (determinant == 0) {
+            throw new RuntimeException("Invertible matrix does not exitst: determinant is 0");
+        }
+        transposeSquare(outM);
+        multiply(outM, 1 / determinant);
+        return outM;
+    }
+
+    public static Matrix minorMatrix(final Matrix m, final int row, final int col) {
+        final Matrix result = new Mat(m.width() - 1);
+        int destRow = 0;
+        int destCol = 0;
+        for (int i = 0; i < m.width(); i++) {
+            if (i == row) {
+                continue;
+            }
+            for (int j = 0; j < m.width(); j++) {
+                if (j == col) {
+                    continue;
+                }
+
+                result.set(destRow, destCol, m.get(i, j));
+                destCol++;
+            }
+            destRow++;
+        }
+        return result;
+    }
+
+    public static float cofactor(final Matrix m, final int row, final int col) {
+        final int coefficient = (row + col) % 2 == 0 ? 1 : -1;
+        return coefficient * determinant(minorMatrix(m, row, col));
+    }
+
+    public static Matrix cofactorMatrix(final Matrix m, final Matrix outM) {
+        for (int i = 0; i < m.height(); i++) {
+            for (int j = 0; j < m.width(); j++) {
+                outM.set(i, j, cofactor(m, i, j));
+            }
+        }
+
+        return outM;
+    }
+
+    public static void minorMatrix(final Matrix m, final int row, final int col, final Matrix outM) {
+        int destRow = 0;
+        int destCol = 0;
+        for (int i = 0; i < m.width(); i++) {
+            if (i == row) {
+                continue;
+            }
+            for (int j = 0; j < m.width(); j++) {
+                if (j == col) {
+                    continue;
+                }
+                outM.set(destRow, destCol, m.get(i, j));
+                destCol++;
+            }
+            destRow++;
+        }
+    }
+
+    public static boolean equals(final Matrix targetM, final Matrix subtrahendM) {
+        for (int i = 0; i < targetM.height(); i++) {
+            for (int j = 0; i < subtrahendM.width(); j++) {
+                if (Math.abs(targetM.get(i, j) - subtrahendM.get(i, j)) < NumberChecker.EPS) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
 }

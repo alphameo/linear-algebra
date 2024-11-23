@@ -91,14 +91,14 @@ public class Mat implements Matrix, Copyable<Mat> {
         return this;
     }
 
-    public Matrix divide(final float divisor) {
-        UncheckedMatrixOperation.divide(this, divisor);
+    public Matrix multiply(final float multiplier) {
+        UncheckedMatrixOperation.multiply(this, multiplier);
 
         return this;
     }
 
-    public Matrix multiply(final float multiplier) {
-        UncheckedMatrixOperation.multiply(this, multiplier);
+    public Matrix divide(final float divisor) {
+        UncheckedMatrixOperation.divide(this, divisor);
 
         return this;
     }
@@ -116,7 +116,7 @@ public class Mat implements Matrix, Copyable<Mat> {
 
     public Matrix subtract(final Matrix mat) {
         checkSameSizes(this, mat, "Subtraction denied");
-        UncheckedMatrixOperation.subtractFrom(this, mat);
+        UncheckedMatrixOperation.subtract(this, mat);
 
         return this;
     }
@@ -131,7 +131,7 @@ public class Mat implements Matrix, Copyable<Mat> {
                     String.format("Matrix product denied: matrices with sizes %dx%d and %dx%d", this.height(),
                             this.width(), mat.height(), mat.width()));
         }
-        Matrix result = new Mat(this.height(), mat.width());
+        final Matrix result = new Mat(this.height(), mat.width());
 
         UncheckedMatrixOperation.product(this, mat, result);
 
@@ -146,7 +146,7 @@ public class Mat implements Matrix, Copyable<Mat> {
                             this.width(), vec.size()));
         }
 
-        Vector result = new Vec(vec.size());
+        final Vector result = new Vec(vec.size());
         UncheckedMatrixOperation.product(this, vec, result);
 
         return result;
@@ -175,7 +175,7 @@ public class Mat implements Matrix, Copyable<Mat> {
             throw new UnsupportedOperationException("Invertible matrix does not exists: matrix is not square");
         }
 
-        Matrix result = new Mat(this.height(), this.width());
+        final Matrix result = new Mat(this.height(), this.width());
 
         UncheckedMatrixOperation.invertibleMatrix(this, result);
 
@@ -203,7 +203,7 @@ public class Mat implements Matrix, Copyable<Mat> {
             throw new UnsupportedOperationException("Cofactor matrix does not exist: matrix is not square");
         }
 
-        Matrix result = new Mat(this.height(), this.width());
+        final Matrix result = new Mat(this.height(), this.width());
         UncheckedMatrixOperation.cofactorMatrix(this, result);
 
         return result;

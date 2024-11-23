@@ -81,14 +81,14 @@ public class Mat4 implements Matrix4, Copyable<Mat4> {
         matrix.swapCols(c1, c2);
     }
 
-    public Matrix4 divide(final float divisor) {
-        matrix.divide(divisor);
+    public Matrix4 multiply(final float multiplier) {
+        matrix.multiply(multiplier);
 
         return this;
     }
 
-    public Matrix4 multiply(final float multiplier) {
-        matrix.multiply(multiplier);
+    public Matrix4 divide(final float divisor) {
+        matrix.divide(divisor);
 
         return this;
     }
@@ -104,7 +104,7 @@ public class Mat4 implements Matrix4, Copyable<Mat4> {
     }
 
     public Matrix4 subtract(final Matrix4 mat) {
-        UncheckedMatrixOperation.subtractFrom(this, mat);
+        UncheckedMatrixOperation.subtract(this, mat);
 
         return this;
     }

@@ -57,7 +57,7 @@ public class Vec implements Vector {
     @Override
     public Vector subtract(final Vector other) {
         checkSameVectorLength(this, other, "Subtraction denied");
-        UncheckedVectorOperations.subtractFrom(this, other);
+        UncheckedVectorOperations.subtract(this, other);
 
         return this;
     }
