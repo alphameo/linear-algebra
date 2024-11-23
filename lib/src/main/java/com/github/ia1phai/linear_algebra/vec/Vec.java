@@ -97,7 +97,7 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
                             this.size(), other.size()));
         }
 
-        Vector result = new Vec(3);
+        final Vector result = new Vec(3);
 
         UncheckedVectorOperations.cross(this, other, result);
         return result;

@@ -53,7 +53,7 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
     }
 
     @Override
-    public void setZ(float value) {
+    public void setZ(final float value) {
         vector.set(2, value);
     }
 
@@ -102,7 +102,7 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
     }
 
     public Vector3 cross(final Vector3 vec) {
-        Vector3 result = new Vec3();
+        final Vector3 result = new Vec3();
         UncheckedVectorOperations.cross(this, vec, result);
 
         return result;

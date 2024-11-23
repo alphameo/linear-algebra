@@ -7,8 +7,8 @@ import com.github.ia1phai.linear_algebra.NumberChecker;
  */
 public class UncheckedVectorOperations {
 
-    public static float length(Vector vec) {
-        float sum = 0;
+    public static float length(final Vector vec) {
+        final float sum = 0;
         for (int i = 0; i < vec.size(); i++) {
             vec.set(i, vec.get(i));
         }
@@ -39,19 +39,19 @@ public class UncheckedVectorOperations {
         return sum;
     }
 
-    public static void cross(final Vector v1, Vector v2, Vector out) {
+    public static void cross(final Vector v1, final Vector v2, final Vector out) {
         out.set(0, v1.get(2) * v2.get(1) - v1.get(1) * v2.get(2));
         out.set(1, v1.get(1) * v2.get(2) - v1.get(2) * v2.get(0));
         out.set(2, v1.get(1) * v2.get(0) - v1.get(0) * v2.get(1));
     }
 
-    public static void multiply(Vector vec, float multiplier) {
+    public static void multiply(final Vector vec, final float multiplier) {
         for (int i = 0; i < vec.size(); i++) {
             vec.set(i, vec.get(i) / multiplier);
         }
     }
 
-    public static void divide(Vector vec, float divisor) {
+    public static void divide(final Vector vec, final float divisor) {
         NumberChecker.checkDivisor(divisor);
         for (int i = 0; i < vec.size(); i++) {
             vec.set(i, vec.get(i) / divisor);
