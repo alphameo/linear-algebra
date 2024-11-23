@@ -2,16 +2,26 @@ package com.github.ia1phai.linear_algebra.vec;
 
 import java.util.Arrays;
 
+import com.github.ia1phai.linear_algebra.Copyable;
+import com.github.ia1phai.linear_algebra.Equatable;
+import com.github.ia1phai.linear_algebra.NumberChecker;
 
 /**
  * Vector
  */
-public class Vec implements Vector {
+public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
 
-    private float[] entries;
+    private final float[] entries;
 
-    public Vec(int size) {
-        this.entries = new float[entries.length];
+    public Vec(final Vector vec) {
+        this(vec.size());
+        for (int i = 0; i < entries.length; i++) {
+            this.entries[i] = vec.get(i);
+        }
+    }
+
+    public Vec(final int size) {
+        this.entries = new float[size];
     }
 
     public Vec(final float... entries) {
@@ -36,62 +46,68 @@ public class Vec implements Vector {
         return entries.length;
     }
 
-    @Override
     public float length() {
-        float sum = 0;
-        for (int i = 0; i < entries.length; i++) {
-            sum += entries[i] * entries[i];
-        }
-
-        return (float) Math.sqrt(sum);
+        return UncheckedVectorOperations.length(this);
     }
 
-    @Override
-    public Vector add(final Vector other) {
-        checkSameVectorLength(this, other, "Addition denied");
-        UncheckedVectorOperations.add(this, other);
-
+    public Vector multiply(final float multiplier) {
+        UncheckedVectorOperations.multiply(this, multiplier);
         return this;
     }
 
-    @Override
-    public Vector subtract(final Vector other) {
-        checkSameVectorLength(this, other, "Subtraction denied");
-        UncheckedVectorOperations.subtract(this, other);
-
-        return this;
-    }
-
-    @Override
-    public float dot(final Vector other) {
-        checkSameVectorLength(this, other, "Scalar product denied");
-
-        return UncheckedVectorOperations.dot(this, other);
-    }
-
-    @Override
     public Vector divide(final float divisor) throws ArithmeticException {
         NumberChecker.checkDivisor(divisor);
-        for (int i = 0; i < entries.length; i++) {
-            entries[i] /= divisor;
-        }
+        UncheckedVectorOperations.divide(this, divisor);
 
         return this;
     }
 
-    @Override
-    public Vector multiply(final float multiplier) {
-        for (int i = 0; i < entries.length; i++) {
-            entries[i] *= multiplier;
-        }
+    public Vector add(final Vector vec) {
+        checkSameVectorSizes(this, vec, "Addition denied");
+        UncheckedVectorOperations.add(this, vec);
 
         return this;
+    }
+
+    public Vector plus(final Vector vec) {
+        return this.copy().add(vec);
+    }
+
+    public Vector subtract(final Vector vec) {
+        checkSameVectorSizes(this, vec, "Subtraction denied");
+        UncheckedVectorOperations.subtract(this, vec);
+
+        return this;
+    }
+
+    public Vector minus(final Vector vec) {
+        return this.copy().subtract(vec);
+    }
+
+    public float dot(final Vector vec) {
+        checkSameVectorSizes(this, vec, "Scalar product denied");
+
+        return UncheckedVectorOperations.dot(this, vec);
+    }
+
+    public Vector cross(final Vector3 other) {
+        if (size() != 3) {
+            throw new IllegalArgumentException(
+                    String.format(String.format("Cross product denien: vector size must be 3, but given are %d, %d"),
+                            this.size(), other.size()));
+        }
+
+        Vector result = new Vec(3);
+
+        UncheckedVectorOperations.cross(this, other, result);
+        return result;
     }
 
     @Override
     public boolean equalsTo(final Vector other) {
-        checkSameVectorLength(this, other, "Equalization denied");
-        return UncheckedVectorOperations.equalTo(this, other);
+        checkSameVectorSizes(this, other, "Equalization denied");
+
+        return UncheckedVectorOperations.equals(this, other);
     }
 
     @Override
@@ -127,11 +143,11 @@ public class Vec implements Vector {
         return equalsTo(other);
     }
 
-    private static void checkSameVectorLength(final Vector v1, final Vector v2,
+    private static void checkSameVectorSizes(final Vector v1, final Vector v2,
             final String errMessage) {
-        if (v1.length() != v2.length()) {
+        if (v1.size() != v2.size()) {
             throw new IllegalArgumentException(String.format("%s: vectors with different lengths (%d and %d)",
-                    errMessage, v1.length(), v2.length()));
+                    errMessage, v1.size(), v2.size()));
         }
     }
 }

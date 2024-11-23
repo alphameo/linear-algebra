@@ -16,13 +16,4 @@ public interface Vector3 extends Vector {
     void setY(float value);
 
     void setZ(float value);
-
-    @Override
-    default int size() {
-        return 3;
-    }
-
-    Vector3 cross(Vector3 other);
-
-    Vector4 toVec4();
 }

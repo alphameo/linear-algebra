@@ -1,5 +1,7 @@
 package com.github.ia1phai.linear_algebra.vec;
 
+import com.github.ia1phai.linear_algebra.Equatable;
+
 public interface Vector {
 
     public float get(final int index);

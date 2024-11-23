@@ -4,17 +4,17 @@ import com.github.ia1phai.linear_algebra.Copyable;
 import com.github.ia1phai.linear_algebra.Equatable;
 
 /**
- * Vec4
+ * Vec2
  */
-public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
+public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
     private final Vec vector;
 
-    public Vec4() {
-        vector = new Vec(4);
+    public Vec2() {
+        vector = new Vec(2);
     }
 
-    public Vec4(final float x, final float y, final float z, final float w) {
-        vector = new Vec(x, y, z, w);
+    public Vec2(final float x, final float y) {
+        vector = new Vec(x, y);
     }
 
     @Override
@@ -33,16 +33,6 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
     }
 
     @Override
-    public float z() {
-        return vector.get(2);
-    }
-
-    @Override
-    public float w() {
-        return vector.get(3);
-    }
-
-    @Override
     public void set(final int i, final float value) {
         vector.set(i, value);
     }
@@ -57,16 +47,6 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
         vector.set(2, value);
     }
 
-    @Override
-    public void setZ(final float value) {
-        vector.set(2, value);
-    }
-
-    @Override
-    public void setW(final float value) {
-        vector.set(3, value);
-    }
-
     public int size() {
         return 2;
     }
@@ -75,57 +55,54 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
         return vector.length();
     }
 
-    public Vector4 multiply(final float multiplier) {
+    public Vector2 multiply(final float multiplier) {
         UncheckedVectorOperations.multiply(this, multiplier);
 
         return this;
     }
 
-    public Vector4 divide(final float divisor) {
+    public Vector2 divide(final float divisor) {
         UncheckedVectorOperations.divide(this, divisor);
 
         return this;
     }
 
-    public Vector4 add(final Vector4 other) {
+    public Vector2 add(final Vector2 other) {
         UncheckedVectorOperations.add(this, other);
 
         return this;
     }
 
-    public Vector4 plus(final Vector4 vec) {
+    public Vector2 plus(final Vector2 vec) {
         return this.copy().add(vec);
     }
 
-    public Vector4 subtract(final Vector4 other) {
+    public Vector2 subtract(final Vector2 other) {
         UncheckedVectorOperations.subtract(this, other);
 
         return this;
     }
 
-    public Vector4 minus(final Vector4 vec) {
+    public Vector2 minus(final Vector2 vec) {
         return this.copy().add(vec);
     }
 
-    public float dot(final Vector4 other) {
+    public float dot(final Vector2 other) {
         return UncheckedVectorOperations.dot(this, other);
     }
 
-    public Vector4 cross(final Vector4 vec) {
-        final Vector4 result = new Vec4();
-        UncheckedVectorOperations.cross(this, vec, result);
-
-        return result;
-    }
-
     @Override
-    public boolean equalsTo(final Vector4 other) {
+    public boolean equalsTo(final Vector2 other) {
         return UncheckedVectorOperations.equals(this, other);
     }
 
     @Override
-    public Vec4 copy() {
-        return new Vec4(this.x(), this.y(), this.y(), this.w());
+    public Vec2 copy() {
+        return new Vec2(this.x(), this.y());
+    }
+
+    public Vector3 toVec3() {
+        return new Vec3(x(), y(), 1);
     }
 
     @Override
