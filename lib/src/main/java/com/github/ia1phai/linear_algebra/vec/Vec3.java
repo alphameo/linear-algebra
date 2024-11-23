@@ -66,19 +66,19 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
     }
 
     public Vector3 multiply(final float multiplier) {
-        UncheckedVectorOperations.multiply(this, multiplier);
+        UncheckedVectorMath.multiply(this, multiplier);
 
         return this;
     }
 
     public Vector3 divide(final float divisor) {
-        UncheckedVectorOperations.divide(this, divisor);
+        UncheckedVectorMath.divide(this, divisor);
 
         return this;
     }
 
     public Vector3 add(final Vector3 other) {
-        UncheckedVectorOperations.add(this, other);
+        UncheckedVectorMath.add(this, other);
 
         return this;
     }
@@ -88,7 +88,7 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
     }
 
     public Vector3 subtract(final Vector3 other) {
-        UncheckedVectorOperations.subtract(this, other);
+        UncheckedVectorMath.subtract(this, other);
 
         return this;
     }
@@ -98,19 +98,19 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
     }
 
     public float dot(final Vector3 other) {
-        return UncheckedVectorOperations.dot(this, other);
+        return UncheckedVectorMath.dot(this, other);
     }
 
     public Vector3 cross(final Vector3 vec) {
         final Vector3 result = new Vec3();
-        UncheckedVectorOperations.cross(this, vec, result);
+        UncheckedVectorMath.cross(this, vec, result);
 
         return result;
     }
 
     @Override
     public boolean equalsTo(final Vector3 other) {
-        return UncheckedVectorOperations.equals(this, other);
+        return UncheckedVectorMath.equals(this, other);
     }
 
     @Override

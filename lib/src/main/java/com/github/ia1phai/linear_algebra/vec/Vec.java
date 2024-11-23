@@ -47,24 +47,24 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
     }
 
     public float length() {
-        return UncheckedVectorOperations.length(this);
+        return UncheckedVectorMath.length(this);
     }
 
     public Vector multiply(final float multiplier) {
-        UncheckedVectorOperations.multiply(this, multiplier);
+        UncheckedVectorMath.multiply(this, multiplier);
         return this;
     }
 
     public Vector divide(final float divisor) throws ArithmeticException {
         NumberChecker.checkDivisor(divisor);
-        UncheckedVectorOperations.divide(this, divisor);
+        UncheckedVectorMath.divide(this, divisor);
 
         return this;
     }
 
     public Vector add(final Vector vec) {
         checkSameVectorSizes(this, vec, "Addition denied");
-        UncheckedVectorOperations.add(this, vec);
+        UncheckedVectorMath.add(this, vec);
 
         return this;
     }
@@ -75,7 +75,7 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
 
     public Vector subtract(final Vector vec) {
         checkSameVectorSizes(this, vec, "Subtraction denied");
-        UncheckedVectorOperations.subtract(this, vec);
+        UncheckedVectorMath.subtract(this, vec);
 
         return this;
     }
@@ -87,7 +87,7 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
     public float dot(final Vector vec) {
         checkSameVectorSizes(this, vec, "Scalar product denied");
 
-        return UncheckedVectorOperations.dot(this, vec);
+        return UncheckedVectorMath.dot(this, vec);
     }
 
     public Vector cross(final Vector3 other) {
@@ -99,7 +99,7 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
 
         final Vector result = new Vec(3);
 
-        UncheckedVectorOperations.cross(this, other, result);
+        UncheckedVectorMath.cross(this, other, result);
         return result;
     }
 
@@ -107,7 +107,7 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
     public boolean equalsTo(final Vector other) {
         checkSameVectorSizes(this, other, "Equalization denied");
 
-        return UncheckedVectorOperations.equals(this, other);
+        return UncheckedVectorMath.equals(this, other);
     }
 
     @Override

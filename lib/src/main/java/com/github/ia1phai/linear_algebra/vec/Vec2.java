@@ -56,19 +56,19 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
     }
 
     public Vector2 multiply(final float multiplier) {
-        UncheckedVectorOperations.multiply(this, multiplier);
+        UncheckedVectorMath.multiply(this, multiplier);
 
         return this;
     }
 
     public Vector2 divide(final float divisor) {
-        UncheckedVectorOperations.divide(this, divisor);
+        UncheckedVectorMath.divide(this, divisor);
 
         return this;
     }
 
     public Vector2 add(final Vector2 other) {
-        UncheckedVectorOperations.add(this, other);
+        UncheckedVectorMath.add(this, other);
 
         return this;
     }
@@ -78,7 +78,7 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
     }
 
     public Vector2 subtract(final Vector2 other) {
-        UncheckedVectorOperations.subtract(this, other);
+        UncheckedVectorMath.subtract(this, other);
 
         return this;
     }
@@ -88,12 +88,12 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
     }
 
     public float dot(final Vector2 other) {
-        return UncheckedVectorOperations.dot(this, other);
+        return UncheckedVectorMath.dot(this, other);
     }
 
     @Override
     public boolean equalsTo(final Vector2 other) {
-        return UncheckedVectorOperations.equals(this, other);
+        return UncheckedVectorMath.equals(this, other);
     }
 
     @Override

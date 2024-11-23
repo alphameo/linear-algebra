@@ -5,7 +5,7 @@ import com.github.ia1phai.linear_algebra.NumberChecker;
 /**
  * UncheckedVectorOperations
  */
-public class UncheckedVectorOperations {
+public class UncheckedVectorMath {
 
     public static float length(final Vector v) {
         float sum = 0;
