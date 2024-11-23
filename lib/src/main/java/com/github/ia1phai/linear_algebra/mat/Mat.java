@@ -1,11 +1,11 @@
-package ru.vsu.cs.course2.a1pha.linear_algebra.matrices;
+package com.github.ia1phai.linear_algebra.mat;
 
 import java.util.Arrays;
 
-import ru.vsu.cs.course2.a1pha.linear_algebra.Copyable;
-import ru.vsu.cs.course2.a1pha.linear_algebra.NumberChecker;
-import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.Vec;
-import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.Vector;
+import com.github.ia1phai.linear_algebra.Copyable;
+import com.github.ia1phai.linear_algebra.NumberChecker;
+import com.github.ia1phai.linear_algebra.vec.Vec;
+import com.github.ia1phai.linear_algebra.vec.Vector;
 
 /**
  * Matr
@@ -63,6 +63,18 @@ public class Mat implements Matrix, Copyable<Mat> {
         return entries.length;
     }
 
+    public Matrix transpose() {
+        final float[][] result = new float[entries[0].length][entries.length];
+        for (int i = 0; i < entries.length; i++) {
+            for (int j = 0; i < entries[0].length; j++) {
+                result[j][i] = entries[i][j];
+            }
+        }
+        entries = result;
+
+        return this;
+    }
+
     public Matrix transposed() {
         return this.copy().transpose();
     }
@@ -93,7 +105,7 @@ public class Mat implements Matrix, Copyable<Mat> {
 
     public Matrix add(final Matrix mat) {
         checkSameSizes(this, mat, "Addition denied");
-        UncheckedMatrixOperation.addTo(this, mat);
+        UncheckedMatrixOperation.add(this, mat);
 
         return this;
     }
@@ -140,18 +152,6 @@ public class Mat implements Matrix, Copyable<Mat> {
         return result;
     }
 
-    public Matrix transpose() {
-        final float[][] result = new float[entries[0].length][entries.length];
-        for (int i = 0; i < entries.length; i++) {
-            for (int j = 0; i < entries[0].length; j++) {
-                result[j][i] = entries[i][j];
-            }
-        }
-        entries = result;
-
-        return this;
-    }
-
     public Matrix triangulate() {
         UncheckedMatrixOperation.triangulate(this, Math.max(this.height(), this.width()));
 
@@ -175,7 +175,11 @@ public class Mat implements Matrix, Copyable<Mat> {
             throw new UnsupportedOperationException("Invertible matrix does not exists: matrix is not square");
         }
 
-        return UncheckedMatrixOperation.invertibleMatrix(this);
+        Matrix result = new Mat(this.height(), this.width());
+
+        UncheckedMatrixOperation.invertibleMatrix(this, result);
+
+        return result;
     }
 
     public Matrix minorMatrix(final int row, final int col) {
@@ -199,7 +203,10 @@ public class Mat implements Matrix, Copyable<Mat> {
             throw new UnsupportedOperationException("Cofactor matrix does not exist: matrix is not square");
         }
 
-        return UncheckedMatrixOperation.cofactorMatrix(this);
+        Matrix result = new Mat(this.height(), this.width());
+        UncheckedMatrixOperation.cofactorMatrix(this, result);
+
+        return result;
     }
 
     public boolean isSquare() {

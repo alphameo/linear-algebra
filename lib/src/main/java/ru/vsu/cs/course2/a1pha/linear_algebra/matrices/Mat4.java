@@ -63,7 +63,7 @@ public class Mat4 implements Matrix4 {
 
     @Override
     public void add(final Matrix4 matr) {
-        UncheckedMatrixOperation.addTo(this, matr);
+        UncheckedMatrixOperation.add(this, matr);
     }
 
     @Override
