@@ -7,9 +7,18 @@ import com.github.ia1phai.linear_algebra.NumberChecker;
  */
 public class UncheckedVectorOperations {
 
+    public static float length(final Vector v) {
+        float sum = 0;
+        for (int i = 0; i < v.size(); i++) {
+            sum += v.get(i) * v.get(i);
+        }
+
+        return (float) Math.sqrt(sum);
+    }
+
     public static void multiply(final Vector v, final float multiplier) {
         for (int i = 0; i < v.size(); i++) {
-            v.set(i, v.get(i) / multiplier);
+            v.set(i, v.get(i) * multiplier);
         }
     }
 
@@ -18,15 +27,6 @@ public class UncheckedVectorOperations {
         for (int i = 0; i < v.size(); i++) {
             v.set(i, v.get(i) / divisor);
         }
-    }
-
-    public static float length(final Vector v) {
-        float sum = 0;
-        for (int i = 0; i < v.size(); i++) {
-            sum += v.get(i) * v.get(i);
-        }
-
-        return (float) Math.sqrt(sum);
     }
 
     public static void add(final Vector target,
@@ -60,7 +60,7 @@ public class UncheckedVectorOperations {
 
     public static boolean equals(final Vector v1, final Vector v2) {
         for (int i = 0; i < v1.size(); i++) {
-            if (Math.abs(v1.get(i) - v2.get(i)) < NumberChecker.EPS) {
+            if (Math.abs(v1.get(i) - v2.get(i)) >= NumberChecker.EPS) {
                 return false;
             }
         }
