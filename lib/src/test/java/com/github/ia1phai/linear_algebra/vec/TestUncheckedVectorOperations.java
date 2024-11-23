@@ -3,7 +3,6 @@ package com.github.ia1phai.linear_algebra.vec;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static com.github.ia1phai.linear_algebra.NumberChecker.EPS;
 import static com.github.ia1phai.linear_algebra.vec.UncheckedVectorOperations.*;
 
 /**
@@ -14,7 +13,7 @@ public class TestUncheckedVectorOperations {
     @Test
     public void testLength() {
         Vector v = new Vec(2, 1.2f, 0.3f, 4, 6);
-        System.out.println(length(v));
+
         Assertions.assertTrue(Math.abs(length(v) - 7.58485) < 0.00001f);
     }
 
@@ -23,8 +22,9 @@ public class TestUncheckedVectorOperations {
         Vector v1 = new Vec(-12, 3, 4, 8);
         Vector expected = new Vec(-18, 4.5f, 6, 12);
         multiply(v1, 1.5f);
+
+        // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(v1, expected);
-        Assertions.assertTrue(v1.equals(expected));
     }
 
     @Test
@@ -32,7 +32,8 @@ public class TestUncheckedVectorOperations {
         Vector v1 = new Vec(-18, 4.5f, 6, 12);
         Vector expected = new Vec(-12, 3, 4, 8);
         divide(v1, 1.5f);
-        Assertions.assertTrue(v1.equals(expected));
+        // Assertions.assertTrue(v1.equals(expected));
+        Assertions.assertEquals(v1, expected);
     }
 
     @Test
@@ -54,7 +55,8 @@ public class TestUncheckedVectorOperations {
 
         add(v1, v2);
 
-        Assertions.assertTrue(v1.equals(expected));
+        // Assertions.assertTrue(v1.equals(expected));
+        Assertions.assertEquals(v1, expected);
     }
 
     @Test
@@ -65,7 +67,8 @@ public class TestUncheckedVectorOperations {
 
         subtract(v1, v2);
 
-        Assertions.assertTrue(v1.equals(expected));
+        // Assertions.assertTrue(v1.equals(expected));
+        Assertions.assertEquals(expected, v1);
     }
 
     @Test
@@ -73,7 +76,8 @@ public class TestUncheckedVectorOperations {
         Vector v1 = new Vec(-12, 3, 4, 8);
         Vector v2 = new Vec(1, 2.03f, 3, 4);
 
-        Assertions.assertTrue(Math.abs(dot(v1, v2) - 38.09f) < EPS);
+        // Assertions.assertTrue(Math.abs(dot(v1, v2) - 38.09f) < EPS);
+        Assertions.assertEquals(dot(v1, v2), 38.09f);
     }
 
     @Test
@@ -83,6 +87,16 @@ public class TestUncheckedVectorOperations {
         Vector res = new Vec(3);
         cross(v1, v2, res);
         Vector expected = new Vec(0.88f, 40, -27.36f);
-        Assertions.assertTrue(res.equals(expected));
+
+        // Assertions.assertTrue(res.equals(expected));
+        Assertions.assertEquals(expected, res);
+    }
+
+    @Test
+    public void testEquals() {
+        Vector v1 = new Vec(-12, 3, 4);
+        Vector v2 = new Vec(-12, 3, 4);
+
+        Assertions.assertTrue(UncheckedVectorOperations.equals(v1, v2));
     }
 }
