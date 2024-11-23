@@ -21,9 +21,9 @@ public class UncheckedVectorOperations {
     }
 
     public static float length(final Vector v) {
-        final float sum = 0;
+        float sum = 0;
         for (int i = 0; i < v.size(); i++) {
-            v.set(i, v.get(i));
+            sum += v.get(i) * v.get(i);
         }
 
         return (float) Math.sqrt(sum);
