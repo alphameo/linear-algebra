@@ -7,15 +7,15 @@ import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.VectorInterface;
 /**
  * Matr4
  */
-public class Matr4 implements Matrix4 {
+public class Mat4 implements Matrix4 {
 
     SquareMatrix matrix;
 
-    public Matr4() {
+    public Mat4() {
         matrix = new SqMatr(4);
     }
 
-    public Matr4(final float entries[][]) {
+    public Mat4(final float entries[][]) {
         matrix = new SqMatr(entries);
         if (matrix.width() != 4) {
             throw new IllegalArgumentException(String.format(
@@ -46,7 +46,7 @@ public class Matr4 implements Matrix4 {
 
     @Override
     public Matrix4 invertible() {
-        return UncheckedMatrixOperations.invertibleMatrix(this);
+        return UncheckedMatrixOperation.invertibleMatrix(this);
     }
 
     @Override
@@ -63,12 +63,12 @@ public class Matr4 implements Matrix4 {
 
     @Override
     public void add(final Matrix4 matr) {
-        UncheckedMatrixOperations.addTo(this, matr);
+        UncheckedMatrixOperation.addTo(this, matr);
     }
 
     @Override
     public void subtract(final Matrix4 matr) {
-        UncheckedMatrixOperations.subtractFrom(this, matr);
+        UncheckedMatrixOperation.subtractFrom(this, matr);
     }
 
     @Override
@@ -88,8 +88,8 @@ public class Matr4 implements Matrix4 {
 
     @Override
     public Matrix4 product(final Matrix4 matr) {
-        final Matrix4 result = new Matr4();
-        UncheckedMatrixOperations.product(this, matr, result);
+        final Matrix4 result = new Mat4();
+        UncheckedMatrixOperation.product(this, matr, result);
 
         return result;
     }
@@ -120,7 +120,7 @@ public class Matr4 implements Matrix4 {
 
     @Override
     public Matrix4 copy() {
-        final Matrix4 result = new Matr4();
+        final Matrix4 result = new Mat4();
 
         for (int i = 0; i < size(); i++) {
             for (int j = 0; j < size(); j++) {
@@ -133,21 +133,21 @@ public class Matr4 implements Matrix4 {
 
     @Override
     public boolean equalsTo(final Matrix4 other) {
-        return UncheckedMatrixOperations.equals(this, other);
+        return UncheckedMatrixOperation.equals(this, other);
     }
 
     @Override
     public Vector4 product(final Vector4 vec) {
         final Vector4 result = new Vec4();
-        UncheckedMatrixOperations.product(this, vec, result);
+        UncheckedMatrixOperation.product(this, vec, result);
 
         return result;
     }
 
     @Override
     public Matrix4 cofactorMatrix() {
-        Matrix4 result = new Matr4();
-        UncheckedMatrixOperations.cofactorMatrix(this, result);
+        Matrix4 result = new Mat4();
+        UncheckedMatrixOperation.cofactorMatrix(this, result);
 
         return result;
     }

@@ -8,16 +8,16 @@ import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.VectorInterface;
 /**
  * Matr3
  */
-public class Matr3 implements Matrix3, Copyable<Matr3> {
+public class Mat3 implements Matrix3, Copyable<Mat3> {
 
-    Matr matrix;
+    Mat matrix;
 
-    public Matr3() {
-        matrix = new Matr(3);
+    public Mat3() {
+        matrix = new Mat(3);
     }
 
-    public Matr3(final float entries[][]) {
-        matrix = new Matr(entries);
+    public Mat3(final float entries[][]) {
+        matrix = new Mat(entries);
         if (matrix.width() != 3) {
             throw new IllegalArgumentException(String.format(
                     "Square matrix 3x3 creation denied: input data has size %dx%d", matrix.height(),
@@ -37,12 +37,12 @@ public class Matr3 implements Matrix3, Copyable<Matr3> {
 
     @Override
     public float det() {
-        return UncheckedMatrixOperations.determinant3(matrix);
+        return UncheckedMatrixOperation.determinant3(matrix);
     }
 
     @Override
     public Matrix3 invertible() {
-        return UncheckedMatrixOperations.invertibleMatrix(this);
+        return UncheckedMatrixOperation.invertibleMatrix(this);
     }
 
     @Override
@@ -73,19 +73,19 @@ public class Matr3 implements Matrix3, Copyable<Matr3> {
     }
 
     @Override
-    public void add(final Matrix3 matr) {
-        UncheckedMatrixOperations.addTo(this, matr);
+    public void add(final Matrix3 mat) {
+        UncheckedMatrixOperation.addTo(this, mat);
     }
 
     @Override
-    public void subtract(final Matrix3 matr) {
-        UncheckedMatrixOperations.subtractFrom(this, matr);
+    public void subtract(final Matrix3 mat) {
+        UncheckedMatrixOperation.subtractFrom(this, mat);
     }
 
     @Override
-    public Matrix3 product(final Matrix3 matr) {
-        final Matrix3 result = new Matr3();
-        UncheckedMatrixOperations.product(this, matr, result);
+    public Matrix3 product(final Matrix3 mat) {
+        final Matrix3 result = new Mat3();
+        UncheckedMatrixOperation.product(this, mat, result);
 
         return result;
     }
@@ -116,7 +116,7 @@ public class Matr3 implements Matrix3, Copyable<Matr3> {
 
     @Override
     public Matrix3 copy() {
-        final Matrix3 result = new Matr3();
+        final Matrix3 result = new Mat3();
 
         for (int i = 0; i < size(); i++) {
             for (int j = 0; j < size(); j++) {
@@ -128,14 +128,14 @@ public class Matr3 implements Matrix3, Copyable<Matr3> {
     }
 
     @Override
-    public boolean equalsTo(final Matrix3 matr) {
-        return UncheckedMatrixOperations.equals(this, matr);
+    public boolean equalsTo(final Matrix3 mat) {
+        return UncheckedMatrixOperation.equals(this, mat);
     }
 
     @Override
     public Vector3 product(final Vector3 vec) {
         final Vector3 result = new Vec3();
-        UncheckedMatrixOperations.product(this, vec, result);
+        UncheckedMatrixOperation.product(this, vec, result);
 
         return result;
     }
@@ -145,8 +145,8 @@ public class Matr3 implements Matrix3, Copyable<Matr3> {
     }
 
     public Matrix3 cofactorMatrix() {
-        Matrix3 result = new Matr3();
-        UncheckedMatrixOperations.cofactorMatrix(this, result);
+        Matrix3 result = new Mat3();
+        UncheckedMatrixOperation.cofactorMatrix(this, result);
 
         return result;
     }

@@ -1,13 +1,12 @@
 package ru.vsu.cs.course2.a1pha.linear_algebra.matrices;
 
 import ru.vsu.cs.course2.a1pha.linear_algebra.NumberChecker;
-import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.Vec;
 import ru.vsu.cs.course2.a1pha.linear_algebra.vectors.Vector;
 
 /**
  * UncheckedMatrixOperations
  */
-public class UncheckedMatrixOperations {
+public class UncheckedMatrixOperation {
 
     public static void multiply(final Matrix m, float multiplier) {
         for (int i = 0; i < m.height(); i++) {
@@ -79,7 +78,7 @@ public class UncheckedMatrixOperations {
     }
 
     public static Matrix minorMatrix(Matrix m, int row, int col) {
-        Matrix result = new Matr(m.width() - 1);
+        Matrix result = new Mat(m.width() - 1);
         int destRow = 0;
         int destCol = 0;
         for (int i = 0; i < m.width(); i++) {
@@ -100,7 +99,7 @@ public class UncheckedMatrixOperations {
     }
 
     public static Matrix cofactorMatrix(final Matrix m) {
-        Matrix result = new Matr(m.height(), m.width());
+        Matrix result = new Mat(m.height(), m.width());
         for (int i = 0; i < m.height(); i++) {
             for (int j = 0; j < m.width(); j++) {
                 result.set(i, j, cofactor(m, i, j));
@@ -239,9 +238,9 @@ public class UncheckedMatrixOperations {
         if (m.width() == 1) {
             return m.get(0, 0);
         } else if (m.width() == 2) {
-            return UncheckedMatrixOperations.determinant2(m);
+            return UncheckedMatrixOperation.determinant2(m);
         } else if (m.width() == 3) {
-            return UncheckedMatrixOperations.determinant3(m);
+            return UncheckedMatrixOperation.determinant3(m);
         }
 
         float determinant = 0;
