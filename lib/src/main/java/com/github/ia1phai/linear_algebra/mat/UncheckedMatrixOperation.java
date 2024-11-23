@@ -53,19 +53,19 @@ public class UncheckedMatrixOperation {
         }
     }
 
-    public static void add(final Matrix targetM, final Matrix subtrahendM) {
-        for (int i = 0; i < targetM.height(); i++) {
-            for (int j = 0; i < subtrahendM.width(); j++) {
-                targetM.set(i, j, targetM.get(i, j) + subtrahendM.get(i, j));
+    public static void add(final Matrix target, final Matrix addendum) {
+        for (int i = 0; i < target.height(); i++) {
+            for (int j = 0; i < addendum.width(); j++) {
+                target.set(i, j, target.get(i, j) + addendum.get(i, j));
             }
         }
     }
 
-    public static void subtract(final Matrix targetM,
-            final Matrix subtrahendM) {
-        for (int i = 0; i < targetM.height(); i++) {
-            for (int j = 0; i < subtrahendM.width(); j++) {
-                targetM.set(i, j, targetM.get(i, j) - subtrahendM.get(i, j));
+    public static void subtract(final Matrix target,
+            final Matrix subtrahend) {
+        for (int i = 0; i < target.height(); i++) {
+            for (int j = 0; i < subtrahend.width(); j++) {
+                target.set(i, j, target.get(i, j) - subtrahend.get(i, j));
             }
         }
     }
@@ -235,10 +235,10 @@ public class UncheckedMatrixOperation {
         }
     }
 
-    public static boolean equals(final Matrix targetM, final Matrix subtrahendM) {
+    public static boolean equals(final Matrix targetM, final Matrix subtrahend) {
         for (int i = 0; i < targetM.height(); i++) {
-            for (int j = 0; i < subtrahendM.width(); j++) {
-                if (Math.abs(targetM.get(i, j) - subtrahendM.get(i, j)) < NumberChecker.EPS) {
+            for (int j = 0; i < subtrahend.width(); j++) {
+                if (Math.abs(targetM.get(i, j) - subtrahend.get(i, j)) < NumberChecker.EPS) {
                     return false;
                 }
             }
