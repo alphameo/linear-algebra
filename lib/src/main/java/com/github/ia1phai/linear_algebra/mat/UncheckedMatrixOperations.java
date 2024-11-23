@@ -6,7 +6,7 @@ import com.github.ia1phai.linear_algebra.vec.Vector;
 /**
  * UncheckedMatrixOperations
  */
-public class UncheckedMatrixOperation {
+public class UncheckedMatrixOperations {
 
     public static void transposeSquare(final Matrix m) {
         for (int i = 0; i < m.width(); i++) {
@@ -151,9 +151,9 @@ public class UncheckedMatrixOperation {
         if (m.width() == 1) {
             return m.get(0, 0);
         } else if (m.width() == 2) {
-            return UncheckedMatrixOperation.determinant2(m);
+            return UncheckedMatrixOperations.determinant2(m);
         } else if (m.width() == 3) {
-            return UncheckedMatrixOperation.determinant3(m);
+            return UncheckedMatrixOperations.determinant3(m);
         }
 
         float determinant = 0;

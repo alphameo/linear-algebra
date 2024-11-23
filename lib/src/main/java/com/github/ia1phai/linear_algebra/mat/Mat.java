@@ -81,80 +81,80 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     public Matrix swapRows(final int r1, final int r2) {
-        UncheckedMatrixOperation.swapRows(this, r1, r2);
+        UncheckedMatrixOperations.swapRows(this, r1, r2);
 
         return this;
     }
 
     public Matrix swapCols(final int c1, final int c2) {
-        UncheckedMatrixOperation.swapColumns(this, c1, c2);
+        UncheckedMatrixOperations.swapColumns(this, c1, c2);
 
         return this;
     }
 
     public Matrix multiply(final float multiplier) {
-        UncheckedMatrixOperation.multiply(this, multiplier);
+        UncheckedMatrixOperations.multiply(this, multiplier);
 
         return this;
     }
 
     public Matrix divide(final float divisor) {
-        UncheckedMatrixOperation.divide(this, divisor);
+        UncheckedMatrixOperations.divide(this, divisor);
 
         return this;
     }
 
-    public Matrix add(final Matrix mat) {
-        checkSameSizes(this, mat, "Addition denied");
-        UncheckedMatrixOperation.add(this, mat);
+    public Matrix add(final Matrix m) {
+        checkSameSizes(this, m, "Addition denied");
+        UncheckedMatrixOperations.add(this, m);
 
         return this;
     }
 
-    public Matrix plus(final Matrix mat) {
-        return this.copy().add(mat);
+    public Matrix plus(final Matrix m) {
+        return this.copy().add(m);
     }
 
-    public Matrix subtract(final Matrix mat) {
-        checkSameSizes(this, mat, "Subtraction denied");
-        UncheckedMatrixOperation.subtract(this, mat);
+    public Matrix subtract(final Matrix m) {
+        checkSameSizes(this, m, "Subtraction denied");
+        UncheckedMatrixOperations.subtract(this, m);
 
         return this;
     }
 
-    public Matrix minus(final Matrix mat) {
-        return this.copy().subtract(mat);
+    public Matrix minus(final Matrix m) {
+        return this.copy().subtract(m);
     }
 
-    public Matrix product(final Matrix mat) {
-        if (this.width() == mat.height()) {
+    public Matrix product(final Matrix m) {
+        if (this.width() == m.height()) {
             throw new IllegalArgumentException(
                     String.format("Matrix product denied: matrices with sizes %dx%d and %dx%d", this.height(),
-                            this.width(), mat.height(), mat.width()));
+                            this.width(), m.height(), m.width()));
         }
-        final Matrix result = new Mat(this.height(), mat.width());
+        final Matrix result = new Mat(this.height(), m.width());
 
-        UncheckedMatrixOperation.product(this, mat, result);
+        UncheckedMatrixOperations.product(this, m, result);
 
         return result;
     }
 
-    public Vector product(final Vector vec) {
-        if (this.width() != vec.size()) {
+    public Vector product(final Vector v) {
+        if (this.width() != v.size()) {
             throw new IllegalArgumentException(
                     String.format("Matrix and vector product denied: matrix with size %dx%d and vector with size",
                             this.height(),
-                            this.width(), vec.size()));
+                            this.width(), v.size()));
         }
 
-        final Vector result = new Vec(vec.size());
-        UncheckedMatrixOperation.product(this, vec, result);
+        final Vector result = new Vec(v.size());
+        UncheckedMatrixOperations.product(this, v, result);
 
         return result;
     }
 
     public Matrix triangulate() {
-        UncheckedMatrixOperation.triangulate(this, Math.max(this.height(), this.width()));
+        UncheckedMatrixOperations.triangulate(this, Math.max(this.height(), this.width()));
 
         return this;
     }
@@ -168,7 +168,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
             throw new UnsupportedOperationException("Determinant does not exists: matrix is not square");
         }
 
-        return UncheckedMatrixOperation.determinant(this);
+        return UncheckedMatrixOperations.determinant(this);
     }
 
     public Matrix invertible() {
@@ -178,7 +178,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
 
         final Matrix result = new Mat(this.height(), this.width());
 
-        UncheckedMatrixOperation.invertibleMatrix(this, result);
+        UncheckedMatrixOperations.invertibleMatrix(this, result);
 
         return result;
     }
@@ -188,7 +188,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
             throw new UnsupportedOperationException("Minors do not exist: matrix is not square");
         }
 
-        return UncheckedMatrixOperation.minorMatrix(this, row, col);
+        return UncheckedMatrixOperations.minorMatrix(this, row, col);
     }
 
     public float cofactor(final int row, final int col) {
@@ -196,7 +196,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
             throw new UnsupportedOperationException("Can not find cofactor: matrix is not square");
         }
 
-        return UncheckedMatrixOperation.cofactor(this, row, col);
+        return UncheckedMatrixOperations.cofactor(this, row, col);
     }
 
     public Matrix cofactorMatrix() {
@@ -205,7 +205,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
         }
 
         final Matrix result = new Mat(this.height(), this.width());
-        UncheckedMatrixOperation.cofactorMatrix(this, result);
+        UncheckedMatrixOperations.cofactorMatrix(this, result);
 
         return result;
     }
@@ -242,9 +242,9 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     @Override
-    public boolean equalsTo(final Matrix mat) {
-        checkSameSizes(this, mat, "Equalizationt denied");
-        return UncheckedMatrixOperation.equals(this, mat);
+    public boolean equalsTo(final Matrix m) {
+        checkSameSizes(this, m, "Equalizationt denied");
+        return UncheckedMatrixOperations.equals(this, m);
     }
 
     @Override
