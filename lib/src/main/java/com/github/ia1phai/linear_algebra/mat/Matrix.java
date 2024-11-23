@@ -1,11 +1,9 @@
 package com.github.ia1phai.linear_algebra.mat;
 
-import ru.vsu.cs.course2.a1pha.linear_algebra.Equatable;
-
 /**
  * ArbitraryMatrix
  */
-public interface Matrix extends Equatable<Matrix> {
+public interface Matrix {
 
     float get(int row, int col);
 

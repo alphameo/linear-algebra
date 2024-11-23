@@ -3,6 +3,7 @@ package com.github.ia1phai.linear_algebra.mat;
 import java.util.Arrays;
 
 import com.github.ia1phai.linear_algebra.Copyable;
+import com.github.ia1phai.linear_algebra.Equatable;
 import com.github.ia1phai.linear_algebra.NumberChecker;
 import com.github.ia1phai.linear_algebra.vec.Vec;
 import com.github.ia1phai.linear_algebra.vec.Vector;
@@ -10,7 +11,7 @@ import com.github.ia1phai.linear_algebra.vec.Vector;
 /**
  * Matr
  */
-public class Mat implements Matrix, Copyable<Mat> {
+public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
 
     float[][] entries;
 

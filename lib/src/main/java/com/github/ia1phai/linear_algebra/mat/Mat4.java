@@ -1,13 +1,14 @@
 package com.github.ia1phai.linear_algebra.mat;
 
 import com.github.ia1phai.linear_algebra.Copyable;
+import com.github.ia1phai.linear_algebra.Equatable;
 import com.github.ia1phai.linear_algebra.vec.Vec4;
 import com.github.ia1phai.linear_algebra.vec.Vector4;
 
 /**
  * Matr4
  */
-public class Mat4 implements Matrix4, Copyable<Mat4> {
+public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
 
     Mat matrix;
 
@@ -174,7 +175,7 @@ public class Mat4 implements Matrix4, Copyable<Mat4> {
     }
 
     @Override
-    public boolean equalsTo(final Matrix mat) {
+    public boolean equalsTo(final Matrix4 mat) {
         return UncheckedMatrixOperation.equals(this, mat);
     }
 
