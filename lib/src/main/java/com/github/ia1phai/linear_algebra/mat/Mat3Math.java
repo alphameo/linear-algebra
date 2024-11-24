@@ -108,7 +108,7 @@ public class Mat3Math {
     public static void triangulate(final Matrix3 m) {
         int countOfSwaps = 0;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < m.width(); i++) {
             if (Math.abs(m.get(ROWS[i], COLS[i])) < NumberChecker.EPS) {
                 boolean isNonZeroFound = false;
 
