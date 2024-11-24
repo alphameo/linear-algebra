@@ -52,4 +52,16 @@ public class Vec3Math {
     public static boolean equals(final Vector3 v1, final Vector3 v2) {
         return v1.x() == v2.x() && v1.y() == v2.y() && v1.z() == v2.z();
     }
+
+    public static Vector4 toVec4(Vector3 v) {
+        return new Vec4(v.x(), v.y(), v.z(), 1);
+    }
+
+    public static Vector3 zeroVec() {
+        return new Vec3();
+    }
+
+    public static Vector3 unitVec() {
+        return new Vec3(1, 1, 1);
+    }
 }

@@ -102,15 +102,15 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
     }
 
     public Vector3 toVec3() {
-        return new Vec3(x(), y(), 1);
+        return Vec2Math.toVec3(this);
     }
 
     public static Vector2 zeroVec() {
-        return new Vec2();
+        return Vec2Math.zeroVec();
     }
 
     public static Vector2 unitVec() {
-        return new Vec2(1, 1);
+        return Vec2Math.unitVec();
     }
 
     @Override

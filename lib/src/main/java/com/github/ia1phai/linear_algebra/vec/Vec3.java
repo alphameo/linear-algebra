@@ -118,6 +118,18 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
         return result;
     }
 
+    public Vector4 toVec3() {
+        return Vec3Math.toVec4(this);
+    }
+
+    public static Vector3 zeroVec() {
+        return Vec3Math.zeroVec();
+    }
+
+    public static Vector3 unitVec() {
+        return Vec3Math.unitVec();
+    }
+
     @Override
     public boolean equalsTo(final Vector3 other) {
         return Vec3Math.equals(this, other);

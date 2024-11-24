@@ -41,4 +41,16 @@ public class Vec2Math {
     public static boolean equals(final Vector2 v1, final Vector2 v2) {
         return v1.x() == v2.x() && v1.y() == v2.y();
     }
+
+    public static Vector3 toVec3(Vector2 v) {
+        return new Vec3(v.x(), v.y(), 1);
+    }
+
+    public static Vector2 zeroVec() {
+        return new Vec2();
+    }
+
+    public static Vector2 unitVec() {
+        return new Vec2(1, 1);
+    }
 }
