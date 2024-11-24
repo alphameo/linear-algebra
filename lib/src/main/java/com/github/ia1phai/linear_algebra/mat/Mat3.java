@@ -133,10 +133,7 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
     }
 
     public Matrix3 product(final Matrix3 m) {
-        final Matrix3 result = new Mat3();
-        MatMath.product(this, m);
-
-        return result;
+        return Mat3Math.product(this, m);
     }
 
     public Vector3 product(final Vector3 v) {
