@@ -210,4 +210,31 @@ public class Mat4Math {
 
         return true;
     }
+
+    public static boolean isZeroed(Matrix4 m) {
+        for (Matrix4Row r : ROWS) {
+            for (Matrix4Col c : COLS) {
+                if (m.get(r, c) != 0) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    public boolean isDiagonal(Matrix4 m) {
+        for (Matrix4Row r : ROWS) {
+            for (Matrix4Col c : COLS) {
+                if (r.ordinal() == c.ordinal()) {
+                    continue;
+                }
+                if (Math.abs(m.get(r, c)) < NumberChecker.EPS) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
 }

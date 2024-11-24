@@ -150,7 +150,7 @@ public class Mat3Math {
                 - m.get(R0, C1) * m.get(R1, C0) * m.get(R2, C2);
     }
 
-    public static Matrix invertibleMatrix(final Matrix3 m) {
+    public static Matrix3 invertible(final Matrix3 m) {
         Matrix3 result = cofactorMatrix(m);
         float determinant = det(m);
 
@@ -203,6 +203,33 @@ public class Mat3Math {
         for (Matrix3Row r : ROWS) {
             for (Matrix3Col c : COLS) {
                 if (Math.abs(target.get(r, c) - subtrahend.get(r, c)) < NumberChecker.EPS) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    public static boolean isZeroed(Matrix3 m) {
+        for (Matrix3Row r : ROWS) {
+            for (Matrix3Col c : COLS) {
+                if (m.get(r, c) != 0) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    public boolean isDiagonal(Matrix3 m) {
+        for (Matrix3Row r : ROWS) {
+            for (Matrix3Col c : COLS) {
+                if (r.ordinal() == c.ordinal()) {
+                    continue;
+                }
+                if (Math.abs(m.get(r, c)) < NumberChecker.EPS) {
                     return false;
                 }
             }
