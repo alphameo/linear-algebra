@@ -124,9 +124,9 @@ public class MatMath {
             if (Math.abs(m.get(i, i)) < NumberChecker.EPS) {
                 boolean isNonZeroFound = false;
 
-                for (int row = i + 1; row < m.height(); row++) {
-                    if (m.get(row, i) != 0) {
-                        swapRows(m, i, row);
+                for (int r = i + 1; r < m.height(); r++) {
+                    if (m.get(r, i) != 0) {
+                        swapRows(m, i, r);
                         countOfSwaps++;
                         isNonZeroFound = true;
                         break;
@@ -137,11 +137,11 @@ public class MatMath {
                     continue;
             }
 
-            for (int row = i + 1; row < m.height(); row++) {
-                final float coefficient = -(m.get(row, i) / m.get(i, i));
+            for (int r = i + 1; r < m.height(); r++) {
+                final float coefficient = -(m.get(r, i) / m.get(i, i));
 
-                for (int col = i; col < m.width(); col++) {
-                    m.set(row, col, m.get(row, col) + coefficient * m.get(i, col));
+                for (int c = i; c < m.width(); c++) {
+                    m.set(r, c, m.get(r, c) + coefficient * m.get(i, c));
                 }
             }
         }
