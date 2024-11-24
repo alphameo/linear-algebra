@@ -180,6 +180,14 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
         return Mat3Math.isDiagonal(this);
     }
 
+    public Matrix4 toMat4() {
+        return Mat3Math.toMat4(this);
+    }
+
+    public Matrix4 toMat4(Matrix4Row insertionRow, Matrix4Col insertionCol) {
+        return Mat3Math.toMat4(this, insertionRow, insertionCol);
+    }
+
     public Matrix3 zeroMat() {
         return Mat3Math.zeroMat();
     }

@@ -244,6 +244,29 @@ public class Mat3Math {
         return true;
     }
 
+    public static Matrix4 toMat4(Matrix3 m, Matrix4Row insertionRow, Matrix4Col insertionCol) {
+        Matrix4 result = new Mat4();
+        for (int r = 0; r < 3; r++) {
+            if (r == insertionCol.ordinal()) {
+                continue;
+            }
+            for (int c = 0; c < 3; c++) {
+                if (c == insertionCol.ordinal()) {
+                    continue;
+                }
+                result.set(Matrix4Row.values()[r], Matrix4Col.values()[c], m.get(ROWS[r], COLS[c]));
+            }
+        }
+
+        result.set(insertionRow, insertionCol, 1);
+
+        return result;
+    }
+
+    public static Matrix4 toMat4(Matrix3 m) {
+        return toMat4(m, Matrix4Row.R3, Matrix4Col.C3);
+    }
+
     public static Matrix3 zeroMat() {
         return new Mat3();
     }
