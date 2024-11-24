@@ -95,7 +95,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     public Matrix4 add(final Matrix4 mat) {
-        UncheckedMatrixMath.add(this, mat);
+        MatMath.add(this, mat);
 
         return this;
     }
@@ -105,28 +105,28 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     public Matrix4 subtract(final Matrix4 mat) {
-        UncheckedMatrixMath.subtract(this, mat);
+        MatMath.subtract(this, mat);
 
         return this;
     }
 
     public Matrix4 product(final Matrix4 mat) {
         final Matrix4 result = new Mat4();
-        UncheckedMatrixMath.product(this, mat, result);
+        MatMath.product(this, mat, result);
 
         return result;
     }
 
     public Vector4 product(final Vector4 vec) {
         final Vector4 result = new Vec4();
-        UncheckedMatrixMath.product(this, vec, result);
+        MatMath.product(this, vec, result);
 
         return result;
     }
 
     public Matrix4 triangulate() {
         final Matrix4 result = new Mat4();
-        UncheckedMatrixMath.triangulate(this, this.width());
+        MatMath.triangulate(this, this.width());
 
         return result;
     }
@@ -136,28 +136,28 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     public float det() {
-        return UncheckedMatrixMath.determinant3(matrix);
+        return MatMath.determinant3(matrix);
     }
 
     public Matrix4 invertible() {
         final Matrix4 result = new Mat4();
 
-        UncheckedMatrixMath.invertibleMatrix(this, result);
+        MatMath.invertibleMatrix(this, result);
 
         return result;
     }
 
     public Matrix minorMatrix(final int row, final int col) {
-        return UncheckedMatrixMath.minorMatrix(this, row, col);
+        return MatMath.minorMatrix(this, row, col);
     }
 
     public float cofactor(final int row, final int col) {
-        return UncheckedMatrixMath.cofactor(this, row, col);
+        return MatMath.cofactor(this, row, col);
     }
 
     public Matrix3 cofactorMatrix() {
         final Matrix3 result = new Mat3();
-        UncheckedMatrixMath.cofactorMatrix(this, result);
+        MatMath.cofactorMatrix(this, result);
 
         return result;
     }
@@ -176,7 +176,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
 
     @Override
     public boolean equalsTo(final Matrix4 mat) {
-        return UncheckedMatrixMath.equals(this, mat);
+        return MatMath.equals(this, mat);
     }
 
     @Override

@@ -34,7 +34,7 @@ public class Mat3Math {
         }
     }
 
-    public static void swapColumns(final Matrix3 m, final Matrix3Col c1, final Matrix3Col c2) {
+    public static void swapCols(final Matrix3 m, final Matrix3Col c1, final Matrix3Col c2) {
         float tmp;
         for (Matrix3Row r : ROWS) {
             tmp = m.get(r, c1);
@@ -105,7 +105,7 @@ public class Mat3Math {
         return result;
     }
 
-    public static void triangulate(final Matrix3 m) {
+    public static Matrix3 triangulate(final Matrix3 m) {
         int countOfSwaps = 0;
 
         for (int i = 0; i < m.width(); i++) {
@@ -139,6 +139,8 @@ public class Mat3Math {
                 m.set(R0, COLS[i], m.get(R0, COLS[i]) * -1);
             }
         }
+
+        return m;
     }
 
     public static float det(final Matrix3 m) {
@@ -211,6 +213,10 @@ public class Mat3Math {
         return true;
     }
 
+    public static boolean isSquare(Matrix3 m) {
+        return true;
+    }
+
     public static boolean isZeroed(Matrix3 m) {
         for (Matrix3Row r : ROWS) {
             for (Matrix3Col c : COLS) {
@@ -223,7 +229,7 @@ public class Mat3Math {
         return true;
     }
 
-    public boolean isDiagonal(Matrix3 m) {
+    public static boolean isDiagonal(Matrix3 m) {
         for (Matrix3Row r : ROWS) {
             for (Matrix3Col c : COLS) {
                 if (r.ordinal() == c.ordinal()) {
