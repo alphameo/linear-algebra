@@ -187,7 +187,7 @@ public class Mat3Math {
 
     public static float cofactor(final Matrix3 m, final Matrix3Row r, final Matrix3Col c) {
         final int coefficient = (r.ordinal() + c.ordinal()) % 2 == 0 ? 1 : -1;
-        return coefficient * MatMath.determinant(minorMatrix(m, r, c));
+        return coefficient * MatMath.det(minorMatrix(m, r, c));
     }
 
     public static Matrix3 cofactorMatrix(final Matrix3 m) {

@@ -154,12 +154,12 @@ public class MatMath {
 
     }
 
-    public static float determinant2(final Matrix m) {
+    public static float det2(final Matrix m) {
         return m.get(0, 0) * m.get(1, 1)
                 - m.get(0, 1) * m.get(1, 0);
     }
 
-    public static float determinant3(final Matrix m) {
+    public static float det3(final Matrix m) {
         return m.get(0, 0) * m.get(1, 1) * m.get(2, 2)
                 + m.get(0, 1) * m.get(1, 2) * m.get(2, 0)
                 + m.get(0, 2) * m.get(1, 0) * m.get(2, 1)
@@ -168,7 +168,7 @@ public class MatMath {
                 - m.get(0, 1) * m.get(1, 0) * m.get(2, 2);
     }
 
-    public static float determinant(final Matrix m) {
+    public static float det(final Matrix m) {
         if (!isSquare(m)) {
             throw new UnsupportedOperationException("Determinant does not exists: matrix is not square");
         }
@@ -176,9 +176,9 @@ public class MatMath {
         if (m.width() == 1) {
             return m.get(0, 0);
         } else if (m.width() == 2) {
-            return MatMath.determinant2(m);
+            return MatMath.det2(m);
         } else if (m.width() == 3) {
-            return MatMath.determinant3(m);
+            return MatMath.det3(m);
         }
 
         float determinant = 0;
@@ -240,7 +240,7 @@ public class MatMath {
         }
 
         final int coefficient = (r + c) % 2 == 0 ? 1 : -1;
-        return coefficient * determinant(minorMatrix(m, r, c));
+        return coefficient * det(minorMatrix(m, r, c));
     }
 
     public static Matrix cofactorMatrix(final Matrix m) {
