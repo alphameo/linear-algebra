@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import com.github.ia1phai.linear_algebra.Copyable;
 import com.github.ia1phai.linear_algebra.Equatable;
-import com.github.ia1phai.linear_algebra.vec.Vec4;
 import com.github.ia1phai.linear_algebra.vec.Vector4;
 
 /**
