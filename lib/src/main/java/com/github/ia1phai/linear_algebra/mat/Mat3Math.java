@@ -243,4 +243,17 @@ public class Mat3Math {
 
         return true;
     }
+
+    public static Matrix3 zeroMat() {
+        return new Mat3();
+    }
+
+    public static Matrix3 unitMat() {
+        Matrix3 result = new Mat3();
+        for (int i = 0; i < 3; i++) {
+            result.set(ROWS[i], COLS[i], 1);
+        }
+
+        return result;
+    }
 }

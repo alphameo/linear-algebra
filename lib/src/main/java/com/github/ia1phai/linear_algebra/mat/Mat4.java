@@ -182,6 +182,14 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
         return Mat4Math.isDiagonal(this);
     }
 
+    public Matrix4 zeroMat() {
+        return Mat4Math.zeroMat();
+    }
+
+    public Matrix4 unitMat() {
+        return Mat4Math.unitMat();
+    }
+
     @Override
     public boolean equalsTo(final Matrix4 mat) {
         return MatMath.equals(this, mat);

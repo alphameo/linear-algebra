@@ -239,4 +239,17 @@ public class Mat4Math {
 
         return true;
     }
+
+    public static Matrix4 zeroMat() {
+        return new Mat4();
+    }
+
+    public static Matrix4 unitMat() {
+        Matrix4 result = new Mat4();
+        for (int i = 0; i < 3; i++) {
+            result.set(ROWS[i], COLS[i], 1);
+        }
+
+        return result;
+    }
 }
