@@ -4,8 +4,6 @@ import java.util.Arrays;
 
 import com.github.ia1phai.linear_algebra.Copyable;
 import com.github.ia1phai.linear_algebra.Equatable;
-import com.github.ia1phai.linear_algebra.NumberChecker;
-import com.github.ia1phai.linear_algebra.vec.Vec;
 import com.github.ia1phai.linear_algebra.vec.Vector;
 
 /**
@@ -87,7 +85,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     public Matrix swapCols(final int c1, final int c2) {
-        MatMath.swapColumns(this, c1, c2);
+        MatMath.swapCols(this, c1, c2);
 
         return this;
     }

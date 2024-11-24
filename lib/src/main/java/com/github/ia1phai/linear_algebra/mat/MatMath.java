@@ -28,7 +28,7 @@ public class MatMath {
         }
     }
 
-    public static void swapColumns(final Matrix m, final int c1, final int c2) {
+    public static void swapCols(final Matrix m, final int c1, final int c2) {
         float tmp;
         for (int c = 0; c < m.height(); c++) {
             tmp = m.get(c, c1);
