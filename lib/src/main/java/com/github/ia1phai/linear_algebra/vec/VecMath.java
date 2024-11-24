@@ -80,6 +80,19 @@ public class VecMath {
         return true;
     }
 
+    public static Vector zeroVec(int size) {
+        return new Vec(size);
+    }
+
+    public static Vector unitVec(int size) {
+        Vector result = new Vec(size);
+        for (int i = 0; i < size; i++) {
+            result.set(i, 1);
+        }
+
+        return result;
+    }
+
     private static void checkSameVectorSizes(final Vector v1, final Vector v2,
             final String errMessage) {
         if (v1.size() != v2.size()) {
