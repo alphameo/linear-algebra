@@ -5,7 +5,6 @@ import com.github.ia1phai.linear_algebra.vec.Vec4;
 import com.github.ia1phai.linear_algebra.vec.Vector4;
 
 import static com.github.ia1phai.linear_algebra.mat.Matrix4Row.*;
-import static com.github.ia1phai.linear_algebra.mat.Matrix4Col.*;
 
 /**
  * UncheckedMatrixOperations
@@ -142,13 +141,11 @@ public class Mat4Math {
     }
 
     public static float det(final Matrix4 m) {
-        // TODO: Determinant
-        return m.get(R0, C0) * m.get(R1, C1) * m.get(R2, C2)
-                + m.get(R0, C1) * m.get(R1, C2) * m.get(R2, C0)
-                + m.get(R0, C2) * m.get(R1, C0) * m.get(R2, C1)
-                - m.get(R0, C2) * m.get(R1, C1) * m.get(R2, C0)
-                - m.get(R0, C0) * m.get(R1, C2) * m.get(R2, C1)
-                - m.get(R0, C1) * m.get(R1, C0) * m.get(R2, C2);
+        float determinant = 0;
+        for (Matrix4Col c : Matrix4Col.values()) {
+            determinant += m.get(R0, c) * cofactor(m, R0, c);
+        }
+        return determinant;
     }
 
     public static Matrix4 invertibleMatrix(final Matrix4 m) {
@@ -163,16 +160,16 @@ public class Mat4Math {
         return result;
     }
 
-    public static Matrix minorMatrix(final Matrix4 m, final Matrix4Row row, final Matrix4Col col) {
-        final Matrix result = new Mat(2);
+    public static Matrix3 minorMatrix(final Matrix4 m, final Matrix4Row r, final Matrix4Col c) {
+        final Matrix3 result = new Mat3();
         int destRow = 0;
         int destCol = 0;
         for (int i = 0; i < m.width(); i++) {
-            if (i == row.ordinal()) {
+            if (i == r.ordinal()) {
                 continue;
             }
             for (int j = 0; j < m.width(); j++) {
-                if (j == col.ordinal()) {
+                if (j == c.ordinal()) {
                     continue;
                 }
 
@@ -186,7 +183,7 @@ public class Mat4Math {
 
     public static float cofactor(final Matrix4 m, final Matrix4Row r, final Matrix4Col c) {
         final int coefficient = (r.ordinal() + c.ordinal()) % 2 == 0 ? 1 : -1;
-        return coefficient * MatMath.determinant(minorMatrix(m, r, c));
+        return coefficient * Mat3Math.det(minorMatrix(m, r, c));
     }
 
     public static Matrix4 cofactorMatrix(final Matrix4 m) {
