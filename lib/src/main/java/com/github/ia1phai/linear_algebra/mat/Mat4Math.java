@@ -34,7 +34,7 @@ public class Mat4Math {
         }
     }
 
-    public static void swapColumns(final Matrix4 m, final Matrix4Col c1, final Matrix4Col c2) {
+    public static void swapCols(final Matrix4 m, final Matrix4Col c1, final Matrix4Col c2) {
         float tmp;
         for (Matrix4Row r : ROWS) {
             tmp = m.get(r, c1);
@@ -142,6 +142,7 @@ public class Mat4Math {
     }
 
     public static float det(final Matrix4 m) {
+        // TODO: Determinant
         return m.get(R0, C0) * m.get(R1, C1) * m.get(R2, C2)
                 + m.get(R0, C1) * m.get(R1, C2) * m.get(R2, C0)
                 + m.get(R0, C2) * m.get(R1, C0) * m.get(R2, C1)
@@ -150,7 +151,7 @@ public class Mat4Math {
                 - m.get(R0, C1) * m.get(R1, C0) * m.get(R2, C2);
     }
 
-    public static Matrix invertibleMatrix(final Matrix4 m) {
+    public static Matrix4 invertibleMatrix(final Matrix4 m) {
         Matrix4 result = cofactorMatrix(m);
         float determinant = det(m);
 
@@ -211,6 +212,10 @@ public class Mat4Math {
         return true;
     }
 
+    public static boolean isSquare(Matrix4 m) {
+        return true;
+    }
+
     public static boolean isZeroed(Matrix4 m) {
         for (Matrix4Row r : ROWS) {
             for (Matrix4Col c : COLS) {
@@ -223,7 +228,7 @@ public class Mat4Math {
         return true;
     }
 
-    public boolean isDiagonal(Matrix4 m) {
+    public static boolean isDiagonal(Matrix4 m) {
         for (Matrix4Row r : ROWS) {
             for (Matrix4Col c : COLS) {
                 if (r.ordinal() == c.ordinal()) {

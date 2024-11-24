@@ -1,5 +1,7 @@
 package com.github.ia1phai.linear_algebra.mat;
 
+import java.util.Arrays;
+
 import com.github.ia1phai.linear_algebra.Copyable;
 import com.github.ia1phai.linear_algebra.Equatable;
 import com.github.ia1phai.linear_algebra.vec.Vec4;
@@ -10,48 +12,69 @@ import com.github.ia1phai.linear_algebra.vec.Vector4;
  */
 public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
 
-    Mat matrix;
+    float[][] entries;
 
     public Mat4() {
-        matrix = new Mat(4);
+        this.entries = new float[4][4];
     }
 
     public Mat4(final float entries[][]) {
-        matrix = new Mat(entries);
-        if (matrix.width() != 4) {
+        this();
+        for (int i = 0; i < entries.length; i++) {
+            if (entries[i].length != entries[0].length) {
+                throw new IllegalArgumentException(
+                        "Matrix 4x4 creation denied: input data has rows with different lengths");
+            }
+            this.entries[i] = Arrays.copyOf(entries[i], entries[i].length);
+        }
+        if (entries.length != 4 || entries[0].length != 4) {
             throw new IllegalArgumentException(String.format(
-                    "Square matrix 4x4 creation denied: input data has size %dx%d", matrix.height(),
-                    matrix.width()));
+                    "Matrix 4x4 creation denied: input data has size %dx%d", entries.length,
+                    entries[0].length));
         }
     }
 
     public Mat4(final Matrix4 m) {
         this();
-        for (int i = 0; i < m.height(); i++) {
-            for (int j = 0; j < m.width(); j++) {
-                this.set(i, j, m.get(i, j));
+        for (Matrix4Row r : Matrix4Row.values()) {
+            for (Matrix4Col c : Matrix4Col.values()) {
+                this.set(r, c, m.get(r, c));
             }
         }
     }
 
     @Override
-    public float get(final int row, final int col) {
-        return matrix.get(row, col);
+    public float get(final int r, final int c) {
+        if (r < 0 || r > 3) {
+            throw new IllegalArgumentException(String.format("Row %d is out of Mat3 bounds", r));
+        }
+        if (c < 0 || c > 3) {
+            throw new IllegalArgumentException(String.format("Column %d is out of Mat3 bounds", c));
+        }
+
+        return entries[r][c];
     }
 
     @Override
     public float get(final Matrix4Row row, final Matrix4Col col) {
-        return matrix.get(row.ordinal(), col.ordinal());
+        return entries[row.ordinal()][col.ordinal()];
     }
 
     @Override
-    public void set(final int row, final int col, final float value) {
-        matrix.set(row, col, value);
+    public void set(final int r, final int c, final float value) {
+        if (r < 0 || r > 3) {
+            throw new IllegalArgumentException(String.format("Row %d is out of Mat3 bounds", r));
+        }
+        if (c < 0 || c > 3) {
+            throw new IllegalArgumentException(String.format("Column %d is out of Mat3 bounds", c));
+        }
+
+        entries[r][c] = value;
     }
 
     @Override
-    public void set(final Matrix4Row row, final Matrix4Col col, final float value) {
-        matrix.set(row.ordinal(), col.ordinal(), value);
+    public void set(final Matrix4Row r, final Matrix4Col c, final float value) {
+        entries[r.ordinal()][c.ordinal()] = value;
     }
 
     @Override
@@ -65,7 +88,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     public Matrix4 transpose() {
-        matrix.transpose();
+        Mat4Math.transpose(this);
 
         return this;
     }
@@ -74,61 +97,54 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
         return this.copy().transpose();
     }
 
-    public void swapRows(final int r1, final int r2) {
-        matrix.swapRows(r1, r2);
+    public void swapRows(final Matrix4Row r1, final Matrix4Row r2) {
+        Mat4Math.swapRows(this, r1, r2);
     }
 
-    public void swapCols(final int c1, final int c2) {
-        matrix.swapCols(c1, c2);
+    public void swapCols(final Matrix4Col c1, final Matrix4Col c2) {
+        Mat4Math.swapCols(this, c1, c2);
     }
 
     public Matrix4 multiply(final float multiplier) {
-        matrix.multiply(multiplier);
+        Mat4Math.multiply(this, multiplier);
 
         return this;
     }
 
     public Matrix4 divide(final float divisor) {
-        matrix.divide(divisor);
+        Mat4Math.divide(this, divisor);
 
         return this;
     }
 
-    public Matrix4 add(final Matrix4 mat) {
-        MatMath.add(this, mat);
+    public Matrix4 add(final Matrix4 m) {
+        MatMath.add(this, m);
 
         return this;
     }
 
-    public Matrix4 plus(final Matrix4 mat) {
-        return this.copy().add(mat);
+    public Matrix4 plus(final Matrix4 m) {
+        return this.copy().add(m);
     }
 
-    public Matrix4 subtract(final Matrix4 mat) {
-        MatMath.subtract(this, mat);
+    public Matrix4 subtract(final Matrix4 m) {
+        MatMath.subtract(this, m);
 
         return this;
     }
 
-    public Matrix4 product(final Matrix4 mat) {
-        final Matrix4 result = new Mat4();
-        MatMath.product(this, mat, result);
-
-        return result;
+    public Matrix4 product(final Matrix4 m) {
+        return Mat4Math.product(this, m);
     }
 
-    public Vector4 product(final Vector4 vec) {
-        final Vector4 result = new Vec4();
-        MatMath.product(this, vec, result);
-
-        return result;
+    public Vector4 product(final Vector4 v) {
+        return Mat4Math.product(this, v);
     }
 
     public Matrix4 triangulate() {
-        final Matrix4 result = new Mat4();
-        MatMath.triangulate(this, this.width());
+        Mat4Math.triangulate(this);
 
-        return result;
+        return this;
     }
 
     public Matrix triangularTable() {
@@ -136,15 +152,11 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     public float det() {
-        return MatMath.determinant3(matrix);
+        return Mat4Math.det(this);
     }
 
     public Matrix4 invertible() {
-        final Matrix4 result = new Mat4();
-
-        MatMath.invertibleMatrix(this, result);
-
-        return result;
+        return Mat4Math.invertibleMatrix(this);
     }
 
     public Matrix minorMatrix(final int row, final int col) {
@@ -155,11 +167,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
         return MatMath.cofactor(this, row, col);
     }
 
-    public Matrix3 cofactorMatrix() {
-        final Matrix3 result = new Mat3();
-        MatMath.cofactorMatrix(this, result);
-
-        return result;
+    public Matrix4 cofactorMatrix() {
+        return Mat4Math.cofactorMatrix(this);
     }
 
     public boolean isSquare() {
@@ -167,11 +176,11 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     public boolean isZeroed() {
-        return matrix.isZeroed();
+        return Mat4Math.isZeroed(this);
     }
 
     public boolean isDiagonal() {
-        return matrix.isDiagonal();
+        return Mat4Math.isDiagonal(this);
     }
 
     @Override
@@ -183,9 +192,9 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     public Mat4 copy() {
         final Mat4 result = new Mat4();
 
-        for (int i = 0; i < width(); i++) {
-            for (int j = 0; j < width(); j++) {
-                result.set(i, j, matrix.get(i, j));
+        for (Matrix4Row r : Matrix4Row.values()) {
+            for (Matrix4Col c : Matrix4Col.values()) {
+                result.set(r, c, entries[r.ordinal()][c.ordinal()]);
             }
         }
 
