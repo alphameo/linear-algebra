@@ -81,32 +81,31 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     public Matrix swapRows(final int r1, final int r2) {
-        UncheckedMatrixMath.swapRows(this, r1, r2);
+        MatMath.swapRows(this, r1, r2);
 
         return this;
     }
 
     public Matrix swapCols(final int c1, final int c2) {
-        UncheckedMatrixMath.swapColumns(this, c1, c2);
+        MatMath.swapColumns(this, c1, c2);
 
         return this;
     }
 
     public Matrix multiply(final float multiplier) {
-        UncheckedMatrixMath.multiply(this, multiplier);
+        MatMath.multiply(this, multiplier);
 
         return this;
     }
 
     public Matrix divide(final float divisor) {
-        UncheckedMatrixMath.divide(this, divisor);
+        MatMath.divide(this, divisor);
 
         return this;
     }
 
     public Matrix add(final Matrix m) {
-        checkSameSizes(this, m, "Addition denied");
-        UncheckedMatrixMath.add(this, m);
+        MatMath.add(this, m);
 
         return this;
     }
@@ -116,8 +115,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     public Matrix subtract(final Matrix m) {
-        checkSameSizes(this, m, "Subtraction denied");
-        UncheckedMatrixMath.subtract(this, m);
+        MatMath.subtract(this, m);
 
         return this;
     }
@@ -127,34 +125,15 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     public Matrix product(final Matrix m) {
-        if (this.width() == m.height()) {
-            throw new IllegalArgumentException(
-                    String.format("Matrix product denied: matrices with sizes %dx%d and %dx%d", this.height(),
-                            this.width(), m.height(), m.width()));
-        }
-        final Matrix result = new Mat(this.height(), m.width());
-
-        UncheckedMatrixMath.product(this, m, result);
-
-        return result;
+        return MatMath.product(this, m);
     }
 
     public Vector product(final Vector v) {
-        if (this.width() != v.size()) {
-            throw new IllegalArgumentException(
-                    String.format("Matrix and vector product denied: matrix with size %dx%d and vector with size",
-                            this.height(),
-                            this.width(), v.size()));
-        }
-
-        final Vector result = new Vec(v.size());
-        UncheckedMatrixMath.product(this, v, result);
-
-        return result;
+        return MatMath.product(this, v);
     }
 
     public Matrix triangulate() {
-        UncheckedMatrixMath.triangulate(this, Math.max(this.height(), this.width()));
+        MatMath.triangulate(this);
 
         return this;
     }
@@ -164,87 +143,43 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     public float det() {
-        if (!this.isSquare()) {
-            throw new UnsupportedOperationException("Determinant does not exists: matrix is not square");
-        }
-
-        return UncheckedMatrixMath.determinant(this);
+        return MatMath.determinant(this);
     }
 
     public Matrix invertible() {
-        if (!this.isSquare()) {
-            throw new UnsupportedOperationException("Invertible matrix does not exists: matrix is not square");
-        }
-
-        final Matrix result = new Mat(this.height(), this.width());
-
-        UncheckedMatrixMath.invertibleMatrix(this, result);
-
-        return result;
+        return MatMath.invertibleMatrix(this);
     }
 
-    public Matrix minorMatrix(final int row, final int col) {
-        if (!this.isSquare()) {
-            throw new UnsupportedOperationException("Minors do not exist: matrix is not square");
-        }
-
-        return UncheckedMatrixMath.minorMatrix(this, row, col);
+    public Matrix minorMatrix(final int r, final int c) {
+        return MatMath.minorMatrix(this, r, c);
     }
 
-    public float cofactor(final int row, final int col) {
-        if (!this.isSquare()) {
-            throw new UnsupportedOperationException("Can not find cofactor: matrix is not square");
-        }
-
-        return UncheckedMatrixMath.cofactor(this, row, col);
+    public float cofactor(final int r, final int c) {
+        return MatMath.cofactor(this, r, c);
     }
 
     public Matrix cofactorMatrix() {
-        if (!this.isSquare()) {
-            throw new UnsupportedOperationException("Cofactor matrix does not exist: matrix is not square");
-        }
-
         final Matrix result = new Mat(this.height(), this.width());
-        UncheckedMatrixMath.cofactorMatrix(this, result);
+        MatMath.cofactorMatrix(this);
 
         return result;
     }
 
     public boolean isSquare() {
-        return width() == height();
+        return MatMath.isSquare(this);
     }
 
     public boolean isZeroed() {
-        for (int i = 0; i < height(); i++) {
-            for (int j = 0; j < width(); j++) {
-                if (entries[i][j] != 0) {
-                    return false;
-                }
-            }
-        }
-
-        return true;
+        return MatMath.isZeroed(this);
     }
 
     public boolean isDiagonal() {
-        for (int i = 0; i < height(); i++) {
-            for (int j = 0; j < width(); j++) {
-                if (i == j) {
-                    continue;
-                }
-                if (Math.abs(this.get(i, j)) < NumberChecker.EPS) {
-                    return false;
-                }
-            }
-        }
-
-        return true;
+        return MatMath.isDiagonal(this);
     }
 
     @Override
     public boolean equalsTo(final Matrix m) {
-        checkSameSizes(this, m, "Equalizationt denied");
-        return UncheckedMatrixMath.equals(this, m);
+        return MatMath.equals(this, m);
     }
 
     @Override
@@ -260,11 +195,4 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
         return result;
     }
 
-    private static void checkSameSizes(final Matrix m1, final Matrix m2,
-            final String errMessage) {
-        if (m1.width() != m2.width() || m1.height() != m2.height()) {
-            throw new IllegalArgumentException(String.format("%s: matrices with different sizes (%dx%d and %dx%d)",
-                    errMessage, m1.height(), m1.width(), m2.height(), m2.width()));
-        }
-    }
 }
