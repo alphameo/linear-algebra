@@ -130,16 +130,6 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
         return Vec3Math.unitVec();
     }
 
-    @Override
-    public boolean equalsTo(final Vector3 other) {
-        return Vec3Math.equals(this, other);
-    }
-
-    @Override
-    public Vec3 copy() {
-        return new Vec3(this.x(), this.y(), this.y());
-    }
-
     public Vector4 toVec4() {
         return new Vec4(x(), y(), z(), 1);
     }
@@ -150,6 +140,16 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
 
     public static Vector3 unitVector() {
         return new Vec3(1, 1, 1);
+    }
+
+    @Override
+    public boolean equalsTo(final Vector3 other) {
+        return Vec3Math.equals(this, other);
+    }
+
+    @Override
+    public Vec3 copy() {
+        return new Vec3(this.x(), this.y(), this.y());
     }
 
     @Override

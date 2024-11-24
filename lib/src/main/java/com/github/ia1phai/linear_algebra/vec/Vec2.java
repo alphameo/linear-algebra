@@ -113,6 +113,14 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
         return Vec2Math.unitVec();
     }
 
+    public static Vector3 zeroVector() {
+        return new Vec3();
+    }
+
+    public static Vector3 unitVector() {
+        return new Vec3(1, 1, 1);
+    }
+
     @Override
     public boolean equalsTo(final Vector2 v) {
         return Vec2Math.equals(this, v);
