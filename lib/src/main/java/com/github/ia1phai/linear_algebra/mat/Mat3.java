@@ -1,12 +1,9 @@
 package com.github.ia1phai.linear_algebra.mat;
 
-import static com.github.ia1phai.linear_algebra.mat.Matrix3Col.values;
-
 import java.util.Arrays;
 
 import com.github.ia1phai.linear_algebra.Copyable;
 import com.github.ia1phai.linear_algebra.Equatable;
-import com.github.ia1phai.linear_algebra.vec.Vec3;
 import com.github.ia1phai.linear_algebra.vec.Vector3;
 
 /**
@@ -31,7 +28,7 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
         }
         if (entries.length != 3 || entries[0].length != 3) {
             throw new IllegalArgumentException(String.format(
-                    "Square matrix 3x3 creation denied: input data has size %dx%d", entries.length,
+                    "Matrix 3x3 creation denied: input data has size %dx%d", entries.length,
                     entries[0].length));
         }
     }
