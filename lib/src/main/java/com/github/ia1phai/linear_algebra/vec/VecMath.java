@@ -61,7 +61,7 @@ public class VecMath {
                     String.format(String.format("Cross product denien: vector size must be 3, but given are %d, %d"),
                             v1.size(), v2.size()));
         }
-        Vector result = new Vec(3);
+        final Vector result = new Vec(3);
         result.set(0, v1.get(1) * v2.get(2) - v1.get(2) * v2.get(1));
         result.set(1, v1.get(2) * v2.get(0) - v1.get(0) * v2.get(2));
         result.set(2, v1.get(0) * v2.get(1) - v1.get(1) * v2.get(0));
@@ -80,12 +80,12 @@ public class VecMath {
         return true;
     }
 
-    public static Vector zeroVec(int size) {
+    public static Vector zeroVec(final int size) {
         return new Vec(size);
     }
 
-    public static Vector unitVec(int size) {
-        Vector result = new Vec(size);
+    public static Vector unitVec(final int size) {
+        final Vector result = new Vec(size);
         for (int i = 0; i < size; i++) {
             result.set(i, 1);
         }

@@ -11,8 +11,8 @@ import static com.github.ia1phai.linear_algebra.mat.Matrix4Row.*;
  */
 public class Mat4Math {
 
-    public static Matrix4Row[] ROWS = Matrix4Row.values();
-    public static Matrix4Col[] COLS = Matrix4Col.values();
+    public static final Matrix4Row[] ROWS = Matrix4Row.values();
+    public static final Matrix4Col[] COLS = Matrix4Col.values();
 
     public static void transpose(final Matrix4 m) {
         for (int i = 0; i < m.width(); i++) {
@@ -26,7 +26,7 @@ public class Mat4Math {
 
     public static void swapRows(final Matrix4 m, final Matrix4Row r1, final Matrix4Row r2) {
         float tmp;
-        for (Matrix4Col c : COLS) {
+        for (final Matrix4Col c : COLS) {
             tmp = m.get(r1, c);
             m.set(r1, c, m.get(r2, c));
             m.set(r2, c, tmp);
@@ -35,7 +35,7 @@ public class Mat4Math {
 
     public static void swapCols(final Matrix4 m, final Matrix4Col c1, final Matrix4Col c2) {
         float tmp;
-        for (Matrix4Row r : ROWS) {
+        for (final Matrix4Row r : ROWS) {
             tmp = m.get(r, c1);
             m.set(r, c1, m.get(r, c2));
             m.set(r, c2, tmp);
@@ -43,8 +43,8 @@ public class Mat4Math {
     }
 
     public static void multiply(final Matrix4 m, final float multiplier) {
-        for (Matrix4Row r : ROWS) {
-            for (Matrix4Col c : COLS) {
+        for (final Matrix4Row r : ROWS) {
+            for (final Matrix4Col c : COLS) {
                 m.set(r, c, m.get(r, c) * multiplier);
             }
         }
@@ -52,33 +52,33 @@ public class Mat4Math {
 
     public static void divide(final Matrix4 m, final float divisor) {
         NumberChecker.checkDivisor(divisor);
-        for (Matrix4Row r : ROWS) {
-            for (Matrix4Col c : COLS) {
+        for (final Matrix4Row r : ROWS) {
+            for (final Matrix4Col c : COLS) {
                 m.set(r, c, m.get(r, c) / divisor);
             }
         }
     }
 
     public static void add(final Matrix4 target, final Matrix4 addendum) {
-        for (Matrix4Row r : ROWS) {
-            for (Matrix4Col c : COLS) {
+        for (final Matrix4Row r : ROWS) {
+            for (final Matrix4Col c : COLS) {
                 target.set(r, c, target.get(r, c) + addendum.get(r, c));
             }
         }
     }
 
     public static void subtract(final Matrix4 target, final Matrix4 subtrahend) {
-        for (Matrix4Row r : ROWS) {
-            for (Matrix4Col c : COLS) {
+        for (final Matrix4Row r : ROWS) {
+            for (final Matrix4Col c : COLS) {
                 target.set(r, c, target.get(r, c) - subtrahend.get(r, c));
             }
         }
     }
 
     public static Matrix4 product(final Matrix4 m1, final Matrix4 m2) {
-        Matrix4 result = new Mat4();
-        for (Matrix4Row r : ROWS) {
-            for (Matrix4Col c : COLS) {
+        final Matrix4 result = new Mat4();
+        for (final Matrix4Row r : ROWS) {
+            for (final Matrix4Col c : COLS) {
                 float value = 0;
                 for (int i = 0; i < m1.height(); i++) {
                     value += m1.get(r, COLS[i]) * m2.get(ROWS[i], c);
@@ -91,7 +91,7 @@ public class Mat4Math {
     }
 
     public static Vector4 product(final Matrix4 m, final Vector4 v) {
-        Vector4 result = new Vec4();
+        final Vector4 result = new Vec4();
         for (int i = 0; i < m.height(); i++) {
             float value = 0;
             for (int elem = 0; elem < v.size(); elem++) {
@@ -111,7 +111,7 @@ public class Mat4Math {
             if (Math.abs(m.get(ROWS[i], COLS[i])) < NumberChecker.EPS) {
                 boolean isNonZeroFound = false;
 
-                for (Matrix4Row r : ROWS) {
+                for (final Matrix4Row r : ROWS) {
                     if (m.get(r, COLS[i]) != 0) {
                         swapRows(m, ROWS[i], r);
                         countOfSwaps++;
@@ -124,10 +124,10 @@ public class Mat4Math {
                     continue;
             }
 
-            for (Matrix4Row r : ROWS) {
+            for (final Matrix4Row r : ROWS) {
                 final float coefficient = -(m.get(r, COLS[i]) / m.get(ROWS[i], COLS[i]));
 
-                for (Matrix4Col c : COLS) {
+                for (final Matrix4Col c : COLS) {
                     m.set(r, c, m.get(r, c) + coefficient * m.get(ROWS[i], c));
                 }
             }
@@ -142,15 +142,15 @@ public class Mat4Math {
 
     public static float det(final Matrix4 m) {
         float determinant = 0;
-        for (Matrix4Col c : Matrix4Col.values()) {
+        for (final Matrix4Col c : Matrix4Col.values()) {
             determinant += m.get(R0, c) * cofactor(m, R0, c);
         }
         return determinant;
     }
 
     public static Matrix4 invertibleMatrix(final Matrix4 m) {
-        Matrix4 result = cofactorMatrix(m);
-        float determinant = det(m);
+        final Matrix4 result = cofactorMatrix(m);
+        final float determinant = det(m);
 
         if (determinant == 0) {
             throw new RuntimeException("Invertible matrix does not exitst: determinant is 0");
@@ -187,9 +187,9 @@ public class Mat4Math {
     }
 
     public static Matrix4 cofactorMatrix(final Matrix4 m) {
-        Matrix4 result = new Mat4();
-        for (Matrix4Row r : ROWS) {
-            for (Matrix4Col c : COLS) {
+        final Matrix4 result = new Mat4();
+        for (final Matrix4Row r : ROWS) {
+            for (final Matrix4Col c : COLS) {
                 result.set(r, c, cofactor(m, r, c));
             }
         }
@@ -198,8 +198,8 @@ public class Mat4Math {
     }
 
     public static boolean equals(final Matrix4 target, final Matrix4 subtrahend) {
-        for (Matrix4Row r : ROWS) {
-            for (Matrix4Col c : COLS) {
+        for (final Matrix4Row r : ROWS) {
+            for (final Matrix4Col c : COLS) {
                 if (Math.abs(target.get(r, c) - subtrahend.get(r, c)) < NumberChecker.EPS) {
                     return false;
                 }
@@ -209,13 +209,13 @@ public class Mat4Math {
         return true;
     }
 
-    public static boolean isSquare(Matrix4 m) {
+    public static boolean isSquare(final Matrix4 m) {
         return true;
     }
 
-    public static boolean isZeroed(Matrix4 m) {
-        for (Matrix4Row r : ROWS) {
-            for (Matrix4Col c : COLS) {
+    public static boolean isZeroed(final Matrix4 m) {
+        for (final Matrix4Row r : ROWS) {
+            for (final Matrix4Col c : COLS) {
                 if (m.get(r, c) != 0) {
                     return false;
                 }
@@ -225,9 +225,9 @@ public class Mat4Math {
         return true;
     }
 
-    public static boolean isDiagonal(Matrix4 m) {
-        for (Matrix4Row r : ROWS) {
-            for (Matrix4Col c : COLS) {
+    public static boolean isDiagonal(final Matrix4 m) {
+        for (final Matrix4Row r : ROWS) {
+            for (final Matrix4Col c : COLS) {
                 if (r.ordinal() == c.ordinal()) {
                     continue;
                 }
@@ -245,7 +245,7 @@ public class Mat4Math {
     }
 
     public static Matrix4 unitMat() {
-        Matrix4 result = new Mat4();
+        final Matrix4 result = new Mat4();
         for (int i = 0; i < 3; i++) {
             result.set(ROWS[i], COLS[i], 1);
         }

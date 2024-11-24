@@ -53,7 +53,7 @@ public class Vec3Math {
         return v1.x() == v2.x() && v1.y() == v2.y() && v1.z() == v2.z();
     }
 
-    public static Vector4 toVec4(Vector3 v) {
+    public static Vector4 toVec4(final Vector3 v) {
         return new Vec4(v.x(), v.y(), v.z(), 1);
     }
 

@@ -42,7 +42,7 @@ public class Vec2Math {
         return v1.x() == v2.x() && v1.y() == v2.y();
     }
 
-    public static Vector3 toVec3(Vector2 v) {
+    public static Vector3 toVec3(final Vector2 v) {
         return new Vec3(v.x(), v.y(), 1);
     }
 

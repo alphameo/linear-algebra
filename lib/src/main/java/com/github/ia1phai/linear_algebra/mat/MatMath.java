@@ -80,7 +80,7 @@ public class MatMath {
                     String.format("Matrix product denied: matrices with sizes %dx%d and %dx%d", m1.height(),
                             m1.width(), m2.height(), m2.width()));
         }
-        Matrix result = new Mat(m1.width(), m2.height());
+        final Matrix result = new Mat(m1.width(), m2.height());
         for (int r = 0; r < m1.height(); r++) {
             for (int c = 0; c < m2.width(); c++) {
                 float value = 0;
@@ -103,7 +103,7 @@ public class MatMath {
                             m.height(),
                             m.width(), v.size()));
         }
-        Vector result = new Vec(v.size());
+        final Vector result = new Vec(v.size());
         for (int i = 0; i < m.height(); i++) {
             float value = 0;
             for (int elem = 0; elem < v.size(); elem++) {
@@ -118,7 +118,7 @@ public class MatMath {
 
     public static void triangulate(final Matrix m) {
         int countOfSwaps = 0;
-        int maxSize = Math.max(m.height(), m.width());
+        final int maxSize = Math.max(m.height(), m.width());
 
         for (int i = 0; i < maxSize; i++) {
             if (Math.abs(m.get(i, i)) < NumberChecker.EPS) {
@@ -194,7 +194,7 @@ public class MatMath {
         if (!isSquare(m)) {
             throw new UnsupportedOperationException("Invertible matrix does not exists: matrix is not square");
         }
-        Matrix result = cofactorMatrix(m);
+        final Matrix result = cofactorMatrix(m);
         float determinant = 0;
 
         for (int i = 0; i < m.width(); i++) {
@@ -248,7 +248,7 @@ public class MatMath {
             throw new UnsupportedOperationException("Cofactor matrix does not exist: matrix is not square");
         }
 
-        Matrix result = new Mat(m.height(), m.width());
+        final Matrix result = new Mat(m.height(), m.width());
         for (int i = 0; i < m.height(); i++) {
             for (int j = 0; j < m.width(); j++) {
                 result.set(i, j, cofactor(m, i, j));
@@ -289,11 +289,11 @@ public class MatMath {
         return true;
     }
 
-    public static boolean isSquare(Matrix m) {
+    public static boolean isSquare(final Matrix m) {
         return m.width() == m.height();
     }
 
-    public static boolean isZeroed(Matrix m) {
+    public static boolean isZeroed(final Matrix m) {
         for (int i = 0; i < m.height(); i++) {
             for (int j = 0; j < m.width(); j++) {
                 if (m.get(i, j) != 0) {
@@ -305,7 +305,7 @@ public class MatMath {
         return true;
     }
 
-    public static boolean isDiagonal(Matrix m) {
+    public static boolean isDiagonal(final Matrix m) {
         if (m.width() != m.height()) {
             return false;
         }
@@ -324,12 +324,12 @@ public class MatMath {
         return true;
     }
 
-    public static Matrix zeroMat(int height, int width) {
+    public static Matrix zeroMat(final int height, final int width) {
         return new Mat(height, width);
     }
 
-    public static Matrix unitMat(int size) {
-        Matrix result = new Mat(size);
+    public static Matrix unitMat(final int size) {
+        final Matrix result = new Mat(size);
         for (int i = 0; i < size; i++) {
             result.set(i, i, 1);
         }

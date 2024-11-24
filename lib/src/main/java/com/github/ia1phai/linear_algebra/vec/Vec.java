@@ -89,11 +89,11 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
         return VecMath.cross(this, v);
     }
 
-    public static Vector zeroVector(int size) {
+    public static Vector zeroVector(final int size) {
         return VecMath.zeroVec(size);
     }
 
-    public static Vector unitVector(int size) {
+    public static Vector unitVector(final int size) {
         return VecMath.unitVec(size);
     }
 

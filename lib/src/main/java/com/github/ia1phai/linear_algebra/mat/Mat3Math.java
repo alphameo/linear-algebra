@@ -12,8 +12,8 @@ import static com.github.ia1phai.linear_algebra.mat.Matrix3Col.*;
  */
 public class Mat3Math {
 
-    public static Matrix3Row[] ROWS = Matrix3Row.values();
-    public static Matrix3Col[] COLS = Matrix3Col.values();
+    public static final Matrix3Row[] ROWS = Matrix3Row.values();
+    public static final Matrix3Col[] COLS = Matrix3Col.values();
 
     public static void transpose(final Matrix3 m) {
         for (int i = 0; i < m.width(); i++) {
@@ -27,7 +27,7 @@ public class Mat3Math {
 
     public static void swapRows(final Matrix3 m, final Matrix3Row r1, final Matrix3Row r2) {
         float tmp;
-        for (Matrix3Col c : COLS) {
+        for (final Matrix3Col c : COLS) {
             tmp = m.get(r1, c);
             m.set(r1, c, m.get(r2, c));
             m.set(r2, c, tmp);
@@ -36,7 +36,7 @@ public class Mat3Math {
 
     public static void swapCols(final Matrix3 m, final Matrix3Col c1, final Matrix3Col c2) {
         float tmp;
-        for (Matrix3Row r : ROWS) {
+        for (final Matrix3Row r : ROWS) {
             tmp = m.get(r, c1);
             m.set(r, c1, m.get(r, c2));
             m.set(r, c2, tmp);
@@ -44,8 +44,8 @@ public class Mat3Math {
     }
 
     public static void multiply(final Matrix3 m, final float multiplier) {
-        for (Matrix3Row r : ROWS) {
-            for (Matrix3Col c : COLS) {
+        for (final Matrix3Row r : ROWS) {
+            for (final Matrix3Col c : COLS) {
                 m.set(r, c, m.get(r, c) * multiplier);
             }
         }
@@ -53,33 +53,33 @@ public class Mat3Math {
 
     public static void divide(final Matrix3 m, final float divisor) {
         NumberChecker.checkDivisor(divisor);
-        for (Matrix3Row r : ROWS) {
-            for (Matrix3Col c : COLS) {
+        for (final Matrix3Row r : ROWS) {
+            for (final Matrix3Col c : COLS) {
                 m.set(r, c, m.get(r, c) / divisor);
             }
         }
     }
 
     public static void add(final Matrix3 target, final Matrix3 addendum) {
-        for (Matrix3Row r : ROWS) {
-            for (Matrix3Col c : COLS) {
+        for (final Matrix3Row r : ROWS) {
+            for (final Matrix3Col c : COLS) {
                 target.set(r, c, target.get(r, c) + addendum.get(r, c));
             }
         }
     }
 
     public static void subtract(final Matrix3 target, final Matrix3 subtrahend) {
-        for (Matrix3Row r : ROWS) {
-            for (Matrix3Col c : COLS) {
+        for (final Matrix3Row r : ROWS) {
+            for (final Matrix3Col c : COLS) {
                 target.set(r, c, target.get(r, c) - subtrahend.get(r, c));
             }
         }
     }
 
     public static Matrix3 product(final Matrix3 m1, final Matrix3 m2) {
-        Matrix3 result = new Mat3();
-        for (Matrix3Row r : ROWS) {
-            for (Matrix3Col c : COLS) {
+        final Matrix3 result = new Mat3();
+        for (final Matrix3Row r : ROWS) {
+            for (final Matrix3Col c : COLS) {
                 float value = 0;
                 for (int i = 0; i < m1.height(); i++) {
                     value += m1.get(r, COLS[i]) * m2.get(ROWS[i], c);
@@ -92,7 +92,7 @@ public class Mat3Math {
     }
 
     public static Vector3 product(final Matrix3 m, final Vector3 v) {
-        Vector3 result = new Vec3();
+        final Vector3 result = new Vec3();
         for (int i = 0; i < m.height(); i++) {
             float value = 0;
             for (int elem = 0; elem < v.size(); elem++) {
@@ -112,7 +112,7 @@ public class Mat3Math {
             if (Math.abs(m.get(ROWS[i], COLS[i])) < NumberChecker.EPS) {
                 boolean isNonZeroFound = false;
 
-                for (Matrix3Row r : ROWS) {
+                for (final Matrix3Row r : ROWS) {
                     if (m.get(r, COLS[i]) != 0) {
                         swapRows(m, ROWS[i], r);
                         countOfSwaps++;
@@ -125,10 +125,10 @@ public class Mat3Math {
                     continue;
             }
 
-            for (Matrix3Row r : ROWS) {
+            for (final Matrix3Row r : ROWS) {
                 final float coefficient = -(m.get(r, COLS[i]) / m.get(ROWS[i], COLS[i]));
 
-                for (Matrix3Col c : COLS) {
+                for (final Matrix3Col c : COLS) {
                     m.set(r, c, m.get(r, c) + coefficient * m.get(ROWS[i], c));
                 }
             }
@@ -153,8 +153,8 @@ public class Mat3Math {
     }
 
     public static Matrix3 invertible(final Matrix3 m) {
-        Matrix3 result = cofactorMatrix(m);
-        float determinant = det(m);
+        final Matrix3 result = cofactorMatrix(m);
+        final float determinant = det(m);
 
         if (determinant == 0) {
             throw new RuntimeException("Invertible matrix does not exitst: determinant is 0");
@@ -191,9 +191,9 @@ public class Mat3Math {
     }
 
     public static Matrix3 cofactorMatrix(final Matrix3 m) {
-        Matrix3 result = new Mat3();
-        for (Matrix3Row r : ROWS) {
-            for (Matrix3Col c : COLS) {
+        final Matrix3 result = new Mat3();
+        for (final Matrix3Row r : ROWS) {
+            for (final Matrix3Col c : COLS) {
                 result.set(r, c, cofactor(m, r, c));
             }
         }
@@ -202,8 +202,8 @@ public class Mat3Math {
     }
 
     public static boolean equals(final Matrix3 target, final Matrix3 subtrahend) {
-        for (Matrix3Row r : ROWS) {
-            for (Matrix3Col c : COLS) {
+        for (final Matrix3Row r : ROWS) {
+            for (final Matrix3Col c : COLS) {
                 if (Math.abs(target.get(r, c) - subtrahend.get(r, c)) < NumberChecker.EPS) {
                     return false;
                 }
@@ -213,13 +213,13 @@ public class Mat3Math {
         return true;
     }
 
-    public static boolean isSquare(Matrix3 m) {
+    public static boolean isSquare(final Matrix3 m) {
         return true;
     }
 
-    public static boolean isZeroed(Matrix3 m) {
-        for (Matrix3Row r : ROWS) {
-            for (Matrix3Col c : COLS) {
+    public static boolean isZeroed(final Matrix3 m) {
+        for (final Matrix3Row r : ROWS) {
+            for (final Matrix3Col c : COLS) {
                 if (m.get(r, c) != 0) {
                     return false;
                 }
@@ -229,9 +229,9 @@ public class Mat3Math {
         return true;
     }
 
-    public static boolean isDiagonal(Matrix3 m) {
-        for (Matrix3Row r : ROWS) {
-            for (Matrix3Col c : COLS) {
+    public static boolean isDiagonal(final Matrix3 m) {
+        for (final Matrix3Row r : ROWS) {
+            for (final Matrix3Col c : COLS) {
                 if (r.ordinal() == c.ordinal()) {
                     continue;
                 }
@@ -244,8 +244,8 @@ public class Mat3Math {
         return true;
     }
 
-    public static Matrix4 toMat4(Matrix3 m, Matrix4Row insertionRow, Matrix4Col insertionCol) {
-        Matrix4 result = new Mat4();
+    public static Matrix4 toMat4(final Matrix3 m, final Matrix4Row insertionRow, final Matrix4Col insertionCol) {
+        final Matrix4 result = new Mat4();
         for (int r = 0; r < 3; r++) {
             if (r == insertionCol.ordinal()) {
                 continue;
@@ -263,7 +263,7 @@ public class Mat3Math {
         return result;
     }
 
-    public static Matrix4 toMat4(Matrix3 m) {
+    public static Matrix4 toMat4(final Matrix3 m) {
         return toMat4(m, Matrix4Row.R3, Matrix4Col.C3);
     }
 
@@ -272,7 +272,7 @@ public class Mat3Math {
     }
 
     public static Matrix3 unitMat() {
-        Matrix3 result = new Mat3();
+        final Matrix3 result = new Mat3();
         for (int i = 0; i < 3; i++) {
             result.set(ROWS[i], COLS[i], 1);
         }

@@ -35,8 +35,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
 
     public Mat4(final Matrix4 m) {
         this();
-        for (Matrix4Row r : Matrix4Row.values()) {
-            for (Matrix4Col c : Matrix4Col.values()) {
+        for (final Matrix4Row r : Matrix4Row.values()) {
+            for (final Matrix4Col c : Matrix4Col.values()) {
                 this.set(r, c, m.get(r, c));
             }
         }
@@ -199,8 +199,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     public Mat4 copy() {
         final Mat4 result = new Mat4();
 
-        for (Matrix4Row r : Matrix4Row.values()) {
-            for (Matrix4Col c : Matrix4Col.values()) {
+        for (final Matrix4Row r : Matrix4Row.values()) {
+            for (final Matrix4Col c : Matrix4Col.values()) {
                 result.set(r, c, entries[r.ordinal()][c.ordinal()]);
             }
         }

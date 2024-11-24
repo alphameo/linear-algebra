@@ -175,11 +175,11 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
         return MatMath.isDiagonal(this);
     }
 
-    public Matrix zeroMat(int height, int width) {
+    public Matrix zeroMat(final int height, final int width) {
         return MatMath.zeroMat(height, width);
     }
 
-    public Matrix unitMat(int size) {
+    public Matrix unitMat(final int size) {
         return MatMath.unitMat(size);
     }
 
