@@ -128,7 +128,7 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
     }
 
     public static Vector4 unitVector() {
-        return new Vec4(1, 1, 1, 1);
+        return Vec4Math.unitVec();
     }
 
     @Override

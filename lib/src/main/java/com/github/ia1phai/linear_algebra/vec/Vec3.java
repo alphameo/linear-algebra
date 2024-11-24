@@ -135,11 +135,11 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
     }
 
     public static Vector3 zeroVector() {
-        return new Vec3();
+        return Vec3Math.zeroVec();
     }
 
     public static Vector3 unitVector() {
-        return new Vec3(1, 1, 1);
+        return Vec3Math.zeroVec();
     }
 
     @Override
