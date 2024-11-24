@@ -324,6 +324,19 @@ public class MatMath {
         return true;
     }
 
+    public static Matrix zeroMat(int height, int width) {
+        return new Mat(height, width);
+    }
+
+    public static Matrix unitMat(int size) {
+        Matrix result = new Mat(size);
+        for (int i = 0; i < size; i++) {
+            result.set(i, i, 1);
+        }
+
+        return result;
+    }
+
     public static void validateSizes(final Matrix m1, final Matrix m2,
             final String errMessage) {
         if (m1.width() != m2.width() || m1.height() != m2.height()) {

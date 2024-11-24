@@ -175,6 +175,14 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
         return MatMath.isDiagonal(this);
     }
 
+    public Matrix zeroMat(int height, int width) {
+        return MatMath.zeroMat(height, width);
+    }
+
+    public Matrix unitMat(int size) {
+        return MatMath.unitMat(size);
+    }
+
     @Override
     public boolean equalsTo(final Matrix m) {
         return MatMath.equals(this, m);
