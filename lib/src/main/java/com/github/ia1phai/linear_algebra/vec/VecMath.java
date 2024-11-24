@@ -31,7 +31,7 @@ public class VecMath {
 
     public static void add(final Vector target,
             final Vector addendum) {
-        checkSameVectorSizes(target, addendum, "Addition denied");
+        validateSizes(target, addendum, "Addition denied");
         for (int i = 0; i < target.size(); i++) {
             target.set(i, target.get(i) + addendum.get(i));
         }
@@ -39,14 +39,14 @@ public class VecMath {
 
     public static void subtract(final Vector target,
             final Vector subtrahend) {
-        checkSameVectorSizes(target, subtrahend, "Subtraction denied");
+        validateSizes(target, subtrahend, "Subtraction denied");
         for (int i = 0; i < target.size(); i++) {
             target.set(i, target.get(i) - subtrahend.get(i));
         }
     }
 
     public static float dot(final Vector v1, final Vector v2) {
-        checkSameVectorSizes(v1, v2, "Scalar product denied");
+        validateSizes(v1, v2, "Scalar product denied");
         float sum = 0;
         for (int i = 0; i < v1.size(); i++) {
             sum += v1.get(i) * v2.get(i);
@@ -70,7 +70,7 @@ public class VecMath {
     }
 
     public static boolean equals(final Vector v1, final Vector v2) {
-        checkSameVectorSizes(v1, v2, "Equalization denied");
+        validateSizes(v1, v2, "Equalization denied");
         for (int i = 0; i < v1.size(); i++) {
             if (Math.abs(v1.get(i) - v2.get(i)) >= NumberChecker.EPS) {
                 return false;
@@ -93,7 +93,7 @@ public class VecMath {
         return result;
     }
 
-    private static void checkSameVectorSizes(final Vector v1, final Vector v2,
+    private static void validateSizes(final Vector v1, final Vector v2,
             final String errMessage) {
         if (v1.size() != v2.size()) {
             throw new IllegalArgumentException(String.format("%s: vectors with different lengths (%d and %d)",

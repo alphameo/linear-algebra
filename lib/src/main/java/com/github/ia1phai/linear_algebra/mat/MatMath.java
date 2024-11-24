@@ -55,7 +55,7 @@ public class MatMath {
     }
 
     public static void add(final Matrix target, final Matrix addendum) {
-        checkSameSizes(target, addendum, "Addition denied");
+        validateSizes(target, addendum, "Addition denied");
         for (int r = 0; r < target.height(); r++) {
             for (int c = 0; c < addendum.width(); c++) {
                 target.set(r, c, target.get(r, c) + addendum.get(r, c));
@@ -65,7 +65,7 @@ public class MatMath {
 
     public static void subtract(final Matrix target,
             final Matrix subtrahend) {
-        checkSameSizes(target, subtrahend, "Subtraction denied");
+        validateSizes(target, subtrahend, "Subtraction denied");
         for (int r = 0; r < target.height(); r++) {
             for (int c = 0; c < subtrahend.width(); c++) {
                 target.set(r, c, target.get(r, c) - subtrahend.get(r, c));
@@ -277,7 +277,7 @@ public class MatMath {
     }
 
     public static boolean equals(final Matrix target, final Matrix subtrahend) {
-        checkSameSizes(target, subtrahend, "Equalizationt denied");
+        validateSizes(target, subtrahend, "Equalizationt denied");
         for (int i = 0; i < target.height(); i++) {
             for (int j = 0; i < subtrahend.width(); j++) {
                 if (Math.abs(target.get(i, j) - subtrahend.get(i, j)) < NumberChecker.EPS) {
@@ -324,7 +324,7 @@ public class MatMath {
         return true;
     }
 
-    public static void checkSameSizes(final Matrix m1, final Matrix m2,
+    public static void validateSizes(final Matrix m1, final Matrix m2,
             final String errMessage) {
         if (m1.width() != m2.width() || m1.height() != m2.height()) {
             throw new IllegalArgumentException(String.format("%s: matrices with different sizes (%dx%d and %dx%d)",
