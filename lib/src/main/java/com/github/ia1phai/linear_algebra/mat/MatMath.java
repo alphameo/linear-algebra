@@ -169,7 +169,7 @@ public class MatMath {
     }
 
     public static float determinant(final Matrix m) {
-        if (!m.isSquare()) {
+        if (!isSquare(m)) {
             throw new UnsupportedOperationException("Determinant does not exists: matrix is not square");
         }
 
