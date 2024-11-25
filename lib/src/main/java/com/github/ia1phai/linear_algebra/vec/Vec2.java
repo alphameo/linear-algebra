@@ -15,6 +15,7 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
     }
 
     public Vec2(final float x, final float y) {
+        this();
         entries[0] = x;
         entries[1] = y;
     }

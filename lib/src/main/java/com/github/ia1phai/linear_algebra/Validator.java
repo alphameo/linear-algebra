@@ -12,7 +12,7 @@ public class Validator {
 
     public static void validateDivisor(final float divisor) throws ArithmeticException {
 
-        if (Math.abs(divisor) < EPS) {
+        if (areEquals(divisor, 0)) {
             throw new ArithmeticException("Division denied: divisor equals 0");
         }
     }
@@ -31,5 +31,9 @@ public class Validator {
             throw new IllegalArgumentException(String.format("%s: matrices with different sizes (%dx%d and %dx%d)",
                     errMessage, m1.height(), m1.width(), m2.height(), m2.width()));
         }
+    }
+
+    public static boolean areEquals(float value1, float value2) {
+        return Math.abs(value1 - value2) < EPS;
     }
 }

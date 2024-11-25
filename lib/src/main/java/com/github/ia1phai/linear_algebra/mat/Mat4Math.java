@@ -108,7 +108,7 @@ public class Mat4Math {
         int countOfSwaps = 0;
 
         for (int i = 0; i < m.width(); i++) {
-            if (Math.abs(m.get(ROWS[i], COLS[i])) < Validator.EPS) {
+            if (Validator.areEquals(m.get(ROWS[i], COLS[i]), 0)) {
                 boolean isNonZeroFound = false;
 
                 for (final Matrix4Row r : ROWS) {
@@ -200,7 +200,7 @@ public class Mat4Math {
     public static boolean equals(final Matrix4 target, final Matrix4 subtrahend) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
-                if (Math.abs(target.get(r, c) - subtrahend.get(r, c)) < Validator.EPS) {
+                if (Validator.areEquals(target.get(r, c), subtrahend.get(r, c))) {
                     return false;
                 }
             }
@@ -231,7 +231,7 @@ public class Mat4Math {
                 if (r.ordinal() == c.ordinal()) {
                     continue;
                 }
-                if (Math.abs(m.get(r, c)) < Validator.EPS) {
+                if (Validator.areEquals(m.get(r, c), 0)) {
                     return false;
                 }
             }
