@@ -195,12 +195,12 @@ public class MatMath {
         return triangulate(new Mat(m));
     }
 
-    public static float det2(final Matrix m) {
+    private static float det2(final Matrix m) {
         return m.get(0, 0) * m.get(1, 1)
                 - m.get(0, 1) * m.get(1, 0);
     }
 
-    public static float det3(final Matrix m) {
+    private static float det3(final Matrix m) {
         return m.get(0, 0) * m.get(1, 1) * m.get(2, 2)
                 + m.get(0, 1) * m.get(1, 2) * m.get(2, 0)
                 + m.get(0, 2) * m.get(1, 0) * m.get(2, 1)
