@@ -222,5 +222,4 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
         }
         return equalsTo((Matrix) obj);
     }
-
 }

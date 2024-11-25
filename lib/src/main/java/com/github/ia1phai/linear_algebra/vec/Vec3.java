@@ -17,6 +17,7 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
     }
 
     public Vec3(final float x, final float y, final float z) {
+        this();
         entries[0] = x;
         entries[1] = y;
         entries[2] = z;
