@@ -12,7 +12,7 @@ public class MatMath {
     public static Matrix transposed(final Matrix m) {
         Matrix result = new Mat(m.width(), m.height());
         for (int r = 0; r < m.height(); r++) {
-            for (int c = r + 1; c < m.width(); c++) {
+            for (int c = 0; c < m.width(); c++) {
                 result.set(c, r, m.get(r, c));
             }
         }
