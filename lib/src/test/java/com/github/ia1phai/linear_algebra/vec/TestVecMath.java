@@ -104,6 +104,14 @@ public class TestVecMath {
     }
 
     @Test
+    public void testZeroVec() {
+        Vector v = zeroVec(5);
+        Vector expected = new Vec(0, 0, 0, 0, 0);
+
+        Assertions.assertEquals(expected, v);
+    }
+
+    @Test
     public void testUnitVect() {
         Vector v = unitVec(5);
         Vector expected = new Vec(1, 1, 1, 1, 1);

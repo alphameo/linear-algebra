@@ -88,7 +88,23 @@ public class TestVec2Math {
     }
 
     @Test
-    public void testUnitVect() {
+    public void testToVec3() {
+        Vector2 v1 = new Vec2(-12, 4);
+        Vector3 expected = new Vec3(-12, 4, 1);
+
+        Assertions.assertEquals(expected, toVec3(v1));
+    }
+
+    @Test
+    public void testZeroVec() {
+        Vector2 v = zeroVec();
+        Vector2 expected = new Vec2(0, 0);
+
+        Assertions.assertEquals(expected, v);
+    }
+
+    @Test
+    public void testUnitVec() {
         Vector2 v = unitVec();
         Vector2 expected = new Vec2(1, 1);
 

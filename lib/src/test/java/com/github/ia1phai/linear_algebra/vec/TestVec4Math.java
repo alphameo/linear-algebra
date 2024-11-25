@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import static com.github.ia1phai.linear_algebra.vec.Vec4Math.*;
 
-import com.github.ia1phai.linear_algebra.mat.MatMath;
-
 /**
  * TestVec
  */
@@ -92,6 +90,14 @@ public class TestVec4Math {
 
     @Test
     public void testZeroVect() {
+        Vector4 v = zeroVec();
+        Vector4 expected = new Vec4(0, 0, 0, 0);
+
+        Assertions.assertEquals(expected, v);
+    }
+
+    @Test
+    public void testZeroVec() {
         Vector4 v = zeroVec();
         Vector4 expected = new Vec4(0, 0, 0, 0);
 

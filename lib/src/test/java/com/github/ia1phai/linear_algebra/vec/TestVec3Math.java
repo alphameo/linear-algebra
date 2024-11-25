@@ -104,6 +104,22 @@ public class TestVec3Math {
     }
 
     @Test
+    public void testToVec3() {
+        Vector3 v1 = new Vec3(-12, 4, 3);
+        Vector4 expected = new Vec4(-12, 4, 3, 1);
+
+        Assertions.assertEquals(expected, toVec4(v1));
+    }
+
+    @Test
+    public void testZeroVec() {
+        Vector3 v = zeroVec();
+        Vector3 expected = new Vec3(0, 0, 0);
+
+        Assertions.assertEquals(expected, v);
+    }
+
+    @Test
     public void testUnitVect() {
         Vector3 v = unitVec();
         Vector3 expected = new Vec3(1, 1, 1);
