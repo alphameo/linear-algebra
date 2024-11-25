@@ -160,5 +160,4 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
         }
         return VecMath.equals(this, (Vector) obj);
     }
-
 }
