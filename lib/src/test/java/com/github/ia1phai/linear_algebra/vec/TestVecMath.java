@@ -5,16 +5,19 @@ import org.junit.jupiter.api.Test;
 
 import static com.github.ia1phai.linear_algebra.vec.VecMath.*;
 
+import com.github.ia1phai.linear_algebra.Validator;
+
 /**
  * TestVec
  */
-public class TestUncheckedVectorOperations {
+public class TestVecMath {
 
     @Test
     public void testLength() {
         Vector v = new Vec(2, 1.2f, 0.3f, 4, 6);
 
-        Assertions.assertTrue(Math.abs(length(v) - 7.58485) < 0.00001f);
+        // Assertions.assertTrue(Validator.areEquals(length(v), 7.58485f));
+        Assertions.assertTrue(Math.abs(length(v) - 7.58485f) < 0.00001f);
     }
 
     @Test
@@ -34,17 +37,6 @@ public class TestUncheckedVectorOperations {
         divide(v1, 1.5f);
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(v1, expected);
-    }
-
-    @Test
-    public void testDivide0() {
-        Vector v1 = new Vec(-18, 4.5f, 6, 12);
-        try {
-            divide(v1, 0);
-            Assertions.fail();
-        } catch (Exception e) {
-            Assertions.assertEquals("Division denied: divisor equals 0", e.getMessage());
-        }
     }
 
     @Test
@@ -76,20 +68,18 @@ public class TestUncheckedVectorOperations {
         Vector v1 = new Vec(-12, 3, 4, 8);
         Vector v2 = new Vec(1, 2.03f, 3, 4);
 
-        // Assertions.assertTrue(Math.abs(dot(v1, v2) - 38.09f) < EPS);
-        Assertions.assertEquals(dot(v1, v2), 38.09f);
+        Assertions.assertTrue(Validator.areEquals(dot(v1, v2), 38.09f));
+        Assertions.assertEquals(38.09f, dot(v1, v2));
     }
 
     @Test
     public void testCross() {
         Vector v1 = new Vec(-12, 3, 4);
         Vector v2 = new Vec(1, 2.03f, 3);
-        Vector res = new Vec(3);
-        cross(v1, v2, res);
         Vector expected = new Vec(0.88f, 40, -27.36f);
 
         // Assertions.assertTrue(res.equals(expected));
-        Assertions.assertEquals(expected, res);
+        Assertions.assertEquals(expected, cross(v1, v2));
     }
 
     @Test

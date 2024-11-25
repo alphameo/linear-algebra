@@ -131,7 +131,6 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Vector other = (Vector) obj;
-        return equalsTo(other);
+        return equalsTo((Vector) obj);
     }
 }

@@ -1,5 +1,7 @@
 package com.github.ia1phai.linear_algebra.vec;
 
+import java.util.Arrays;
+
 import com.github.ia1phai.linear_algebra.Copyable;
 import com.github.ia1phai.linear_algebra.Equatable;
 
@@ -136,4 +138,27 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
     public String toString() {
         return String.format("[%d, %d]", x(), y());
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + Arrays.hashCode(entries);
+        return result;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        return equalsTo((Vector2) obj);
+    }
+
 }
