@@ -1,6 +1,6 @@
 package com.github.ia1phai.linear_algebra.vec;
 
-import com.github.ia1phai.linear_algebra.NumberChecker;
+import com.github.ia1phai.linear_algebra.Validator;
 
 /**
  * UncheckedVectorOperations
@@ -23,7 +23,7 @@ public class VecMath {
     }
 
     public static void divide(final Vector v, final float divisor) {
-        NumberChecker.checkDivisor(divisor);
+        Validator.validateDivisor(divisor);
         for (int i = 0; i < v.size(); i++) {
             v.set(i, v.get(i) / divisor);
         }
@@ -31,7 +31,7 @@ public class VecMath {
 
     public static void add(final Vector target,
             final Vector addendum) {
-        validateSizes(target, addendum, "Addition denied");
+        Validator.validateSizes(target, addendum, "Addition denied");
         for (int i = 0; i < target.size(); i++) {
             target.set(i, target.get(i) + addendum.get(i));
         }
@@ -39,14 +39,14 @@ public class VecMath {
 
     public static void subtract(final Vector target,
             final Vector subtrahend) {
-        validateSizes(target, subtrahend, "Subtraction denied");
+        Validator.validateSizes(target, subtrahend, "Subtraction denied");
         for (int i = 0; i < target.size(); i++) {
             target.set(i, target.get(i) - subtrahend.get(i));
         }
     }
 
     public static float dot(final Vector v1, final Vector v2) {
-        validateSizes(v1, v2, "Scalar product denied");
+        Validator.validateSizes(v1, v2, "Scalar product denied");
         float sum = 0;
         for (int i = 0; i < v1.size(); i++) {
             sum += v1.get(i) * v2.get(i);
@@ -70,9 +70,9 @@ public class VecMath {
     }
 
     public static boolean equals(final Vector v1, final Vector v2) {
-        validateSizes(v1, v2, "Equalization denied");
+        Validator.validateSizes(v1, v2, "Equalization denied");
         for (int i = 0; i < v1.size(); i++) {
-            if (Math.abs(v1.get(i) - v2.get(i)) >= NumberChecker.EPS) {
+            if (Math.abs(v1.get(i) - v2.get(i)) >= Validator.EPS) {
                 return false;
             }
         }
@@ -91,13 +91,5 @@ public class VecMath {
         }
 
         return result;
-    }
-
-    private static void validateSizes(final Vector v1, final Vector v2,
-            final String errMessage) {
-        if (v1.size() != v2.size()) {
-            throw new IllegalArgumentException(String.format("%s: vectors with different lengths (%d and %d)",
-                    errMessage, v1.size(), v2.size()));
-        }
     }
 }

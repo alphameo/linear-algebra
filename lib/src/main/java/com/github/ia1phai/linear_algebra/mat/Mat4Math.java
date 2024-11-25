@@ -1,6 +1,6 @@
 package com.github.ia1phai.linear_algebra.mat;
 
-import com.github.ia1phai.linear_algebra.NumberChecker;
+import com.github.ia1phai.linear_algebra.Validator;
 import com.github.ia1phai.linear_algebra.vec.Vec4;
 import com.github.ia1phai.linear_algebra.vec.Vector4;
 
@@ -51,7 +51,7 @@ public class Mat4Math {
     }
 
     public static void divide(final Matrix4 m, final float divisor) {
-        NumberChecker.checkDivisor(divisor);
+        Validator.validateDivisor(divisor);
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
                 m.set(r, c, m.get(r, c) / divisor);
@@ -108,7 +108,7 @@ public class Mat4Math {
         int countOfSwaps = 0;
 
         for (int i = 0; i < m.width(); i++) {
-            if (Math.abs(m.get(ROWS[i], COLS[i])) < NumberChecker.EPS) {
+            if (Math.abs(m.get(ROWS[i], COLS[i])) < Validator.EPS) {
                 boolean isNonZeroFound = false;
 
                 for (final Matrix4Row r : ROWS) {
@@ -200,7 +200,7 @@ public class Mat4Math {
     public static boolean equals(final Matrix4 target, final Matrix4 subtrahend) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
-                if (Math.abs(target.get(r, c) - subtrahend.get(r, c)) < NumberChecker.EPS) {
+                if (Math.abs(target.get(r, c) - subtrahend.get(r, c)) < Validator.EPS) {
                     return false;
                 }
             }
@@ -231,7 +231,7 @@ public class Mat4Math {
                 if (r.ordinal() == c.ordinal()) {
                     continue;
                 }
-                if (Math.abs(m.get(r, c)) < NumberChecker.EPS) {
+                if (Math.abs(m.get(r, c)) < Validator.EPS) {
                     return false;
                 }
             }

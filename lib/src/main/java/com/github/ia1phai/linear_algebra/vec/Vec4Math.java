@@ -1,6 +1,6 @@
 package com.github.ia1phai.linear_algebra.vec;
 
-import com.github.ia1phai.linear_algebra.NumberChecker;
+import com.github.ia1phai.linear_algebra.Validator;
 
 /**
  * UncheckedVectorOperations
@@ -19,7 +19,7 @@ public class Vec4Math {
     }
 
     public static void divide(final Vector4 v, final float divisor) {
-        NumberChecker.checkDivisor(divisor);
+        Validator.validateDivisor(divisor);
         v.setX(v.x() / divisor);
         v.setY(v.y() / divisor);
         v.setZ(v.z() / divisor);

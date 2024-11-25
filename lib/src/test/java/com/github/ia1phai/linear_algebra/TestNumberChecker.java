@@ -10,7 +10,7 @@ class TestNumberChecker {
     @Test
     public void testCheckDivisor0() {
         try {
-            NumberChecker.checkDivisor(0.00000001f);
+            NumberChecker.validateDivisor(0.00000001f);
             Assertions.fail();
         } catch (Exception e) {
             Assertions.assertEquals("Division denied: divisor equals 0", e.getMessage());
@@ -20,7 +20,7 @@ class TestNumberChecker {
     @Test
     public void testCheckDivisorNot0() {
         try {
-            NumberChecker.checkDivisor(12);
+            NumberChecker.validateDivisor(12);
         } catch (Exception e) {
             Assertions.fail();
         }

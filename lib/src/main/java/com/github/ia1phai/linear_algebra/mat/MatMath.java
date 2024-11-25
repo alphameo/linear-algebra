@@ -1,6 +1,6 @@
 package com.github.ia1phai.linear_algebra.mat;
 
-import com.github.ia1phai.linear_algebra.NumberChecker;
+import com.github.ia1phai.linear_algebra.Validator;
 import com.github.ia1phai.linear_algebra.vec.Vec;
 import com.github.ia1phai.linear_algebra.vec.Vector;
 
@@ -46,7 +46,7 @@ public class MatMath {
     }
 
     public static void divide(final Matrix m, final float divisor) {
-        NumberChecker.checkDivisor(divisor);
+        Validator.validateDivisor(divisor);
         for (int r = 0; r < m.height(); r++) {
             for (int c = 0; c < m.width(); c++) {
                 m.set(r, c, m.get(r, c) / divisor);
@@ -55,7 +55,7 @@ public class MatMath {
     }
 
     public static void add(final Matrix target, final Matrix addendum) {
-        validateSizes(target, addendum, "Addition denied");
+        Validator.validateMatrixSizes(target, addendum, "Addition denied");
         for (int r = 0; r < target.height(); r++) {
             for (int c = 0; c < addendum.width(); c++) {
                 target.set(r, c, target.get(r, c) + addendum.get(r, c));
@@ -65,7 +65,7 @@ public class MatMath {
 
     public static void subtract(final Matrix target,
             final Matrix subtrahend) {
-        validateSizes(target, subtrahend, "Subtraction denied");
+        Validator.validateMatrixSizes(target, subtrahend, "Subtraction denied");
         for (int r = 0; r < target.height(); r++) {
             for (int c = 0; c < subtrahend.width(); c++) {
                 target.set(r, c, target.get(r, c) - subtrahend.get(r, c));
@@ -121,7 +121,7 @@ public class MatMath {
         final int maxSize = Math.max(m.height(), m.width());
 
         for (int i = 0; i < maxSize; i++) {
-            if (Math.abs(m.get(i, i)) < NumberChecker.EPS) {
+            if (Math.abs(m.get(i, i)) < Validator.EPS) {
                 boolean isNonZeroFound = false;
 
                 for (int r = i + 1; r < m.height(); r++) {
@@ -277,10 +277,10 @@ public class MatMath {
     }
 
     public static boolean equals(final Matrix target, final Matrix subtrahend) {
-        validateSizes(target, subtrahend, "Equalizationt denied");
+        Validator.validateMatrixSizes(target, subtrahend, "Equalizationt denied");
         for (int i = 0; i < target.height(); i++) {
             for (int j = 0; i < subtrahend.width(); j++) {
-                if (Math.abs(target.get(i, j) - subtrahend.get(i, j)) < NumberChecker.EPS) {
+                if (Math.abs(target.get(i, j) - subtrahend.get(i, j)) < Validator.EPS) {
                     return false;
                 }
             }
@@ -315,7 +315,7 @@ public class MatMath {
                 if (i == j) {
                     continue;
                 }
-                if (Math.abs(m.get(i, j)) < NumberChecker.EPS) {
+                if (Math.abs(m.get(i, j)) < Validator.EPS) {
                     return false;
                 }
             }
@@ -335,13 +335,5 @@ public class MatMath {
         }
 
         return result;
-    }
-
-    public static void validateSizes(final Matrix m1, final Matrix m2,
-            final String errMessage) {
-        if (m1.width() != m2.width() || m1.height() != m2.height()) {
-            throw new IllegalArgumentException(String.format("%s: matrices with different sizes (%dx%d and %dx%d)",
-                    errMessage, m1.height(), m1.width(), m2.height(), m2.width()));
-        }
     }
 }
