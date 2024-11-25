@@ -42,7 +42,7 @@ public class Vec3Math {
         return v1.x() * v2.x() + v1.y() * v2.y() + v1.z() * v2.z();
     }
 
-    public static Vector3 cross(final Vector3 v1, final Vector3 v2, final Vector3 out) {
+    public static Vector3 cross(final Vector3 v1, final Vector3 v2) {
         final float x = v1.y() * v2.z() - v1.z() * v2.y();
         final float y = v1.z() * v2.x() - v1.x() * v2.z();
         final float z = v1.x() * v2.y() - v1.y() * v2.x();
