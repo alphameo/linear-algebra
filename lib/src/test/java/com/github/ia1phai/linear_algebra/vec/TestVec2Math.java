@@ -72,28 +72,26 @@ public class TestVec2Math {
     }
 
     @Test
-    public void testCross() {
-        Vector v1 = new Vec(-12, 3);
-        Vector v2 = new Vec(1, 2.03f);
-        Vector expected = new Vec(0.88f, 40);
-
-        // Assertions.assertTrue(res.equals(expected));
-        Assertions.assertEquals(expected, VecMath.cross(v1, v2));
-    }
-
-    @Test
     public void testEquals() {
-        Vector v1 = new Vec(-12, 3, 4);
-        Vector v2 = new Vec(-12, 3, 4);
+        Vector2 v1 = new Vec2(-12, 3);
+        Vector2 v2 = new Vec2(-12, 3);
 
         Assertions.assertTrue(VecMath.equals(v1, v2));
     }
 
     @Test
     public void testNotEquals() {
-        Vector v1 = new Vec(-12, 3, 4);
-        Vector v2 = new Vec(-12, 4, 4);
+        Vector2 v1 = new Vec2(-12, 4);
+        Vector2 v2 = new Vec2(-12, 3);
 
-        Assertions.assertTrue(!VecMath.equals(v1, v2));
+        Assertions.assertTrue(!Vec2Math.equals(v1, v2));
+    }
+
+    @Test
+    public void testUnitVect() {
+        Vector2 v = unitVec();
+        Vector2 expected = new Vec2(1, 1);
+
+        Assertions.assertEquals(expected, v);
     }
 }
