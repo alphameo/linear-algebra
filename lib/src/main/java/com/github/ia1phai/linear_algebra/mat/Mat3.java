@@ -87,49 +87,59 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
     }
 
     public Matrix3 transpose() {
-        Mat3Math.transpose(this);
-
-        return this;
+        return Mat3Math.transpose(this);
     }
 
     public Matrix3 transposed() {
-        return this.copy().transpose();
+        return Mat3Math.transposed(this);
     }
 
-    public void swapRows(final Matrix3Row r1, final Matrix3Row r2) {
-        Mat3Math.swapRows(this, r1, r2);
+    public Matrix3 swapRows(final Matrix3Row r1, final Matrix3Row r2) {
+        return Mat3Math.swapRows(this, r1, r2);
     }
 
-    public void swapCols(final Matrix3Col c1, final Matrix3Col c2) {
-        Mat3Math.swapCols(this, c1, c2);
+    public Matrix3 swappedRows(final Matrix3Row r1, final Matrix3Row r2) {
+        return Mat3Math.swappedRows(this, r1, r2);
+    }
+
+    public Matrix3 swapCols(final Matrix3Col c1, final Matrix3Col c2) {
+        return Mat3Math.swapCols(this, c1, c2);
+    }
+
+    public Matrix3 swappedCols(final Matrix3Col c1, final Matrix3Col c2) {
+        return Mat3Math.swappedCols(this, c1, c2);
     }
 
     public Matrix3 mult(final float multiplier) {
-        Mat3Math.mult(this, multiplier);
+        return Mat3Math.mult(this, multiplier);
+    }
 
-        return this;
+    public Matrix3 multiplied(final float multiplier) {
+        return Mat3Math.multiplied(this, multiplier);
     }
 
     public Matrix3 divide(final float divisor) {
-        Mat3Math.divide(this, divisor);
+        return Mat3Math.divide(this, divisor);
+    }
 
-        return this;
+    public Matrix3 divided(final float divisor) {
+        return Mat3Math.divided(this, divisor);
     }
 
     public Matrix3 add(final Matrix3 m) {
-        MatMath.add(this, m);
-
-        return this;
+        return Mat3Math.add(this, m);
     }
 
-    public Matrix3 plus(final Matrix3 m) {
-        return this.copy().add(m);
+    public Matrix3 added(final Matrix3 m) {
+        return Mat3Math.added(this, m);
     }
 
     public Matrix3 sub(final Matrix3 m) {
-        Mat3Math.sub(this, m);
+        return Mat3Math.sub(this, m);
+    }
 
-        return this;
+    public Matrix3 subtracted(final Matrix3 m) {
+        return Mat3Math.subtracted(this, m);
     }
 
     public Matrix3 prod(final Matrix3 m) {
@@ -144,8 +154,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
         return Mat3Math.triangulate(this);
     }
 
-    public Matrix triangulated() {
-        return this.copy().triangulate();
+    public Matrix3 triangulated() {
+        return Mat3Math.triangulated(this);
     }
 
     public float det() {

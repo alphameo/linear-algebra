@@ -75,51 +75,55 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     public Matrix transposed() {
-        return this.copy().transpose();
+        return MatMath.transposed(this);
     }
 
     public Matrix swapRows(final int r1, final int r2) {
-        MatMath.swapRows(this, r1, r2);
+        return MatMath.swapRows(this, r1, r2);
+    }
 
-        return this;
+    public Matrix swapppedRows(final int r1, final int r2) {
+        return MatMath.swappedRows(this, r1, r2);
     }
 
     public Matrix swapCols(final int c1, final int c2) {
-        MatMath.swapCols(this, c1, c2);
+        return MatMath.swapCols(this, c1, c2);
+    }
 
-        return this;
+    public Matrix swappedCols(final int c1, final int c2) {
+        return MatMath.swappedCols(this, c1, c2);
     }
 
     public Matrix mult(final float multiplier) {
-        MatMath.mult(this, multiplier);
+        return MatMath.mult(this, multiplier);
+    }
 
-        return this;
+    public Matrix multiplied(final float multiplier) {
+        return MatMath.multiplied(this, multiplier);
     }
 
     public Matrix divide(final float divisor) {
-        MatMath.divide(this, divisor);
+        return MatMath.divide(this, divisor);
+    }
 
-        return this;
+    public Matrix divided(final float divisor) {
+        return MatMath.divided(this, divisor);
     }
 
     public Matrix add(final Matrix m) {
-        MatMath.add(this, m);
-
-        return this;
+        return MatMath.add(this, m);
     }
 
-    public Matrix plus(final Matrix m) {
-        return this.copy().add(m);
+    public Matrix added(final Matrix m) {
+        return MatMath.added(this, m);
     }
 
     public Matrix sub(final Matrix m) {
-        MatMath.sub(this, m);
-
-        return this;
+        return MatMath.sub(this, m);
     }
 
-    public Matrix minus(final Matrix m) {
-        return this.copy().sub(m);
+    public Matrix subtracted(final Matrix m) {
+        return MatMath.subtracted(this, m);
     }
 
     public Matrix prod(final Matrix m) {
@@ -131,13 +135,11 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     public Matrix triangulate() {
-        MatMath.triangulate(this);
-
-        return this;
+        return MatMath.triangulate(this);
     }
 
     public Matrix triangulated() {
-        return this.copy().triangulate();
+        return MatMath.triangulated(this);
     }
 
     public float det() {

@@ -10,11 +10,10 @@ import com.github.ia1phai.linear_algebra.vec.Vector;
 public class MatMath {
 
     public static Matrix transposed(final Matrix m) {
-        for (int r = 0; r < m.width(); r++) {
+        Matrix result = new Mat(m.width(), m.height());
+        for (int r = 0; r < m.height(); r++) {
             for (int c = r + 1; c < m.width(); c++) {
-                final float tmp = m.get(r, c);
-                m.set(r, c, m.get(c, r));
-                m.set(c, r, tmp);
+                result.set(c, r, m.get(r, c));
             }
         }
 
@@ -32,6 +31,10 @@ public class MatMath {
         return m;
     }
 
+    public static Matrix swappedRows(final Matrix m, final int r1, final int r2) {
+        return swapRows(new Mat(m), r1, r2);
+    }
+
     public static Matrix swapCols(final Matrix m, final int c1, final int c2) {
         float tmp;
         for (int c = 0; c < m.height(); c++) {
@@ -43,6 +46,10 @@ public class MatMath {
         return m;
     }
 
+    public static Matrix swappedCols(final Matrix m, final int r1, final int r2) {
+        return swapCols(new Mat(m), r1, r2);
+    }
+
     public static Matrix mult(final Matrix m, final float multiplier) {
         for (int r = 0; r < m.height(); r++) {
             for (int c = 0; c < m.width(); c++) {
@@ -51,6 +58,10 @@ public class MatMath {
         }
 
         return m;
+    }
+
+    public static Matrix multiplied(final Matrix m, final float multiplier) {
+        return mult(new Mat(m), multiplier);
     }
 
     public static Matrix divide(final Matrix m, final float divisor) {
@@ -64,6 +75,10 @@ public class MatMath {
         return m;
     }
 
+    public static Matrix divided(final Matrix m, final float divisor) {
+        return mult(new Mat(m), divisor);
+    }
+
     public static Matrix add(final Matrix target, final Matrix addendum) {
         Validator.validateMatrixSizes(target, addendum, "Addition denied");
         for (int r = 0; r < target.height(); r++) {
@@ -75,6 +90,10 @@ public class MatMath {
         return target;
     }
 
+    public static Matrix added(final Matrix target, final Matrix addendum) {
+        return add(new Mat(target), addendum);
+    }
+
     public static Matrix sub(final Matrix target, final Matrix subtrahend) {
         Validator.validateMatrixSizes(target, subtrahend, "Subtraction denied");
         for (int r = 0; r < target.height(); r++) {
@@ -84,6 +103,10 @@ public class MatMath {
         }
 
         return target;
+    }
+
+    public static Matrix subtracted(final Matrix target, final Matrix addendum) {
+        return sub(new Mat(target), addendum);
     }
 
     public static Matrix prod(final Matrix m1, final Matrix m2) {
@@ -114,6 +137,7 @@ public class MatMath {
                             m.height(),
                             m.width(), v.size()));
         }
+
         final Vector result = new Vec(v.size());
         for (int i = 0; i < m.height(); i++) {
             float value = 0;
@@ -164,6 +188,10 @@ public class MatMath {
         }
 
         return m;
+    }
+
+    public static Matrix triangulated(final Matrix m) {
+        return triangulate(new Mat(m));
     }
 
     public static float det2(final Matrix m) {
@@ -218,6 +246,7 @@ public class MatMath {
         }
         transposed(result);
         mult(result, 1 / determinant);
+
         return result;
     }
 
@@ -268,26 +297,6 @@ public class MatMath {
         }
 
         return result;
-    }
-
-    public static Matrix minorMatrix(final Matrix m, final int r, final int c, final Matrix outM) {
-        int destRow = 0;
-        int destCol = 0;
-        for (int i = 0; i < m.width(); i++) {
-            if (i == r) {
-                continue;
-            }
-            for (int j = 0; j < m.width(); j++) {
-                if (j == c) {
-                    continue;
-                }
-                outM.set(destRow, destCol, m.get(i, j));
-                destCol++;
-            }
-            destRow++;
-        }
-
-        return m;
     }
 
     public static boolean equals(final Matrix target, final Matrix subtrahend) {

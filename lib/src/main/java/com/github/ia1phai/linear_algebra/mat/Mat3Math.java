@@ -27,6 +27,10 @@ public class Mat3Math {
         return m;
     }
 
+    public static Matrix3 transposed(final Matrix3 m) {
+        return transpose(new Mat3(m));
+    }
+
     public static Matrix3 swapRows(final Matrix3 m, final Matrix3Row r1, final Matrix3Row r2) {
         float tmp;
         for (final Matrix3Col c : COLS) {
@@ -36,6 +40,10 @@ public class Mat3Math {
         }
 
         return m;
+    }
+
+    public static Matrix3 swappedRows(final Matrix3 m, final Matrix3Row r1, final Matrix3Row r2) {
+        return swapRows(new Mat3(m), r1, r2);
     }
 
     public static Matrix3 swapCols(final Matrix3 m, final Matrix3Col c1, final Matrix3Col c2) {
@@ -49,6 +57,10 @@ public class Mat3Math {
         return m;
     }
 
+    public static Matrix3 swappedCols(final Matrix3 m, final Matrix3Col c1, final Matrix3Col c2) {
+        return swapCols(new Mat3(m), c1, c2);
+    }
+
     public static Matrix3 mult(final Matrix3 m, final float multiplier) {
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
@@ -57,6 +69,10 @@ public class Mat3Math {
         }
 
         return m;
+    }
+
+    public static Matrix3 multiplied(final Matrix3 m, final float multiplier) {
+        return mult(new Mat3(m), multiplier);
     }
 
     public static Matrix3 divide(final Matrix3 m, final float divisor) {
@@ -70,6 +86,10 @@ public class Mat3Math {
         return m;
     }
 
+    public static Matrix3 divided(final Matrix3 m, final float divisor) {
+        return divide(new Mat3(m), divisor);
+    }
+
     public static Matrix3 add(final Matrix3 target, final Matrix3 addendum) {
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
@@ -80,6 +100,10 @@ public class Mat3Math {
         return target;
     }
 
+    public static Matrix3 added(final Matrix3 target, final Matrix3 addendum) {
+        return add(new Mat3(target), addendum);
+    }
+
     public static Matrix3 sub(final Matrix3 target, final Matrix3 subtrahend) {
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
@@ -88,6 +112,10 @@ public class Mat3Math {
         }
 
         return target;
+    }
+
+    public static Matrix3 subtracted(final Matrix3 target, final Matrix3 subtrahend) {
+        return sub(new Mat3(target), subtrahend);
     }
 
     public static Matrix3 prod(final Matrix3 m1, final Matrix3 m2) {
@@ -157,6 +185,10 @@ public class Mat3Math {
         return m;
     }
 
+    public static Matrix3 triangulated(final Matrix3 m) {
+        return triangulate(new Mat3(m));
+    }
+
     public static float det(final Matrix3 m) {
         return m.get(R0, C0) * m.get(R1, C1) * m.get(R2, C2)
                 + m.get(R0, C1) * m.get(R1, C2) * m.get(R2, C0)
@@ -196,6 +228,7 @@ public class Mat3Math {
             }
             destRow++;
         }
+
         return result;
     }
 

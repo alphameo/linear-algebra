@@ -87,49 +87,59 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     public Matrix4 transpose() {
-        Mat4Math.transpose(this);
-
-        return this;
+        return Mat4Math.transpose(this);
     }
 
     public Matrix4 transposed() {
         return this.copy().transpose();
     }
 
-    public void swapRows(final Matrix4Row r1, final Matrix4Row r2) {
-        Mat4Math.swapRows(this, r1, r2);
+    public Matrix4 swapRows(final Matrix4Row r1, final Matrix4Row r2) {
+        return Mat4Math.swapRows(this, r1, r2);
     }
 
-    public void swapCols(final Matrix4Col c1, final Matrix4Col c2) {
-        Mat4Math.swapCols(this, c1, c2);
+    public Matrix4 swappedRows(final Matrix4Row r1, final Matrix4Row r2) {
+        return Mat4Math.swappedRows(this, r1, r2);
     }
 
-    public Matrix4 multiply(final float multiplier) {
-        Mat4Math.mult(this, multiplier);
+    public Matrix4 swapCols(final Matrix4Col c1, final Matrix4Col c2) {
+        return Mat4Math.swapCols(this, c1, c2);
+    }
 
-        return this;
+    public Matrix4 swappedCols(final Matrix4Col c1, final Matrix4Col c2) {
+        return Mat4Math.swappedCols(this, c1, c2);
+    }
+
+    public Matrix4 mult(final float multiplier) {
+        return Mat4Math.mult(this, multiplier);
+    }
+
+    public Matrix4 multiplied(final float multiplier) {
+        return Mat4Math.multiplied(this, multiplier);
     }
 
     public Matrix4 divide(final float divisor) {
-        Mat4Math.divide(this, divisor);
+        return Mat4Math.divide(this, divisor);
+    }
 
-        return this;
+    public Matrix4 divided(final float divisor) {
+        return Mat4Math.divide(this, divisor);
     }
 
     public Matrix4 add(final Matrix4 m) {
-        MatMath.add(this, m);
-
-        return this;
+        return Mat4Math.add(this, m);
     }
 
-    public Matrix4 plus(final Matrix4 m) {
-        return this.copy().add(m);
+    public Matrix4 added(final Matrix4 m) {
+        return Mat4Math.added(this, m);
     }
 
     public Matrix4 sub(final Matrix4 m) {
-        Mat4Math.sub(this, m);
+        return Mat4Math.sub(this, m);
+    }
 
-        return this;
+    public Matrix4 subtracted(final Matrix4 m) {
+        return Mat4Math.subtracted(this, m);
     }
 
     public Matrix4 prod(final Matrix4 m) {
@@ -141,13 +151,11 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     public Matrix4 triangulate() {
-        Mat4Math.triangulate(this);
-
-        return this;
+        return Mat4Math.triangulate(this);
     }
 
-    public Matrix triangulated() {
-        return this.copy().triangulate();
+    public Matrix4 triangulated() {
+        return Mat4Math.triangulated(this);
     }
 
     public float det() {
@@ -229,5 +237,4 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
         }
         return MatMath.equals(this, (Mat) obj);
     }
-
 }

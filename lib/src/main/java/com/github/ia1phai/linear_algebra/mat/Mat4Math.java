@@ -26,6 +26,10 @@ public class Mat4Math {
         return m;
     }
 
+    public static Matrix4 transposed(final Matrix4 m) {
+        return transpose(new Mat4(m));
+    }
+
     public static Matrix4 swapRows(final Matrix4 m, final Matrix4Row r1, final Matrix4Row r2) {
         float tmp;
         for (final Matrix4Col c : COLS) {
@@ -35,6 +39,10 @@ public class Mat4Math {
         }
 
         return m;
+    }
+
+    public static Matrix4 swappedRows(final Matrix4 m, final Matrix4Row r1, final Matrix4Row r2) {
+        return swapRows(new Mat4(m), r1, r2);
     }
 
     public static Matrix4 swapCols(final Matrix4 m, final Matrix4Col c1, final Matrix4Col c2) {
@@ -48,6 +56,10 @@ public class Mat4Math {
         return m;
     }
 
+    public static Matrix4 swappedCols(final Matrix4 m, final Matrix4Col c1, final Matrix4Col c2) {
+        return swapCols(new Mat4(m), c1, c2);
+    }
+
     public static Matrix4 mult(final Matrix4 m, final float multiplier) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
@@ -56,6 +68,10 @@ public class Mat4Math {
         }
 
         return m;
+    }
+
+    public static Matrix4 multiplied(final Matrix4 m, final float multiplier) {
+        return mult(new Mat4(m), multiplier);
     }
 
     public static Matrix4 divide(final Matrix4 m, final float divisor) {
@@ -79,6 +95,10 @@ public class Mat4Math {
         return target;
     }
 
+    public static Matrix4 added(final Matrix4 target, final Matrix4 addendum) {
+        return add(new Mat4(target), addendum);
+    }
+
     public static Matrix4 sub(final Matrix4 target, final Matrix4 subtrahend) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
@@ -87,6 +107,10 @@ public class Mat4Math {
         }
 
         return target;
+    }
+
+    public static Matrix4 subtracted(final Matrix4 target, final Matrix4 subtrahend) {
+        return sub(new Mat4(target), subtrahend);
     }
 
     public static Matrix4 prod(final Matrix4 m1, final Matrix4 m2) {
@@ -156,6 +180,10 @@ public class Mat4Math {
         return m;
     }
 
+    public static Matrix4 triangulated(final Matrix4 m) {
+        return triangulate(new Mat4(m));
+    }
+
     public static float det(final Matrix4 m) {
         float determinant = 0;
         for (final Matrix4Col c : Matrix4Col.values()) {
@@ -194,6 +222,7 @@ public class Mat4Math {
             }
             destRow++;
         }
+
         return result;
     }
 
