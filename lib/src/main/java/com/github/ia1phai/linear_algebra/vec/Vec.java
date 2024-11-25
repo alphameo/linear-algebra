@@ -49,6 +49,10 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
         return VecMath.len(this);
     }
 
+    public float len2() {
+        return VecMath.len2(this);
+    }
+
     public Vector mult(final float multiplier) {
         return VecMath.mult(this, multiplier);
     }

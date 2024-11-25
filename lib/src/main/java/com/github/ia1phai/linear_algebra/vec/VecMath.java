@@ -7,13 +7,17 @@ import com.github.ia1phai.linear_algebra.Validator;
  */
 public class VecMath {
 
-    public static float len(final Vector v) {
+    public static float len2(final Vector v) {
         float sum = 0;
         for (int i = 0; i < v.size(); i++) {
             sum += v.get(i) * v.get(i);
         }
 
-        return (float) Math.sqrt(sum);
+        return sum;
+    }
+
+    public static float len(final Vector v) {
+        return (float) Math.sqrt(len2(v));
     }
 
     public static Vector mult(final Vector v, final float multiplier) {

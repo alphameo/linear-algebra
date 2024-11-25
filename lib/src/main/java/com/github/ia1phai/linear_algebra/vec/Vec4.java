@@ -94,6 +94,10 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
         return Vec4Math.len(this);
     }
 
+    public float len2() {
+        return Vec4Math.len2(this);
+    }
+
     public Vector4 mult(final float multiplier) {
         return Vec4Math.mult(this, multiplier);
     }

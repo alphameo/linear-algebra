@@ -72,6 +72,10 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
         return Vec2Math.len(this);
     }
 
+    public float len2() {
+        return Vec2Math.len2(this);
+    }
+
     public Vector2 mult(final float multiplier) {
         return Vec2Math.mult(this, multiplier);
     }

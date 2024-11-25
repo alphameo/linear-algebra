@@ -7,8 +7,12 @@ import com.github.ia1phai.linear_algebra.Validator;
  */
 public class Vec3Math {
 
+    public static float len2(final Vector3 v) {
+        return v.x() * v.x() + v.y() * v.y();
+    }
+
     public static float len(final Vector3 v) {
-        return (float) Math.sqrt(v.x() * v.x() + v.y() * v.y() + v.z() * v.z());
+        return (float) Math.sqrt(len2(v));
     }
 
     public static Vector3 mult(final Vector3 v, final float multiplier) {

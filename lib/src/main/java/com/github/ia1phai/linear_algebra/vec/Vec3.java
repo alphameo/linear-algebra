@@ -82,6 +82,10 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
         return Vec3Math.len(this);
     }
 
+    public float len2() {
+        return Vec3Math.len2(this);
+    }
+
     public Vector3 mult(final float multiplier) {
         return Vec3Math.mult(this, multiplier);
     }
