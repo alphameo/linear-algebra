@@ -162,7 +162,7 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
 
     @Override
     public String toString() {
-        return String.format("[%d, %d, %d, %d]", x(), y(), z(), w());
+        return String.format("[%f, %f, %f, %f]", x(), y(), z(), w());
     }
 
     @Override

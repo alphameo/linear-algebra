@@ -17,7 +17,7 @@ public class MatMath {
             }
         }
 
-        return m;
+        return result;
     }
 
     public static Matrix swapRows(final Matrix m, final int r1, final int r2) {
@@ -290,9 +290,9 @@ public class MatMath {
         }
 
         final Matrix result = new Mat(m.height(), m.width());
-        for (int i = 0; i < m.height(); i++) {
-            for (int j = 0; j < m.width(); j++) {
-                result.set(i, j, cofactor(m, i, j));
+        for (int r = 0; r < m.height(); r++) {
+            for (int c = 0; c < m.width(); c++) {
+                result.set(r, c, cofactor(m, r, c));
             }
         }
 
@@ -301,9 +301,9 @@ public class MatMath {
 
     public static boolean equals(final Matrix target, final Matrix subtrahend) {
         Validator.validateMatrixSizes(target, subtrahend, "Equalizationt denied");
-        for (int i = 0; i < target.height(); i++) {
-            for (int j = 0; i < subtrahend.width(); j++) {
-                if (Validator.areEquals(target.get(i, j), subtrahend.get(i, j))) {
+        for (int r = 0; r < target.height(); r++) {
+            for (int c = 0; c < subtrahend.width(); c++) {
+                if (!Validator.areEquals(target.get(r, c), subtrahend.get(r, c))) {
                     return false;
                 }
             }

@@ -152,7 +152,7 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
 
     @Override
     public String toString() {
-        return String.format("[%d, %d]", x(), y());
+        return String.format("[%f, %f]", x(), y());
     }
 
     @Override

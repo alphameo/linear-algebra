@@ -169,7 +169,7 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
 
     @Override
     public String toString() {
-        return String.format("[%d, %d, %d]", x(), y(), z());
+        return String.format("[%f, %f, %f]", x(), y(), z());
     }
 
     @Override

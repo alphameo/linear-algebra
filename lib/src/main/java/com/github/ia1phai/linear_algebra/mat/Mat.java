@@ -204,6 +204,11 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     @Override
+    public String toString() {
+        return MatUtils.matrixToString(this);
+    }
+
+    @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;

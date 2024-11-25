@@ -225,6 +225,11 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
     }
 
     @Override
+    public String toString() {
+        return MatUtils.matrixToString(this);
+    }
+
+    @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;

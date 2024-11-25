@@ -217,6 +217,11 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     @Override
+    public String toString() {
+        return MatUtils.matrixToString(this);
+    }
+
+    @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
