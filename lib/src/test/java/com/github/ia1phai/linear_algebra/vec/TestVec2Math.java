@@ -31,8 +31,8 @@ public class TestVec2Math {
 
     @Test
     public void testDivideNormal() {
-        Vector v1 = new Vec(-18, 4.5f, 6, 12);
-        Vector expected = new Vec(-12, 3, 4, 8);
+        Vector2 v1 = new Vec2(-18, 4.5f);
+        Vector2 expected = new Vec2(-12, 3);
         divide(v1, 1.5f);
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(v1, expected);
@@ -40,9 +40,9 @@ public class TestVec2Math {
 
     @Test
     public void testAdd() {
-        Vector v1 = new Vec(-12, 3, 4, 8);
-        Vector v2 = new Vec(1, 2, 3, 4);
-        Vector expected = new Vec(-11, 5, 7, 12);
+        Vector2 v1 = new Vec2(-12, 3);
+        Vector2 v2 = new Vec2(1, 2);
+        Vector2 expected = new Vec2(-11, 5);
 
         add(v1, v2);
 
@@ -52,9 +52,9 @@ public class TestVec2Math {
 
     @Test
     public void testSubtract() {
-        Vector v1 = new Vec(-12, 3, 4, 8);
-        Vector v2 = new Vec(1, 2.03f, 3, 4);
-        Vector expected = new Vec(-13, 0.97f, 1, 4);
+        Vector2 v1 = new Vec2(-12, 3);
+        Vector2 v2 = new Vec2(1, 2.03f);
+        Vector2 expected = new Vec2(-13, 0.97f);
 
         subtract(v1, v2);
 
@@ -64,18 +64,18 @@ public class TestVec2Math {
 
     @Test
     public void testDot() {
-        Vector v1 = new Vec(-12, 3, 4, 8);
-        Vector v2 = new Vec(1, 2.03f, 3, 4);
+        Vector2 v1 = new Vec2(-12, 3);
+        Vector2 v2 = new Vec2(1, 2.03f);
 
-        Assertions.assertTrue(Validator.areEquals(dot(v1, v2), 38.09f));
-        Assertions.assertEquals(38.09f, dot(v1, v2));
+        // Assertions.assertTrue(Validator.areEquals(dot(v1, v2), 38.09f));
+        Assertions.assertEquals(-5.91f, dot(v1, v2));
     }
 
     @Test
     public void testCross() {
-        Vector v1 = new Vec(-12, 3, 4);
-        Vector v2 = new Vec(1, 2.03f, 3);
-        Vector expected = new Vec(0.88f, 40, -27.36f);
+        Vector v1 = new Vec(-12, 3);
+        Vector v2 = new Vec(1, 2.03f);
+        Vector expected = new Vec(0.88f, 40);
 
         // Assertions.assertTrue(res.equals(expected));
         Assertions.assertEquals(expected, VecMath.cross(v1, v2));

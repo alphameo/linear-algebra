@@ -109,7 +109,7 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
 
     @Override
     public String toString() {
-        return String.format("[%s]", Arrays.toString(entries));
+        return String.format("%s", Arrays.toString(entries));
     }
 
     @Override

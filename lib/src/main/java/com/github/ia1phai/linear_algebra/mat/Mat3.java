@@ -233,7 +233,7 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        return equalsTo((Matrix3) obj);
+        return MatMath.equals(this, (Mat) obj);
     }
 
 }

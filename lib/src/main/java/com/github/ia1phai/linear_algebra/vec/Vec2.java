@@ -158,7 +158,7 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        return equalsTo((Vector2) obj);
+        return VecMath.equals(this, (Vector) obj);
     }
 
 }

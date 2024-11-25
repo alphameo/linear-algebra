@@ -68,7 +68,7 @@ public class TestVecMath {
         Vector v1 = new Vec(-12, 3, 4, 8);
         Vector v2 = new Vec(1, 2.03f, 3, 4);
 
-        Assertions.assertTrue(Validator.areEquals(dot(v1, v2), 38.09f));
+        // Assertions.assertTrue(Validator.areEquals(dot(v1, v2), 38.09f));
         Assertions.assertEquals(38.09f, dot(v1, v2));
     }
 

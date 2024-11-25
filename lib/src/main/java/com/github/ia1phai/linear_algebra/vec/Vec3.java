@@ -178,7 +178,7 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        return equalsTo((Vector3) obj);
+        return VecMath.equals(this, (Vector) obj);
     }
 
 }

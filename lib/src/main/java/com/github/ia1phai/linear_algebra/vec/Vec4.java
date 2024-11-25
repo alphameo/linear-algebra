@@ -167,7 +167,7 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        return equalsTo((Vector4) obj);
+        return VecMath.equals(this, (Vector) obj);
     }
 
 }

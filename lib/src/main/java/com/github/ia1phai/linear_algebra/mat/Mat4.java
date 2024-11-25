@@ -227,7 +227,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        return equalsTo((Matrix4) obj);
+        return MatMath.equals(this, (Mat) obj);
     }
 
 }
