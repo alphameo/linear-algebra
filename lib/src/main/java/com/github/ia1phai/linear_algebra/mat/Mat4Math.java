@@ -14,7 +14,7 @@ public class Mat4Math {
     public static final Matrix4Row[] ROWS = Matrix4Row.values();
     public static final Matrix4Col[] COLS = Matrix4Col.values();
 
-    public static void transpose(final Matrix4 m) {
+    public static Matrix4 transpose(final Matrix4 m) {
         for (int i = 0; i < m.width(); i++) {
             for (int j = i + 1; j < m.width(); j++) {
                 final float tmp = m.get(ROWS[i], COLS[j]);
@@ -22,57 +22,71 @@ public class Mat4Math {
                 m.set(ROWS[j], COLS[i], tmp);
             }
         }
+
+        return m;
     }
 
-    public static void swapRows(final Matrix4 m, final Matrix4Row r1, final Matrix4Row r2) {
+    public static Matrix4 swapRows(final Matrix4 m, final Matrix4Row r1, final Matrix4Row r2) {
         float tmp;
         for (final Matrix4Col c : COLS) {
             tmp = m.get(r1, c);
             m.set(r1, c, m.get(r2, c));
             m.set(r2, c, tmp);
         }
+
+        return m;
     }
 
-    public static void swapCols(final Matrix4 m, final Matrix4Col c1, final Matrix4Col c2) {
+    public static Matrix4 swapCols(final Matrix4 m, final Matrix4Col c1, final Matrix4Col c2) {
         float tmp;
         for (final Matrix4Row r : ROWS) {
             tmp = m.get(r, c1);
             m.set(r, c1, m.get(r, c2));
             m.set(r, c2, tmp);
         }
+
+        return m;
     }
 
-    public static void multiply(final Matrix4 m, final float multiplier) {
+    public static Matrix4 multiply(final Matrix4 m, final float multiplier) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
                 m.set(r, c, m.get(r, c) * multiplier);
             }
         }
+
+        return m;
     }
 
-    public static void divide(final Matrix4 m, final float divisor) {
+    public static Matrix4 divide(final Matrix4 m, final float divisor) {
         Validator.validateDivisor(divisor);
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
                 m.set(r, c, m.get(r, c) / divisor);
             }
         }
+
+        return m;
     }
 
-    public static void add(final Matrix4 target, final Matrix4 addendum) {
+    public static Matrix4 add(final Matrix4 target, final Matrix4 addendum) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
                 target.set(r, c, target.get(r, c) + addendum.get(r, c));
             }
         }
+
+        return target;
     }
 
-    public static void subtract(final Matrix4 target, final Matrix4 subtrahend) {
+    public static Matrix4 subtract(final Matrix4 target, final Matrix4 subtrahend) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
                 target.set(r, c, target.get(r, c) - subtrahend.get(r, c));
             }
         }
+
+        return target;
     }
 
     public static Matrix4 product(final Matrix4 m1, final Matrix4 m2) {
@@ -104,7 +118,7 @@ public class Mat4Math {
         return result;
     }
 
-    public static void triangulate(final Matrix4 m) {
+    public static Matrix4 triangulate(final Matrix4 m) {
         int countOfSwaps = 0;
 
         for (int i = 0; i < m.width(); i++) {
@@ -138,6 +152,8 @@ public class Mat4Math {
                 m.set(R0, COLS[i], m.get(R0, COLS[i]) * -1);
             }
         }
+
+        return m;
     }
 
     public static float det(final Matrix4 m) {

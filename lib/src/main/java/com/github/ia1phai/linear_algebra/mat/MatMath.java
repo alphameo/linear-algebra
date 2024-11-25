@@ -9,7 +9,7 @@ import com.github.ia1phai.linear_algebra.vec.Vector;
  */
 public class MatMath {
 
-    public static void transposed(final Matrix m) {
+    public static Matrix transposed(final Matrix m) {
         for (int r = 0; r < m.width(); r++) {
             for (int c = r + 1; c < m.width(); c++) {
                 final float tmp = m.get(r, c);
@@ -17,60 +17,73 @@ public class MatMath {
                 m.set(c, r, tmp);
             }
         }
+
+        return m;
     }
 
-    public static void swapRows(final Matrix m, final int r1, final int r2) {
+    public static Matrix swapRows(final Matrix m, final int r1, final int r2) {
         float tmp;
         for (int r = 0; r < m.width(); r++) {
             tmp = m.get(r1, r);
             m.set(r1, r, m.get(r2, r));
             m.set(r2, r, tmp);
         }
+
+        return m;
     }
 
-    public static void swapCols(final Matrix m, final int c1, final int c2) {
+    public static Matrix swapCols(final Matrix m, final int c1, final int c2) {
         float tmp;
         for (int c = 0; c < m.height(); c++) {
             tmp = m.get(c, c1);
             m.set(c, c1, m.get(c, c2));
             m.set(c, c2, tmp);
         }
+
+        return m;
     }
 
-    public static void multiply(final Matrix m, final float multiplier) {
+    public static Matrix multiply(final Matrix m, final float multiplier) {
         for (int r = 0; r < m.height(); r++) {
             for (int c = 0; c < m.width(); c++) {
                 m.set(r, c, m.get(r, c) * multiplier);
             }
         }
+
+        return m;
     }
 
-    public static void divide(final Matrix m, final float divisor) {
+    public static Matrix divide(final Matrix m, final float divisor) {
         Validator.validateDivisor(divisor);
         for (int r = 0; r < m.height(); r++) {
             for (int c = 0; c < m.width(); c++) {
                 m.set(r, c, m.get(r, c) / divisor);
             }
         }
+
+        return m;
     }
 
-    public static void add(final Matrix target, final Matrix addendum) {
+    public static Matrix add(final Matrix target, final Matrix addendum) {
         Validator.validateMatrixSizes(target, addendum, "Addition denied");
         for (int r = 0; r < target.height(); r++) {
             for (int c = 0; c < addendum.width(); c++) {
                 target.set(r, c, target.get(r, c) + addendum.get(r, c));
             }
         }
+
+        return target;
     }
 
-    public static void subtract(final Matrix target,
-            final Matrix subtrahend) {
+    public static Matrix subtract(final Matrix target, final Matrix subtrahend) {
         Validator.validateMatrixSizes(target, subtrahend, "Subtraction denied");
         for (int r = 0; r < target.height(); r++) {
             for (int c = 0; c < subtrahend.width(); c++) {
                 target.set(r, c, target.get(r, c) - subtrahend.get(r, c));
             }
         }
+
+        return target;
     }
 
     public static Matrix product(final Matrix m1,
@@ -116,7 +129,7 @@ public class MatMath {
         return result;
     }
 
-    public static void triangulate(final Matrix m) {
+    public static Matrix triangulate(final Matrix m) {
         int countOfSwaps = 0;
         final int maxSize = Math.max(m.height(), m.width());
 
@@ -152,6 +165,7 @@ public class MatMath {
             }
         }
 
+        return m;
     }
 
     public static float det2(final Matrix m) {
@@ -258,7 +272,7 @@ public class MatMath {
         return result;
     }
 
-    public static void minorMatrix(final Matrix m, final int r, final int c, final Matrix outM) {
+    public static Matrix minorMatrix(final Matrix m, final int r, final int c, final Matrix outM) {
         int destRow = 0;
         int destCol = 0;
         for (int i = 0; i < m.width(); i++) {
@@ -274,6 +288,8 @@ public class MatMath {
             }
             destRow++;
         }
+
+        return m;
     }
 
     public static boolean equals(final Matrix target, final Matrix subtrahend) {

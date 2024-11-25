@@ -15,7 +15,7 @@ public class Mat3Math {
     public static final Matrix3Row[] ROWS = Matrix3Row.values();
     public static final Matrix3Col[] COLS = Matrix3Col.values();
 
-    public static void transpose(final Matrix3 m) {
+    public static Matrix3 transpose(final Matrix3 m) {
         for (int i = 0; i < m.width(); i++) {
             for (int j = i + 1; j < m.width(); j++) {
                 final float tmp = m.get(ROWS[i], COLS[j]);
@@ -23,57 +23,71 @@ public class Mat3Math {
                 m.set(ROWS[j], COLS[i], tmp);
             }
         }
+
+        return m;
     }
 
-    public static void swapRows(final Matrix3 m, final Matrix3Row r1, final Matrix3Row r2) {
+    public static Matrix3 swapRows(final Matrix3 m, final Matrix3Row r1, final Matrix3Row r2) {
         float tmp;
         for (final Matrix3Col c : COLS) {
             tmp = m.get(r1, c);
             m.set(r1, c, m.get(r2, c));
             m.set(r2, c, tmp);
         }
+
+        return m;
     }
 
-    public static void swapCols(final Matrix3 m, final Matrix3Col c1, final Matrix3Col c2) {
+    public static Matrix3 swapCols(final Matrix3 m, final Matrix3Col c1, final Matrix3Col c2) {
         float tmp;
         for (final Matrix3Row r : ROWS) {
             tmp = m.get(r, c1);
             m.set(r, c1, m.get(r, c2));
             m.set(r, c2, tmp);
         }
+
+        return m;
     }
 
-    public static void multiply(final Matrix3 m, final float multiplier) {
+    public static Matrix3 multiply(final Matrix3 m, final float multiplier) {
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
                 m.set(r, c, m.get(r, c) * multiplier);
             }
         }
+
+        return m;
     }
 
-    public static void divide(final Matrix3 m, final float divisor) {
+    public static Matrix3 divide(final Matrix3 m, final float divisor) {
         Validator.validateDivisor(divisor);
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
                 m.set(r, c, m.get(r, c) / divisor);
             }
         }
+
+        return m;
     }
 
-    public static void add(final Matrix3 target, final Matrix3 addendum) {
+    public static Matrix3 add(final Matrix3 target, final Matrix3 addendum) {
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
                 target.set(r, c, target.get(r, c) + addendum.get(r, c));
             }
         }
+
+        return target;
     }
 
-    public static void subtract(final Matrix3 target, final Matrix3 subtrahend) {
+    public static Matrix3 subtract(final Matrix3 target, final Matrix3 subtrahend) {
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
                 target.set(r, c, target.get(r, c) - subtrahend.get(r, c));
             }
         }
+
+        return target;
     }
 
     public static Matrix3 product(final Matrix3 m1, final Matrix3 m2) {
