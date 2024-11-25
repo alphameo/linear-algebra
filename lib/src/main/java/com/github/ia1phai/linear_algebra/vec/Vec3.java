@@ -116,7 +116,7 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
 
     public Vector3 cross(final Vector3 vec) {
         final Vector3 result = new Vec3();
-        Vec3Math.cross(this, vec, result);
+        Vec3Math.cross(this, vec);
 
         return result;
     }

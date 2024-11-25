@@ -16,33 +16,39 @@ public class VecMath {
         return (float) Math.sqrt(sum);
     }
 
-    public static void multiply(final Vector v, final float multiplier) {
+    public static Vector multiply(final Vector v, final float multiplier) {
         for (int i = 0; i < v.size(); i++) {
             v.set(i, v.get(i) * multiplier);
         }
+
+        return v;
     }
 
-    public static void divide(final Vector v, final float divisor) {
+    public static Vector divide(final Vector v, final float divisor) {
         Validator.validateDivisor(divisor);
         for (int i = 0; i < v.size(); i++) {
             v.set(i, v.get(i) / divisor);
         }
+
+        return v;
     }
 
-    public static void add(final Vector target,
-            final Vector addendum) {
+    public static Vector add(final Vector target, final Vector addendum) {
         Validator.validateVectorSizes(target, addendum, "Addition denied");
         for (int i = 0; i < target.size(); i++) {
             target.set(i, target.get(i) + addendum.get(i));
         }
+
+        return target;
     }
 
-    public static void subtract(final Vector target,
-            final Vector subtrahend) {
+    public static Vector subtract(final Vector target, final Vector subtrahend) {
         Validator.validateVectorSizes(target, subtrahend, "Subtraction denied");
         for (int i = 0; i < target.size(); i++) {
             target.set(i, target.get(i) - subtrahend.get(i));
         }
+
+        return target;
     }
 
     public static float dot(final Vector v1, final Vector v2) {

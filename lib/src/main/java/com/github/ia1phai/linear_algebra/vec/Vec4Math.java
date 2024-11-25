@@ -11,35 +11,42 @@ public class Vec4Math {
         return (float) Math.sqrt(v.x() * v.x() + v.y() * v.y() + v.z() * v.z() + v.w() * v.w());
     }
 
-    public static void multiply(final Vector4 v, final float multiplier) {
+    public static Vector4 multiply(final Vector4 v, final float multiplier) {
         v.setX(v.x() * multiplier);
         v.setY(v.y() * multiplier);
         v.setZ(v.z() * multiplier);
         v.setW(v.w() * multiplier);
+
+        return v;
     }
 
-    public static void divide(final Vector4 v, final float divisor) {
+    public static Vector4 divide(final Vector4 v, final float divisor) {
         Validator.validateDivisor(divisor);
+
         v.setX(v.x() / divisor);
         v.setY(v.y() / divisor);
         v.setZ(v.z() / divisor);
         v.setW(v.w() / divisor);
+
+        return v;
     }
 
-    public static void add(final Vector4 target,
-            final Vector4 addendum) {
+    public static Vector4 add(final Vector4 target, final Vector4 addendum) {
         target.setX(target.x() + addendum.x());
         target.setY(target.y() + addendum.y());
         target.setZ(target.z() + addendum.z());
         target.setW(target.w() + addendum.w());
+
+        return target;
     }
 
-    public static void subtract(final Vector4 target,
-            final Vector4 subtrahend) {
+    public static Vector4 subtract(final Vector4 target, final Vector4 subtrahend) {
         target.setX(target.x() - subtrahend.x());
         target.setY(target.y() - subtrahend.y());
         target.setZ(target.z() - subtrahend.z());
         target.setW(target.w() - subtrahend.w());
+
+        return target;
     }
 
     public static float dot(final Vector4 v1, final Vector4 v2) {

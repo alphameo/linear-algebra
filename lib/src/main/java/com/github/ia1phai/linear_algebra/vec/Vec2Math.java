@@ -11,27 +11,34 @@ public class Vec2Math {
         return (float) Math.sqrt(v.x() * v.x() + v.y() * v.y());
     }
 
-    public static void multiply(final Vector2 v, final float multiplier) {
+    public static Vector2 multiply(final Vector2 v, final float multiplier) {
         v.setX(v.x() * multiplier);
         v.setY(v.y() * multiplier);
+
+        return v;
     }
 
-    public static void divide(final Vector2 v, final float divisor) {
+    public static Vector2 divide(final Vector2 v, final float divisor) {
         Validator.validateDivisor(divisor);
+
         v.setX(v.x() / divisor);
         v.setY(v.y() / divisor);
+
+        return v;
     }
 
-    public static void add(final Vector2 target,
-            final Vector2 addendum) {
+    public static Vector2 add(final Vector2 target, final Vector2 addendum) {
         target.setX(target.x() + addendum.x());
         target.setY(target.y() + addendum.y());
+
+        return target;
     }
 
-    public static void subtract(final Vector2 target,
-            final Vector2 subtrahend) {
+    public static Vector2 subtract(final Vector2 target, final Vector2 subtrahend) {
         target.setX(target.x() - subtrahend.x());
         target.setY(target.y() - subtrahend.y());
+
+        return target;
     }
 
     public static float dot(final Vector2 v1, final Vector2 v2) {
