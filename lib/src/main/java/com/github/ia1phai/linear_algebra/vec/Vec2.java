@@ -104,6 +104,14 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
         return Vec2Math.subtracted(this, v);
     }
 
+    public static Vector2 normalize(final Vector2 v) {
+        return Vec2Math.normalize(v);
+    }
+
+    public static Vector3 normalized(final Vector3 v) {
+        return Vec3Math.normalized(v);
+    }
+
     public float dot(final Vector2 v) {
         return Vec2Math.dot(this, v);
     }

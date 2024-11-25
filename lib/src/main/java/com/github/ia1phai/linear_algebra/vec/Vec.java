@@ -81,6 +81,14 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
         return VecMath.subtracted(this, v);
     }
 
+    public static Vector normalize(final Vector v) {
+        return VecMath.normalize(v);
+    }
+
+    public static Vector normalized(final Vector v) {
+        return VecMath.normalized(v);
+    }
+
     public float dot(final Vector v) {
         return VecMath.dot(this, v);
     }

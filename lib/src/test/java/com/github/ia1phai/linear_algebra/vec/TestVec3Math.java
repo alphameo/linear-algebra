@@ -21,6 +21,7 @@ public class TestVec3Math {
     public void testMultiply() {
         Vector3 v1 = new Vec3(-12, 3, 4);
         Vector3 expected = new Vec3(-18, 4.5f, 6);
+
         mult(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
@@ -28,10 +29,12 @@ public class TestVec3Math {
     }
 
     @Test
-    public void testDivideNormal() {
+    public void testDivide() {
         Vector3 v1 = new Vec3(-18, 4.5f, 6);
         Vector3 expected = new Vec3(-12, 3, 4);
+
         divide(v1, 1.5f);
+
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(v1, expected);
     }
@@ -54,7 +57,7 @@ public class TestVec3Math {
         Vector3 v2 = new Vec3(1, 2.03f, 3);
         Vector3 expected = new Vec3(-13, 0.97f, 1);
 
-        subtract(v1, v2);
+        sub(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v1);

@@ -63,6 +63,14 @@ public class VecMath {
         return target;
     }
 
+    public static Vector normalize(final Vector v) {
+        return divide(v, len(v));
+    }
+
+    public static Vector normalized(final Vector v) {
+        return divided(v, len(v));
+    }
+
     public static Vector subtracted(final Vector target, final Vector subtrahend) {
         return sub(new Vec(target), subtrahend);
     }

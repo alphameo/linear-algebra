@@ -30,10 +30,11 @@ public class TestVec2Math {
     }
 
     @Test
-    public void testDivideNormal() {
+    public void testDivide() {
         Vector2 v1 = new Vec2(-18, 4.5f);
         Vector2 expected = new Vec2(-12, 3);
         divide(v1, 1.5f);
+
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(v1, expected);
     }

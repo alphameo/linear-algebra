@@ -61,6 +61,14 @@ public class Vec3Math {
         return sub(new Vec3(target), subtrahend);
     }
 
+    public static Vector3 normalize(final Vector3 v) {
+        return divide(v, len(v));
+    }
+
+    public static Vector3 normalized(final Vector3 v) {
+        return divided(v, len(v));
+    }
+
     public static float dot(final Vector3 v1, final Vector3 v2) {
         return v1.x() * v2.x() + v1.y() * v2.y() + v1.z() * v2.z();
     }

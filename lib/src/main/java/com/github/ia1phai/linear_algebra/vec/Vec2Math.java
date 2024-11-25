@@ -57,6 +57,14 @@ public class Vec2Math {
         return sub(new Vec2(target), subtrahend);
     }
 
+    public static Vector2 normalize(final Vector2 v) {
+        return divide(v, len(v));
+    }
+
+    public static Vector2 normalized(final Vector2 v) {
+        return divided(v, len(v));
+    }
+
     public static float dot(final Vector2 v1, final Vector2 v2) {
         return v1.x() * v2.x() + v1.y() * v2.y();
     }

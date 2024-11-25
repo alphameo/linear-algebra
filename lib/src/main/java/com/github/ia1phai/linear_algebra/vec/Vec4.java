@@ -126,6 +126,14 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
         return Vec4Math.subtracted(this, other);
     }
 
+    public static Vector4 normalize(final Vector4 v) {
+        return Vec4Math.normalize(v);
+    }
+
+    public static Vector4 normalized(final Vector4 v) {
+        return Vec4Math.normalized(v);
+    }
+
     public float dot(final Vector4 other) {
         return Vec4Math.dot(this, other);
     }

@@ -110,6 +110,14 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
         return Vec3Math.subtracted(this, other);
     }
 
+    public static Vector3 normalize(final Vector3 v) {
+        return Vec3Math.normalize(v);
+    }
+
+    public static Vector3 normalized(final Vector3 v) {
+        return Vec3Math.normalized(v);
+    }
+
     public float dot(final Vector3 other) {
         return Vec3Math.dot(this, other);
     }

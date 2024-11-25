@@ -31,7 +31,9 @@ public class TestVecMath {
     public void testDivideNormal() {
         Vector v1 = new Vec(-18, 4.5f, 6, 12);
         Vector expected = new Vec(-12, 3, 4, 8);
+
         divide(v1, 1.5f);
+
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(v1, expected);
     }

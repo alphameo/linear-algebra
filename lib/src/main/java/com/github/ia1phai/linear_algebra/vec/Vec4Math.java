@@ -65,6 +65,14 @@ public class Vec4Math {
         return sub(new Vec4(target), subtrahend);
     }
 
+    public static Vector4 normalize(final Vector4 v) {
+        return divide(v, len(v));
+    }
+
+    public static Vector4 normalized(final Vector4 v) {
+        return divided(v, len(v));
+    }
+
     public static float dot(final Vector4 v1, final Vector4 v2) {
         return v1.x() * v2.x() + v1.y() * v2.y() + v1.z() * v2.z() + v1.w() * v2.w();
     }
