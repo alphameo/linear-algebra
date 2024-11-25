@@ -7,11 +7,11 @@ import com.github.ia1phai.linear_algebra.Validator;
  */
 public class Vec4Math {
 
-    public static float length(final Vector4 v) {
+    public static float len(final Vector4 v) {
         return (float) Math.sqrt(v.x() * v.x() + v.y() * v.y() + v.z() * v.z() + v.w() * v.w());
     }
 
-    public static Vector4 multiply(final Vector4 v, final float multiplier) {
+    public static Vector4 mult(final Vector4 v, final float multiplier) {
         v.setX(v.x() * multiplier);
         v.setY(v.y() * multiplier);
         v.setZ(v.z() * multiplier);
@@ -40,7 +40,7 @@ public class Vec4Math {
         return target;
     }
 
-    public static Vector4 subtract(final Vector4 target, final Vector4 subtrahend) {
+    public static Vector4 sub(final Vector4 target, final Vector4 subtrahend) {
         target.setX(target.x() - subtrahend.x());
         target.setY(target.y() - subtrahend.y());
         target.setZ(target.z() - subtrahend.z());

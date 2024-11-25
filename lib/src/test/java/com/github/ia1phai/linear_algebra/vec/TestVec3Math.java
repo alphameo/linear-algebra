@@ -14,14 +14,14 @@ public class TestVec3Math {
     public void testLength() {
         Vector3 v = new Vec3(2, 1.2f, 0.3f);
 
-        Assertions.assertTrue(Math.abs(length(v) - 2.351592f) < 0.00001f);
+        Assertions.assertTrue(Math.abs(len(v) - 2.351592f) < 0.00001f);
     }
 
     @Test
     public void testMultiply() {
         Vector3 v1 = new Vec3(-12, 3, 4);
         Vector3 expected = new Vec3(-18, 4.5f, 6);
-        multiply(v1, 1.5f);
+        mult(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(v1, expected);

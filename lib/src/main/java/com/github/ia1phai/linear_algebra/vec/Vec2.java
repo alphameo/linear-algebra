@@ -64,12 +64,12 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
         return 2;
     }
 
-    public float length() {
-        return Vec2Math.length(this);
+    public float len() {
+        return Vec2Math.len(this);
     }
 
-    public Vector2 multiply(final float multiplier) {
-        Vec2Math.multiply(this, multiplier);
+    public Vector2 mult(final float multiplier) {
+        Vec2Math.mult(this, multiplier);
 
         return this;
     }
@@ -90,8 +90,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
         return this.copy().add(v);
     }
 
-    public Vector2 subtract(final Vector2 v) {
-        Vec2Math.subtract(this, v);
+    public Vector2 sub(final Vector2 v) {
+        Vec2Math.sub(this, v);
 
         return this;
     }

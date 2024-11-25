@@ -14,14 +14,14 @@ public class TestVecMath {
     public void testLength() {
         Vector v = new Vec(2, 1.2f, 0.3f, 4, 6);
 
-        Assertions.assertTrue(Math.abs(length(v) - 7.58485f) < 0.00001f);
+        Assertions.assertTrue(Math.abs(len(v) - 7.58485f) < 0.00001f);
     }
 
     @Test
     public void testMultiply() {
         Vector v1 = new Vec(-12, 3, 4, 8);
         Vector expected = new Vec(-18, 4.5f, 6, 12);
-        multiply(v1, 1.5f);
+        mult(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(v1, expected);
@@ -54,7 +54,7 @@ public class TestVecMath {
         Vector v2 = new Vec(1, 2.03f, 3, 4);
         Vector expected = new Vec(-13, 0.97f, 1, 4);
 
-        subtract(v1, v2);
+        sub(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v1);

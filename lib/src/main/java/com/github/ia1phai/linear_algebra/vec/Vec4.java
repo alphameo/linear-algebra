@@ -86,12 +86,12 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
         return 4;
     }
 
-    public float length() {
-        return Vec4Math.length(this);
+    public float len() {
+        return Vec4Math.len(this);
     }
 
-    public Vector4 multiply(final float multiplier) {
-        Vec4Math.multiply(this, multiplier);
+    public Vector4 mult(final float multiplier) {
+        Vec4Math.mult(this, multiplier);
 
         return this;
     }
@@ -112,8 +112,8 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
         return this.copy().add(vec);
     }
 
-    public Vector4 subtract(final Vector4 other) {
-        Vec4Math.subtract(this, other);
+    public Vector4 sub(final Vector4 other) {
+        Vec4Math.sub(this, other);
 
         return this;
     }

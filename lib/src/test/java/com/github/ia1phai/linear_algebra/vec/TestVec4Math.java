@@ -14,7 +14,7 @@ public class TestVec4Math {
     public void testLength() {
         Vector4 v = new Vec4(2, 1.2f, 0.3f, 4);
 
-        Assertions.assertTrue(Math.abs(length(v) - 4.64004310324807f) < 0.00001f);
+        Assertions.assertTrue(Math.abs(len(v) - 4.64004310324807f) < 0.00001f);
     }
 
     @Test
@@ -22,7 +22,7 @@ public class TestVec4Math {
         Vector4 v1 = new Vec4(-12, 3, 4, 8);
         Vector4 expected = new Vec4(-18, 4.5f, 6, 12);
 
-        multiply(v1, 1.5f);
+        mult(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(v1, expected);
@@ -57,7 +57,7 @@ public class TestVec4Math {
         Vector4 v2 = new Vec4(1, 2.03f, 3, 4);
         Vector4 expected = new Vec4(-13, 0.97f, 1, 4);
 
-        subtract(v1, v2);
+        sub(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v1);

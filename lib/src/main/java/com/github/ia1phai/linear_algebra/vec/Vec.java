@@ -45,12 +45,12 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
         return entries.length;
     }
 
-    public float length() {
-        return VecMath.length(this);
+    public float len() {
+        return VecMath.len(this);
     }
 
-    public Vector multiply(final float multiplier) {
-        VecMath.multiply(this, multiplier);
+    public Vector mult(final float multiplier) {
+        VecMath.mult(this, multiplier);
         return this;
     }
 
@@ -70,14 +70,14 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
         return this.copy().add(v);
     }
 
-    public Vector subtract(final Vector v) {
-        VecMath.subtract(this, v);
+    public Vector sub(final Vector v) {
+        VecMath.sub(this, v);
 
         return this;
     }
 
     public Vector minus(final Vector v) {
-        return this.copy().subtract(v);
+        return this.copy().sub(v);
     }
 
     public float dot(final Vector v) {

@@ -7,11 +7,11 @@ import com.github.ia1phai.linear_algebra.Validator;
  */
 public class Vec3Math {
 
-    public static float length(final Vector3 v) {
+    public static float len(final Vector3 v) {
         return (float) Math.sqrt(v.x() * v.x() + v.y() * v.y() + v.z() * v.z());
     }
 
-    public static Vector3 multiply(final Vector3 v, final float multiplier) {
+    public static Vector3 mult(final Vector3 v, final float multiplier) {
         v.setX(v.x() * multiplier);
         v.setY(v.y() * multiplier);
         v.setZ(v.z() * multiplier);

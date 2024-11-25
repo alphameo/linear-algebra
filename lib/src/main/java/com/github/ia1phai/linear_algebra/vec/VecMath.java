@@ -7,7 +7,7 @@ import com.github.ia1phai.linear_algebra.Validator;
  */
 public class VecMath {
 
-    public static float length(final Vector v) {
+    public static float len(final Vector v) {
         float sum = 0;
         for (int i = 0; i < v.size(); i++) {
             sum += v.get(i) * v.get(i);
@@ -16,7 +16,7 @@ public class VecMath {
         return (float) Math.sqrt(sum);
     }
 
-    public static Vector multiply(final Vector v, final float multiplier) {
+    public static Vector mult(final Vector v, final float multiplier) {
         for (int i = 0; i < v.size(); i++) {
             v.set(i, v.get(i) * multiplier);
         }
@@ -42,7 +42,7 @@ public class VecMath {
         return target;
     }
 
-    public static Vector subtract(final Vector target, final Vector subtrahend) {
+    public static Vector sub(final Vector target, final Vector subtrahend) {
         Validator.validateVectorSizes(target, subtrahend, "Subtraction denied");
         for (int i = 0; i < target.size(); i++) {
             target.set(i, target.get(i) - subtrahend.get(i));
