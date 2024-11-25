@@ -30,8 +30,8 @@ public class Vec2Math {
 
     public static void subtract(final Vector2 target,
             final Vector2 subtrahend) {
-        target.setX(target.x() + subtrahend.x());
-        target.setY(target.y() + subtrahend.y());
+        target.setX(target.x() - subtrahend.x());
+        target.setY(target.y() - subtrahend.y());
     }
 
     public static float dot(final Vector2 v1, final Vector2 v2) {

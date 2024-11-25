@@ -33,9 +33,9 @@ public class Vec3Math {
 
     public static void subtract(final Vector3 target,
             final Vector3 subtrahend) {
-        target.setX(target.x() + subtrahend.x());
-        target.setY(target.y() + subtrahend.y());
-        target.setZ(target.z() + subtrahend.z());
+        target.setX(target.x() - subtrahend.x());
+        target.setY(target.y() - subtrahend.y());
+        target.setZ(target.z() - subtrahend.z());
     }
 
     public static float dot(final Vector3 v1, final Vector3 v2) {

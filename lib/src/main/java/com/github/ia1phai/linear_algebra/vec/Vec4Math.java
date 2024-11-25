@@ -36,10 +36,10 @@ public class Vec4Math {
 
     public static void subtract(final Vector4 target,
             final Vector4 subtrahend) {
-        target.setX(target.x() + subtrahend.x());
-        target.setY(target.y() + subtrahend.y());
-        target.setZ(target.z() + subtrahend.z());
-        target.setW(target.w() + subtrahend.w());
+        target.setX(target.x() - subtrahend.x());
+        target.setY(target.y() - subtrahend.y());
+        target.setZ(target.z() - subtrahend.z());
+        target.setW(target.w() - subtrahend.w());
     }
 
     public static float dot(final Vector4 v1, final Vector4 v2) {
