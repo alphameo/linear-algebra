@@ -19,6 +19,10 @@ public class Vec3Math {
         return v;
     }
 
+    public static Vector3 multiplied(final Vector3 v, final float multiplier) {
+        return mult(new Vec3(v), multiplier);
+    }
+
     public static Vector3 divide(final Vector3 v, final float divisor) {
         Validator.validateDivisor(divisor);
 
@@ -29,6 +33,10 @@ public class Vec3Math {
         return v;
     }
 
+    public static Vector3 divided(final Vector3 v, final float divisor) {
+        return divide(new Vec3(v), divisor);
+    }
+
     public static Vector3 add(final Vector3 target, final Vector3 addendum) {
         target.setX(target.x() + addendum.x());
         target.setY(target.y() + addendum.y());
@@ -37,12 +45,20 @@ public class Vec3Math {
         return target;
     }
 
-    public static Vector3 subtract(final Vector3 target, final Vector3 subtrahend) {
+    public static Vector3 added(final Vector3 target, final Vector3 addendum) {
+        return add(target, addendum);
+    }
+
+    public static Vector3 sub(final Vector3 target, final Vector3 subtrahend) {
         target.setX(target.x() - subtrahend.x());
         target.setY(target.y() - subtrahend.y());
         target.setZ(target.z() - subtrahend.z());
 
         return target;
+    }
+
+    public static Vector3 subtracted(final Vector3 target, final Vector3 subtrahend) {
+        return sub(new Vec3(target), subtrahend);
     }
 
     public static float dot(final Vector3 v1, final Vector3 v2) {

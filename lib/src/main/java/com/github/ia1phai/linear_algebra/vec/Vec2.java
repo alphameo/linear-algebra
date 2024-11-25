@@ -22,6 +22,10 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
         entries[1] = y;
     }
 
+    public Vec2(final Vector2 v) {
+        this(v.x(), v.y());
+    }
+
     @Override
     public float get(final int i) {
         if (i < 0 || i > 2) {
@@ -69,35 +73,35 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
     }
 
     public Vector2 mult(final float multiplier) {
-        Vec2Math.mult(this, multiplier);
+        return Vec2Math.mult(this, multiplier);
+    }
 
-        return this;
+    public Vector2 multiplied(final float multiplier) {
+        return Vec2Math.multiplied(this, multiplier);
     }
 
     public Vector2 divide(final float divisor) {
-        Vec2Math.divide(this, divisor);
+        return Vec2Math.divide(this, divisor);
+    }
 
-        return this;
+    public Vector2 divided(final float divisor) {
+        return Vec2Math.divided(this, divisor);
     }
 
     public Vector2 add(final Vector2 v) {
-        Vec2Math.add(this, v);
-
-        return this;
+        return Vec2Math.add(this, v);
     }
 
-    public Vector2 plus(final Vector2 v) {
-        return this.copy().add(v);
+    public Vector2 added(final Vector2 v) {
+        return Vec2Math.added(this, v);
     }
 
     public Vector2 sub(final Vector2 v) {
-        Vec2Math.sub(this, v);
-
-        return this;
+        return Vec2Math.sub(this, v);
     }
 
-    public Vector2 minus(final Vector2 v) {
-        return this.copy().add(v);
+    public Vector2 subtracted(final Vector2 v) {
+        return Vec2Math.subtracted(this, v);
     }
 
     public float dot(final Vector2 v) {

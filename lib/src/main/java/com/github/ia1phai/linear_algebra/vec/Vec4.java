@@ -24,6 +24,10 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
         entries[3] = w;
     }
 
+    public Vec4(Vector4 v) {
+        this(v.x(), v.y(), v.z(), v.w());
+    }
+
     @Override
     public float get(final int i) {
         if (i < 0 || i > 4) {
@@ -91,35 +95,35 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
     }
 
     public Vector4 mult(final float multiplier) {
-        Vec4Math.mult(this, multiplier);
+        return Vec4Math.mult(this, multiplier);
+    }
 
-        return this;
+    public Vector4 multiplied(final float multiplier) {
+        return Vec4Math.multiplied(this, multiplier);
     }
 
     public Vector4 divide(final float divisor) {
-        Vec4Math.divide(this, divisor);
+        return Vec4Math.divide(this, divisor);
+    }
 
-        return this;
+    public Vector4 divided(final float divisor) {
+        return Vec4Math.divided(this, divisor);
     }
 
     public Vector4 add(final Vector4 other) {
-        Vec4Math.add(this, other);
-
-        return this;
+        return Vec4Math.add(this, other);
     }
 
-    public Vector4 plus(final Vector4 vec) {
-        return this.copy().add(vec);
+    public Vector4 added(final Vector4 other) {
+        return Vec4Math.added(this, other);
     }
 
     public Vector4 sub(final Vector4 other) {
-        Vec4Math.sub(this, other);
-
-        return this;
+        return Vec4Math.sub(this, other);
     }
 
-    public Vector4 minus(final Vector4 vec) {
-        return this.copy().add(vec);
+    public Vector4 subtracted(final Vector4 other) {
+        return Vec4Math.subtracted(this, other);
     }
 
     public float dot(final Vector4 other) {
@@ -170,5 +174,4 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
         }
         return VecMath.equals(this, (Vector) obj);
     }
-
 }

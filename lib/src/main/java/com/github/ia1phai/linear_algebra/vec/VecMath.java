@@ -24,6 +24,10 @@ public class VecMath {
         return v;
     }
 
+    public static Vector multiplied(final Vector v, final float multiplier) {
+        return mult(new Vec(v), multiplier);
+    }
+
     public static Vector divide(final Vector v, final float divisor) {
         Validator.validateDivisor(divisor);
         for (int i = 0; i < v.size(); i++) {
@@ -31,6 +35,10 @@ public class VecMath {
         }
 
         return v;
+    }
+
+    public static Vector divided(final Vector v, final float divisor) {
+        return divide(new Vec(v), divisor);
     }
 
     public static Vector add(final Vector target, final Vector addendum) {
@@ -42,6 +50,10 @@ public class VecMath {
         return target;
     }
 
+    public static Vector added(final Vector target, final Vector addendum) {
+        return add(new Vec(target), addendum);
+    }
+
     public static Vector sub(final Vector target, final Vector subtrahend) {
         Validator.validateVectorSizes(target, subtrahend, "Subtraction denied");
         for (int i = 0; i < target.size(); i++) {
@@ -49,6 +61,10 @@ public class VecMath {
         }
 
         return target;
+    }
+
+    public static Vector subtracted(final Vector target, final Vector subtrahend) {
+        return sub(new Vec(target), subtrahend);
     }
 
     public static float dot(final Vector v1, final Vector v2) {

@@ -23,6 +23,10 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
         entries[2] = z;
     }
 
+    public Vec3(Vector3 v) {
+        this(v.x(), v.y(), v.z());
+    }
+
     @Override
     public float get(final int i) {
         if (i < 0 || i > 3) {
@@ -79,35 +83,31 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
     }
 
     public Vector3 mult(final float multiplier) {
-        Vec3Math.mult(this, multiplier);
-
-        return this;
+        return Vec3Math.mult(this, multiplier);
     }
 
-    public Vector3 divide(final float divisor) {
-        Vec3Math.divide(this, divisor);
+    public Vector3 multiplied(final float multiplier) {
+        return Vec3Math.multiplied(this, multiplier);
+    }
 
-        return this;
+    public Vector3 divided(final float divisor) {
+        return Vec3Math.divided(this, divisor);
     }
 
     public Vector3 add(final Vector3 other) {
-        Vec3Math.add(this, other);
-
-        return this;
+        return Vec3Math.add(this, other);
     }
 
-    public Vector3 plus(final Vector3 vec) {
-        return this.copy().add(vec);
+    public Vector3 added(final Vector3 other) {
+        return Vec3Math.added(this, other);
     }
 
     public Vector3 sub(final Vector3 other) {
-        Vec3Math.subtract(this, other);
-
-        return this;
+        return Vec3Math.sub(this, other);
     }
 
-    public Vector3 minus(final Vector3 vec) {
-        return this.copy().add(vec);
+    public Vector3 subtracted(final Vector3 other) {
+        return Vec3Math.subtracted(this, other);
     }
 
     public float dot(final Vector3 other) {
@@ -181,5 +181,4 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
         }
         return VecMath.equals(this, (Vector) obj);
     }
-
 }

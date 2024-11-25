@@ -18,6 +18,10 @@ public class Vec2Math {
         return v;
     }
 
+    public static Vector2 multiplied(final Vector2 v, final float multiplier) {
+        return mult(new Vec2(v), multiplier);
+    }
+
     public static Vector2 divide(final Vector2 v, final float divisor) {
         Validator.validateDivisor(divisor);
 
@@ -27,6 +31,10 @@ public class Vec2Math {
         return v;
     }
 
+    public static Vector2 divided(final Vector2 v, final float divisor) {
+        return divide(new Vec2(v), divisor);
+    }
+
     public static Vector2 add(final Vector2 target, final Vector2 addendum) {
         target.setX(target.x() + addendum.x());
         target.setY(target.y() + addendum.y());
@@ -34,11 +42,19 @@ public class Vec2Math {
         return target;
     }
 
+    public static Vector2 added(final Vector2 target, final Vector2 addendum) {
+        return add(new Vec2(target), addendum);
+    }
+
     public static Vector2 sub(final Vector2 target, final Vector2 subtrahend) {
         target.setX(target.x() - subtrahend.x());
         target.setY(target.y() - subtrahend.y());
 
         return target;
+    }
+
+    public static Vector2 subtracted(final Vector2 target, final Vector2 subtrahend) {
+        return sub(new Vec2(target), subtrahend);
     }
 
     public static float dot(final Vector2 v1, final Vector2 v2) {

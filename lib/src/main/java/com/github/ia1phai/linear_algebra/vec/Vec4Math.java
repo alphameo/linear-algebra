@@ -20,6 +20,10 @@ public class Vec4Math {
         return v;
     }
 
+    public static Vector4 multiplied(final Vector4 v, final float multiplier) {
+        return mult(new Vec4(v), multiplier);
+    }
+
     public static Vector4 divide(final Vector4 v, final float divisor) {
         Validator.validateDivisor(divisor);
 
@@ -31,6 +35,10 @@ public class Vec4Math {
         return v;
     }
 
+    public static Vector4 divided(final Vector4 v, final float divisor) {
+        return divide(new Vec4(v), divisor);
+    }
+
     public static Vector4 add(final Vector4 target, final Vector4 addendum) {
         target.setX(target.x() + addendum.x());
         target.setY(target.y() + addendum.y());
@@ -40,6 +48,10 @@ public class Vec4Math {
         return target;
     }
 
+    public static Vector4 added(final Vector4 target, final Vector4 addendum) {
+        return add(new Vec4(target), addendum);
+    }
+
     public static Vector4 sub(final Vector4 target, final Vector4 subtrahend) {
         target.setX(target.x() - subtrahend.x());
         target.setY(target.y() - subtrahend.y());
@@ -47,6 +59,10 @@ public class Vec4Math {
         target.setW(target.w() - subtrahend.w());
 
         return target;
+    }
+
+    public static Vector4 subtracted(final Vector4 target, final Vector4 subtrahend) {
+        return sub(new Vec4(target), subtrahend);
     }
 
     public static float dot(final Vector4 v1, final Vector4 v2) {

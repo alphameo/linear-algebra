@@ -50,38 +50,38 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
     }
 
     public Vector mult(final float multiplier) {
-        VecMath.mult(this, multiplier);
-        return this;
+        return VecMath.mult(this, multiplier);
     }
 
-    public Vector divide(final float divisor) throws ArithmeticException {
-        VecMath.divide(this, divisor);
+    public Vector multiplied(final float multiplier) {
+        return VecMath.multiplied(this, multiplier);
+    }
 
-        return this;
+    public Vector divide(final float divisor) {
+        return VecMath.divide(this, divisor);
+    }
+
+    public Vector divided(final float divisor) {
+        return VecMath.divided(this, divisor);
     }
 
     public Vector add(final Vector v) {
-        VecMath.add(this, v);
-
-        return this;
+        return VecMath.add(this, v);
     }
 
-    public Vector plus(final Vector v) {
-        return this.copy().add(v);
+    public Vector added(final Vector v) {
+        return VecMath.added(this, v);
     }
 
     public Vector sub(final Vector v) {
-        VecMath.sub(this, v);
-
-        return this;
+        return VecMath.sub(this, v);
     }
 
-    public Vector minus(final Vector v) {
-        return this.copy().sub(v);
+    public Vector subtracted(final Vector v) {
+        return VecMath.subtracted(this, v);
     }
 
     public float dot(final Vector v) {
-
         return VecMath.dot(this, v);
     }
 
