@@ -105,7 +105,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     public Matrix4 multiply(final float multiplier) {
-        Mat4Math.multiply(this, multiplier);
+        Mat4Math.mult(this, multiplier);
 
         return this;
     }
@@ -126,18 +126,18 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
         return this.copy().add(m);
     }
 
-    public Matrix4 subtract(final Matrix4 m) {
-        MatMath.subtract(this, m);
+    public Matrix4 sub(final Matrix4 m) {
+        Mat4Math.sub(this, m);
 
         return this;
     }
 
-    public Matrix4 product(final Matrix4 m) {
-        return Mat4Math.product(this, m);
+    public Matrix4 prod(final Matrix4 m) {
+        return Mat4Math.prod(this, m);
     }
 
-    public Vector4 product(final Vector4 v) {
-        return Mat4Math.product(this, v);
+    public Vector4 prod(final Vector4 v) {
+        return Mat4Math.prod(this, v);
     }
 
     public Matrix4 triangulate() {
@@ -146,7 +146,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
         return this;
     }
 
-    public Matrix triangularTable() {
+    public Matrix triangulated() {
         return this.copy().triangulate();
     }
 
@@ -155,7 +155,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     public Matrix4 invertible() {
-        return Mat4Math.invertibleMatrix(this);
+        return Mat4Math.invertible(this);
     }
 
     public Matrix minorMatrix(final int row, final int col) {

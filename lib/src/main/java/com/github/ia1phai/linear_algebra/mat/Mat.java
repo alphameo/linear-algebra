@@ -90,8 +90,8 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
         return this;
     }
 
-    public Matrix multiply(final float multiplier) {
-        MatMath.multiply(this, multiplier);
+    public Matrix mult(final float multiplier) {
+        MatMath.mult(this, multiplier);
 
         return this;
     }
@@ -112,22 +112,22 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
         return this.copy().add(m);
     }
 
-    public Matrix subtract(final Matrix m) {
-        MatMath.subtract(this, m);
+    public Matrix sub(final Matrix m) {
+        MatMath.sub(this, m);
 
         return this;
     }
 
     public Matrix minus(final Matrix m) {
-        return this.copy().subtract(m);
+        return this.copy().sub(m);
     }
 
-    public Matrix product(final Matrix m) {
-        return MatMath.product(this, m);
+    public Matrix prod(final Matrix m) {
+        return MatMath.prod(this, m);
     }
 
-    public Vector product(final Vector v) {
-        return MatMath.product(this, v);
+    public Vector prod(final Vector v) {
+        return MatMath.prod(this, v);
     }
 
     public Matrix triangulate() {
@@ -136,7 +136,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
         return this;
     }
 
-    public Matrix triangularTable() {
+    public Matrix triangulated() {
         return this.copy().triangulate();
     }
 

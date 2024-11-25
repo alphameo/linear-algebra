@@ -43,7 +43,7 @@ public class MatMath {
         return m;
     }
 
-    public static Matrix multiply(final Matrix m, final float multiplier) {
+    public static Matrix mult(final Matrix m, final float multiplier) {
         for (int r = 0; r < m.height(); r++) {
             for (int c = 0; c < m.width(); c++) {
                 m.set(r, c, m.get(r, c) * multiplier);
@@ -75,7 +75,7 @@ public class MatMath {
         return target;
     }
 
-    public static Matrix subtract(final Matrix target, final Matrix subtrahend) {
+    public static Matrix sub(final Matrix target, final Matrix subtrahend) {
         Validator.validateMatrixSizes(target, subtrahend, "Subtraction denied");
         for (int r = 0; r < target.height(); r++) {
             for (int c = 0; c < subtrahend.width(); c++) {
@@ -86,8 +86,7 @@ public class MatMath {
         return target;
     }
 
-    public static Matrix product(final Matrix m1,
-            final Matrix m2) {
+    public static Matrix prod(final Matrix m1, final Matrix m2) {
         if (m1.width() == m2.height()) {
             throw new IllegalArgumentException(
                     String.format("Matrix product denied: matrices with sizes %dx%d and %dx%d", m1.height(),
@@ -108,8 +107,7 @@ public class MatMath {
         return result;
     }
 
-    public static Vector product(final Matrix m,
-            final Vector v) {
+    public static Vector prod(final Matrix m, final Vector v) {
         if (m.width() != v.size()) {
             throw new IllegalArgumentException(
                     String.format("Matrix and vector product denied: matrix with size %dx%d and vector with size",
@@ -219,7 +217,7 @@ public class MatMath {
             throw new RuntimeException("Invertible matrix does not exitst: determinant is 0");
         }
         transposed(result);
-        multiply(result, 1 / determinant);
+        mult(result, 1 / determinant);
         return result;
     }
 

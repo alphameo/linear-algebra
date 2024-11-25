@@ -104,8 +104,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
         Mat3Math.swapCols(this, c1, c2);
     }
 
-    public Matrix3 multiply(final float multiplier) {
-        Mat3Math.multiply(this, multiplier);
+    public Matrix3 mult(final float multiplier) {
+        Mat3Math.mult(this, multiplier);
 
         return this;
     }
@@ -126,25 +126,25 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
         return this.copy().add(m);
     }
 
-    public Matrix3 subtract(final Matrix3 m) {
-        MatMath.subtract(this, m);
+    public Matrix3 sub(final Matrix3 m) {
+        Mat3Math.sub(this, m);
 
         return this;
     }
 
-    public Matrix3 product(final Matrix3 m) {
-        return Mat3Math.product(this, m);
+    public Matrix3 prod(final Matrix3 m) {
+        return Mat3Math.prod(this, m);
     }
 
-    public Vector3 product(final Vector3 v) {
-        return Mat3Math.product(this, v);
+    public Vector3 prod(final Vector3 v) {
+        return Mat3Math.prod(this, v);
     }
 
     public Matrix3 triangulate() {
         return Mat3Math.triangulate(this);
     }
 
-    public Matrix triangularTable() {
+    public Matrix triangulated() {
         return this.copy().triangulate();
     }
 
@@ -235,5 +235,4 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
         }
         return MatMath.equals(this, (Mat) obj);
     }
-
 }

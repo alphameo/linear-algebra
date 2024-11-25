@@ -48,7 +48,7 @@ public class Mat4Math {
         return m;
     }
 
-    public static Matrix4 multiply(final Matrix4 m, final float multiplier) {
+    public static Matrix4 mult(final Matrix4 m, final float multiplier) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
                 m.set(r, c, m.get(r, c) * multiplier);
@@ -79,7 +79,7 @@ public class Mat4Math {
         return target;
     }
 
-    public static Matrix4 subtract(final Matrix4 target, final Matrix4 subtrahend) {
+    public static Matrix4 sub(final Matrix4 target, final Matrix4 subtrahend) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
                 target.set(r, c, target.get(r, c) - subtrahend.get(r, c));
@@ -89,7 +89,7 @@ public class Mat4Math {
         return target;
     }
 
-    public static Matrix4 product(final Matrix4 m1, final Matrix4 m2) {
+    public static Matrix4 prod(final Matrix4 m1, final Matrix4 m2) {
         final Matrix4 result = new Mat4();
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
@@ -104,7 +104,7 @@ public class Mat4Math {
         return result;
     }
 
-    public static Vector4 product(final Matrix4 m, final Vector4 v) {
+    public static Vector4 prod(final Matrix4 m, final Vector4 v) {
         final Vector4 result = new Vec4();
         for (int i = 0; i < m.height(); i++) {
             float value = 0;
@@ -164,7 +164,7 @@ public class Mat4Math {
         return determinant;
     }
 
-    public static Matrix4 invertibleMatrix(final Matrix4 m) {
+    public static Matrix4 invertible(final Matrix4 m) {
         final Matrix4 result = cofactorMatrix(m);
         final float determinant = det(m);
 
@@ -172,7 +172,7 @@ public class Mat4Math {
             throw new RuntimeException("Invertible matrix does not exitst: determinant is 0");
         }
         transpose(result);
-        multiply(result, 1 / determinant);
+        mult(result, 1 / determinant);
         return result;
     }
 

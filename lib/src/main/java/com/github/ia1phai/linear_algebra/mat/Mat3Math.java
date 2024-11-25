@@ -49,7 +49,7 @@ public class Mat3Math {
         return m;
     }
 
-    public static Matrix3 multiply(final Matrix3 m, final float multiplier) {
+    public static Matrix3 mult(final Matrix3 m, final float multiplier) {
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
                 m.set(r, c, m.get(r, c) * multiplier);
@@ -80,7 +80,7 @@ public class Mat3Math {
         return target;
     }
 
-    public static Matrix3 subtract(final Matrix3 target, final Matrix3 subtrahend) {
+    public static Matrix3 sub(final Matrix3 target, final Matrix3 subtrahend) {
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
                 target.set(r, c, target.get(r, c) - subtrahend.get(r, c));
@@ -90,7 +90,7 @@ public class Mat3Math {
         return target;
     }
 
-    public static Matrix3 product(final Matrix3 m1, final Matrix3 m2) {
+    public static Matrix3 prod(final Matrix3 m1, final Matrix3 m2) {
         final Matrix3 result = new Mat3();
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
@@ -105,7 +105,7 @@ public class Mat3Math {
         return result;
     }
 
-    public static Vector3 product(final Matrix3 m, final Vector3 v) {
+    public static Vector3 prod(final Matrix3 m, final Vector3 v) {
         final Vector3 result = new Vec3();
         for (int i = 0; i < m.height(); i++) {
             float value = 0;
@@ -174,7 +174,7 @@ public class Mat3Math {
             throw new RuntimeException("Invertible matrix does not exitst: determinant is 0");
         }
         transpose(result);
-        multiply(result, 1 / determinant);
+        mult(result, 1 / determinant);
         return result;
     }
 
