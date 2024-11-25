@@ -110,11 +110,12 @@ public class MatMath {
     }
 
     public static Matrix prod(final Matrix m1, final Matrix m2) {
-        if (m1.height() != m2.width()) {
+        if (m1.width() != m2.height()) {
             throw new IllegalArgumentException(
                     String.format("Matrix product denied: matrices with sizes %dx%d and %dx%d", m1.height(),
                             m1.width(), m2.height(), m2.width()));
         }
+
         final Matrix result = new Mat(m1.height(), m2.width());
         for (int r = 0; r < m1.height(); r++) {
             for (int c = 0; c < m2.width(); c++) {
@@ -138,7 +139,7 @@ public class MatMath {
                             m.width(), v.size()));
         }
 
-        final Vector result = new Vec(v.size());
+        final Vector result = new Vec(m.height());
         for (int i = 0; i < m.height(); i++) {
             float value = 0;
             for (int elem = 0; elem < v.size(); elem++) {
