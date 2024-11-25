@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import static com.github.ia1phai.linear_algebra.vec.VecMath.*;
 
+import com.github.ia1phai.linear_algebra.Validator;
+
 /**
  * TestVec
  */
@@ -14,7 +16,14 @@ public class TestVecMath {
     public void testLength() {
         Vector v = new Vec(2, 1.2f, 0.3f, 4, 6);
 
-        Assertions.assertTrue(Math.abs(len(v) - 7.58485f) < 0.00001f);
+        Assertions.assertTrue(Validator.areEquals(len(v), 7.58485332752058f));
+    }
+
+    @Test
+    public void testLength2() {
+        Vector v = new Vec(2, 1.2f, 0.3f, 4, 6);
+
+        Assertions.assertTrue(Validator.areEquals(len2(v), 57.53f));
     }
 
     @Test

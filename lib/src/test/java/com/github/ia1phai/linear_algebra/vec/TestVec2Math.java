@@ -20,6 +20,13 @@ public class TestVec2Math {
     }
 
     @Test
+    public void testLength2() {
+        Vector2 v = new Vec2(2, 1.2f);
+
+        Assertions.assertTrue(Validator.areEquals(len2(v), 5.44f));
+    }
+
+    @Test
     public void testMultiply() {
         Vector2 v1 = new Vec2(-12, 3);
         Vector2 expected = new Vec2(-18, 4.5f);
