@@ -17,7 +17,7 @@ public class Validator {
         }
     }
 
-    public static void validateSizes(final Vector v1, final Vector v2,
+    public static void validateVectorSizes(final Vector v1, final Vector v2,
             final String errMessage) {
         if (v1.size() != v2.size()) {
             throw new IllegalArgumentException(String.format("%s: vectors with different lengths (%d and %d)",
