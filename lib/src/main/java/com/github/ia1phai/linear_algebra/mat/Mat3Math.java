@@ -123,7 +123,7 @@ public class Mat3Math {
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
                 float value = 0;
-                for (int i = 0; i < m1.height(); i++) {
+                for (int i = 0; i < m1.width(); i++) {
                     value += m1.get(r, COLS[i]) * m2.get(ROWS[i], c);
                 }
                 result.set(r, c, value);

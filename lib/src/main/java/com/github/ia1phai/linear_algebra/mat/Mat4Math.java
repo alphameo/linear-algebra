@@ -118,7 +118,7 @@ public class Mat4Math {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
                 float value = 0;
-                for (int i = 0; i < m1.height(); i++) {
+                for (int i = 0; i < m1.width(); i++) {
                     value += m1.get(r, COLS[i]) * m2.get(ROWS[i], c);
                 }
                 result.set(r, c, value);

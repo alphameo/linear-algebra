@@ -110,16 +110,16 @@ public class MatMath {
     }
 
     public static Matrix prod(final Matrix m1, final Matrix m2) {
-        if (m1.width() == m2.height()) {
+        if (m1.height() != m2.width()) {
             throw new IllegalArgumentException(
                     String.format("Matrix product denied: matrices with sizes %dx%d and %dx%d", m1.height(),
                             m1.width(), m2.height(), m2.width()));
         }
-        final Matrix result = new Mat(m1.width(), m2.height());
+        final Matrix result = new Mat(m1.height(), m2.width());
         for (int r = 0; r < m1.height(); r++) {
             for (int c = 0; c < m2.width(); c++) {
                 float value = 0;
-                for (int i = 0; i < m1.height(); i++) {
+                for (int i = 0; i < m1.width(); i++) {
                     value += m1.get(r, i) * m2.get(i, c);
                 }
 
