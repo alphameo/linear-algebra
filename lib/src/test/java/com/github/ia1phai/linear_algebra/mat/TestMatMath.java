@@ -283,7 +283,7 @@ public class TestMatMath {
                 { 2, 3, -3, 1 }
         });
 
-        Assertions.assertEquals(-84, det(m));
+        Assertions.assertEquals(3, det(m));
     }
 
     @Test

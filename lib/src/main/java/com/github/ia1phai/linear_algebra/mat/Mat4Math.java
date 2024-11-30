@@ -220,6 +220,7 @@ public class Mat4Math {
                 result.set(destRow, destCol, m.get(ROWS[i], COLS[j]));
                 destCol++;
             }
+            destCol = 0;
             destRow++;
         }
 

@@ -257,6 +257,7 @@ public class MatMath {
         }
 
         final Matrix result = new Mat(m.width() - 1);
+        System.out.println("Minor for:" + c + " " + r);
         int destRow = 0;
         int destCol = 0;
         for (int i = 0; i < m.width(); i++) {
@@ -271,6 +272,7 @@ public class MatMath {
                 result.set(destRow, destCol, m.get(i, j));
                 destCol++;
             }
+            destCol = 0;
             destRow++;
         }
         return result;
