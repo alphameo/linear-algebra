@@ -209,7 +209,7 @@ public class MatMath {
                 - m.get(0, 1) * m.get(1, 0) * m.get(2, 2);
     }
 
-    public static float det(final Matrix m) {
+    public static float detThroughCofactors(final Matrix m) {
         if (!isSquare(m)) {
             throw new UnsupportedOperationException("Determinant does not exists: matrix is not square");
         }
@@ -226,6 +226,20 @@ public class MatMath {
 
         for (int i = 0; i < m.width(); i++) {
             determinant += m.get(0, i) * cofactor(m, 0, i);
+        }
+
+        return determinant;
+    }
+
+    public static float det(final Matrix m) {
+        if (!isSquare(m)) {
+            throw new UnsupportedOperationException("Determinant does not exists: matrix is not square");
+        }
+        Matrix triangularTable = triangulated(m);
+
+        float determinant = 1;
+        for (int i = 0; i < m.width(); i++) {
+            determinant *= triangularTable.get(i, i);
         }
 
         return determinant;
@@ -257,7 +271,6 @@ public class MatMath {
         }
 
         final Matrix result = new Mat(m.width() - 1);
-        System.out.println("Minor for:" + c + " " + r);
         int destRow = 0;
         int destCol = 0;
         for (int i = 0; i < m.width(); i++) {
@@ -284,7 +297,7 @@ public class MatMath {
         }
 
         final int coefficient = (r + c) % 2 == 0 ? 1 : -1;
-        return coefficient * det(minorMatrix(m, r, c));
+        return coefficient * detThroughCofactors(minorMatrix(m, r, c));
     }
 
     public static Matrix cofactorMatrix(final Matrix m) {

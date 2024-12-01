@@ -143,7 +143,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     public float det() {
-        return MatMath.det(this);
+        return MatMath.detThroughCofactors(this);
     }
 
     public Matrix invertible() {

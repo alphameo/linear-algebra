@@ -250,7 +250,7 @@ public class TestMatMath {
                 { 2, -1, 1 }
         });
 
-        Assertions.assertEquals(0, det(m));
+        Assertions.assertEquals(0, detThroughCofactors(m));
     }
 
     @Test
@@ -260,7 +260,7 @@ public class TestMatMath {
                 { 6, 5 }
         });
 
-        Assertions.assertEquals(3, det(m));
+        Assertions.assertEquals(3, detThroughCofactors(m));
     }
 
     @Test
@@ -271,7 +271,7 @@ public class TestMatMath {
                 { 7, 8, 9 }
         });
 
-        Assertions.assertEquals(-84, det(m));
+        Assertions.assertEquals(-84, detThroughCofactors(m));
     }
 
     @Test
