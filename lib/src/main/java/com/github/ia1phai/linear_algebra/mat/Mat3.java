@@ -265,6 +265,6 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
             return false;
         }
         Mat3 other = (Mat3) obj;
-        return Arrays.deepEquals(entries, other.entries);
+        return Mat3Math.equals(this, other);
     }
 }

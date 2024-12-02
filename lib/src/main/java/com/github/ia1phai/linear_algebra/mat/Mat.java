@@ -228,6 +228,6 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
             return false;
         }
         Mat other = (Mat) obj;
-        return Arrays.deepEquals(entries, other.entries);
+        return MatMath.equals(this, other);
     }
 }

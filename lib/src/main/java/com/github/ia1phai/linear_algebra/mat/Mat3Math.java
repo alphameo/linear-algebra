@@ -324,16 +324,24 @@ public class Mat3Math {
 
     public static Matrix4 toMat4(final Matrix3 m, final Matrix4Row insertionRow, final Matrix4Col insertionCol) {
         final Matrix4 result = new Mat4();
-        for (int r = 0; r < 3; r++) {
+        int destRow = 0;
+        int destCol = 0;
+        for (int r = 0; r < m.width(); r++) {
             if (r == insertionCol.ordinal()) {
-                continue;
+                destRow++;
             }
-            for (int c = 0; c < 3; c++) {
+            for (int c = 0; c < m.width(); c++) {
                 if (c == insertionCol.ordinal()) {
-                    continue;
+                    destCol++;
                 }
-                result.set(Matrix4Row.values()[r], Matrix4Col.values()[c], m.get(ROWS[r], COLS[c]));
+                result.set(
+                        Matrix4Row.values()[destRow],
+                        Matrix4Col.values()[destCol],
+                        m.get(ROWS[r], COLS[c]));
+                destCol++;
             }
+            destCol = 0;
+            destRow++;
         }
 
         result.set(insertionRow, insertionCol, 1);
@@ -355,7 +363,7 @@ public class Mat3Math {
 
     public static Matrix3 unitMat() {
         final Matrix3 result = new Mat3();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < result.width(); i++) {
             result.set(ROWS[i], COLS[i], 1);
         }
 

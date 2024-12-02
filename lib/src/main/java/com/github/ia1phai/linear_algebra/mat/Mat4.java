@@ -257,6 +257,6 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
             return false;
         }
         Mat4 other = (Mat4) obj;
-        return Arrays.deepEquals(entries, other.entries);
+        return Mat4Math.equals(this, other);
     }
 }

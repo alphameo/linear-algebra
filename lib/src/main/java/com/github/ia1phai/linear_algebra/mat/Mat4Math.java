@@ -330,7 +330,7 @@ public class Mat4Math {
 
     public static Matrix4 unitMat() {
         final Matrix4 result = new Mat4();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < result.width(); i++) {
             result.set(ROWS[i], COLS[i], 1);
         }
 
