@@ -12,7 +12,7 @@ public class Validator {
 
     public static void validateDivisor(final float divisor) throws ArithmeticException {
 
-        if (areEquals(divisor, 0)) {
+        if (equals(divisor, 0)) {
             throw new ArithmeticException("Division denied: divisor equals 0");
         }
     }
@@ -33,7 +33,7 @@ public class Validator {
         }
     }
 
-    public static boolean areEquals(float value1, float value2) {
+    public static boolean equals(float value1, float value2) {
         return Math.abs(value1 - value2) < EPS;
     }
 }

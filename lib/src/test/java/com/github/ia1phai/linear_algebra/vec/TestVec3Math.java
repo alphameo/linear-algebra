@@ -16,7 +16,7 @@ public class TestVec3Math {
     public void testLength() {
         Vector3 v = new Vec3(2, 1.2f, 0.3f);
 
-        Assertions.assertTrue(Validator.areEquals(len(v), 2.3515952032609695f));
+        Assertions.assertTrue(Validator.equals(len(v), 2.3515952032609695f));
     }
 
     @Test

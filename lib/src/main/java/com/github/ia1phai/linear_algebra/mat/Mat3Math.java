@@ -151,7 +151,7 @@ public class Mat3Math {
         int countOfSwaps = 0;
 
         for (int i = 0; i < m.width(); i++) {
-            if (Validator.areEquals(m.get(ROWS[i], COLS[i]), 0)) {
+            if (Validator.equals(m.get(ROWS[i], COLS[i]), 0)) {
                 boolean isNonZeroFound = false;
 
                 for (final Matrix3Row r : ROWS) {
@@ -251,7 +251,7 @@ public class Mat3Math {
     public static boolean equals(final Matrix3 target, final Matrix3 subtrahend) {
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
-                if (Validator.areEquals(target.get(r, c), subtrahend.get(r, c))) {
+                if (Validator.equals(target.get(r, c), subtrahend.get(r, c))) {
                     return false;
                 }
             }
@@ -282,7 +282,7 @@ public class Mat3Math {
                 if (r.ordinal() == c.ordinal()) {
                     continue;
                 }
-                if (Validator.areEquals(m.get(r, c), 0)) {
+                if (Validator.equals(m.get(r, c), 0)) {
                     return false;
                 }
             }

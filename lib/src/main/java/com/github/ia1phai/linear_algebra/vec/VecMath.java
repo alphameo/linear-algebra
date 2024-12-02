@@ -106,7 +106,7 @@ public class VecMath {
     public static boolean equals(final Vector v1, final Vector v2) {
         Validator.validateVectorSizes(v1, v2, "Equalization denied");
         for (int i = 0; i < v1.size(); i++) {
-            if (!Validator.areEquals(v1.get(i), v2.get(i))) {
+            if (!Validator.equals(v1.get(i), v2.get(i))) {
                 return false;
             }
         }

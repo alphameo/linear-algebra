@@ -157,7 +157,7 @@ public class MatMath {
         final int maxSize = Math.max(m.height(), m.width());
 
         for (int i = 0; i < maxSize; i++) {
-            if (Validator.areEquals(m.get(i, i), 0)) {
+            if (Validator.equals(m.get(i, i), 0)) {
                 boolean isNonZeroFound = false;
 
                 for (int r = i + 1; r < m.height(); r++) {
@@ -319,7 +319,7 @@ public class MatMath {
         Validator.validateMatrixSizes(target, subtrahend, "Equalizationt denied");
         for (int r = 0; r < target.height(); r++) {
             for (int c = 0; c < subtrahend.width(); c++) {
-                if (!Validator.areEquals(target.get(r, c), subtrahend.get(r, c))) {
+                if (!Validator.equals(target.get(r, c), subtrahend.get(r, c))) {
                     return false;
                 }
             }
@@ -354,7 +354,7 @@ public class MatMath {
                 if (i == j) {
                     continue;
                 }
-                if (Validator.areEquals(m.get(i, j), 0)) {
+                if (Validator.equals(m.get(i, j), 0)) {
                     return false;
                 }
             }

@@ -16,14 +16,14 @@ public class TestVecMath {
     public void testLength() {
         Vector v = new Vec(2, 1.2f, 0.3f, 4, 6);
 
-        Assertions.assertTrue(Validator.areEquals(len(v), 7.58485332752058f));
+        Assertions.assertTrue(Validator.equals(len(v), 7.58485332752058f));
     }
 
     @Test
     public void testLength2() {
         Vector v = new Vec(2, 1.2f, 0.3f, 4, 6);
 
-        Assertions.assertTrue(Validator.areEquals(len2(v), 57.53f));
+        Assertions.assertTrue(Validator.equals(len2(v), 57.53f));
     }
 
     @Test
