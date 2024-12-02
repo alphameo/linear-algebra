@@ -39,10 +39,10 @@ public class MatMath {
 
     public static Matrix swapRows(final Matrix m, final int r1, final int r2) {
         float tmp;
-        for (int r = 0; r < m.width(); r++) {
-            tmp = m.get(r1, r);
-            m.set(r1, r, m.get(r2, r));
-            m.set(r2, r, tmp);
+        for (int c = 0; c < m.width(); c++) {
+            tmp = m.get(r1, c);
+            m.set(r1, c, m.get(r2, c));
+            m.set(r2, c, tmp);
         }
 
         return m;
@@ -54,10 +54,10 @@ public class MatMath {
 
     public static Matrix swapCols(final Matrix m, final int c1, final int c2) {
         float tmp;
-        for (int c = 0; c < m.height(); c++) {
-            tmp = m.get(c, c1);
-            m.set(c, c1, m.get(c, c2));
-            m.set(c, c2, tmp);
+        for (int r = 0; r < m.height(); r++) {
+            tmp = m.get(r, c1);
+            m.set(r, c1, m.get(r, c2));
+            m.set(r, c2, tmp);
         }
 
         return m;

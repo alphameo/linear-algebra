@@ -32,7 +32,12 @@ public class Mat4Math {
     }
 
     public static Matrix4 swapRows(final Matrix4 m, final Matrix4Row r1, final Matrix4Row r2) {
-        swapRows(m, r1, r2);
+        float tmp;
+        for (final Matrix4Col c : COLS) {
+            tmp = m.get(r1, c);
+            m.set(r1, c, m.get(r2, c));
+            m.set(r2, c, tmp);
+        }
 
         return m;
     }

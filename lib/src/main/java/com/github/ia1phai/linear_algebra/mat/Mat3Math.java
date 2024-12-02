@@ -33,7 +33,12 @@ public class Mat3Math {
     }
 
     public static Matrix3 swapRows(final Matrix3 m, final Matrix3Row r1, final Matrix3Row r2) {
-        swapRows(m, r1, r2);
+        float tmp;
+        for (final Matrix3Col c : COLS) {
+            tmp = m.get(r1, c);
+            m.set(r1, c, m.get(r2, c));
+            m.set(r2, c, tmp);
+        }
 
         return m;
     }
@@ -47,7 +52,7 @@ public class Mat3Math {
     }
 
     public static Matrix3 swappedRows(final Matrix3 m, final int r1, final int r2) {
-        return swapRows(new Mat3(m), r1, r2);
+        return swappedRows(m, ROWS[r1], ROWS[r2]);
     }
 
     public static Matrix3 swapCols(final Matrix3 m, final Matrix3Col c1, final Matrix3Col c2) {
@@ -161,6 +166,7 @@ public class Mat3Math {
 
     public static Matrix3 triangulate(final Matrix3 m) {
         int countOfSwaps = 0;
+        System.out.println(m);
 
         for (int i = 0; i < m.width(); i++) {
             if (Validator.equals(m.get(ROWS[i], COLS[i]), 0)) {
@@ -179,6 +185,7 @@ public class Mat3Math {
                     continue;
             }
 
+        System.out.println(m);
             for (final Matrix3Row r : ROWS) {
                 final float coefficient = -(m.get(r, COLS[i]) / m.get(ROWS[i], COLS[i]));
 
