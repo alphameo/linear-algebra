@@ -166,7 +166,6 @@ public class Mat3Math {
 
     public static Matrix3 triangulate(final Matrix3 m) {
         int countOfSwaps = 0;
-        System.out.println(m);
 
         for (int i = 0; i < m.width(); i++) {
             if (Validator.equals(m.get(ROWS[i], COLS[i]), 0)) {
