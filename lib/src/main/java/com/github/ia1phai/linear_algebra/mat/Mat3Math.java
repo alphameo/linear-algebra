@@ -44,9 +44,7 @@ public class Mat3Math {
     }
 
     public static Matrix3 swapRows(final Matrix3 m, final int r1, final int r2) {
-        swapRows(m, ROWS[r1], ROWS[r2]);
-
-        return m;
+        return swapRows(m, ROWS[r1], ROWS[r2]);
     }
 
     public static Matrix3 swappedRows(final Matrix3 m, final Matrix3Row r1, final Matrix3Row r2) {
@@ -245,6 +243,7 @@ public class Mat3Math {
                 result.set(destRow, destCol, m.get(ROWS[i], COLS[j]));
                 destCol++;
             }
+            destCol = 0;
             destRow++;
         }
 
