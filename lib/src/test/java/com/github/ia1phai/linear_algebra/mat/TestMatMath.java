@@ -300,4 +300,21 @@ public class TestMatMath {
 
         Assertions.assertEquals(1616, det(m));
     }
+
+    @Test
+    public void testInvert() {
+        Matrix m = new Mat(new float[][] {
+                { 1, 2, 3 },
+                { 4, 12, 6 },
+                { 7, 8, 9 }
+        });
+
+        Matrix expected = new Mat(new float[][] {
+                { -5f / 7, -1f / 14, 2f / 7 },
+                { -1f / 14, 1f / 7, -1f / 14 },
+                { 13f / 21, -1f / 14, -1f / 21 }
+        });
+
+        Assertions.assertEquals(expected, invertibleMatrix(m));
+    }
 }

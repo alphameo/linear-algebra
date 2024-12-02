@@ -16,9 +16,10 @@ public class Mat3Math {
     public static final Matrix3Col[] COLS = Matrix3Col.values();
 
     public static Matrix3 transpose(final Matrix3 m) {
+        float tmp;
         for (int i = 0; i < m.width(); i++) {
             for (int j = i + 1; j < m.width(); j++) {
-                final float tmp = m.get(ROWS[i], COLS[j]);
+                tmp = m.get(ROWS[i], COLS[j]);
                 m.set(ROWS[i], COLS[j], m.get(ROWS[j], COLS[i]));
                 m.set(ROWS[j], COLS[i], tmp);
             }
