@@ -176,9 +176,6 @@ public class TestMat3Math {
                 { 0, 0, 0 }
         });
 
-        //System.out.println(expected);
-        //System.out.println(triangulated(m));
-
         Assertions.assertEquals(expected, triangulate(m));
     }
 
@@ -194,7 +191,7 @@ public class TestMat3Math {
     }
 
     @Test
-    public void testDet3() {
+    public void testDet() {
         Matrix3 m = new Mat3(new float[][] {
                 { 1, 2, 3 },
                 { 4, 12, 6 },
@@ -333,7 +330,7 @@ public class TestMat3Math {
         Matrix3 m = new Mat3(new float[][] {
                 { 0, 0, 0 },
                 { 0, 0, 0 },
-                { 0, 0, 0 },
+                { 0, 0, 0 }
         });
 
         Assertions.assertTrue(isZeroed(m));
@@ -384,8 +381,100 @@ public class TestMat3Math {
     }
 
     @Test
+    public void TestToMat4T1() {
+        Matrix3 m = new Mat3(new float[][] {
+                { 1, 2, 3 },
+                { 4, 12, 6 },
+                { 7, 8, 9 }
+        });
+
+        Matrix4 expected = new Mat4(new float[][] {
+                { 1, 0, 0, 0 },
+                { 0, 1, 2, 3 },
+                { 0, 4, 12, 6 },
+                { 0, 7, 8, 9 }
+        });
+
+        Assertions.assertEquals(expected,
+                Mat3Math.toMat4(
+                        m,
+                        Matrix4Row.R0,
+                        Matrix4Col.C0));
+        Assertions.assertEquals(expected, Mat3Math.toMat4(m, 0, 0));
+    }
+
+    @Test
+    public void TestToMat4T2() {
+        Matrix3 m = new Mat3(new float[][] {
+                { 1, 2, 3 },
+                { 4, 12, 6 },
+                { 7, 8, 9 }
+        });
+
+        Matrix4 expected = new Mat4(new float[][] {
+                { 1, 0, 2, 3 },
+                { 0, 1, 0, 0 },
+                { 4, 0, 12, 6 },
+                { 7, 0, 8, 9 }
+        });
+
+        Assertions.assertEquals(expected,
+                Mat3Math.toMat4(
+                        m,
+                        Matrix4Row.R1,
+                        Matrix4Col.C1));
+        Assertions.assertEquals(expected, Mat3Math.toMat4(m, 1, 1));
+    }
+
+    @Test
+    public void TestToMat4T3() {
+        Matrix3 m = new Mat3(new float[][] {
+                { 1, 2, 3 },
+                { 4, 12, 6 },
+                { 7, 8, 9 }
+        });
+
+        Matrix4 expected = new Mat4(new float[][] {
+                { 1, 2, 0, 3 },
+                { 4, 12, 0, 6 },
+                { 0, 0, 1, 0 },
+                { 7, 8, 0, 9 }
+        });
+
+        Assertions.assertEquals(expected,
+                Mat3Math.toMat4(
+                        m,
+                        Matrix4Row.R2,
+                        Matrix4Col.C2));
+        Assertions.assertEquals(expected, Mat3Math.toMat4(m, 2, 2));
+    }
+
+    @Test
+    public void TestToMat4T4() {
+        Matrix3 m = new Mat3(new float[][] {
+                { 1, 2, 3 },
+                { 4, 12, 6 },
+                { 7, 8, 9 }
+        });
+
+        Matrix4 expected = new Mat4(new float[][] {
+                { 1, 2, 3, 0 },
+                { 4, 12, 6, 0 },
+                { 7, 8, 9, 0 },
+                { 0, 0, 0, 1 }
+        });
+
+        Assertions.assertEquals(expected,
+                Mat3Math.toMat4(
+                        m,
+                        Matrix4Row.R3,
+                        Matrix4Col.C3));
+        Assertions.assertEquals(expected, Mat3Math.toMat4(m, 3, 3));
+    }
+
+    @Test
     public void testZeroMat() {
-        Matrix3 m = Mat3Math.zeroMat();
+        Matrix3 m = zeroMat();
         Matrix3 expected = new Mat3(new float[][] {
                 { 0, 0, 0 },
                 { 0, 0, 0 },
@@ -397,7 +486,7 @@ public class TestMat3Math {
 
     @Test
     public void testUnitMat() {
-        Matrix3 m = Mat3Math.unitMat();
+        Matrix3 m = unitMat();
         Matrix3 expected = new Mat3(new float[][] {
                 { 1, 0, 0 },
                 { 0, 1, 0 },
