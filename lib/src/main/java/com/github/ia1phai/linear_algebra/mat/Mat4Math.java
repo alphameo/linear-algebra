@@ -246,6 +246,10 @@ public class Mat4Math {
         return coefficient * Mat3Math.det(minorMatrix(m, r, c));
     }
 
+    public static float cofactor(final Matrix4 m, final int r, final int c) {
+        return cofactor(m, ROWS[r], COLS[c]);
+    }
+
     public static Matrix4 cofactorMatrix(final Matrix4 m) {
         final Matrix4 result = new Mat4();
         for (final Matrix4Row r : ROWS) {
@@ -260,7 +264,7 @@ public class Mat4Math {
     public static boolean equals(final Matrix4 m1, final Matrix4 m2) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
-                if (Validator.equals(m1.get(r, c), m2.get(r, c))) {
+                if (!Validator.equals(m1.get(r, c), m2.get(r, c))) {
                     return false;
                 }
             }

@@ -229,16 +229,16 @@ public class Mat3Math {
         return result;
     }
 
-    public static Matrix minorMatrix(final Matrix3 m, final Matrix3Row row, final Matrix3Col col) {
+    public static Matrix minorMatrix(final Matrix3 m, final Matrix3Row r, final Matrix3Col c) {
         final Matrix result = new Mat(2);
         int destRow = 0;
         int destCol = 0;
         for (int i = 0; i < m.width(); i++) {
-            if (i == row.ordinal()) {
+            if (i == r.ordinal()) {
                 continue;
             }
             for (int j = 0; j < m.width(); j++) {
-                if (j == col.ordinal()) {
+                if (j == c.ordinal()) {
                     continue;
                 }
 
@@ -251,9 +251,17 @@ public class Mat3Math {
         return result;
     }
 
+    public static Matrix minorMatrix(final Matrix3 m, final int r, final int c) {
+        return minorMatrix(m, r, c);
+    }
+
     public static float cofactor(final Matrix3 m, final Matrix3Row r, final Matrix3Col c) {
         final int coefficient = (r.ordinal() + c.ordinal()) % 2 == 0 ? 1 : -1;
         return coefficient * MatMath.detThroughCofactors(minorMatrix(m, r, c));
+    }
+
+    public static float cofactor(final Matrix3 m, final int r, final int c) {
+        return cofactor(m, ROWS[r], COLS[c]);
     }
 
     public static Matrix3 cofactorMatrix(final Matrix3 m) {
@@ -270,7 +278,7 @@ public class Mat3Math {
     public static boolean equals(final Matrix3 m1, final Matrix3 m2) {
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
-                if (Validator.equals(m1.get(r, c), m2.get(r, c))) {
+                if (!Validator.equals(m1.get(r, c), m2.get(r, c))) {
                     return false;
                 }
             }
