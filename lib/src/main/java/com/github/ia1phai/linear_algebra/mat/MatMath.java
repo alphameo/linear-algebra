@@ -9,6 +9,23 @@ import com.github.ia1phai.linear_algebra.vec.Vector;
  */
 public class MatMath {
 
+    public static Matrix transposeSquare(final Matrix m) {
+        if (!square(m)) {
+            throw new IllegalArgumentException("Inaplicable method ::transposeSquare for non-square matrix");
+        }
+
+        float tmp;
+        for (int i = 0; i < m.width(); i++) {
+            for (int j = i + 1; j < m.width(); j++) {
+                tmp = m.get(i, j);
+                m.set(i, j, m.get(j, i));
+                m.set(j, i, tmp);
+            }
+        }
+
+        return m;
+    }
+
     public static Matrix transposed(final Matrix m) {
         Matrix result = new Mat(m.width(), m.height());
         for (int r = 0; r < m.height(); r++) {
@@ -259,7 +276,7 @@ public class MatMath {
         if (determinant == 0) {
             throw new RuntimeException("Invertible matrix does not exitst: determinant is 0");
         }
-        transposed(result);
+        transposeSquare(result);
         mult(result, 1 / determinant);
 
         return result;
