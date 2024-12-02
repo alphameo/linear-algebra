@@ -315,7 +315,7 @@ public class TestMatMath {
                 { 13f / 21, -1f / 14, -1f / 21 }
         });
 
-        Assertions.assertEquals(expected, invertibleMatrix(m));
+        Assertions.assertEquals(expected, invertible(m));
     }
 
     @Test
@@ -468,6 +468,30 @@ public class TestMatMath {
     }
 
     @Test
+    public void testIsZeroed() {
+        Matrix m = new Mat(new float[][] {
+                { 0, 0, 0 },
+                { 0, 0, 0 },
+                { 0, 0, 0 },
+                { 0, 0, 0 }
+        });
+
+        Assertions.assertTrue(isZeroed(m));
+    }
+
+    @Test
+    public void testIsNotZeroed() {
+        Matrix m = new Mat(new float[][] {
+                { 0, 0, 0 },
+                { 0, 0, 5 },
+                { 0, 0, 0 },
+                { 0, 0, 0 }
+        });
+
+        Assertions.assertTrue(!isZeroed(m));
+    }
+
+    @Test
     public void testDiagonal2() {
         Matrix m = new Mat(new float[][] {
                 { 0, 0, 0 },
@@ -487,5 +511,29 @@ public class TestMatMath {
         });
 
         Assertions.assertTrue(!diagonal(m));
+    }
+
+    @Test
+    public void testZeroMat() {
+        Matrix m = MatMath.zeroMat(3, 4);
+        Matrix expected = new Mat(new float[][] {
+                { 0, 0, 0, 0 },
+                { 0, 0, 0, 0 },
+                { 0, 0, 0, 0 }
+        });
+
+        Assertions.assertEquals(expected, m);
+    }
+
+    @Test
+    public void testUnitMat() {
+        Matrix m = MatMath.unitMat(3);
+        Matrix expected = new Mat(new float[][] {
+                { 1, 0, 0 },
+                { 0, 1, 0 },
+                { 0, 0, 1 }
+        });
+
+        Assertions.assertEquals(expected, m);
     }
 }
