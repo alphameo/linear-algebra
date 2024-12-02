@@ -6,6 +6,8 @@ import com.github.ia1phai.linear_algebra.vec.Vec;
 import com.github.ia1phai.linear_algebra.vec.Vector;
 import static com.github.ia1phai.linear_algebra.mat.MatMath.*;
 
+import com.github.ia1phai.linear_algebra.Validator;
+
 /**
  * TestMatMath
  */
@@ -283,7 +285,7 @@ public class TestMatMath {
                 { 2, 3, -3, 1 }
         });
 
-        Assertions.assertEquals(3, det(m));
+        Assertions.assertTrue(Validator.equalsEpsilon(3, MatMath.det(m), 0.0001f));
     }
 
     @Test

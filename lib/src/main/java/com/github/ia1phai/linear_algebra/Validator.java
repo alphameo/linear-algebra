@@ -36,4 +36,8 @@ public class Validator {
     public static boolean equals(float value1, float value2) {
         return Math.abs(value1 - value2) < EPS;
     }
+
+    public static boolean equalsEpsilon(float value1, float value2, float eps) {
+        return Math.abs(value1 - value2) < eps;
+    }
 }
