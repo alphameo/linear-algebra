@@ -254,7 +254,7 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
     }
 
     @Override
-    public boolean equals(final Object obj) {
+    public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
@@ -264,6 +264,7 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        return MatMath.equals(this, (Mat) obj);
+        Mat3 other = (Mat3) obj;
+        return Arrays.deepEquals(entries, other.entries);
     }
 }

@@ -147,7 +147,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     public Matrix invertible() {
-        return MatMath.invertibleMatrix(this);
+        return MatMath.invertible(this);
     }
 
     public Matrix minorMatrix(final int r, final int c) {
@@ -217,7 +217,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     @Override
-    public boolean equals(final Object obj) {
+    public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
@@ -227,6 +227,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        return equalsTo((Matrix) obj);
+        Mat other = (Mat) obj;
+        return Arrays.deepEquals(entries, other.entries);
     }
 }

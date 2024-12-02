@@ -246,7 +246,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     @Override
-    public boolean equals(final Object obj) {
+    public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
@@ -256,6 +256,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        return MatMath.equals(this, (Mat) obj);
+        Mat4 other = (Mat4) obj;
+        return Arrays.deepEquals(entries, other.entries);
     }
 }
