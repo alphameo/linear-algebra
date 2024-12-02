@@ -283,7 +283,7 @@ public class Mat3Math {
                 if (r.ordinal() == c.ordinal()) {
                     continue;
                 }
-                if (Validator.equals(m.get(r, c), 0)) {
+                if (!Validator.equals(m.get(r, c), 0)) {
                     return false;
                 }
             }

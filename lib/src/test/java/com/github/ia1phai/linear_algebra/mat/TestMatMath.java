@@ -404,4 +404,88 @@ public class TestMatMath {
 
         Assertions.assertTrue(MatMath.equals(m1, m2));
     }
+
+    @Test
+    public void testNotEquals() {
+        Matrix m1 = new Mat(new float[][] {
+                { 1, 2, 3 },
+                { 4, 12, 6 },
+                { 7, 8, 9 }
+        });
+
+        Matrix m2 = new Mat(new float[][] {
+                { 1, 2, 3 },
+                { 4, 2, 6 },
+                { 7, 8, 9 }
+        });
+
+        Assertions.assertTrue(!MatMath.equals(m1, m2));
+    }
+
+    @Test
+    public void testSquare() {
+        Matrix m = new Mat(new float[][] {
+                { 1, 2, 3 },
+                { 4, 12, 6 },
+                { 7, 8, 9 }
+        });
+
+        Assertions.assertTrue(square(m));
+    }
+
+    @Test
+    public void testNotSquare1() {
+        Matrix m = new Mat(new float[][] {
+                { 1, 2, 3 },
+                { 1, 2, 3 },
+                { 4, 12, 6 },
+                { 7, 8, 9 }
+        });
+
+        Assertions.assertTrue(!square(m));
+    }
+
+    @Test
+    public void testNotSquare2() {
+        Matrix m = new Mat(new float[][] {
+                { 1, 2, 3, 2 },
+                { 4, 12, 6, 1 },
+                { 7, 8, 9, 4 }
+        });
+
+        Assertions.assertTrue(!square(m));
+    }
+
+    @Test
+    public void testDiagonal1() {
+        Matrix m = new Mat(new float[][] {
+                { 1, 0, 0 },
+                { 0, 2, 0 },
+                { 0, 0, 45 }
+        });
+
+        Assertions.assertTrue(diagonal(m));
+    }
+
+    @Test
+    public void testDiagonal2() {
+        Matrix m = new Mat(new float[][] {
+                { 0, 0, 0 },
+                { 0, 2, 0 },
+                { 0, 0, 45 }
+        });
+
+        Assertions.assertTrue(diagonal(m));
+    }
+
+    @Test
+    public void testNotDiagonal() {
+        Matrix m = new Mat(new float[][] {
+                { 1, 0, 3 },
+                { 0, 2, 0 },
+                { 0, 0, 45 }
+        });
+
+        Assertions.assertTrue(!diagonal(m));
+    }
 }

@@ -362,7 +362,7 @@ public class MatMath {
     }
 
     public static boolean diagonal(final Matrix m) {
-        if (m.width() != m.height()) {
+        if (!square(m)) {
             return false;
         }
 
@@ -371,7 +371,7 @@ public class MatMath {
                 if (i == j) {
                     continue;
                 }
-                if (Validator.equals(m.get(i, j), 0)) {
+                if (!Validator.equals(m.get(i, j), 0)) {
                     return false;
                 }
             }
