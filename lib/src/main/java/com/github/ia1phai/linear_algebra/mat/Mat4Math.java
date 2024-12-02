@@ -172,9 +172,9 @@ public class Mat4Math {
             if (Validator.equals(m.get(ROWS[i], COLS[i]), 0)) {
                 boolean isNonZeroFound = false;
 
-                for (final Matrix4Row r : ROWS) {
-                    if (m.get(r, COLS[i]) != 0) {
-                        swapRows(m, ROWS[i], r);
+                for (int r = i + 1; r < m.height(); r++) {
+                    if (!Validator.equals(m.get(ROWS[r], COLS[i]), 0)) {
+                        swapRows(m, ROWS[i], ROWS[r]);
                         countOfSwaps++;
                         isNonZeroFound = true;
                         break;
@@ -185,11 +185,15 @@ public class Mat4Math {
                     continue;
             }
 
-            for (final Matrix4Row r : ROWS) {
-                final float coefficient = -(m.get(r, COLS[i]) / m.get(ROWS[i], COLS[i]));
+            for (int r = i + 1; r < m.height(); r++) {
+                final float coefficient = -(m.get(ROWS[r], COLS[i]) / m.get(ROWS[i], COLS[i]));
 
-                for (final Matrix4Col c : COLS) {
-                    m.set(r, c, m.get(r, c) + coefficient * m.get(ROWS[i], c));
+                for (int c = i; c < m.width(); c++) {
+                    m.set(
+                            ROWS[r],
+                            COLS[c],
+                            m.get(ROWS[r], COLS[c])
+                                    + coefficient * m.get(ROWS[i], COLS[c]));
                 }
             }
         }

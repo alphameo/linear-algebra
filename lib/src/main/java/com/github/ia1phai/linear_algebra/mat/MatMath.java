@@ -171,14 +171,14 @@ public class MatMath {
 
     public static Matrix triangulate(final Matrix m) {
         int countOfSwaps = 0;
-        final int maxSize = Math.max(m.height(), m.width());
+        final int maxSize = Math.min(m.height(), m.width());
 
         for (int i = 0; i < maxSize; i++) {
             if (Validator.equals(m.get(i, i), 0)) {
                 boolean isNonZeroFound = false;
 
                 for (int r = i + 1; r < m.height(); r++) {
-                    if (m.get(r, i) != 0) {
+                    if (!Validator.equals(m.get(r, i), 0)) {
                         swapRows(m, i, r);
                         countOfSwaps++;
                         isNonZeroFound = true;
