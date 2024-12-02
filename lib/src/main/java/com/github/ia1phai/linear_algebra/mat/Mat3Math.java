@@ -33,12 +33,7 @@ public class Mat3Math {
     }
 
     public static Matrix3 swapRows(final Matrix3 m, final Matrix3Row r1, final Matrix3Row r2) {
-        float tmp;
-        for (final Matrix3Col c : COLS) {
-            tmp = m.get(r1, c);
-            m.set(r1, c, m.get(r2, c));
-            m.set(r2, c, tmp);
-        }
+        swapRows(m, r1, r2);
 
         return m;
     }
@@ -251,7 +246,7 @@ public class Mat3Math {
     }
 
     public static Matrix minorMatrix(final Matrix3 m, final int r, final int c) {
-        return minorMatrix(m, r, c);
+        return minorMatrix(m, ROWS[r], COLS[c]);
     }
 
     public static float cofactor(final Matrix3 m, final Matrix3Row r, final Matrix3Col c) {
@@ -334,6 +329,10 @@ public class Mat3Math {
         result.set(insertionRow, insertionCol, 1);
 
         return result;
+    }
+
+    public static Matrix4 toMat4(final Matrix3 m, final int insertionRow, final int insertionCol) {
+        return toMat4(m, Matrix4Row.values()[insertionRow], Matrix4Col.values()[insertionCol]);
     }
 
     public static Matrix4 toMat4(final Matrix3 m) {

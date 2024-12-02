@@ -99,6 +99,10 @@ public class Mat4Math {
         return m;
     }
 
+    public static Matrix4 divided(final Matrix4 m, final float divisor) {
+        return divide(new Mat4(m), divisor);
+    }
+
     public static Matrix4 add(final Matrix4 target, final Matrix4 addendum) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
@@ -231,7 +235,10 @@ public class Mat4Math {
                     continue;
                 }
 
-                result.set(destRow, destCol, m.get(ROWS[i], COLS[j]));
+                result.set(
+                        Matrix3Row.values()[destRow],
+                        Matrix3Col.values()[destCol],
+                        m.get(ROWS[i], COLS[j]));
                 destCol++;
             }
             destCol = 0;
@@ -239,6 +246,10 @@ public class Mat4Math {
         }
 
         return result;
+    }
+
+    public static Matrix3 minorMatrix(final Matrix4 m, final int r, final int c) {
+        return minorMatrix(m, ROWS[r], COLS[c]);
     }
 
     public static float cofactor(final Matrix4 m, final Matrix4Row r, final Matrix4Col c) {
