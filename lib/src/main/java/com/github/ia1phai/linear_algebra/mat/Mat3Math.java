@@ -43,7 +43,17 @@ public class Mat3Math {
         return m;
     }
 
+    public static Matrix3 swapRows(final Matrix3 m, final int r1, final int r2) {
+        swapRows(m, ROWS[r1], ROWS[r2]);
+
+        return m;
+    }
+
     public static Matrix3 swappedRows(final Matrix3 m, final Matrix3Row r1, final Matrix3Row r2) {
+        return swapRows(new Mat3(m), r1, r2);
+    }
+
+    public static Matrix3 swappedRows(final Matrix3 m, final int r1, final int r2) {
         return swapRows(new Mat3(m), r1, r2);
     }
 
@@ -58,7 +68,15 @@ public class Mat3Math {
         return m;
     }
 
+    public static Matrix3 swapCols(final Matrix3 m, final int c1, final int c2) {
+        return swapCols(m, COLS[c1], COLS[c2]);
+    }
+
     public static Matrix3 swappedCols(final Matrix3 m, final Matrix3Col c1, final Matrix3Col c2) {
+        return swapCols(new Mat3(m), c1, c2);
+    }
+
+    public static Matrix3 swappedCols(final Matrix3 m, final int c1, final int c2) {
         return swapCols(new Mat3(m), c1, c2);
     }
 

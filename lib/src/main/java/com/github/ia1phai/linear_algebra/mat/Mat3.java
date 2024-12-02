@@ -98,7 +98,15 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
         return Mat3Math.swapRows(this, r1, r2);
     }
 
+    public Matrix3 swapRows(final int r1, final int r2) {
+        return Mat3Math.swapRows(this, r1, r2);
+    }
+
     public Matrix3 swappedRows(final Matrix3Row r1, final Matrix3Row r2) {
+        return Mat3Math.swappedRows(this, r1, r2);
+    }
+
+    public Matrix3 swappedRows(final int r1, final int r2) {
         return Mat3Math.swappedRows(this, r1, r2);
     }
 
@@ -106,7 +114,15 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
         return Mat3Math.swapCols(this, c1, c2);
     }
 
+    public Matrix3 swapCols(final int c1, final int c2) {
+        return Mat3Math.swapCols(this, c1, c2);
+    }
+
     public Matrix3 swappedCols(final Matrix3Col c1, final Matrix3Col c2) {
+        return Mat3Math.swappedCols(this, c1, c2);
+    }
+
+    public Matrix3 swappedCols(final int c1, final int c2) {
         return Mat3Math.swappedCols(this, c1, c2);
     }
 

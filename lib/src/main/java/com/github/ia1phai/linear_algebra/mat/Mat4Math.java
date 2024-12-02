@@ -32,17 +32,22 @@ public class Mat4Math {
     }
 
     public static Matrix4 swapRows(final Matrix4 m, final Matrix4Row r1, final Matrix4Row r2) {
-        float tmp;
-        for (final Matrix4Col c : COLS) {
-            tmp = m.get(r1, c);
-            m.set(r1, c, m.get(r2, c));
-            m.set(r2, c, tmp);
-        }
+        swapRows(m, r1, r2);
+
+        return m;
+    }
+
+    public static Matrix4 swapRows(final Matrix4 m, final int r1, final int r2) {
+        swapRows(m, ROWS[r1], ROWS[r2]);
 
         return m;
     }
 
     public static Matrix4 swappedRows(final Matrix4 m, final Matrix4Row r1, final Matrix4Row r2) {
+        return swapRows(new Mat4(m), r1, r2);
+    }
+
+    public static Matrix4 swappedRows(final Matrix4 m, final int r1, final int r2) {
         return swapRows(new Mat4(m), r1, r2);
     }
 
@@ -57,7 +62,15 @@ public class Mat4Math {
         return m;
     }
 
+    public static Matrix4 swapCols(final Matrix4 m, final int c1, final int c2) {
+        return swapCols(m, COLS[c1], COLS[c2]);
+    }
+
     public static Matrix4 swappedCols(final Matrix4 m, final Matrix4Col c1, final Matrix4Col c2) {
+        return swapCols(new Mat4(m), c1, c2);
+    }
+
+    public static Matrix4 swappedCols(final Matrix4 m, final int c1, final int c2) {
         return swapCols(new Mat4(m), c1, c2);
     }
 
