@@ -165,8 +165,8 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
         return result;
     }
 
-    public boolean isSquare() {
-        return MatMath.isSquare(this);
+    public boolean square() {
+        return MatMath.square(this);
     }
 
     public boolean isZeroed() {
@@ -205,7 +205,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
 
     @Override
     public String toString() {
-        return MatUtils.matrixToString(this);
+        return MatStringer.matrixToString(this);
     }
 
     @Override

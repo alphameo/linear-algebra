@@ -178,7 +178,7 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
         return Mat3Math.cofactorMatrix(this);
     }
 
-    public boolean isSquare() {
+    public boolean square() {
         return true;
     }
 
@@ -226,7 +226,7 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
 
     @Override
     public String toString() {
-        return MatUtils.matrixToString(this);
+        return MatStringer.matrixToString(this);
     }
 
     @Override

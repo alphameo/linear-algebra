@@ -255,7 +255,7 @@ public class Mat4Math {
         return true;
     }
 
-    public static boolean isSquare(final Matrix4 m) {
+    public static boolean square(final Matrix4 m) {
         return true;
     }
 

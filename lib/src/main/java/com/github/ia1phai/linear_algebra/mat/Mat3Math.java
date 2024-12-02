@@ -260,7 +260,7 @@ public class Mat3Math {
         return true;
     }
 
-    public static boolean isSquare(final Matrix3 m) {
+    public static boolean square(final Matrix3 m) {
         return true;
     }
 

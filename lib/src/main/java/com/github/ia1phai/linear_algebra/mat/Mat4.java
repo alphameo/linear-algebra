@@ -178,7 +178,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
         return Mat4Math.cofactorMatrix(this);
     }
 
-    public boolean isSquare() {
+    public boolean square() {
         return true;
     }
 
@@ -218,7 +218,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
 
     @Override
     public String toString() {
-        return MatUtils.matrixToString(this);
+        return MatStringer.matrixToString(this);
     }
 
     @Override

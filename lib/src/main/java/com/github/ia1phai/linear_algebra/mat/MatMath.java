@@ -210,7 +210,7 @@ public class MatMath {
     }
 
     public static float detThroughCofactors(final Matrix m) {
-        if (!isSquare(m)) {
+        if (!square(m)) {
             throw new UnsupportedOperationException("Determinant does not exists: matrix is not square");
         }
 
@@ -232,7 +232,7 @@ public class MatMath {
     }
 
     public static float det(final Matrix m) {
-        if (!isSquare(m)) {
+        if (!square(m)) {
             throw new UnsupportedOperationException("Determinant does not exists: matrix is not square");
         }
         Matrix triangularTable = triangulated(m);
@@ -246,7 +246,7 @@ public class MatMath {
     }
 
     public static Matrix invertibleMatrix(final Matrix m) {
-        if (!isSquare(m)) {
+        if (!square(m)) {
             throw new UnsupportedOperationException("Invertible matrix does not exists: matrix is not square");
         }
         final Matrix result = cofactorMatrix(m);
@@ -266,7 +266,7 @@ public class MatMath {
     }
 
     public static Matrix minorMatrix(final Matrix m, final int r, final int c) {
-        if (!isSquare(m)) {
+        if (!square(m)) {
             throw new UnsupportedOperationException("Minors do not exist: matrix is not square");
         }
 
@@ -292,7 +292,7 @@ public class MatMath {
     }
 
     public static float cofactor(final Matrix m, final int r, final int c) {
-        if (!isSquare(m)) {
+        if (!square(m)) {
             throw new UnsupportedOperationException("Can not find cofactor: matrix is not square");
         }
 
@@ -301,7 +301,7 @@ public class MatMath {
     }
 
     public static Matrix cofactorMatrix(final Matrix m) {
-        if (!isSquare(m)) {
+        if (!square(m)) {
             throw new UnsupportedOperationException("Cofactor matrix does not exist: matrix is not square");
         }
 
@@ -328,7 +328,7 @@ public class MatMath {
         return true;
     }
 
-    public static boolean isSquare(final Matrix m) {
+    public static boolean square(final Matrix m) {
         return m.width() == m.height();
     }
 
