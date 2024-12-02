@@ -244,10 +244,10 @@ public class Mat4Math {
         return result;
     }
 
-    public static boolean equals(final Matrix4 target, final Matrix4 subtrahend) {
+    public static boolean equals(final Matrix4 m1, final Matrix4 m2) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
-                if (Validator.equals(target.get(r, c), subtrahend.get(r, c))) {
+                if (Validator.equals(m1.get(r, c), m2.get(r, c))) {
                     return false;
                 }
             }

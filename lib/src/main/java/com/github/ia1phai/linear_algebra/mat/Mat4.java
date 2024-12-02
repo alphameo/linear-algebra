@@ -199,8 +199,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     @Override
-    public boolean equalsTo(final Matrix4 mat) {
-        return MatMath.equals(this, mat);
+    public boolean equalsTo(final Matrix4 m) {
+        return MatMath.equals(this, m);
     }
 
     @Override

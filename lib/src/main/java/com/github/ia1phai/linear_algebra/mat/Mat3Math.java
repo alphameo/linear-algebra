@@ -249,10 +249,10 @@ public class Mat3Math {
         return result;
     }
 
-    public static boolean equals(final Matrix3 target, final Matrix3 subtrahend) {
+    public static boolean equals(final Matrix3 m1, final Matrix3 m2) {
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
-                if (Validator.equals(target.get(r, c), subtrahend.get(r, c))) {
+                if (Validator.equals(m1.get(r, c), m2.get(r, c))) {
                     return false;
                 }
             }

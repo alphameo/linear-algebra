@@ -207,8 +207,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
     }
 
     @Override
-    public boolean equalsTo(final Matrix3 mat) {
-        return MatMath.equals(this, mat);
+    public boolean equalsTo(final Matrix3 m) {
+        return MatMath.equals(this, m);
     }
 
     @Override

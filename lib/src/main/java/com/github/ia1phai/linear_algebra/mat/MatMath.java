@@ -332,11 +332,11 @@ public class MatMath {
         return result;
     }
 
-    public static boolean equals(final Matrix target, final Matrix subtrahend) {
-        Validator.validateMatrixSizes(target, subtrahend, "Equalizationt denied");
-        for (int r = 0; r < target.height(); r++) {
-            for (int c = 0; c < subtrahend.width(); c++) {
-                if (!Validator.equals(target.get(r, c), subtrahend.get(r, c))) {
+    public static boolean equals(final Matrix m1, final Matrix m2) {
+        Validator.validateMatrixSizes(m1, m2, "Equalizationt denied");
+        for (int r = 0; r < m1.height(); r++) {
+            for (int c = 0; c < m2.width(); c++) {
+                if (!Validator.equals(m1.get(r, c), m2.get(r, c))) {
                     return false;
                 }
             }

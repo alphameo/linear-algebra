@@ -317,4 +317,91 @@ public class TestMatMath {
 
         Assertions.assertEquals(expected, invertibleMatrix(m));
     }
+
+    @Test
+    public void testMinorMatrix1() {
+        Matrix m = new Mat(new float[][] {
+                { 1, 2, 3 },
+                { 4, 12, 6 },
+                { 7, 8, 9 }
+        });
+
+        Matrix expected = new Mat(new float[][] {
+                { 12, 6 },
+                { 8, 9 }
+        });
+
+        Assertions.assertEquals(expected, minorMatrix(m, 0, 0));
+    }
+
+    @Test
+    public void testMinorMatrix2() {
+        Matrix m = new Mat(new float[][] {
+                { 1, 2, 3 },
+                { 4, 12, 6 },
+                { 7, 8, 9 }
+        });
+
+        Matrix expected = new Mat(new float[][] {
+                { 1, 3 },
+                { 7, 9 }
+        });
+
+        Assertions.assertEquals(expected, minorMatrix(m, 1, 1));
+    }
+
+    @Test
+    public void testMinorMatrix3() {
+        Matrix m = new Mat(new float[][] {
+                { 1, 2, 3 },
+                { 4, 12, 6 },
+                { 7, 8, 9 }
+        });
+
+        Matrix expected = new Mat(new float[][] {
+                { 1, 2 },
+                { 4, 12 },
+        });
+
+        Assertions.assertEquals(expected, minorMatrix(m, 2, 2));
+    }
+
+    @Test
+    public void testCofactor1() {
+        Matrix m = new Mat(new float[][] {
+                { 1, 2, 3 },
+                { 4, 12, 6 },
+                { 7, 8, 9 }
+        });
+
+        Assertions.assertEquals(60, cofactor(m, 0, 0));
+    }
+
+    @Test
+    public void testCofactor2() {
+        Matrix m = new Mat(new float[][] {
+                { 1, 2, 3 },
+                { 4, 12, 6 },
+                { 7, 8, 9 }
+        });
+
+        Assertions.assertEquals(6, cofactor(m, 0, 1));
+    }
+
+    @Test
+    public void testEquals() {
+        Matrix m1 = new Mat(new float[][] {
+                { 1, 2, 3 },
+                { 4, 12, 6 },
+                { 7, 8, 9 }
+        });
+
+        Matrix m2 = new Mat(new float[][] {
+                { 1, 2, 3 },
+                { 4, 12, 6 },
+                { 7, 8, 9 }
+        });
+
+        Assertions.assertTrue(MatMath.equals(m1, m2));
+    }
 }
