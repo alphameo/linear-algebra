@@ -272,7 +272,7 @@ public class Mat4Math {
         return true;
     }
 
-    public static boolean isDiagonal(final Matrix4 m) {
+    public static boolean diagonal(final Matrix4 m) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
                 if (r.ordinal() == c.ordinal()) {

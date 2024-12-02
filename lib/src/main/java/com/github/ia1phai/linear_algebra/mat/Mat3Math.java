@@ -277,7 +277,7 @@ public class Mat3Math {
         return true;
     }
 
-    public static boolean isDiagonal(final Matrix3 m) {
+    public static boolean diagonal(final Matrix3 m) {
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
                 if (r.ordinal() == c.ordinal()) {

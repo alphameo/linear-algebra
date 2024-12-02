@@ -173,8 +173,8 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
         return MatMath.isZeroed(this);
     }
 
-    public boolean isDiagonal() {
-        return MatMath.isDiagonal(this);
+    public boolean diagonal() {
+        return MatMath.diagonal(this);
     }
 
     public Matrix zeroMat(final int height, final int width) {

@@ -186,8 +186,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
         return Mat4Math.isZeroed(this);
     }
 
-    public boolean isDiagonal() {
-        return Mat4Math.isDiagonal(this);
+    public boolean diagonal() {
+        return Mat4Math.diagonal(this);
     }
 
     public Matrix4 zeroMat() {

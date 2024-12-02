@@ -186,8 +186,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
         return Mat3Math.isZeroed(this);
     }
 
-    public boolean isDiagonal() {
-        return Mat3Math.isDiagonal(this);
+    public boolean diagonal() {
+        return Mat3Math.diagonal(this);
     }
 
     public Matrix4 toMat4() {

@@ -361,7 +361,7 @@ public class MatMath {
         return true;
     }
 
-    public static boolean isDiagonal(final Matrix m) {
+    public static boolean diagonal(final Matrix m) {
         if (m.width() != m.height()) {
             return false;
         }
