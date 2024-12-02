@@ -262,7 +262,7 @@ public class MatMath {
         return determinant;
     }
 
-    public static Matrix invertibleMatrix(final Matrix m) {
+    public static Matrix invertible(final Matrix m) {
         if (!square(m)) {
             throw new UnsupportedOperationException("Invertible matrix does not exists: matrix is not square");
         }
