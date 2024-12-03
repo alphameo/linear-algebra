@@ -33,33 +33,37 @@ public static <T extends Vector & Clonable> T divided(final T v, float divisor) 
 
 ### Download
 
-HTTPS:
+#### Release
+
+Just download release.
+
+#### For self building
+
+- HTTPS:
 
 ```sh
 git clone https://github.com/IA1phaI/linear-algebra.git
 ```
 
-SSH:
+- SSH:
 
 ```sh
 git clone git@github.com:IA1phaI/linear-algebra.git
 ```
 
-After downloading (and unzipping in the first case) the repository, go into the root directory of the project. If you have used the `git clone` command, you can do that with:
+- Download ZIP from `CODE` button
 
-```sh
-cd linear-algebra
-```
+---
 
-### Build
+After downloading the repository, go into the root directory of the project. And build library files:
 
-Linux and MacOS:
+- Linux and MacOS:
 
 ```sh
 ./gradlew :lib:build
 ```
 
-Windows:
+- Windows:
 
 ```powershell
 .\gradlew.bat :lib:build
@@ -67,49 +71,9 @@ Windows:
 
 All JAR files will be located at `lib/build/libs`.
 
-### Import
-
-#### Maven artifact
-
-The recommended way. It includes all the JARs, so Javadocs are included for the usage with the LSPs. Also, it's the easiest and most convenient approach.
-
-1. Put the library as a Maven artifact to the local repository (`.m2` directory in the home directory):
-
-Linux and MacOS:
-
-```sh
-./gradlew :lib:publishToMavenLocal
-```
-
-Windows:
-
-```powershell
-.\gradlew.bat :lib:publishToMavenLocal
-```
-
-The artifact includes all the JARs.
-
-2. Add the following to the `build.gradle.kts`:
-
-```kts
-repositories {
-    // other repositories
-
-    mavenLocal()
-}
-
-dependencies {
-    // other dependencies
-
-    implementation("com.github.ia1phai.linear_algebra:0.1.0")
-    // implementation() or api() -- read gradle docs
-    // 0.1.0 is version that you want to use
-}
-```
+### Setup
 
 #### Local JAR
-
-Check releases and download latest.
 
 Put all JARs into `libs` directory in the root.
 
@@ -132,6 +96,44 @@ dependencies {
 As the path, valid relative path to the JAR with the respect to `build.gradle.kts` file should be specified.
 
 Instead of the `file()` call, `files()` can be used.
+
+#### Import Maven artifact
+
+The recommended way. It includes all the JARs, so Javadocs are included for the usage with the LSPs. Also, it's the easiest and most convenient approach.
+
+1. Put the library as a Maven artifact to the local repository (`.m2` directory in the home directory):
+
+Linux and MacOS:
+
+```sh
+./gradlew :lib:publishToMavenLocal
+```
+
+Windows:
+
+```powershell
+.\gradlew.bat :lib:publishToMavenLocal
+```
+
+The artifact includes all the JARs.
+
+2. Use your IDE or add the following to the `build.gradle.kts`:
+
+```kts
+repositories {
+    // other repositories
+
+    mavenLocal()
+}
+
+dependencies {
+    // other dependencies
+
+    implementation("com.github.ia1phai.linear_algebra:0.1.0")
+    // implementation() or api() -- read gradle docs
+    // 0.1.0 is version that you want to use
+}
+```
 
 ## Usage
 
