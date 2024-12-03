@@ -9,15 +9,42 @@
 
 plugins {
     // Apply the java-library plugin for API and implementation separation.
-    `java-library`
+    id("java")
+    id("base")
+    id("java-library")
+    id("java-library-distribution")
+
+    id("maven-publish")
 }
+
+group = "com.github.ia1phai"
+version = "1.0.1"
 
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
 
-dependencies {}
+dependencies {
+    testImplementation("org.junit.jupiter:junit-jupiter:5.11.3")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+base {
+    archivesName = rootProject.name
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+    withJavadocJar()
+    withSourcesJar()
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
 
 testing {
     suites {
@@ -25,6 +52,35 @@ testing {
         val test by getting(JvmTestSuite::class) {
             // Use JUnit Jupiter test framework
             useJUnitJupiter("5.9.1")
+        }
+    }
+}
+
+distributions {
+    main {
+        distributionBaseName = rootProject.name
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            artifactId = rootProject.name
+
+            pom {
+                name = rootProject.name
+                description = "Java Linear Algebra Library."
+                url = "https://github.com/ia1phai/jfx-rasterization"
+
+                licenses {
+                    license {
+                        name = "MIT License"
+                        url = "https://github.com/ia1phai/linear-algebra/blob/main/LICENSE"
+                    }
+                }
+            }
+
+            from(components["java"])
         }
     }
 }
