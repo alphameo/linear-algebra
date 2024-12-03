@@ -41,18 +41,6 @@ public class VecMath {
         return v;
     }
 
-    // TODO: think bro
-    // interface VectoryFactory<T> {
-    // T create(T other);
-    // }
-    // public static <T extends Vector> T divided(T v, float divisor,
-    // VectorFactory<T> vf) {
-    //
-    // }k
-    // public static <T extends Vector & Clonable> T divided(final T v, float
-    // divisor) {
-    // v.clone();
-    // }
     public static Vector divided(final Vector v, final float divisor) {
         return divide(new Vec(v), divisor);
     }
