@@ -31,13 +31,15 @@ public static <T extends Vector & Clonable> T divided(final T v, float divisor) 
 
 ## How to get
 
-### Download
+### Get artifacts
 
 #### Release
 
 Just download release.
 
 #### For self building
+
+1. Download
 
 - HTTPS:
 
@@ -53,7 +55,7 @@ git clone git@github.com:IA1phaI/linear-algebra.git
 
 - Download ZIP from `CODE` button
 
----
+2. Build
 
 After downloading the repository, go into the root directory of the project. And build library files:
 
@@ -317,3 +319,9 @@ There is some duplicated methods, such as `.divide()` and `.divided()`. The diff
 - `Mat4`
 
 They have all powers of static functions, but you must transfer your data every time (not blazingly fast)
+
+---
+
+## Helper reference
+
+https://github.com/shimeoki
