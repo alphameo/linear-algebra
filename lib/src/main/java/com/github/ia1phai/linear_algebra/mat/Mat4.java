@@ -7,7 +7,7 @@ import com.github.ia1phai.linear_algebra.Equatable;
 import com.github.ia1phai.linear_algebra.vec.Vector4;
 
 /**
- * Matr4
+ * Mat4
  */
 public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
 
@@ -206,14 +206,6 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
         return Mat4Math.diagonal(this);
     }
 
-    public Matrix4 zeroMat() {
-        return Mat4Math.zeroMat();
-    }
-
-    public Matrix4 unitMat() {
-        return Mat4Math.unitMat();
-    }
-
     @Override
     public boolean equalsTo(final Matrix4 m) {
         return MatMath.equals(this, m);
@@ -258,5 +250,13 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
         }
         Mat4 other = (Mat4) obj;
         return Mat4Math.equals(this, other);
+    }
+
+    public static Matrix4 zeroMat() {
+        return Mat4Math.zeroMat();
+    }
+
+    public static Matrix4 unitMat() {
+        return Mat4Math.unitMat();
     }
 }

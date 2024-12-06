@@ -7,7 +7,7 @@ import com.github.ia1phai.linear_algebra.Equatable;
 import com.github.ia1phai.linear_algebra.vec.Vector3;
 
 /**
- * Matr3
+ * Mat3
  */
 public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
 
@@ -214,14 +214,6 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
         return Mat3Math.toMat4(this, insertionRow, insertionCol);
     }
 
-    public Matrix3 zeroMat() {
-        return Mat3Math.zeroMat();
-    }
-
-    public Matrix3 unitMat() {
-        return Mat3Math.unitMat();
-    }
-
     @Override
     public boolean equalsTo(final Matrix3 m) {
         return MatMath.equals(this, m);
@@ -266,5 +258,13 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
         }
         Mat3 other = (Mat3) obj;
         return Mat3Math.equals(this, other);
+    }
+
+    public static Matrix3 zeroMat() {
+        return Mat3Math.zeroMat();
+    }
+
+    public static Matrix3 unitMat() {
+        return Mat3Math.unitMat();
     }
 }
