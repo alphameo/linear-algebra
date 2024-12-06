@@ -98,6 +98,14 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
         return Vec4Math.len2(this);
     }
 
+    public Vector4 normalize() {
+        return Vec4Math.normalize(this);
+    }
+
+    public Vector4 normalized() {
+        return Vec4Math.normalized(new Vec4(this));
+    }
+
     public Vector4 mult(final float multiplier) {
         return Vec4Math.mult(this, multiplier);
     }
@@ -130,24 +138,8 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
         return Vec4Math.subtracted(this, other);
     }
 
-    public static Vector4 normalize(final Vector4 v) {
-        return Vec4Math.normalize(v);
-    }
-
-    public static Vector4 normalized(final Vector4 v) {
-        return Vec4Math.normalized(v);
-    }
-
     public float dot(final Vector4 other) {
         return Vec4Math.dot(this, other);
-    }
-
-    public static Vector4 zeroVector() {
-        return new Vec4();
-    }
-
-    public static Vector4 unitVector() {
-        return Vec4Math.unitVec();
     }
 
     @Override
@@ -185,5 +177,13 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
             return false;
         }
         return VecMath.equals(this, (Vector) obj);
+    }
+
+    public static Vector4 zeroVector() {
+        return new Vec4();
+    }
+
+    public static Vector4 unitVector() {
+        return Vec4Math.unitVec();
     }
 }

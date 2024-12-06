@@ -6,7 +6,7 @@ import com.github.ia1phai.linear_algebra.Copyable;
 import com.github.ia1phai.linear_algebra.Equatable;
 
 /**
- * Vector
+ * Vecr
  */
 public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
 
@@ -53,6 +53,14 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
         return VecMath.len2(this);
     }
 
+    public Vector normalize() {
+        return VecMath.normalize(this);
+    }
+
+    public Vector normalized() {
+        return VecMath.normalized(new Vec(this));
+    }
+
     public Vector mult(final float multiplier) {
         return VecMath.mult(this, multiplier);
     }
@@ -85,28 +93,12 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
         return VecMath.subtracted(this, v);
     }
 
-    public static Vector normalize(final Vector v) {
-        return VecMath.normalize(v);
-    }
-
-    public static Vector normalized(final Vector v) {
-        return VecMath.normalized(v);
-    }
-
     public float dot(final Vector v) {
         return VecMath.dot(this, v);
     }
 
     public Vector cross(final Vector v) {
         return VecMath.cross(this, v);
-    }
-
-    public static Vector zeroVector(final int size) {
-        return VecMath.zeroVec(size);
-    }
-
-    public static Vector unitVector(final int size) {
-        return VecMath.unitVec(size);
     }
 
     @Override
@@ -144,5 +136,13 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
             return false;
         }
         return equalsTo((Vector) obj);
+    }
+
+    public static Vector zeroVector(final int size) {
+        return VecMath.zeroVec(size);
+    }
+
+    public static Vector unitVector(final int size) {
+        return VecMath.unitVec(size);
     }
 }

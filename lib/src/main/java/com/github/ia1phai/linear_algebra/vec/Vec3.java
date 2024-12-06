@@ -6,7 +6,7 @@ import com.github.ia1phai.linear_algebra.Copyable;
 import com.github.ia1phai.linear_algebra.Equatable;
 
 /**
- * Vec2
+ * Vec3
  */
 public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
 
@@ -86,6 +86,14 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
         return Vec3Math.len2(this);
     }
 
+    public Vector3 normalize() {
+        return Vec3Math.normalize(this);
+    }
+
+    public Vector3 normalized() {
+        return Vec3Math.normalized(new Vec3(this));
+    }
+
     public Vector3 mult(final float multiplier) {
         return Vec3Math.mult(this, multiplier);
     }
@@ -114,14 +122,6 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
         return Vec3Math.subtracted(this, other);
     }
 
-    public static Vector3 normalize(final Vector3 v) {
-        return Vec3Math.normalize(v);
-    }
-
-    public static Vector3 normalized(final Vector3 v) {
-        return Vec3Math.normalized(v);
-    }
-
     public float dot(final Vector3 other) {
         return Vec3Math.dot(this, other);
     }
@@ -133,28 +133,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
         return result;
     }
 
-    public Vector4 toVec3() {
-        return Vec3Math.toVec4(this);
-    }
-
-    public static Vector3 zeroVec() {
-        return Vec3Math.zeroVec();
-    }
-
-    public static Vector3 unitVec() {
-        return Vec3Math.unitVec();
-    }
-
     public Vector4 toVec4() {
-        return new Vec4(x(), y(), z(), 1);
-    }
-
-    public static Vector3 zeroVector() {
-        return Vec3Math.zeroVec();
-    }
-
-    public static Vector3 unitVector() {
-        return Vec3Math.zeroVec();
+        return Vec3Math.toVec4(this);
     }
 
     @Override
@@ -192,5 +172,13 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
             return false;
         }
         return VecMath.equals(this, (Vector) obj);
+    }
+
+    public static Vector3 zeroVec() {
+        return Vec3Math.zeroVec();
+    }
+
+    public static Vector3 unitVec() {
+        return Vec3Math.unitVec();
     }
 }

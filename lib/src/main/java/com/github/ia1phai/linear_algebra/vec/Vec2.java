@@ -76,6 +76,14 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
         return Vec2Math.len2(this);
     }
 
+    public Vector2 normalize() {
+        return Vec2Math.normalize(this);
+    }
+
+    public Vector2 normalized() {
+        return Vec2Math.normalized(new Vec2(this));
+    }
+
     public Vector2 mult(final float multiplier) {
         return Vec2Math.mult(this, multiplier);
     }
@@ -108,36 +116,12 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
         return Vec2Math.subtracted(this, v);
     }
 
-    public static Vector2 normalize(final Vector2 v) {
-        return Vec2Math.normalize(v);
-    }
-
-    public static Vector3 normalized(final Vector3 v) {
-        return Vec3Math.normalized(v);
-    }
-
     public float dot(final Vector2 v) {
         return Vec2Math.dot(this, v);
     }
 
     public Vector3 toVec3() {
         return Vec2Math.toVec3(this);
-    }
-
-    public static Vector2 zeroVec() {
-        return Vec2Math.zeroVec();
-    }
-
-    public static Vector2 unitVec() {
-        return Vec2Math.unitVec();
-    }
-
-    public static Vector2 zeroVector() {
-        return Vec2Math.zeroVec();
-    }
-
-    public static Vector2 unitVector() {
-        return Vec2Math.unitVec();
     }
 
     @Override
@@ -176,4 +160,21 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
         }
         return VecMath.equals(this, (Vector) obj);
     }
+
+    public static Vector2 zeroVec() {
+        return Vec2Math.zeroVec();
+    }
+
+    public static Vector2 unitVec() {
+        return Vec2Math.unitVec();
+    }
+
+    public static Vector2 zeroVector() {
+        return Vec2Math.zeroVec();
+    }
+
+    public static Vector2 unitVector() {
+        return Vec2Math.unitVec();
+    }
+
 }
