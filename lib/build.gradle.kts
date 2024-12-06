@@ -6,7 +6,7 @@ plugins {
     id("maven-publish")
 }
 
-version = "0.1.1"
+version = "0.2.0"
 group = "com.github.ia1phai"
 
 base {
