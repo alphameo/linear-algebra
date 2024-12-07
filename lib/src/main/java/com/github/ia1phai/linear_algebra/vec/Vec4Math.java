@@ -43,6 +43,14 @@ public class Vec4Math {
         return divide(new Vec4(v), divisor);
     }
 
+    public static Vector4 normalize(final Vector4 v) {
+        return divide(v, len(v));
+    }
+
+    public static Vector4 normalized(final Vector4 v) {
+        return divided(v, len(v));
+    }
+
     public static Vector4 add(final Vector4 target, final Vector4 addendum) {
         target.setX(target.x() + addendum.x());
         target.setY(target.y() + addendum.y());
@@ -67,14 +75,6 @@ public class Vec4Math {
 
     public static Vector4 subtracted(final Vector4 target, final Vector4 subtrahend) {
         return sub(new Vec4(target), subtrahend);
-    }
-
-    public static Vector4 normalize(final Vector4 v) {
-        return divide(v, len(v));
-    }
-
-    public static Vector4 normalized(final Vector4 v) {
-        return divided(v, len(v));
     }
 
     public static float dot(final Vector4 v1, final Vector4 v2) {

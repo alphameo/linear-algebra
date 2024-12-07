@@ -39,6 +39,14 @@ public class Vec2Math {
         return divide(new Vec2(v), divisor);
     }
 
+    public static Vector2 normalize(final Vector2 v) {
+        return divide(v, len(v));
+    }
+
+    public static Vector2 normalized(final Vector2 v) {
+        return divided(v, len(v));
+    }
+
     public static Vector2 add(final Vector2 target, final Vector2 addendum) {
         target.setX(target.x() + addendum.x());
         target.setY(target.y() + addendum.y());
@@ -59,14 +67,6 @@ public class Vec2Math {
 
     public static Vector2 subtracted(final Vector2 target, final Vector2 subtrahend) {
         return sub(new Vec2(target), subtrahend);
-    }
-
-    public static Vector2 normalize(final Vector2 v) {
-        return divide(v, len(v));
-    }
-
-    public static Vector2 normalized(final Vector2 v) {
-        return divided(v, len(v));
     }
 
     public static float dot(final Vector2 v1, final Vector2 v2) {
