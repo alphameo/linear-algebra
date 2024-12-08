@@ -48,8 +48,6 @@ public class Vec4Math {
     /**
      * Copies given vector and multiplies its components by a scalar.
      * value.
-     * <p>
-     * Given vector doesn't change.
      *
      * @param v          vector of size 4 for multiplication
      * @param multiplier scalar value
@@ -80,8 +78,6 @@ public class Vec4Math {
     /**
      * Copies given vector and divides its the components of vector by a scalar
      * value.
-     * <p>
-     * Given vector doesn't change.
      *
      * @param v       vector of size 4 for division
      * @param divisor scalar value
@@ -103,8 +99,6 @@ public class Vec4Math {
 
     /**
      * Copies and normalizes given vector (divide each component by vector length)
-     * <p>
-     * Given vector doesn't change.
      * 
      * @param v vector of size 4 to be normalized
      * @return new vector of size 4 with normalized components of given vector
@@ -132,8 +126,6 @@ public class Vec4Math {
 
     /**
      * Sums up the {@code addendum} vector and the {@code target} vector.
-     * <p>
-     * Given {@code target} vector doesn't change.
      *
      * @param target   vector of size 4 to be added
      * @param addendum vector of size 4 to add
@@ -165,8 +157,6 @@ public class Vec4Math {
     /**
      * Subtracts the {@code subtrahend} vector components from the {@code target}
      * vector components.
-     * <p>
-     * Given {@code target} vector doesn't change.
      * 
      * @param target     vector of size 4 to be subtracted
      * @param subtrahend vector of size 4 to subtract

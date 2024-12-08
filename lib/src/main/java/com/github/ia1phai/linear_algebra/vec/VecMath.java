@@ -52,8 +52,6 @@ public class VecMath {
     /**
      * Copies given vector and multiplies its components by a scalar.
      * value.
-     * <p>
-     * Given vector doesn't change.
      *
      * @param v          vector for multiplication
      * @param multiplier scalar value
@@ -82,8 +80,6 @@ public class VecMath {
     /**
      * Copies given vector and divides its the components of vector by a scalar
      * value.
-     * <p>
-     * Given vector doesn't change.
      *
      * @param v       vector for division
      * @param divisor scalar value
@@ -105,8 +101,6 @@ public class VecMath {
 
     /**
      * Copies and normalizes given vector (divide each component by vector length)
-     * <p>
-     * Given vector doesn't change.
      * 
      * @param v vector to be normalized
      * @return given vector with normalized components of given vector
@@ -134,8 +128,6 @@ public class VecMath {
 
     /**
      * Sums up the {@code addendum} vector and the {@code target} vector.
-     * <p>
-     * Given {@code target} vector doesn't change.
      *
      * @param target   vector to be added
      * @param addendum vector to add
@@ -166,8 +158,6 @@ public class VecMath {
     /**
      * Subtracts the {@code subtrahend} vector components from the {@code target}
      * vector components.
-     * <p>
-     * Given {@code target} vector doesn't change.
      * 
      * @param target     vector to be subtracted
      * @param subtrahend vector to subtract
