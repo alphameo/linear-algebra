@@ -171,7 +171,8 @@ public class VecMath {
      * 
      * @param target     vector to be subtracted
      * @param subtrahend vector to subtract
-     * @return {@code target} vector subtracted by {@code subtrahend} vector
+     * @return new vector with components resulting {@code target} vector subtracted
+     *         by {@code subtrahend} vector
      */
     public static Vector subtracted(final Vector target, final Vector subtrahend) {
         return sub(new Vec(target), subtrahend);
