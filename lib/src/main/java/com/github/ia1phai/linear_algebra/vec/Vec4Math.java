@@ -63,7 +63,7 @@ public class Vec4Math {
      * @param v       vector of size 4 for division
      * @param divisor scalar value
      * @return given vector with divided components
-     * @throws IllegalArgumentException if {@code divisor} equals 0
+     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
      */
     public static Vector4 divide(final Vector4 v, final float divisor) {
         Validator.validateDivisor(divisor);
@@ -83,7 +83,7 @@ public class Vec4Math {
      * @param v       vector of size 4 for division
      * @param divisor scalar value
      * @return new vector of size 4 with divided components of given vector
-     * @throws IllegalArgumentException if {@code divisor} equals 0
+     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
      */
     public static Vector4 divided(final Vector4 v, final float divisor) {
         return divide(new Vec4(v), divisor);

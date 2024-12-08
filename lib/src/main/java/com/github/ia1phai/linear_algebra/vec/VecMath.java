@@ -67,7 +67,7 @@ public class VecMath {
      * @param v       vector for division
      * @param divisor scalar value
      * @return given vector with divided components
-     * @throws IllegalArgumentException if {@code divisor} equals 0
+     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
      */
     public static Vector divide(final Vector v, final float divisor) {
         Validator.validateDivisor(divisor);
@@ -85,7 +85,7 @@ public class VecMath {
      * @param v       vector for division
      * @param divisor scalar value
      * @return new vector with divided components of given vector
-     * @throws IllegalArgumentException if {@code divisor} equals 0
+     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
      */
     public static Vector divided(final Vector v, final float divisor) {
         return divide(new Vec(v), divisor);
@@ -215,11 +215,11 @@ public class VecMath {
     }
 
     /**
-     * Returns {@code true} if vector components are approximately equals.
+     * Returns {@code true} if vector components are approximately equal
      * 
      * @param v1 first vector for comparison
      * @param v2 second vector for comparison
-     * @return {@code true} if all components are approximately equals, and
+     * @return {@code true} if all components are approximately equal, and
      *         {@code false} otherwise
      */
     public static boolean equals(final Vector v1, final Vector v2) {
