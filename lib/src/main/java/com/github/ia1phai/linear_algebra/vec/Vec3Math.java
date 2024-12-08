@@ -77,6 +77,13 @@ public class Vec3Math {
         return v1.x() * v2.x() + v1.y() * v2.y() + v1.z() * v2.z();
     }
 
+    /**
+     * Calculates cross product (vector product) of given vectors.
+     *
+     * @param v1 first vector of size 3
+     * @param v2 second vector of size 3
+     * @return vector of size 3, which represents cross product of given vectors
+     */
     public static Vector3 cross(final Vector3 v1, final Vector3 v2) {
         final float x = v1.y() * v2.z() - v1.z() * v2.y();
         final float y = v1.z() * v2.x() - v1.x() * v2.z();
@@ -86,7 +93,9 @@ public class Vec3Math {
     }
 
     public static boolean equals(final Vector3 v1, final Vector3 v2) {
-        return v1.x() == v2.x() && v1.y() == v2.y() && v1.z() == v2.z();
+        return Validator.equals(v1.x(), v2.x())
+                && Validator.equals(v1.y(), v2.y())
+                && Validator.equals(v1.z(), v2.z());
     }
 
     public static Vector4 toVec4(final Vector3 v) {

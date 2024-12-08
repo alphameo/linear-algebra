@@ -82,7 +82,10 @@ public class Vec4Math {
     }
 
     public static boolean equals(final Vector4 v1, final Vector4 v2) {
-        return v1.x() == v2.x() && v1.y() == v2.y() && v1.z() == v2.z() && v1.w() == v2.w();
+        return Validator.equals(v1.x(), v2.x())
+                && Validator.equals(v1.y(), v2.y())
+                && Validator.equals(v1.z(), v2.z())
+                && Validator.equals(v1.w(), v2.w());
     }
 
     public static Vector4 zeroVec() {
