@@ -196,12 +196,12 @@ public class Vec3Math {
     }
 
     /**
-     * Returns {@code true} if vector components are approximately equals.
+     * Returns {@code true} if components of vectors are approximately equal
      * 
      * @param v1 first vector of size 3 for comparison
      * @param v2 second vector of size 3 for comparison
-     * @return {@code true} if all components are approximately equal, and
-     *         {@code false} otherwise
+     * @return {@code true} if all components of vectors are approximately equal,
+     *         and {@code false} otherwise
      */
     public static boolean equals(final Vector3 v1, final Vector3 v2) {
         return Validator.equals(v1.x(), v2.x())

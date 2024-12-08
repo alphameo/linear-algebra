@@ -215,12 +215,12 @@ public class VecMath {
     }
 
     /**
-     * Returns {@code true} if vector components are approximately equal
+     * Returns {@code true} if components of vectors are approximately equal
      * 
      * @param v1 first vector for comparison
      * @param v2 second vector for comparison
-     * @return {@code true} if all components are approximately equal, and
-     *         {@code false} otherwise
+     * @return {@code true} if all components of vectors are approximately equal,
+     *         and {@code false} otherwise
      */
     public static boolean equals(final Vector v1, final Vector v2) {
         Validator.validateVectorSizes(v1, v2, "Equalization denied");

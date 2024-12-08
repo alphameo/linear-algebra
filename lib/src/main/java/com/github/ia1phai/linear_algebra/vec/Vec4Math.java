@@ -184,12 +184,12 @@ public class Vec4Math {
     }
 
     /**
-     * Returns {@code true} if vector components are approximately equals.
+     * Returns {@code true} if components of vectors are approximately equal
      * 
      * @param v1 first vector of size 4 for comparison
      * @param v2 second vector of size 4 for comparison
-     * @return {@code true} if all components are approximately equal, and
-     *         {@code false} otherwise
+     * @return {@code true} if all components of vectors are approximately equal,
+     *         and {@code false} otherwise
      */
     public static boolean equals(final Vector4 v1, final Vector4 v2) {
         return Validator.equals(v1.x(), v2.x())
