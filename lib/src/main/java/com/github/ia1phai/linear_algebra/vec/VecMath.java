@@ -200,7 +200,7 @@ public class VecMath {
      *
      * @param v1 first vector
      * @param v2 second vector
-     * @return vector, which represents cross product of given vectors
+     * @return vector, which represents cross (vector) product of given vectors
      */
     public static Vector cross(final Vector v1, final Vector v2) {
         if (v1.size() != 3 || v2.size() != 3) {
