@@ -57,7 +57,7 @@ public class VecMath {
      *
      * @param v          vector for multiplication
      * @param multiplier scalar value
-     * @return new vector with multiplied components of given
+     * @return new vector with multiplied components of given vector
      */
     public static Vector multiplied(final Vector v, final float multiplier) {
         return mult(new Vec(v), multiplier);
@@ -87,7 +87,7 @@ public class VecMath {
      *
      * @param v       vector for division
      * @param divisor scalar value
-     * @return new vector with divided components
+     * @return new vector with divided components of given vector
      */
     public static Vector divided(final Vector v, final float divisor) {
         return divide(new Vec(v), divisor);
@@ -109,7 +109,7 @@ public class VecMath {
      * Given vector doesn't change.
      * 
      * @param v vector to be normalized
-     * @return given vector with normalized components
+     * @return given vector with normalized components of given vector
      */
     public static Vector normalized(final Vector v) {
         return divided(v, len(v));

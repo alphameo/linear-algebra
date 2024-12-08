@@ -22,7 +22,7 @@ public class Vec2Math {
     /**
      * Calculates length of vector.
      * 
-     * @param v vector 2 for length calculation
+     * @param v vector of size 2 for length calculation
      * @return Length of given vector
      */
     public static float len(final Vector2 v) {
@@ -30,7 +30,7 @@ public class Vec2Math {
     }
 
     /**
-     * Multiplies the components of vector by a scalar value.
+     * Multiplies the components of vector with size 2 by a scalar value.
      *
      * @param v          vector of size 2 for multiplication
      * @param multiplier scalar value
@@ -51,7 +51,7 @@ public class Vec2Math {
      *
      * @param v          vector of size 2 for multiplication
      * @param multiplier scalar value
-     * @return new vector with multiplied components of given
+     * @return new vector of size 2 with multiplied components of given vector
      */
     public static Vector2 multiplied(final Vector2 v, final float multiplier) {
         return mult(new Vec2(v), multiplier);
@@ -81,7 +81,7 @@ public class Vec2Math {
      *
      * @param v       vector of size 2 for division
      * @param divisor scalar value
-     * @return new vector with divided components
+     * @return new vector of size 2 with divided components of given vector
      */
     public static Vector2 divided(final Vector2 v, final float divisor) {
         return divide(new Vec2(v), divisor);
@@ -103,7 +103,7 @@ public class Vec2Math {
      * Given vector doesn't change.
      * 
      * @param v vector of size 2 to be normalized
-     * @return given vector with normalized components
+     * @return new vector of size 2 with normalized components of given vector
      */
     public static Vector2 normalized(final Vector2 v) {
         return divided(v, len(v));
@@ -131,7 +131,8 @@ public class Vec2Math {
      *
      * @param target   vector of size 2 to be added
      * @param addendum vector of size 2 to add
-     * @return new vector with sum of components of {@code target} vector and
+     * @return new vector of size 2 with sum of components of {@code target} vector
+     *         and
      *         {@code addendum} vector
      */
     public static Vector2 added(final Vector2 target, final Vector2 addendum) {
@@ -161,7 +162,8 @@ public class Vec2Math {
      * 
      * @param target     vector of size 2 to be subtracted
      * @param subtrahend vector of size 2 to subtract
-     * @return {@code target} vector subtracted by {@code subtrahend} vector
+     * @return new vector of size 2 with components resulting {@code target} vector
+     *         subtracted by {@code subtrahend} vector
      */
     public static Vector2 subtracted(final Vector2 target, final Vector2 subtrahend) {
         return sub(new Vec2(target), subtrahend);
@@ -206,7 +208,7 @@ public class Vec2Math {
      * Constructs new vector of size 2 with all 0 components.
      * 
      * @param size size of vector to be constructed
-     * @return new zero vector of given {@code size}
+     * @return new zero vector of given size 2
      */
     public static Vector2 zeroVec() {
         return new Vec2();
