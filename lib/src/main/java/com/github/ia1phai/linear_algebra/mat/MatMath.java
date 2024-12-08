@@ -598,8 +598,8 @@ public class MatMath {
     /**
      * Constructs matrix of given sizes with all 0 elements.
      * 
-     * @param height height of constructing matrix
-     * @param width  width of constructing matrix
+     * @param height height of matrix to be constructed
+     * @param width  width of matrix to be constructed
      * @return matrix {@code height} x {@code width} with all zero elements
      */
     public static Matrix zeroMat(final int height, final int width) {
@@ -609,7 +609,7 @@ public class MatMath {
     /**
      * Constructs square matrix of given size with 1 on main diagonal.
      * 
-     * @param size height and width of constructing matrix
+     * @param size height and width of matrix to be constructed
      * @return square matrix {@code size} x {@code size} with 1 on main diagonal
      */
     public static Matrix unitMat(final int size) {
