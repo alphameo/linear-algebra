@@ -67,7 +67,7 @@ public class VecMath {
      * @param v       vector for division
      * @param divisor scalar value
      * @return given vector with divided components
-     * @throws IllegalArgumentException if divisor equals 0
+     * @throws IllegalArgumentException if {@code divisor} equals 0
      */
     public static Vector divide(final Vector v, final float divisor) {
         Validator.validateDivisor(divisor);
@@ -85,7 +85,7 @@ public class VecMath {
      * @param v       vector for division
      * @param divisor scalar value
      * @return new vector with divided components of given vector
-     * @throws IllegalArgumentException if divisor equals 0
+     * @throws IllegalArgumentException if {@code divisor} equals 0
      */
     public static Vector divided(final Vector v, final float divisor) {
         return divide(new Vec(v), divisor);
@@ -96,7 +96,7 @@ public class VecMath {
      * 
      * @param v vector to be normalized
      * @return given vector with normalized components
-     * @throws IllegalArgumentException if vector length equals 0
+     * @throws IllegalArgumentException if length of given vector equals 0
      */
     public static Vector normalize(final Vector v) {
         return divide(v, len(v));
@@ -107,7 +107,7 @@ public class VecMath {
      * 
      * @param v vector to be normalized
      * @return given vector with normalized components of given vector
-     * @throws IllegalArgumentException if vector length equals 0
+     * @throws IllegalArgumentException if length of given vector equals 0
      */
     public static Vector normalized(final Vector v) {
         return divided(v, len(v));
@@ -120,6 +120,7 @@ public class VecMath {
      * @param target   vector to be added
      * @param addendum vector to add
      * @return {@code target} vector increased by {@code addendum} vector
+     * @throws IllegalArgumentException if given vectors have different sizes
      */
     public static Vector add(final Vector target, final Vector addendum) {
         Validator.validateVectorSizes(target, addendum, "Addition denied");
@@ -137,6 +138,7 @@ public class VecMath {
      * @param addendum vector to add
      * @return new vector with sum of components of {@code target} vector and
      *         {@code addendum} vector
+     * @throws IllegalArgumentException if given vectors have different sizes
      */
     public static Vector added(final Vector target, final Vector addendum) {
         return add(new Vec(target), addendum);
@@ -149,6 +151,7 @@ public class VecMath {
      * @param target     vector to be subtracted
      * @param subtrahend vector to subtract
      * @return {@code target} vector subtracted by {@code subtrahend} vector
+     * @throws IllegalArgumentException if given vectors have different sizes
      */
     public static Vector sub(final Vector target, final Vector subtrahend) {
         Validator.validateVectorSizes(target, subtrahend, "Subtraction denied");
