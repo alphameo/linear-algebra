@@ -126,7 +126,8 @@ public class Vec3Math {
     }
 
     /**
-     * Sums up the {@code addendum} vector and the {@code target} vector.
+     * Copies {@code target} vector and adds the {@code addendum} vector components
+     * to its components.
      *
      * @param target   vector of size 3 to be added
      * @param addendum vector of size 3 to add
@@ -155,8 +156,8 @@ public class Vec3Math {
     }
 
     /**
-     * Subtracts the {@code subtrahend} vector components from the {@code target}
-     * vector components.
+     * Copies {@code target} vector and subtracts the {@code subtrahend} vector
+     * components from its components.
      * 
      * @param target     vector of size 3 to be subtracted
      * @param subtrahend vector of size 3 to subtract

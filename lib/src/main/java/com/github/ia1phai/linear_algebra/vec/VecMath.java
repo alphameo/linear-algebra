@@ -132,7 +132,8 @@ public class VecMath {
     }
 
     /**
-     * Sums up the {@code addendum} vector and the {@code target} vector.
+     * Copies {@code target} vector and adds the {@code addendum} vector components
+     * to its components.
      *
      * @param target   vector to be added
      * @param addendum vector to add
@@ -163,8 +164,8 @@ public class VecMath {
     }
 
     /**
-     * Subtracts the {@code subtrahend} vector components from the {@code target}
-     * vector components.
+     * Copies {@code target} vector and subtracts the {@code subtrahend} vector
+     * components from its components.
      * 
      * @param target     vector to be subtracted
      * @param subtrahend vector to subtract
