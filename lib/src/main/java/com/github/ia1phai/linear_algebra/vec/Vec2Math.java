@@ -208,7 +208,7 @@ public class Vec2Math {
      * Constructs new vector of size 2 with all 0 components.
      * 
      * @param size size of vector to be constructed
-     * @return new zero vector of given size 2
+     * @return new zero vector of size 2
      */
     public static Vector2 zeroVec() {
         return new Vec2();
