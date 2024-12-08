@@ -235,7 +235,7 @@ public class VecMath {
     }
 
     /**
-     * Constructs new vector with all 0 components.
+     * Constructs new vector of given {@code size} with all 0 components.
      * 
      * @param size size of vector to be constructed
      * @return new zero vector of given {@code size}
@@ -245,7 +245,7 @@ public class VecMath {
     }
 
     /**
-     * Constructs new vector with all 1 components.
+     * Constructs new vector of given {@code size} with all 1 components.
      * 
      * @param size size of vector to be constructed
      * @return new unit vector of given {@code size}
