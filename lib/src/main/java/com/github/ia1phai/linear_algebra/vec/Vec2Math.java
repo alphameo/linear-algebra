@@ -180,7 +180,7 @@ public class Vec2Math {
      * 
      * @param v1 first vector of size 2 for comparison
      * @param v2 second vector of size 2 for comparison
-     * @return {@code true} if all components are approximately equals, and
+     * @return {@code true} if all components are approximately equal, and
      *         {@code false} otherwise
      */
     public static boolean equals(final Vector2 v1, final Vector2 v2) {
