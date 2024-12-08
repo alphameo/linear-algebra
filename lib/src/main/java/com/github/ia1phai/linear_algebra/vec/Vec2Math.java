@@ -193,12 +193,12 @@ public class Vec2Math {
     }
 
     /**
-     * Returns {@code true} if vector components are approximately equals.
-     * 
-     * @param v1 first vector of size 2 for comparison
-     * @param v2 second vector of size 2 for comparison
-     * @return {@code true} if all components are approximately equals, and
-     *         {@code false} otherwise
+     * Constructs new vector of size 3 with components of given vector and 1
+     * <p>
+     * (x, y, 1)
+     *
+     * @param v vector of size 2
+     * @return new vector of size 3 including with of given vector
      */
     public static Vector3 toVec3(final Vector2 v) {
         return new Vec3(v.x(), v.y(), 1);
