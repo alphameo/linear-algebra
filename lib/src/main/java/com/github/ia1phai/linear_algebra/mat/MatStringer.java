@@ -3,7 +3,7 @@ package com.github.ia1phai.linear_algebra.mat;
 /**
  * MatUtils
  */
-public class MatStringer {
+class MatStringer {
 
     public static String matrixToString(Matrix m) {
 

@@ -7,7 +7,7 @@ import com.github.ia1phai.linear_algebra.vec.Vector;
 /**
  * Class with static functions for arbitrary matrices.
  */
-public class MatMath {
+public final class MatMath {
 
     /**
      * Transposes given square matrix

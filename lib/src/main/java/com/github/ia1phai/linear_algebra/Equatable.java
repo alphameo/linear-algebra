@@ -19,7 +19,7 @@ public interface Equatable<T> {
     boolean equalsEpsilonTo(T other, float eps);
 
     /**
-     * Returns {@code true} if number values of objects are equal
+     * Returns {@code true} if number values of objects are approximately equal
      * 
      * @param other object for comparison
      * @return {@code true} if number values of objects are approximately equal, and

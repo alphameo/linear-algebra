@@ -5,7 +5,7 @@ import com.github.ia1phai.linear_algebra.Validator;
 /**
  * UncheckedVectorOperations
  */
-public class Vec3Math {
+public final class Vec3Math {
 
     /**
      * Calculates square of vector length.

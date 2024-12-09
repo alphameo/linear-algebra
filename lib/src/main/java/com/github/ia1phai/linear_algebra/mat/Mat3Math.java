@@ -10,7 +10,7 @@ import static com.github.ia1phai.linear_algebra.mat.Matrix3Col.*;
 /**
  * Class with static functions for matrices 3x3.
  */
-public class Mat3Math {
+public final class Mat3Math {
 
     /**
      * Constant array of enums for fast and safe access to matrix 3x3 rows

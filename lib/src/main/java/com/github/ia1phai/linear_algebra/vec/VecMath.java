@@ -5,7 +5,7 @@ import com.github.ia1phai.linear_algebra.Validator;
 /**
  * Class with static functions for arbitrary vectors.
  */
-public class VecMath {
+public final class VecMath {
 
     /**
      * Calculates square of vector length.

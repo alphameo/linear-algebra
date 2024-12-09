@@ -9,7 +9,7 @@ import static com.github.ia1phai.linear_algebra.mat.Matrix4Row.*;
 /**
  * Class with static functions for matrices 4x4.
  */
-public class Mat4Math {
+public final class Mat4Math {
 
     /**
      * Constant array of enums for fast and safe access to matrix 4x4 rows
