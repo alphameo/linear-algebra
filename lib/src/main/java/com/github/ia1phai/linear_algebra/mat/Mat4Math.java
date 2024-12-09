@@ -199,7 +199,7 @@ public class Mat4Math {
      * 
      * @param m       matrix 4x4 for division
      * @param divisor scalar value
-     * @return given matrix 4x4 with divided elements of given matrix
+     * @return given matrix 4x4 with divided elements
      * @throws IllegalArgumentException if {@code divisor} approximately equals 0
      */
     public static Matrix4 divide(final Matrix4 m, final float divisor) {
@@ -280,7 +280,8 @@ public class Mat4Math {
      * 
      * @param target     matrix 4x4 to be subtracted
      * @param subtrahend matrix 4x4 to subtract
-     * @return {@code target} matrix 4x4 subtracted by {@code addendum} matrix 4x4
+     * @return new matrix 4x4 with components resulting {@code target} matrix 4x4
+     *         subtracted by {@code subtrahend} matrix 4x4
      */
     public static Matrix4 subtracted(final Matrix4 target, final Matrix4 subtrahend) {
         return sub(new Mat4(target), subtrahend);

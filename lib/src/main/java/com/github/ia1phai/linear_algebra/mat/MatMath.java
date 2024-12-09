@@ -106,13 +106,13 @@ public class MatMath {
      * Copies given matrix and swaps its columns.
      *
      * @param m  matrix for column swapping
-     * @param r1 first index of column for swapping
-     * @param r2 second index of column for swapping
+     * @param c1 first index of column for swapping
+     * @param c2 second index of column for swapping
      * @return new matrix with swapped columns of given matrix
      * @throws Exception if any column index is out of bounds
      */
-    public static Matrix swappedCols(final Matrix m, final int r1, final int r2) {
-        return swapCols(new Mat(m), r1, r2);
+    public static Matrix swappedCols(final Matrix m, final int c1, final int c2) {
+        return swapCols(new Mat(m), c1, c2);
     }
 
     /**
@@ -148,7 +148,7 @@ public class MatMath {
      * 
      * @param m       matrix for division
      * @param divisor scalar value
-     * @return given matrix with divided elements of given matrix
+     * @return given matrix with divided elements
      * @throws IllegalArgumentException if {@code divisor} approximately equals 0
      */
     public static Matrix divide(final Matrix m, final float divisor) {
@@ -234,7 +234,8 @@ public class MatMath {
      * 
      * @param target     matrix to be subtracted
      * @param subtrahend matrix to subtract
-     * @return {@code target} matrix subtracted by {@code addendum} matrix
+     * @return new matrix with components resulting current matrix subtracted
+     *         by {@code subtrahend} matrix
      * @throws IllegalArgumentException if matrices have different sizes
      */
     public static Matrix subtracted(final Matrix target, final Matrix addendum) {
@@ -374,8 +375,8 @@ public class MatMath {
     /**
      * Calculates matrix determinant using cofactors (not blazingly fast).
      * 
-     * @param m matrix
      * @param m matrix for determinant calculation
+     * @return matrix determinant
      * @throws UnsupportedOperationException if matrix is not square
      */
     public static float detThroughCofactors(final Matrix m) {
@@ -455,8 +456,8 @@ public class MatMath {
      * @param m matrix for minor matrix construction
      * @param r row index to exclude
      * @param c column index to exclude
-     * @throws UnsupportedOperationException if matrix is not square
      * @return minor matrix excluding given row and column
+     * @throws UnsupportedOperationException if matrix is not square
      */
     public static Matrix minorMatrix(final Matrix m, final int r, final int c) {
         if (!square(m)) {
@@ -526,42 +527,6 @@ public class MatMath {
     }
 
     /**
-     * Returns {@code true} if elements of matrices are equal within
-     * {@code epsilon} tolerance
-     * 
-     * @param m1 first matrix for comparison
-     * @param m2 second matrix for comparison
-     * @return {@code true} if all elements of matrices are equal within
-     *         {@code epsilon} tolerance, and {@code false} otherwise
-     * @throws IllegalArgumentException if matrices have different sizes
-     */
-    public static boolean equalsEpsilon(final Matrix m1, final Matrix m2, final float eps) {
-        Validator.validateMatrixSizes(m1, m2, "Equalizationt denied");
-        for (int r = 0; r < m1.height(); r++) {
-            for (int c = 0; c < m2.width(); c++) {
-                if (!Validator.equalsEpsilon(m1.get(r, c), m2.get(r, c), eps)) {
-                    return false;
-                }
-            }
-        }
-
-        return true;
-    }
-
-    /**
-     * Returns {@code true} if elements of matrices are approximately equal
-     * 
-     * @param m1 first matrix for comparison
-     * @param m2 second matrix for comparison
-     * @return {@code true} if all elements of matrices are approximately equal, and
-     *         {@code false} otherwise
-     * @throws IllegalArgumentException if matrices have different sizes
-     */
-    public static boolean equals(final Matrix m1, final Matrix m2) {
-        return equalsEpsilon(m1, m2, Validator.EPS);
-    }
-
-    /**
      * Returns {@code true} if matrix is square.
      * 
      * @param m matrix for analysis
@@ -614,6 +579,42 @@ public class MatMath {
         }
 
         return true;
+    }
+
+    /**
+     * Returns {@code true} if elements of matrices are equal within
+     * {@code epsilon} tolerance
+     * 
+     * @param m1 first matrix for comparison
+     * @param m2 second matrix for comparison
+     * @return {@code true} if all elements of matrices are equal within
+     *         {@code epsilon} tolerance, and {@code false} otherwise
+     * @throws IllegalArgumentException if matrices have different sizes
+     */
+    public static boolean equalsEpsilon(final Matrix m1, final Matrix m2, final float eps) {
+        Validator.validateMatrixSizes(m1, m2, "Equalizationt denied");
+        for (int r = 0; r < m1.height(); r++) {
+            for (int c = 0; c < m2.width(); c++) {
+                if (!Validator.equalsEpsilon(m1.get(r, c), m2.get(r, c), eps)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Returns {@code true} if elements of matrices are approximately equal
+     * 
+     * @param m1 first matrix for comparison
+     * @param m2 second matrix for comparison
+     * @return {@code true} if all elements of matrices are approximately equal, and
+     *         {@code false} otherwise
+     * @throws IllegalArgumentException if matrices have different sizes
+     */
+    public static boolean equals(final Matrix m1, final Matrix m2) {
+        return equalsEpsilon(m1, m2, Validator.EPS);
     }
 
     /**
