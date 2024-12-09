@@ -193,7 +193,8 @@ public class Vec2Math {
      * (x, y, 1)
      *
      * @param v vector of size 2
-     * @return new vector of size 3 including with of given vector
+     * @return new vector of size 3 including components of given vector and 1 as
+     *         last component
      */
     public static Vector3 toVec3(final Vector2 v) {
         return new Vec3(v.x(), v.y(), 1);

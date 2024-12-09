@@ -215,7 +215,8 @@ public class Vec3Math {
      * (x, y, z, 1)
      *
      * @param v vector of size 3
-     * @return new vector of size 4 including with of given vector
+     * @return new vector of size 4 including components of given vector and 1 as
+     *         last component
      */
     public static Vector4 toVec4(final Vector3 v) {
         return new Vec4(v.x(), v.y(), v.z(), 1);
