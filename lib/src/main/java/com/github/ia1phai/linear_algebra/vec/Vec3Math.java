@@ -23,7 +23,7 @@ public class Vec3Math {
      * Calculates length of vector.
      * 
      * @param v vector of size 3 for length calculation
-     * @return Length of given vector
+     * @return length of given vector
      */
     public static float len(final Vector3 v) {
         return (float) Math.sqrt(len2(v));
@@ -57,7 +57,7 @@ public class Vec3Math {
     }
 
     /**
-     * Divides the components of vector by a scalar value.
+     * Divides the components of given vector by a scalar value.
      * 
      * @param v       vector of size 3 for division
      * @param divisor scalar value
@@ -75,8 +75,7 @@ public class Vec3Math {
     }
 
     /**
-     * Copies given vector and divides its the components of vector by a scalar
-     * value.
+     * Copies given vector and divides its components by a scalar value.
      *
      * @param v       vector of size 3 for division
      * @param divisor scalar value

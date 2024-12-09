@@ -23,7 +23,7 @@ public class Vec4Math {
      * Calculates length of vector.
      * 
      * @param v vector of size 4 for length calculation
-     * @return Length of given vector
+     * @return length of given vector
      */
     public static float len(final Vector4 v) {
         return (float) Math.sqrt(len2(v));
@@ -58,7 +58,7 @@ public class Vec4Math {
     }
 
     /**
-     * Divides the components of vector by a scalar value.
+     * Divides the components of given vector by a scalar value.
      * 
      * @param v       vector of size 4 for division
      * @param divisor scalar value
@@ -77,8 +77,7 @@ public class Vec4Math {
     }
 
     /**
-     * Copies given vector and divides its the components of vector by a scalar
-     * value.
+     * Copies given vector and divides its components by a scalar value.
      *
      * @param v       vector of size 4 for division
      * @param divisor scalar value

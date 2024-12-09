@@ -28,7 +28,7 @@ public class VecMath {
      * Calculates length of vector.
      * 
      * @param v vector for length calculation
-     * @return Length of given vector
+     * @return length of given vector
      */
     public static float len(final Vector v) {
         return (float) Math.sqrt(len2(v));
@@ -62,7 +62,7 @@ public class VecMath {
     }
 
     /**
-     * Divides the components of vector by a scalar value.
+     * Divides the components of given vector by a scalar value.
      * 
      * @param v       vector for division
      * @param divisor scalar value
@@ -79,8 +79,7 @@ public class VecMath {
     }
 
     /**
-     * Copies given vector and divides its the components of vector by a scalar
-     * value.
+     * Copies given vector and divides its components by a scalar value.
      *
      * @param v       vector for division
      * @param divisor scalar value
@@ -199,6 +198,7 @@ public class VecMath {
      * @param v1 first vector
      * @param v2 second vector
      * @return vector, which represents cross (vector) product of given vectors
+     * @throws IllegalArgumentException if vectors' sizes are not equal 3
      */
     public static Vector cross(final Vector v1, final Vector v2) {
         if (v1.size() != 3 || v2.size() != 3) {
