@@ -39,7 +39,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
      * @throws IllegalArgumentException if given two dimensional array cannot be
      *                                  interpreted as rectangular matrix
      */
-    public Mat(final float[][] entries) {
+    public Mat(final float[][] entries) throws IllegalArgumentException {
         this(entries.length, entries[0].length);
         for (int i = 0; i < entries.length; i++) {
             if (entries[i].length != entries[0].length) {
@@ -116,9 +116,9 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
      * @return current matrix with swapped rows
-     * @throws Exception if any row index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      */
-    public Matrix swapRows(final int r1, final int r2) {
+    public Matrix swapRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         return MatMath.swapRows(this, r1, r2);
     }
 
@@ -128,9 +128,9 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
      * @return new matrix with swapped rows of curren matrix
-     * @throws Exception if any row index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      */
-    public Matrix swapppedRows(final int r1, final int r2) {
+    public Matrix swapppedRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         return MatMath.swappedRows(this, r1, r2);
     }
 
@@ -140,9 +140,9 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
      * @param c1 first index of column for swapping
      * @param c2 second index of column for swapping
      * @return current matrix with swapped columns
-     * @throws Exception if any column index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
      */
-    public Matrix swapCols(final int c1, final int c2) {
+    public Matrix swapCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
         return MatMath.swapCols(this, c1, c2);
     }
 
@@ -152,9 +152,9 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
      * @param c1 first index of column for swapping
      * @param c2 second index of column for swapping
      * @return new matrix with swapped columns of current matrix
-     * @throws Exception if any column index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
      */
-    public Matrix swappedCols(final int c1, final int c2) {
+    public Matrix swappedCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
         return MatMath.swappedCols(this, c1, c2);
     }
 
@@ -183,9 +183,9 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
      * 
      * @param divisor scalar value
      * @return current matrix with divided elements
-     * @throws IllegalArgumentException if {@code divisor} approximately equals 0
+     * @throws ArithmeticException if {@code divisor} approximately equals 0
      */
-    public Matrix divide(final float divisor) {
+    public Matrix divide(final float divisor) throws ArithmeticException {
         return MatMath.divide(this, divisor);
     }
 
@@ -194,9 +194,9 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
      *
      * @param divisor scalar value
      * @return new matrix with divided elements of current matrix
-     * @throws IllegalArgumentException if {@code divisor} approximately equals 0
+     * @throws ArithmeticException if {@code divisor} approximately equals 0
      */
-    public Matrix divided(final float divisor) {
+    public Matrix divided(final float divisor) throws ArithmeticException {
         return MatMath.divided(this, divisor);
     }
 

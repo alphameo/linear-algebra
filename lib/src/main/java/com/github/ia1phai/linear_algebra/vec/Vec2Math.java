@@ -61,9 +61,9 @@ public class Vec2Math {
      * @param v       vector of size 2 for division
      * @param divisor scalar value
      * @return given vector with divided components
-     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     * @throws ArithmeticException if {@code divisor} approximately equal to 0
      */
-    public static Vector2 divide(final Vector2 v, final float divisor) {
+    public static Vector2 divide(final Vector2 v, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
 
         v.setX(v.x() / divisor);
@@ -78,9 +78,9 @@ public class Vec2Math {
      * @param v       vector of size 2 for division
      * @param divisor scalar value
      * @return new vector of size 2 with divided components of given vector
-     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     * @throws ArithmeticException if {@code divisor} approximately equal to 0
      */
-    public static Vector2 divided(final Vector2 v, final float divisor) {
+    public static Vector2 divided(final Vector2 v, final float divisor) throws ArithmeticException {
         return divide(new Vec2(v), divisor);
     }
 
@@ -89,9 +89,9 @@ public class Vec2Math {
      * 
      * @param v vector of size 2 to be normalized
      * @return given vector with normalized components
-     * @throws IllegalArgumentException if length of given vector equals 0
+     * @throws ArithmeticException if length of given vector equals 0
      */
-    public static Vector2 normalize(final Vector2 v) {
+    public static Vector2 normalize(final Vector2 v) throws ArithmeticException {
         return divide(v, len(v));
     }
 
@@ -100,9 +100,9 @@ public class Vec2Math {
      * 
      * @param v vector of size 2 to be normalized
      * @return new vector of size 2 with normalized components of given vector
-     * @throws IllegalArgumentException if length of given vector equals 0
+     * @throws ArithmeticException if length of given vector equals 0
      */
-    public static Vector2 normalized(final Vector2 v) {
+    public static Vector2 normalized(final Vector2 v) throws ArithmeticException {
         return divided(v, len(v));
     }
 

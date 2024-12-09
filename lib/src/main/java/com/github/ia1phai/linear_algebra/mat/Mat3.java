@@ -165,9 +165,9 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
      * @return current matrix with swapped rows
-     * @throws Exception if any row index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      */
-    public Matrix3 swapRows(final int r1, final int r2) {
+    public Matrix3 swapRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         return Mat3Math.swapRows(this, r1, r2);
     }
 
@@ -188,9 +188,9 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
      * @return new matrix with swapped rows of curren matrix
-     * @throws Exception if any row index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      */
-    public Matrix3 swappedRows(final int r1, final int r2) {
+    public Matrix3 swappedRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         return Mat3Math.swappedRows(this, r1, r2);
     }
 
@@ -211,9 +211,9 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param c1 first index of column for swapping
      * @param c2 second index of column for swapping
      * @return current matrix with swapped columns
-     * @throws Exception if any column index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
      */
-    public Matrix3 swapCols(final int c1, final int c2) {
+    public Matrix3 swapCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
         return Mat3Math.swapCols(this, c1, c2);
     }
 
@@ -234,9 +234,9 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param c1 first index of column for swapping
      * @param c2 second index of column for swapping
      * @return new matrix with swapped columns of current matrix
-     * @throws Exception if any column index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
      */
-    public Matrix3 swappedCols(final int c1, final int c2) {
+    public Matrix3 swappedCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
         return Mat3Math.swappedCols(this, c1, c2);
     }
 
@@ -265,9 +265,9 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * 
      * @param divisor scalar value
      * @return current matrix with divided elements
-     * @throws IllegalArgumentException if {@code divisor} approximately equals 0
+     * @throws ArithmeticException if {@code divisor} approximately equals 0
      */
-    public Matrix3 divide(final float divisor) {
+    public Matrix3 divide(final float divisor) throws ArithmeticException {
         return Mat3Math.divide(this, divisor);
     }
 
@@ -276,9 +276,9 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      *
      * @param divisor scalar value
      * @return new matrix with divided elements of current matrix
-     * @throws IllegalArgumentException if {@code divisor} approximately equals 0
+     * @throws ArithmeticException if {@code divisor} approximately equals 0
      */
-    public Matrix3 divided(final float divisor) {
+    public Matrix3 divided(final float divisor) throws ArithmeticException {
         return Mat3Math.divided(this, divisor);
     }
 

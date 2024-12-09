@@ -56,9 +56,9 @@ public class MatMath {
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
      * @return given matrix with swapped rows
-     * @throws Exception if any row index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      */
-    public static Matrix swapRows(final Matrix m, final int r1, final int r2) {
+    public static Matrix swapRows(final Matrix m, final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         float tmp;
         for (int c = 0; c < m.width(); c++) {
             tmp = m.get(r1, c);
@@ -76,9 +76,9 @@ public class MatMath {
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
      * @return new matrix with swapped rows of given matrix
-     * @throws Exception if any row index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      */
-    public static Matrix swappedRows(final Matrix m, final int r1, final int r2) {
+    public static Matrix swappedRows(final Matrix m, final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         return swapRows(new Mat(m), r1, r2);
     }
 
@@ -89,9 +89,9 @@ public class MatMath {
      * @param c1 first index of column for swapping
      * @param c2 second index of column for swapping
      * @return given matrix with swapped columns
-     * @throws Exception if any column index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
      */
-    public static Matrix swapCols(final Matrix m, final int c1, final int c2) {
+    public static Matrix swapCols(final Matrix m, final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
         float tmp;
         for (int r = 0; r < m.height(); r++) {
             tmp = m.get(r, c1);
@@ -109,9 +109,9 @@ public class MatMath {
      * @param c1 first index of column for swapping
      * @param c2 second index of column for swapping
      * @return new matrix with swapped columns of given matrix
-     * @throws Exception if any column index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
      */
-    public static Matrix swappedCols(final Matrix m, final int c1, final int c2) {
+    public static Matrix swappedCols(final Matrix m, final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
         return swapCols(new Mat(m), c1, c2);
     }
 
@@ -149,9 +149,9 @@ public class MatMath {
      * @param m       matrix for division
      * @param divisor scalar value
      * @return given matrix with divided elements
-     * @throws IllegalArgumentException if {@code divisor} approximately equals 0
+     * @throws ArithmeticException if {@code divisor} approximately equals 0
      */
-    public static Matrix divide(final Matrix m, final float divisor) {
+    public static Matrix divide(final Matrix m, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
         for (int r = 0; r < m.height(); r++) {
             for (int c = 0; c < m.width(); c++) {
@@ -168,9 +168,9 @@ public class MatMath {
      * @param m       matrix for division
      * @param divisor scalar value
      * @return new matrix with divided elements of given matrix
-     * @throws IllegalArgumentException if {@code divisor} approximately equals 0
+     * @throws ArithmeticException if {@code divisor} approximately equals 0
      */
-    public static Matrix divided(final Matrix m, final float divisor) {
+    public static Matrix divided(final Matrix m, final float divisor) throws ArithmeticException {
         return mult(new Mat(m), divisor);
     }
 

@@ -76,9 +76,9 @@ public class Mat4Math {
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
      * @return given 4x4 matrix with swapped rows
-     * @throws Exception if any row index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      */
-    public static Matrix4 swapRows(final Matrix4 m, final int r1, final int r2) {
+    public static Matrix4 swapRows(final Matrix4 m, final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         swapRows(m, ROWS[r1], ROWS[r2]);
 
         return m;
@@ -103,9 +103,10 @@ public class Mat4Math {
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
      * @return new matrix 4x4 with swapped rows of given matrix 4x4
-     * @throws Exception if any row index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      */
-    public static Matrix4 swappedRows(final Matrix4 m, final int r1, final int r2) {
+    public static Matrix4 swappedRows(final Matrix4 m, final int r1, final int r2)
+            throws ArrayIndexOutOfBoundsException {
         return swapRows(new Mat4(m), r1, r2);
     }
 
@@ -147,9 +148,10 @@ public class Mat4Math {
      * @param c1 first column for swapping
      * @param c2 second column for swapping
      * @return new matrix 4x4 with swapped columns of given matrix 4x4
-     * @throws Exception if any column index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
      */
-    public static Matrix4 swappedCols(final Matrix4 m, final Matrix4Col c1, final Matrix4Col c2) {
+    public static Matrix4 swappedCols(final Matrix4 m, final Matrix4Col c1, final Matrix4Col c2)
+            throws ArrayIndexOutOfBoundsException {
         return swapCols(new Mat4(m), c1, c2);
     }
 
@@ -160,9 +162,10 @@ public class Mat4Math {
      * @param c1 first index of column for swapping
      * @param c2 second index of column for swapping
      * @return new matrix 4x4 with swapped columns of given matrix 4x4
-     * @throws Exception if any column index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
      */
-    public static Matrix4 swappedCols(final Matrix4 m, final int c1, final int c2) {
+    public static Matrix4 swappedCols(final Matrix4 m, final int c1, final int c2)
+            throws ArrayIndexOutOfBoundsException {
         return swapCols(new Mat4(m), c1, c2);
     }
 
@@ -200,9 +203,9 @@ public class Mat4Math {
      * @param m       matrix 4x4 for division
      * @param divisor scalar value
      * @return given matrix 4x4 with divided elements
-     * @throws IllegalArgumentException if {@code divisor} approximately equals 0
+     * @throws ArithmeticException if {@code divisor} approximately equals 0
      */
-    public static Matrix4 divide(final Matrix4 m, final float divisor) {
+    public static Matrix4 divide(final Matrix4 m, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
@@ -219,9 +222,9 @@ public class Mat4Math {
      * @param m       matrix 4x4 for division
      * @param divisor scalar value
      * @return new matrix 4x4 with divided elements of given matrix
-     * @throws IllegalArgumentException if {@code divisor} approximately equals 0
+     * @throws ArithmeticException if {@code divisor} approximately equals 0
      */
-    public static Matrix4 divided(final Matrix4 m, final float divisor) {
+    public static Matrix4 divided(final Matrix4 m, final float divisor) throws ArithmeticException {
         return divide(new Mat4(m), divisor);
     }
 
@@ -409,7 +412,7 @@ public class Mat4Math {
      * @return invertible matrix 4x4
      * @throws RuntimeException if matrix determinant equals to 0
      */
-    public static Matrix4 invertible(final Matrix4 m) {
+    public static Matrix4 invertible(final Matrix4 m) throws RuntimeException {
         final Matrix4 result = cofactorMatrix(m);
         final float determinant = det(m);
 

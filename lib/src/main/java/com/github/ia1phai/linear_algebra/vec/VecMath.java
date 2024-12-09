@@ -67,9 +67,9 @@ public class VecMath {
      * @param v       vector for division
      * @param divisor scalar value
      * @return given vector with divided components
-     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     * @throws ArithmeticException if {@code divisor} approximately equal to 0
      */
-    public static Vector divide(final Vector v, final float divisor) {
+    public static Vector divide(final Vector v, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
         for (int i = 0; i < v.size(); i++) {
             v.set(i, v.get(i) / divisor);
@@ -84,9 +84,9 @@ public class VecMath {
      * @param v       vector for division
      * @param divisor scalar value
      * @return new vector with divided components of given vector
-     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     * @throws ArithmeticException if {@code divisor} approximately equal to 0
      */
-    public static Vector divided(final Vector v, final float divisor) {
+    public static Vector divided(final Vector v, final float divisor) throws ArithmeticException {
         return divide(new Vec(v), divisor);
     }
 
@@ -95,9 +95,9 @@ public class VecMath {
      * 
      * @param v vector to be normalized
      * @return given vector with normalized components
-     * @throws IllegalArgumentException if length of given vector equals 0
+     * @throws ArithmeticException if length of given vector equals 0
      */
-    public static Vector normalize(final Vector v) {
+    public static Vector normalize(final Vector v) throws ArithmeticException {
         return divide(v, len(v));
     }
 
@@ -106,9 +106,9 @@ public class VecMath {
      * 
      * @param v vector to be normalized
      * @return new vector with normalized components of given vector
-     * @throws IllegalArgumentException if length of given vector equals 0
+     * @throws ArithmeticException if length of given vector equals 0
      */
-    public static Vector normalized(final Vector v) {
+    public static Vector normalized(final Vector v) throws ArithmeticException {
         return divided(v, len(v));
     }
 

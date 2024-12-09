@@ -154,9 +154,9 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
      * 
      * @param divisor scalar value
      * @return current vector with divided components
-     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     * @throws ArithmeticException if {@code divisor} approximately equal to 0
      */
-    public Vector4 divide(final float divisor) {
+    public Vector4 divide(final float divisor) throws ArithmeticException {
         return Vec4Math.divide(this, divisor);
     }
 
@@ -165,9 +165,9 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
      *
      * @param divisor scalar value
      * @return new vector with divided components of current vector
-     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     * @throws ArithmeticException if {@code divisor} approximately equal to 0
      */
-    public Vector4 divided(final float divisor) {
+    public Vector4 divided(final float divisor) throws ArithmeticException {
         return Vec4Math.divided(this, divisor);
     }
 
@@ -175,9 +175,9 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
      * Normalizes vector (divide each component by vector length)
      * 
      * @return current vector with normalized components
-     * @throws IllegalArgumentException if length of vector equals 0
+     * @throws ArithmeticException if length of vector equals 0
      */
-    public Vector4 normalize() {
+    public Vector4 normalize() throws ArithmeticException {
         return Vec4Math.normalize(this);
     }
 
@@ -185,8 +185,9 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
      * Copies and normalizes vector (divide each component by vector length)
      * 
      * @return current vector with normalized components of given vector
+     * @throws ArithmeticException if length of vector equals 0
      */
-    public Vector4 normalized() {
+    public Vector4 normalized() throws ArithmeticException {
         return Vec4Math.normalized(new Vec4(this));
     }
 

@@ -62,9 +62,9 @@ public class Vec3Math {
      * @param v       vector of size 3 for division
      * @param divisor scalar value
      * @return given vector with divided components
-     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     * @throws ArithmeticException if {@code divisor} approximately equal to 0
      */
-    public static Vector3 divide(final Vector3 v, final float divisor) {
+    public static Vector3 divide(final Vector3 v, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
 
         v.setX(v.x() / divisor);
@@ -80,9 +80,9 @@ public class Vec3Math {
      * @param v       vector of size 3 for division
      * @param divisor scalar value
      * @return new vector of size 3 with divided components of given vector
-     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     * @throws ArithmeticException if {@code divisor} approximately equal to 0
      */
-    public static Vector3 divided(final Vector3 v, final float divisor) {
+    public static Vector3 divided(final Vector3 v, final float divisor) throws ArithmeticException {
         return divide(new Vec3(v), divisor);
     }
 
@@ -91,9 +91,9 @@ public class Vec3Math {
      * 
      * @param v vector of size 3 to be normalized
      * @return given vector with normalized components
-     * @throws IllegalArgumentException if length of given vector equals 0
+     * @throws ArithmeticException if length of given vector equals 0
      */
-    public static Vector3 normalize(final Vector3 v) {
+    public static Vector3 normalize(final Vector3 v) throws ArithmeticException {
         return divide(v, len(v));
     }
 

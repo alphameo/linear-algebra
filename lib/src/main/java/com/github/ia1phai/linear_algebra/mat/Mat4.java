@@ -71,7 +71,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @throws IllegalArgumentException if given two dimensional array cannot be
      *                                  interpreted as matrix 4x4
      */
-    public Mat4(final float entries[][]) {
+    public Mat4(final float entries[][]) throws IllegalArgumentException {
         this();
         for (int i = 0; i < entries.length; i++) {
             if (entries[i].length != entries[0].length) {
@@ -102,7 +102,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     @Override
-    public float get(final int r, final int c) {
+    public float get(final int r, final int c) throws IllegalArgumentException {
         if (r < 0 || r > 3) {
             throw new IllegalArgumentException(String.format("Row %d is out of Mat3 bounds", r));
         }
@@ -119,7 +119,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     @Override
-    public void set(final int r, final int c, final float value) {
+    public void set(final int r, final int c, final float value) throws IllegalArgumentException {
         if (r < 0 || r > 3) {
             throw new IllegalArgumentException(String.format("Row %d is out of Mat3 bounds", r));
         }
@@ -180,9 +180,9 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
      * @return current matrix with swapped rows
-     * @throws Exception if any row index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      */
-    public Matrix4 swapRows(final int r1, final int r2) {
+    public Matrix4 swapRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         return Mat4Math.swapRows(this, r1, r2);
     }
 
@@ -203,9 +203,9 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
      * @return new matrix with swapped rows of curren matrix
-     * @throws Exception if any row index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      */
-    public Matrix4 swappedRows(final int r1, final int r2) {
+    public Matrix4 swappedRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         return Mat4Math.swappedRows(this, r1, r2);
     }
 
@@ -226,9 +226,9 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param c1 first index of column for swapping
      * @param c2 second index of column for swapping
      * @return current matrix with swapped columns
-     * @throws Exception if any column index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
      */
-    public Matrix4 swapCols(final int c1, final int c2) {
+    public Matrix4 swapCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
         return Mat4Math.swapCols(this, c1, c2);
     }
 
@@ -249,9 +249,9 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param c1 first index of column for swapping
      * @param c2 second index of column for swapping
      * @return new matrix with swapped columns of current matrix
-     * @throws Exception if any column index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
      */
-    public Matrix4 swappedCols(final int c1, final int c2) {
+    public Matrix4 swappedCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
         return Mat4Math.swappedCols(this, c1, c2);
     }
 
@@ -280,9 +280,9 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * 
      * @param divisor scalar value
      * @return current matrix with divided elements
-     * @throws IllegalArgumentException if {@code divisor} approximately equals 0
+     * @throws ArithmeticException if {@code divisor} approximately equals 0
      */
-    public Matrix4 divide(final float divisor) {
+    public Matrix4 divide(final float divisor) throws ArithmeticException {
         return Mat4Math.divide(this, divisor);
     }
 
@@ -291,9 +291,9 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      *
      * @param divisor scalar value
      * @return new matrix with divided elements of current matrix
-     * @throws IllegalArgumentException if {@code divisor} approximately equals 0
+     * @throws ArithmeticException if {@code divisor} approximately equals 0
      */
-    public Matrix4 divided(final float divisor) {
+    public Matrix4 divided(final float divisor) throws ArithmeticException {
         return Mat4Math.divide(this, divisor);
     }
 
@@ -396,7 +396,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @return invertible matrix
      * @throws RuntimeException if matrix determinant equals to 0
      */
-    public Matrix4 invertible() {
+    public Matrix4 invertible() throws RuntimeException {
         return Mat4Math.invertible(this);
     }
 

@@ -106,9 +106,9 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * 
      * @param divisor scalar value
      * @return current vector with divided components
-     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     * @throws ArithmeticException if {@code divisor} approximately equal to 0
      */
-    public Vector divide(final float divisor) {
+    public Vector divide(final float divisor) throws ArithmeticException {
         return VecMath.divide(this, divisor);
     }
 
@@ -117,9 +117,9 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      *
      * @param divisor scalar value
      * @return new vector with divided components of current vector
-     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     * @throws ArithmeticException if {@code divisor} approximately equal to 0
      */
-    public Vector divided(final float divisor) {
+    public Vector divided(final float divisor) throws ArithmeticException {
         return VecMath.divided(this, divisor);
     }
 
@@ -127,9 +127,9 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * Normalizes vector (divide each component by vector length)
      * 
      * @return current vector with normalized components
-     * @throws IllegalArgumentException if length of vector equals 0
+     * @throws ArithmeticException if length of vector equals 0
      */
-    public Vector normalize() {
+    public Vector normalize() throws ArithmeticException {
         return VecMath.normalize(this);
     }
 
@@ -137,9 +137,9 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * Copies and normalizes vector (divide each component by vector length)
      * 
      * @return current vector with normalized components of given vector
-     * @throws IllegalArgumentException if length of vector equals 0
+     * @throws ArithmeticException if length of vector equals 0
      */
-    public Vector normalized() {
+    public Vector normalized() throws ArithmeticException {
         return VecMath.normalized(new Vec(this));
     }
 

@@ -141,9 +141,9 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * 
      * @param divisor scalar value
      * @return current vector with divided components
-     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     * @throws ArithmeticException if {@code divisor} approximately equal to 0
      */
-    public Vector3 divide(final float divisor) {
+    public Vector3 divide(final float divisor) throws ArithmeticException {
         return Vec3Math.divide(this, divisor);
     }
 
@@ -152,9 +152,9 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * 
      * @param divisor scalar value
      * @return current vector with divided components
-     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     * @throws ArithmeticException if {@code divisor} approximately equal to 0
      */
-    public Vector3 divided(final float divisor) {
+    public Vector3 divided(final float divisor) throws ArithmeticException {
         return Vec3Math.divided(this, divisor);
     }
 
@@ -162,9 +162,9 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * Normalizes vector (divide each component by vector length)
      * 
      * @return current vector with normalized components
-     * @throws IllegalArgumentException if length of vector equals 0
+     * @throws ArithmeticException if length of vector equals 0
      */
-    public Vector3 normalize() {
+    public Vector3 normalize() throws ArithmeticException {
         return Vec3Math.normalize(this);
     }
 
@@ -172,9 +172,9 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * Copies and normalizes vector (divide each component by vector length)
      * 
      * @return current vector with normalized components of given vector
-     * @throws IllegalArgumentException if length of vector equals 0
+     * @throws ArithmeticException if length of vector equals 0
      */
-    public Vector3 normalized() {
+    public Vector3 normalized() throws ArithmeticException {
         return Vec3Math.normalized(new Vec3(this));
     }
 

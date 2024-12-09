@@ -77,9 +77,9 @@ public class Mat3Math {
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
      * @return given 3x3 matrix with swapped rows
-     * @throws Exception if any row index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      */
-    public static Matrix3 swapRows(final Matrix3 m, final int r1, final int r2) {
+    public static Matrix3 swapRows(final Matrix3 m, final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         return swapRows(m, ROWS[r1], ROWS[r2]);
     }
 
@@ -102,9 +102,10 @@ public class Mat3Math {
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
      * @return new matrix 3x3 with swapped rows of given matrix 3x3
-     * @throws Exception if any row index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      */
-    public static Matrix3 swappedRows(final Matrix3 m, final int r1, final int r2) {
+    public static Matrix3 swappedRows(final Matrix3 m, final int r1, final int r2)
+            throws ArrayIndexOutOfBoundsException {
         return swappedRows(m, ROWS[r1], ROWS[r2]);
     }
 
@@ -146,7 +147,6 @@ public class Mat3Math {
      * @param c1 first column for swapping
      * @param c2 second column for swapping
      * @return new matrix 3x3 with swapped columns of given matrix 3x3
-     * @throws Exception if any column index is out of bounds
      */
     public static Matrix3 swappedCols(final Matrix3 m, final Matrix3Col c1, final Matrix3Col c2) {
         return swapCols(new Mat3(m), c1, c2);
@@ -159,9 +159,10 @@ public class Mat3Math {
      * @param c1 first index of column for swapping
      * @param c2 second index of column for swapping
      * @return new matrix 3x3 with swapped columns of given matrix 3x3
-     * @throws Exception if any column index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
      */
-    public static Matrix3 swappedCols(final Matrix3 m, final int c1, final int c2) {
+    public static Matrix3 swappedCols(final Matrix3 m, final int c1, final int c2)
+            throws ArrayIndexOutOfBoundsException {
         return swapCols(new Mat3(m), c1, c2);
     }
 
@@ -199,9 +200,9 @@ public class Mat3Math {
      * @param m       matrix 3x3 for division
      * @param divisor scalar value
      * @return given matrix 3x3 with divided elements
-     * @throws IllegalArgumentException if {@code divisor} approximately equals 0
+     * @throws ArithmeticException if {@code divisor} approximately equals 0
      */
-    public static Matrix3 divide(final Matrix3 m, final float divisor) {
+    public static Matrix3 divide(final Matrix3 m, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
@@ -218,9 +219,9 @@ public class Mat3Math {
      * @param m       matrix 3x3 for division
      * @param divisor scalar value
      * @return new matrix 3x3 with divided elements of given matrix
-     * @throws IllegalArgumentException if {@code divisor} approximately equals 0
+     * @throws ArithmeticException if {@code divisor} approximately equals 0
      */
-    public static Matrix3 divided(final Matrix3 m, final float divisor) {
+    public static Matrix3 divided(final Matrix3 m, final float divisor) throws ArithmeticException {
         return divide(new Mat3(m), divisor);
     }
 
@@ -409,7 +410,7 @@ public class Mat3Math {
      * @return invertible matrix 3x3
      * @throws RuntimeException if matrix determinant equals to 0
      */
-    public static Matrix3 invertible(final Matrix3 m) {
+    public static Matrix3 invertible(final Matrix3 m) throws RuntimeException {
         final Matrix3 result = cofactorMatrix(m);
         final float determinant = det(m);
 
@@ -612,10 +613,14 @@ public class Mat3Math {
      * @param insertionRow row index for insertion 0
      * @param insertionCol column index for insertion 0
      * @return new matrix 4x4
-     * @throws Exception if any column index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
      */
-    public static Matrix4 toMat4(final Matrix3 m, final int insertionRow, final int insertionCol) {
-        return toMat4(m, Matrix4Row.values()[insertionRow], Matrix4Col.values()[insertionCol]);
+    public static Matrix4 toMat4(final Matrix3 m, final int insertionRow, final int insertionCol)
+            throws ArrayIndexOutOfBoundsException {
+        return toMat4(
+                m,
+                Matrix4Row.values()[insertionRow],
+                Matrix4Col.values()[insertionCol]);
     }
 
     /**

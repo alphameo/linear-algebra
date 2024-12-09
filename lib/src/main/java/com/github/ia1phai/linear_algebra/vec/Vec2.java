@@ -129,9 +129,9 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * 
      * @param divisor scalar value
      * @return current vector with divided components
-     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     * @throws ArithmeticException if {@code divisor} approximately equal to 0
      */
-    public Vector2 divide(final float divisor) {
+    public Vector2 divide(final float divisor) throws ArithmeticException {
         return Vec2Math.divide(this, divisor);
     }
 
@@ -140,9 +140,9 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      *
      * @param divisor scalar value
      * @return new vector with divided components of current vector
-     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     * @throws ArithmeticException if {@code divisor} approximately equal to 0
      */
-    public Vector2 divided(final float divisor) {
+    public Vector2 divided(final float divisor) throws ArithmeticException {
         return Vec2Math.divided(this, divisor);
     }
 
@@ -150,9 +150,9 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * Normalizes vector (divide each component by vector length)
      * 
      * @return current vector with normalized components
-     * @throws IllegalArgumentException if length of vector equals 0
+     * @throws ArithmeticException if length of vector equals 0
      */
-    public Vector2 normalize() {
+    public Vector2 normalize() throws ArithmeticException {
         return Vec2Math.normalize(this);
     }
 
@@ -160,9 +160,9 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * Copies and normalizes vector (divide each component by vector length)
      * 
      * @return current vector with normalized components of given vector
-     * @throws IllegalArgumentException if length of vector equals 0
+     * @throws ArithmeticException if length of vector equals 0
      */
-    public Vector2 normalized() {
+    public Vector2 normalized() throws ArithmeticException {
         return Vec2Math.normalized(new Vec2(this));
     }
 
