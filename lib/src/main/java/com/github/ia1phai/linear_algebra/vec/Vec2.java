@@ -20,7 +20,7 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
     }
 
     /**
-     * Constructs new vector using values {@code x} and {@code y}.
+     * Constructs new vector of size 2 using values {@code x} and {@code y}.
      * 
      * @param x first component of vector
      * @param y second component of vector

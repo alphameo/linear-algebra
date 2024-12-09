@@ -20,8 +20,8 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
     }
 
     /**
-     * Constructs new vector using values {@code x}, {@code y}, {@code z} and
-     * {@code w}.
+     * Constructs new vector of size 3 using values {@code x}, {@code y}, {@code z}
+     * and {@code w}.
      * 
      * @param x first component of vector
      * @param y second component of vector

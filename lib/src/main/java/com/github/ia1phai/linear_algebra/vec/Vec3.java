@@ -20,7 +20,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
     }
 
     /**
-     * Constructs new vector using values {@code x}, {@code y} and {@code z}.
+     * Constructs new vector of size 3 using values {@code x}, {@code y} and
+     * {@code z}.
      * 
      * @param x first component of vector
      * @param y second component of vector
