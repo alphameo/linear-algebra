@@ -43,13 +43,13 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     @Override
-    public float get(final int row, final int col) {
-        return entries[row][col];
+    public float get(final int r, final int c) {
+        return entries[r][c];
     }
 
     @Override
-    public void set(final int row, final int col, final float value) {
-        entries[row][col] = value;
+    public void set(final int r, final int c, final float value) {
+        entries[r][c] = value;
     }
 
     @Override

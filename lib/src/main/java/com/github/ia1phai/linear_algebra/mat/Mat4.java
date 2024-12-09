@@ -55,8 +55,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     @Override
-    public float get(final Matrix4Row row, final Matrix4Col col) {
-        return entries[row.ordinal()][col.ordinal()];
+    public float get(final Matrix4Row r, final Matrix4Col c) {
+        return entries[r.ordinal()][c.ordinal()];
     }
 
     @Override
@@ -182,12 +182,12 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
         return Mat4Math.invertible(this);
     }
 
-    public Matrix minorMatrix(final int row, final int col) {
-        return MatMath.minorMatrix(this, row, col);
+    public Matrix minorMatrix(final int r, final int c) {
+        return MatMath.minorMatrix(this, r, c);
     }
 
-    public float cofactor(final int row, final int col) {
-        return MatMath.cofactor(this, row, col);
+    public float cofactor(final int r, final int c) {
+        return MatMath.cofactor(this, r, c);
     }
 
     public Matrix4 cofactorMatrix() {
