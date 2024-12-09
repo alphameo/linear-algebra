@@ -530,10 +530,6 @@ public class Mat4Math {
         return true;
     }
 
-    public static boolean square(final Matrix4 m) {
-        return true;
-    }
-
     /**
      * Returns {@code true} if matrix 4x4 elements are approximately equal 0.
      * 
