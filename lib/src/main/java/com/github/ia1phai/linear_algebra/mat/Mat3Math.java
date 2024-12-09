@@ -668,7 +668,7 @@ public class Mat3Math {
     }
 
     /**
-     * Constructs square matrix of given size with 1 on main diagonal.
+     * Constructs square matrix 3x3 with 1 on main diagonal.
      * 
      * @return square matrix 3x3 with 1 on main diagonal
      */
