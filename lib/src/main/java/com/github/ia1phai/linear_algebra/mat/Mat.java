@@ -11,7 +11,7 @@ import com.github.ia1phai.linear_algebra.vec.Vector;
  */
 public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
 
-    float[][] entries;
+    private float[][] entries;
 
     public Mat(final int size) {
         entries = new float[size][size];
@@ -183,7 +183,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     @Override
-    public boolean equalsEpsilonTo(Matrix other, float eps) {
+    public boolean equalsEpsilonTo(final Matrix other, final float eps) {
         return MatMath.equalsEpsilon(this, other, eps);
     }
 
@@ -214,7 +214,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj) {
             return true;
         }
@@ -224,7 +224,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        Mat other = (Mat) obj;
+        final Mat other = (Mat) obj;
         return MatMath.equals(this, other);
     }
 
