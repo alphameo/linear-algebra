@@ -176,6 +176,20 @@ public class Vec2Math {
     }
 
     /**
+     * Returns {@code true} if components of vectors are equal within
+     * {@code epsilon} tolerance
+     * 
+     * @param v1 first vector of size 2 for comparison
+     * @param v2 second vector of size 2 for comparison
+     * @return {@code true} if all components of vectors are equal within
+     *         {@code epsilon} tolerance, and {@code false} otherwise
+     */
+    public static boolean equalsEpsilon(final Vector2 v1, final Vector2 v2, final float eps) {
+        return Validator.equalsEpsilon(v1.x(), v2.x(), eps)
+                && Validator.equalsEpsilon(v1.y(), v2.y(), eps);
+    }
+
+    /**
      * Returns {@code true} if components of vectors are approximately equal
      * 
      * @param v1 first vector of size 2 for comparison
@@ -184,7 +198,7 @@ public class Vec2Math {
      *         and {@code false} otherwise
      */
     public static boolean equals(final Vector2 v1, final Vector2 v2) {
-        return Validator.equals(v1.x(), v2.x()) && Validator.equals(v1.y(), v2.y());
+        return equalsEpsilon(v1, v2, Validator.EPS);
     }
 
     /**

@@ -215,6 +215,27 @@ public class VecMath {
     }
 
     /**
+     * Returns {@code true} if components of vectors are equal within
+     * {@code epsilon} tolerance
+     * 
+     * @param v1  first vector for comparison
+     * @param v2  second vector for comparison
+     * @param eps tolerance
+     * @return {@code true} if all components of vectors are equal within
+     *         {@code epsilon} tolerance, and {@code false} otherwise
+     */
+    public static boolean equalsEpsilon(final Vector v1, final Vector v2, final float eps) {
+        Validator.validateVectorSizes(v1, v2, "Equalization denied");
+        for (int i = 0; i < v1.size(); i++) {
+            if (!Validator.equalsEpsilon(v1.get(i), v2.get(i), eps)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
      * Returns {@code true} if components of vectors are approximately equal
      * 
      * @param v1 first vector for comparison
@@ -223,14 +244,7 @@ public class VecMath {
      *         and {@code false} otherwise
      */
     public static boolean equals(final Vector v1, final Vector v2) {
-        Validator.validateVectorSizes(v1, v2, "Equalization denied");
-        for (int i = 0; i < v1.size(); i++) {
-            if (!Validator.equals(v1.get(i), v2.get(i))) {
-                return false;
-            }
-        }
-
-        return true;
+        return equalsEpsilon(v1, v2, Validator.EPS);
     }
 
     /**

@@ -102,6 +102,11 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
     }
 
     @Override
+    public boolean equalsEpsilonTo(Vector v, float eps) {
+        return VecMath.equalsEpsilon(this, v, eps);
+    }
+
+    @Override
     public boolean equalsTo(final Vector v) {
         return VecMath.equals(this, v);
     }

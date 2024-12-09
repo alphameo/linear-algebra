@@ -183,6 +183,11 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     @Override
+    public boolean equalsEpsilonTo(Matrix other, float eps) {
+        return MatMath.equalsEpsilon(this, other, eps);
+    }
+
+    @Override
     public Mat copy() {
         final Mat result = new Mat(height(), width());
 

@@ -143,6 +143,11 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
     }
 
     @Override
+    public boolean equalsEpsilonTo(Vector4 other, float eps) {
+        return Vec4Math.equalsEpsilon(this, other, eps);
+    }
+
+    @Override
     public boolean equalsTo(final Vector4 other) {
         return Vec4Math.equals(this, other);
     }

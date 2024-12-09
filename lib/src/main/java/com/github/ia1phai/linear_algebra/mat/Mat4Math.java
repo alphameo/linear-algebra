@@ -511,6 +511,27 @@ public class Mat4Math {
     }
 
     /**
+     * Returns {@code true} if elements of matrices 4x4 are equal within
+     * {@code epsilon} tolerance
+     * 
+     * @param m1 first matrix 4x4 for comparison
+     * @param m2 second matrix 4x4 for comparison
+     * @return {@code true} if all elements of matrices 4x4 are equal within
+     *         {@code epsilon} tolerance, and {@code false} otherwise
+     */
+    public static boolean equalsEpsilon(final Matrix4 m1, final Matrix4 m2, final float eps) {
+        for (final Matrix4Row r : ROWS) {
+            for (final Matrix4Col c : COLS) {
+                if (!Validator.equalsEpsilon(m1.get(r, c), m2.get(r, c), eps)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    /**
      * Returns {@code true} if elements of matrices 4x4 are approximately equal
      * 
      * @param m1 first matrix 4x4 for comparison
@@ -519,15 +540,7 @@ public class Mat4Math {
      *         and {@code false} otherwise
      */
     public static boolean equals(final Matrix4 m1, final Matrix4 m2) {
-        for (final Matrix4Row r : ROWS) {
-            for (final Matrix4Col c : COLS) {
-                if (!Validator.equals(m1.get(r, c), m2.get(r, c))) {
-                    return false;
-                }
-            }
-        }
-
-        return true;
+        return equalsEpsilon(m1, m2, Validator.EPS);
     }
 
     /**

@@ -212,6 +212,11 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     @Override
+    public boolean equalsEpsilonTo(Matrix4 other, float eps) {
+        return Mat4Math.equalsEpsilon(this, other, eps);
+    }
+
+    @Override
     public Mat4 copy() {
         final Mat4 result = new Mat4();
 

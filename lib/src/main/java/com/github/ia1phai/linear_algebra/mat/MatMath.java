@@ -526,6 +526,29 @@ public class MatMath {
     }
 
     /**
+     * Returns {@code true} if elements of matrices are equal within
+     * {@code epsilon} tolerance
+     * 
+     * @param m1 first matrix for comparison
+     * @param m2 second matrix for comparison
+     * @return {@code true} if all elements of matrices are equal within
+     *         {@code epsilon} tolerance, and {@code false} otherwise
+     * @throws IllegalArgumentException if matrices have different sizes
+     */
+    public static boolean equalsEpsilon(final Matrix m1, final Matrix m2, final float eps) {
+        Validator.validateMatrixSizes(m1, m2, "Equalizationt denied");
+        for (int r = 0; r < m1.height(); r++) {
+            for (int c = 0; c < m2.width(); c++) {
+                if (!Validator.equalsEpsilon(m1.get(r, c), m2.get(r, c), eps)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    /**
      * Returns {@code true} if elements of matrices are approximately equal
      * 
      * @param m1 first matrix for comparison
@@ -535,16 +558,7 @@ public class MatMath {
      * @throws IllegalArgumentException if matrices have different sizes
      */
     public static boolean equals(final Matrix m1, final Matrix m2) {
-        Validator.validateMatrixSizes(m1, m2, "Equalizationt denied");
-        for (int r = 0; r < m1.height(); r++) {
-            for (int c = 0; c < m2.width(); c++) {
-                if (!Validator.equals(m1.get(r, c), m2.get(r, c))) {
-                    return false;
-                }
-            }
-        }
-
-        return true;
+        return equalsEpsilon(m1, m2, Validator.EPS);
     }
 
     /**

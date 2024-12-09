@@ -196,6 +196,21 @@ public class Vec3Math {
     }
 
     /**
+     * Returns {@code true} if components of vectors are equal within
+     * {@code epsilon} tolerance
+     * 
+     * @param v1 first vector of size 3 for comparison
+     * @param v2 second vector of size 3 for comparison
+     * @return {@code true} if all components of vectors are equal within
+     *         {@code epsilon} tolerance, and {@code false} otherwise
+     */
+    public static boolean equalsEpsilon(final Vector3 v1, final Vector3 v2, final float eps) {
+        return Validator.equalsEpsilon(v1.x(), v2.x(), eps)
+                && Validator.equalsEpsilon(v1.y(), v2.y(), eps)
+                && Validator.equalsEpsilon(v1.z(), v2.z(), eps);
+    }
+
+    /**
      * Returns {@code true} if components of vectors are approximately equal
      * 
      * @param v1 first vector of size 3 for comparison
@@ -204,9 +219,7 @@ public class Vec3Math {
      *         and {@code false} otherwise
      */
     public static boolean equals(final Vector3 v1, final Vector3 v2) {
-        return Validator.equals(v1.x(), v2.x())
-                && Validator.equals(v1.y(), v2.y())
-                && Validator.equals(v1.z(), v2.z());
+        return equalsEpsilon(v1, v2, Validator.EPS);
     }
 
     /**

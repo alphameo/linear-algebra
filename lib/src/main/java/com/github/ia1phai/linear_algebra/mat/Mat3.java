@@ -220,6 +220,11 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
     }
 
     @Override
+    public boolean equalsEpsilonTo(Matrix3 other, float eps) {
+        return Mat3Math.equalsEpsilon(this, other, eps);
+    }
+
+    @Override
     public Mat3 copy() {
         final Mat3 result = new Mat3();
 

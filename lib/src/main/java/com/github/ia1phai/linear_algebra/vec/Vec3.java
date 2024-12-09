@@ -138,6 +138,11 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
     }
 
     @Override
+    public boolean equalsEpsilonTo(Vector3 other, float eps) {
+        return Vec3Math.equalsEpsilon(this, other, eps);
+    }
+
+    @Override
     public boolean equalsTo(final Vector3 other) {
         return Vec3Math.equals(this, other);
     }
