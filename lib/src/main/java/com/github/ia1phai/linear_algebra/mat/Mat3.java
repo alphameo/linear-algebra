@@ -11,10 +11,26 @@ import com.github.ia1phai.linear_algebra.vec.Vector3;
  */
 public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
 
-    float[][] entries;
+    private final float[][] entries;
 
     public Mat3() {
         this.entries = new float[3][3];
+    }
+
+    public Mat3(
+            final float m00, final float m01, final float m02,
+            final float m10, final float m11, final float m12,
+            final float m20, final float m21, final float m22) {
+        this();
+        entries[0][0] = m00;
+        entries[0][1] = m01;
+        entries[0][2] = m02;
+        entries[1][0] = m10;
+        entries[1][1] = m11;
+        entries[1][2] = m12;
+        entries[2][0] = m20;
+        entries[2][1] = m21;
+        entries[2][2] = m22;
     }
 
     public Mat3(final float entries[][]) {
@@ -220,7 +236,7 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
     }
 
     @Override
-    public boolean equalsEpsilonTo(Matrix3 other, float eps) {
+    public boolean equalsEpsilonTo(final Matrix3 other, final float eps) {
         return Mat3Math.equalsEpsilon(this, other, eps);
     }
 
@@ -251,7 +267,7 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj) {
             return true;
         }
@@ -261,7 +277,7 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        Mat3 other = (Mat3) obj;
+        final Mat3 other = (Mat3) obj;
         return Mat3Math.equals(this, other);
     }
 

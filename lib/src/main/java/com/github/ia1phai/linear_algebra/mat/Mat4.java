@@ -11,10 +11,34 @@ import com.github.ia1phai.linear_algebra.vec.Vector4;
  */
 public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
 
-    float[][] entries;
+    private final float[][] entries;
 
     public Mat4() {
         this.entries = new float[4][4];
+    }
+
+    public Mat4(
+            final float m00, final float m01, final float m02, final float m03,
+            final float m10, final float m11, final float m12, final float m13,
+            final float m20, final float m21, final float m22, final float m23,
+            final float m30, final float m31, final float m32, final float m33) {
+        this();
+        entries[0][0] = m00;
+        entries[0][1] = m01;
+        entries[0][2] = m02;
+        entries[0][3] = m03;
+        entries[1][0] = m10;
+        entries[1][1] = m11;
+        entries[1][2] = m12;
+        entries[1][3] = m13;
+        entries[2][0] = m20;
+        entries[2][1] = m21;
+        entries[2][2] = m22;
+        entries[2][3] = m23;
+        entries[3][0] = m30;
+        entries[3][1] = m31;
+        entries[3][2] = m32;
+        entries[3][3] = m33;
     }
 
     public Mat4(final float entries[][]) {
@@ -212,7 +236,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     @Override
-    public boolean equalsEpsilonTo(Matrix4 other, float eps) {
+    public boolean equalsEpsilonTo(final Matrix4 other, final float eps) {
         return Mat4Math.equalsEpsilon(this, other, eps);
     }
 
@@ -243,7 +267,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(final Object obj) {
         if (this == obj) {
             return true;
         }
@@ -253,7 +277,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        Mat4 other = (Mat4) obj;
+        final Mat4 other = (Mat4) obj;
         return Mat4Math.equals(this, other);
     }
 
