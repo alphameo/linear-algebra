@@ -578,6 +578,25 @@ public class Mat3Math {
         return true;
     }
 
+    /**
+     * Safely constructs new matrix 4x4 with elements of given matrix 3x3 and 0 on
+     * inserted
+     * row and column, 1 on intersection of row and column.
+     * <p>
+     * example for insertionRow = 2, insertionCol = 2:
+     * 
+     * <pre>
+     * ⎡ m00 m01 0 m02 ⎤
+     *⎢  0   0  1  0  ⎥
+     *⎢ m10 m11 0 m12 ⎥
+     *⎣ m20 m21 0 m22 ⎦
+     * </pre>
+     * 
+     * @param m            matrix 3x3
+     * @param insertionRow row for insertion 0
+     * @param insertionCol column for insertion 0
+     * @return new matrix 4x4
+     */
     public static Matrix4 toMat4(final Matrix3 m, final Matrix4Row insertionRow, final Matrix4Col insertionCol) {
         final Matrix4 result = new Mat4();
         int destRow = 0;
@@ -605,10 +624,46 @@ public class Mat3Math {
         return result;
     }
 
+    /**
+     * Constructs new matrix 4x4 with elements of given matrix 3x3 and 0 on inserted
+     * row and column, 1 at intersection of row and column.
+     * <p>
+     * example for insertionRow = R2, insertionCol = C2:
+     * 
+     * <pre>
+     * ⎡ m00 m01 0 m02 ⎤
+     *⎢  0   0  1  0  ⎥
+     *⎢ m10 m11 0 m12 ⎥
+     *⎣ m20 m21 0 m22 ⎦
+     * </pre>
+     * 
+     * @param m            matrix 3x3
+     * @param insertionRow row index for insertion 0
+     * @param insertionCol column index for insertion 0
+     * @return new matrix 4x4
+     */
     public static Matrix4 toMat4(final Matrix3 m, final int insertionRow, final int insertionCol) {
         return toMat4(m, Matrix4Row.values()[insertionRow], Matrix4Col.values()[insertionCol]);
     }
 
+    /**
+     * Constructs new matrix 4x4 with elements of given matrix 3x3 and 0 on last
+     * row and last column, 1 at right down corner.
+     * <p>
+     * example for insertionRow = 2, insertionCol = 2:
+     * 
+     * <pre>
+     * ⎡ m00 m01 m02 0 ⎤
+     *⎢ m10 m11 m12 0 ⎥
+     *⎢ m20 m21 m22 0 ⎥ 
+     *⎣  0   0   0  1 ⎦
+     * </pre>
+     * 
+     * @param m            matrix 3x3
+     * @param insertionRow row for insertion 0
+     * @param insertionCol column for insertion 0
+     * @return new matrix 4x4
+     */
     public static Matrix4 toMat4(final Matrix3 m) {
         return toMat4(m, Matrix4Row.R3, Matrix4Col.C3);
     }
