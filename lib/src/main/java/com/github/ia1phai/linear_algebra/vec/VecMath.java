@@ -105,7 +105,7 @@ public class VecMath {
      * Copies and normalizes given vector (divide each component by vector length)
      * 
      * @param v vector to be normalized
-     * @return given vector with normalized components of given vector
+     * @return new vector with normalized components of given vector
      * @throws IllegalArgumentException if length of given vector equals 0
      */
     public static Vector normalized(final Vector v) {
