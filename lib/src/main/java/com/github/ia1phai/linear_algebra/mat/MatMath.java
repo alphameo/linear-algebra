@@ -53,8 +53,8 @@ public class MatMath {
      * Swaps rows of matrix
      *
      * @param m  matrix for row swapping
-     * @param r1 first row for swapping
-     * @param r2 second row for swapping
+     * @param r1 first index of row for swapping
+     * @param r2 second index of row for swapping
      * @return given matrix with swapped rows
      * @throws Exception if any row index is out of bounds
      */
@@ -73,8 +73,8 @@ public class MatMath {
      * Copies given matrix and swaps its rows.
      * 
      * @param m  matrix for row swapping
-     * @param r1 first row for swapping
-     * @param r2 second row for swapping
+     * @param r1 first index of row for swapping
+     * @param r2 second index of row for swapping
      * @return new matrix with swapped rows of given matrix
      * @throws Exception if any row index is out of bounds
      */
@@ -86,8 +86,8 @@ public class MatMath {
      * Swaps columns of matrix.
      *
      * @param m  matrix for row swapping
-     * @param c1 first column for swapping
-     * @param c2 second column for swapping
+     * @param c1 first index of column for swapping
+     * @param c2 second index of column for swapping
      * @return given matrix with swapped columns
      * @throws Exception if any column index is out of bounds
      */
@@ -106,8 +106,8 @@ public class MatMath {
      * Copies given matrix and swaps its columns.
      *
      * @param m  matrix for column swapping
-     * @param r1 first column for swapping
-     * @param r2 second column for swapping
+     * @param r1 first index of column for swapping
+     * @param r2 second index of column for swapping
      * @return new matrix with swapped columns of given matrix
      * @throws Exception if any column index is out of bounds
      */
@@ -149,7 +149,7 @@ public class MatMath {
      * @param m       matrix for division
      * @param divisor scalar value
      * @return given matrix with divided elements of given matrix
-     * @throws IllegalArgumentException if {@code divisor} equals 0
+     * @throws IllegalArgumentException if {@code divisor} approximately equals 0
      */
     public static Matrix divide(final Matrix m, final float divisor) {
         Validator.validateDivisor(divisor);
@@ -168,7 +168,7 @@ public class MatMath {
      * @param m       matrix for division
      * @param divisor scalar value
      * @return new matrix with divided elements of given matrix
-     * @throws IllegalArgumentException if {@code divisor} equals 0
+     * @throws IllegalArgumentException if {@code divisor} approximately equals 0
      */
     public static Matrix divided(final Matrix m, final float divisor) {
         return mult(new Mat(m), divisor);
@@ -195,7 +195,7 @@ public class MatMath {
     }
 
     /**
-     * Copies {@code target matrix} and adds the {@code addendum} matrix elements to
+     * Copies {@code target} matrix and adds the {@code addendum} matrix elements to
      * its elements.
      * 
      * @param target   matrix to be added
@@ -277,7 +277,7 @@ public class MatMath {
      *
      * @param m matrix (left)
      * @param v column vector (right)
-     * @return matrix, which represents product of given matrix and vector
+     * @return vector, which represents product of given matrix and vector
      * @throws IllegalArgumentException if width of the matrix is not equal to the
      *                                  vector size
      */
@@ -450,7 +450,7 @@ public class MatMath {
     }
 
     /**
-     * Constructs minor matrix excluding given row and column from given.
+     * Constructs minor matrix excluding given row and column from given matrix.
      * 
      * @param m matrix for minor matrix construction
      * @param r row index to exclude
@@ -526,7 +526,7 @@ public class MatMath {
     }
 
     /**
-     * Returns {@code true} if matrix elements are approximately equal
+     * Returns {@code true} if elements of matrices are approximately equal
      * 
      * @param m1 first matrix for comparison
      * @param m2 second matrix for comparison
@@ -557,6 +557,13 @@ public class MatMath {
         return m.width() == m.height();
     }
 
+    /**
+     * Returns {@code true} if matrix elements are approximately equal 0.
+     * 
+     * @param m matrix for analysis
+     * @return {@code true} if matrix elements are approximately equal 0, and
+     *         {@code false} otherwise
+     */
     public static boolean isZeroed(final Matrix m) {
         for (int i = 0; i < m.height(); i++) {
             for (int j = 0; j < m.width(); j++) {
@@ -600,7 +607,7 @@ public class MatMath {
      * 
      * @param height height of matrix to be constructed
      * @param width  width of matrix to be constructed
-     * @return matrix {@code height} x {@code width} with all zero elements
+     * @return matrix {@code height} x {@code width} with all 0 elements
      */
     public static Matrix zeroMat(final int height, final int width) {
         return new Mat(height, width);
