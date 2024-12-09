@@ -6,19 +6,29 @@ import com.github.ia1phai.linear_algebra.Copyable;
 import com.github.ia1phai.linear_algebra.Equatable;
 
 /**
- * Vecr
+ * Default implementation of Vector interface.
  */
 public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
 
     private final float[] entries;
 
-    public Vec(final Vector vec) {
-        this(vec.size());
+    /**
+     * Copies given vec values into new vector.
+     * 
+     * @param v vector for copying
+     */
+    public Vec(final Vector v) {
+        this(v.size());
         for (int i = 0; i < entries.length; i++) {
-            this.entries[i] = vec.get(i);
+            this.entries[i] = v.get(i);
         }
     }
 
+    /**
+     * Constructs new vector of given size.
+     * 
+     * @param size size of vector for construction
+     */
     public Vec(final int size) {
         this.entries = new float[size];
     }
@@ -45,58 +55,154 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
         return entries.length;
     }
 
-    public float len() {
-        return VecMath.len(this);
-    }
-
+    /**
+     * Calculates square of vector length.
+     * <p>
+     * You can use it if you need fast comparison.
+     * 
+     * @return square length of vector
+     */
     public float len2() {
         return VecMath.len2(this);
     }
 
-    public Vector normalize() {
-        return VecMath.normalize(this);
+    /**
+     * Calculates length of vector.
+     * 
+     * @return length of vector
+     */
+    public float len() {
+        return VecMath.len(this);
     }
 
-    public Vector normalized() {
-        return VecMath.normalized(new Vec(this));
-    }
-
+    /**
+     * Multiplies the components of vector by a scalar value.
+     *
+     * @param multiplier scalar value
+     * @return current vector with multiplied components
+     */
     public Vector mult(final float multiplier) {
         return VecMath.mult(this, multiplier);
     }
 
+    /**
+     * Copies vector and multiplies its components by a scalar.
+     * value.
+     *
+     * @param multiplier scalar value
+     * @return new vector with multiplied components of current vector
+     */
     public Vector multiplied(final float multiplier) {
         return VecMath.multiplied(this, multiplier);
     }
 
+    /**
+     * Divides the components of vector by a scalar value.
+     * 
+     * @param divisor scalar value
+     * @return current vector with divided components
+     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     */
     public Vector divide(final float divisor) {
         return VecMath.divide(this, divisor);
     }
 
+    /**
+     * Copies vector and divides its components by a scalar value.
+     *
+     * @param divisor scalar value
+     * @return new vector with divided components of current vector
+     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     */
     public Vector divided(final float divisor) {
         return VecMath.divided(this, divisor);
     }
 
-    public Vector add(final Vector v) {
-        return VecMath.add(this, v);
+    /**
+     * Normalizes vector (divide each component by vector length)
+     * 
+     * @return current vector with normalized components
+     * @throws IllegalArgumentException if length of vector equals 0
+     */
+    public Vector normalize() {
+        return VecMath.normalize(this);
     }
 
-    public Vector added(final Vector v) {
-        return VecMath.added(this, v);
+    /**
+     * Copies and normalizes vector (divide each component by vector length)
+     * 
+     * @return current vector with normalized components of given vector
+     * @throws IllegalArgumentException if length of vector equals 0
+     */
+    public Vector normalized() {
+        return VecMath.normalized(new Vec(this));
     }
 
-    public Vector sub(final Vector v) {
-        return VecMath.sub(this, v);
+    /**
+     * Adds the {@code addendum} vector components to the current vector components.
+     *
+     * @param addendum vector to add
+     * @return current vector increased by {@code addendum} vector
+     * @throws IllegalArgumentException if vectors have different sizes
+     */
+    public Vector add(final Vector addendum) {
+        return VecMath.add(this, addendum);
     }
 
-    public Vector subtracted(final Vector v) {
-        return VecMath.subtracted(this, v);
+    /**
+     * Copies currnet vector and adds the {@code addendum} vector components to its
+     * components.
+     *
+     * @param addendum vector to add
+     * @return new vector with sum of components of current vector and
+     *         {@code addendum} vector
+     * @throws IllegalArgumentException if vectors have different sizes
+     */
+    public Vector added(final Vector addendum) {
+        return VecMath.added(this, addendum);
     }
 
+    /**
+     * Subtracts the {@code subtrahend} vector components from the current vector
+     * components.
+     * 
+     * @param subtrahend vector to subtract
+     * @return current vector subtracted by {@code subtrahend} vector
+     * @throws IllegalArgumentException if vectors have different sizes
+     */
+    public Vector sub(final Vector subtrahend) {
+        return VecMath.sub(this, subtrahend);
+    }
+
+    /**
+     * Copies current vector and subtracts the {@code subtrahend} vector components
+     * from its components.
+     * 
+     * @param subtrahend vector to subtract
+     * @return new vector with components resulting current vector subtracted
+     *         by {@code subtrahend} vector
+     */
+    public Vector subtracted(final Vector subtrahend) {
+        return VecMath.subtracted(this, subtrahend);
+    }
+
+    /**
+     * Calculates dot product (scalar product) of vectors.
+     *
+     * @param v second vector
+     * @return dot (scalar) product of vectors
+     */
     public float dot(final Vector v) {
         return VecMath.dot(this, v);
     }
 
+    /**
+     * Calculates cross product (vector product) of vectors.
+     *
+     * @param v second vector
+     * @return vector, which represents cross (vector) product of vectors
+     * @throws IllegalArgumentException if vectors' sizes are not equal 3
+     */
     public Vector cross(final Vector v) {
         return VecMath.cross(this, v);
     }
@@ -143,11 +249,23 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
         return equalsTo((Vector) obj);
     }
 
-    public static Vector zeroVector(final int size) {
+    /**
+     * Constructs new vector of given {@code size} with all 0 components.
+     * 
+     * @param size size of vector to be constructed
+     * @return new zero vector of given {@code size}
+     */
+    public static Vector zeroVec(final int size) {
         return VecMath.zeroVec(size);
     }
 
-    public static Vector unitVector(final int size) {
+    /**
+     * Constructs new vector of given {@code size} with all 1 components.
+     * 
+     * @param size size of vector to be constructed
+     * @return new unit vector of given {@code size}
+     */
+    public static Vector unitVec(final int size) {
         return VecMath.unitVec(size);
     }
 }
