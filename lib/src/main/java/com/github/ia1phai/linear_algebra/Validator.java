@@ -4,7 +4,7 @@ import com.github.ia1phai.linear_algebra.mat.Matrix;
 import com.github.ia1phai.linear_algebra.vec.Vector;
 
 /**
- * Checker
+ * Class with static functions of validation
  */
 public class Validator {
 
