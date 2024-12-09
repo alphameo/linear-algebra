@@ -34,7 +34,7 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
     }
 
     /**
-     * Copies given vec values into new vector.
+     * Copies given vector values into new vector.
      * 
      * @param v vector for copying
      */
