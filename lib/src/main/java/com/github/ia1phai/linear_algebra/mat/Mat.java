@@ -181,7 +181,6 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     /**
      * Divides matrix elements by a scalar value.
      * 
-     * @param m       matrix for division
      * @param divisor scalar value
      * @return current matrix with divided elements
      * @throws IllegalArgumentException if {@code divisor} approximately equals 0
@@ -246,8 +245,8 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
      * @return current matrix subtracted by {@code addendum} matrix
      * @throws IllegalArgumentException if matrices have different sizes
      */
-    public Matrix subtracted(final Matrix m) {
-        return MatMath.subtracted(this, m);
+    public Matrix subtracted(final Matrix subtrahend) {
+        return MatMath.subtracted(this, subtrahend);
     }
 
     /**

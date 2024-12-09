@@ -263,7 +263,6 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
     /**
      * Divides matrix elements by a scalar value.
      * 
-     * @param m       matrix for division
      * @param divisor scalar value
      * @return current matrix with divided elements
      * @throws IllegalArgumentException if {@code divisor} approximately equals 0
@@ -290,8 +289,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param addendum matrix 3x3 to add
      * @return current matrix increased by {@code addendum} matrix
      */
-    public Matrix3 add(final Matrix3 m) {
-        return Mat3Math.add(this, m);
+    public Matrix3 add(final Matrix3 addendum) {
+        return Mat3Math.add(this, addendum);
     }
 
     /**
@@ -302,8 +301,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @return new matrix with sum of elements of current matrix and
      *         {@code addendum} matrix
      */
-    public Matrix3 added(final Matrix3 m) {
-        return Mat3Math.added(this, m);
+    public Matrix3 added(final Matrix3 addendum) {
+        return Mat3Math.added(this, addendum);
     }
 
     /**
@@ -313,8 +312,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param subtrahend matrix 3x3 to subtract
      * @return current matrix subtracted by {@code addendum} matrix
      */
-    public Matrix3 sub(final Matrix3 m) {
-        return Mat3Math.sub(this, m);
+    public Matrix3 sub(final Matrix3 subtrahend) {
+        return Mat3Math.sub(this, subtrahend);
     }
 
     /**
@@ -324,8 +323,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param subtrahend matrix 3x3 to subtract
      * @return current matrix subtracted by {@code addendum} matrix
      */
-    public Matrix3 subtracted(final Matrix3 m) {
-        return Mat3Math.subtracted(this, m);
+    public Matrix3 subtracted(final Matrix3 subtrahend) {
+        return Mat3Math.subtracted(this, subtrahend);
     }
 
     /**
@@ -504,7 +503,6 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      *⎣ m20 m21 0 m22 ⎦
      * </pre>
      * 
-     * @param m            matrix 3x3
      * @param insertionRow row for insertion 0
      * @param insertionCol column for insertion 0
      * @return new matrix 4x4
@@ -526,7 +524,6 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      *⎣ m20 m21 0 m22 ⎦
      * </pre>
      * 
-     * @param m            matrix 3x3
      * @param insertionRow row index for insertion 0
      * @param insertionCol column index for insertion 0
      * @return new matrix 4x4

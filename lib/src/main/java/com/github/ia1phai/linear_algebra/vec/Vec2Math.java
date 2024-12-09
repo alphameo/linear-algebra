@@ -178,8 +178,9 @@ public class Vec2Math {
      * Returns {@code true} if components of vectors are equal within
      * {@code epsilon} tolerance
      * 
-     * @param v1 first vector of size 2 for comparison
-     * @param v2 second vector of size 2 for comparison
+     * @param v1  first vector of size 2 for comparison
+     * @param v2  second vector of size 2 for comparison
+     * @param eps tolerance
      * @return {@code true} if all components of vectors are equal within
      *         {@code epsilon} tolerance, and {@code false} otherwise
      */
@@ -216,7 +217,6 @@ public class Vec2Math {
     /**
      * Constructs new vector of size 2 with all 0 components.
      * 
-     * @param size size of vector to be constructed
      * @return new zero vector of size 2
      */
     public static Vector2 zeroVec() {

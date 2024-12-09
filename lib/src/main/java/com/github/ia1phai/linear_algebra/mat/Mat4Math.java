@@ -515,8 +515,9 @@ public class Mat4Math {
      * Returns {@code true} if elements of matrices 4x4 are equal within
      * {@code epsilon} tolerance
      * 
-     * @param m1 first matrix 4x4 for comparison
-     * @param m2 second matrix 4x4 for comparison
+     * @param m1  first matrix 4x4 for comparison
+     * @param m2  second matrix 4x4 for comparison
+     * @param eps tolerance
      * @return {@code true} if all elements of matrices 4x4 are equal within
      *         {@code epsilon} tolerance, and {@code false} otherwise
      */

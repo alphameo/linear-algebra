@@ -184,8 +184,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * @param addendum vector to add
      * @return current vector increased by {@code addendum} vector
      */
-    public Vector3 add(final Vector3 other) {
-        return Vec3Math.add(this, other);
+    public Vector3 add(final Vector3 addendum) {
+        return Vec3Math.add(this, addendum);
     }
 
     /**
@@ -196,8 +196,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * @return new vector with sum of components of current vector and
      *         {@code addendum} vector
      */
-    public Vector3 added(final Vector3 other) {
-        return Vec3Math.added(this, other);
+    public Vector3 added(final Vector3 addendum) {
+        return Vec3Math.added(this, addendum);
     }
 
     /**
@@ -207,8 +207,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * @param subtrahend vector to subtract
      * @return current vector subtracted by {@code subtrahend} vector
      */
-    public Vector3 sub(final Vector3 other) {
-        return Vec3Math.sub(this, other);
+    public Vector3 sub(final Vector3 subtrahend) {
+        return Vec3Math.sub(this, subtrahend);
     }
 
     /**
@@ -219,8 +219,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * @return new vector with components resulting current vector subtracted
      *         by {@code subtrahend} vector
      */
-    public Vector3 subtracted(final Vector3 other) {
-        return Vec3Math.subtracted(this, other);
+    public Vector3 subtracted(final Vector3 subtrahend) {
+        return Vec3Math.subtracted(this, subtrahend);
     }
 
     /**
@@ -229,8 +229,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * @param v second vector
      * @return dot (scalar) product of vectors
      */
-    public float dot(final Vector3 other) {
-        return Vec3Math.dot(this, other);
+    public float dot(final Vector3 v) {
+        return Vec3Math.dot(this, v);
     }
 
     /**
@@ -239,9 +239,9 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * @param v second vector
      * @return vector, which represents cross (vector) product of vectors
      */
-    public Vector3 cross(final Vector3 vec) {
+    public Vector3 cross(final Vector3 v) {
         final Vector3 result = new Vec3();
-        Vec3Math.cross(this, vec);
+        Vec3Math.cross(this, v);
 
         return result;
     }

@@ -2,6 +2,8 @@ package com.github.ia1phai.linear_algebra;
 
 /**
  * Interface for copyable entities.
+ * 
+ * @param <T> class for copying
  */
 public interface Copyable<T> {
 

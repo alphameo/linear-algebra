@@ -278,7 +278,6 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     /**
      * Divides matrix elements by a scalar value.
      * 
-     * @param m       matrix for division
      * @param divisor scalar value
      * @return current matrix with divided elements
      * @throws IllegalArgumentException if {@code divisor} approximately equals 0
@@ -305,8 +304,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param addendum matrix 4x4 to add
      * @return current matrix increased by {@code addendum} matrix
      */
-    public Matrix4 add(final Matrix4 m) {
-        return Mat4Math.add(this, m);
+    public Matrix4 add(final Matrix4 addendum) {
+        return Mat4Math.add(this, addendum);
     }
 
     /**
@@ -317,8 +316,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @return new matrix with sum of elements of current matrix and
      *         {@code addendum} matrix
      */
-    public Matrix4 added(final Matrix4 m) {
-        return Mat4Math.added(this, m);
+    public Matrix4 added(final Matrix4 addendum) {
+        return Mat4Math.added(this, addendum);
     }
 
     /**
@@ -328,8 +327,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param subtrahend matrix 4x4 to subtract
      * @return current matrix subtracted by {@code addendum} matrix
      */
-    public Matrix4 sub(final Matrix4 m) {
-        return Mat4Math.sub(this, m);
+    public Matrix4 sub(final Matrix4 subtrahend) {
+        return Mat4Math.sub(this, subtrahend);
     }
 
     /**
@@ -339,8 +338,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param subtrahend matrix 4x4 to subtract
      * @return current matrix subtracted by {@code addendum} matrix
      */
-    public Matrix4 subtracted(final Matrix4 m) {
-        return Mat4Math.subtracted(this, m);
+    public Matrix4 subtracted(final Matrix4 subtrahend) {
+        return Mat4Math.subtracted(this, subtrahend);
     }
 
     /**

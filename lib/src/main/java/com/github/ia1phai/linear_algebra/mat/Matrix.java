@@ -11,7 +11,6 @@ public interface Matrix {
      * @param r row index of element
      * @param c column index of element
      * @return element at given position
-     * @throws Exception if {@code r} and {@code c} out of bounds
      */
     float get(int r, int c);
 
@@ -21,7 +20,6 @@ public interface Matrix {
      * @param r     row index for putting value
      * @param c     column index for putting value
      * @param value component value to be put
-     * @throws Exception if {@code r} and {@code c} out of bounds
      */
     void set(int r, int c, float value);
 

@@ -196,8 +196,8 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
      * @param addendum vector to add
      * @return current vector increased by {@code addendum} vector
      */
-    public Vector4 add(final Vector4 other) {
-        return Vec4Math.add(this, other);
+    public Vector4 add(final Vector4 addendum) {
+        return Vec4Math.add(this, addendum);
     }
 
     /**
@@ -208,8 +208,8 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
      * @return new vector with sum of components of current vector and
      *         {@code addendum} vector
      */
-    public Vector4 added(final Vector4 other) {
-        return Vec4Math.added(this, other);
+    public Vector4 added(final Vector4 addendum) {
+        return Vec4Math.added(this, addendum);
     }
 
     /**
@@ -219,8 +219,8 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
      * @param subtrahend vector to subtract
      * @return current vector subtracted by {@code subtrahend} vector
      */
-    public Vector4 sub(final Vector4 other) {
-        return Vec4Math.sub(this, other);
+    public Vector4 sub(final Vector4 subtrahend) {
+        return Vec4Math.sub(this, subtrahend);
     }
 
     /**
@@ -231,8 +231,8 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
      * @return new vector with components resulting current vector subtracted
      *         by {@code subtrahend} vector
      */
-    public Vector4 subtracted(final Vector4 other) {
-        return Vec4Math.subtracted(this, other);
+    public Vector4 subtracted(final Vector4 subtrahend) {
+        return Vec4Math.subtracted(this, subtrahend);
     }
 
     /**
@@ -241,8 +241,8 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
      * @param v second vector
      * @return dot (scalar) product of vectors
      */
-    public float dot(final Vector4 other) {
-        return Vec4Math.dot(this, other);
+    public float dot(final Vector4 v) {
+        return Vec4Math.dot(this, v);
     }
 
     @Override

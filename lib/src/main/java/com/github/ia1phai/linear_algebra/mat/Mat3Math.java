@@ -642,8 +642,9 @@ public class Mat3Math {
      * Returns {@code true} if elements of matrices 3x3 are equal within
      * {@code epsilon} tolerance
      * 
-     * @param m1 first matrix 3x3 for comparison
-     * @param m2 second matrix 3x3 for comparison
+     * @param m1  first matrix 3x3 for comparison
+     * @param m2  second matrix 3x3 for comparison
+     * @param eps tolerance
      * @return {@code true} if all elements of matrices 3x3 are equal within
      *         {@code epsilon} tolerance, and {@code false} otherwise
      */

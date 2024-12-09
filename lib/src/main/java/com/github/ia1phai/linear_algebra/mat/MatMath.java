@@ -238,8 +238,8 @@ public class MatMath {
      *         by {@code subtrahend} matrix
      * @throws IllegalArgumentException if matrices have different sizes
      */
-    public static Matrix subtracted(final Matrix target, final Matrix addendum) {
-        return sub(new Mat(target), addendum);
+    public static Matrix subtracted(final Matrix target, final Matrix subtrahend) {
+        return sub(new Mat(target), subtrahend);
     }
 
     /**
@@ -585,8 +585,9 @@ public class MatMath {
      * Returns {@code true} if elements of matrices are equal within
      * {@code epsilon} tolerance
      * 
-     * @param m1 first matrix for comparison
-     * @param m2 second matrix for comparison
+     * @param m1  first matrix for comparison
+     * @param m2  second matrix for comparison
+     * @param eps tolerance
      * @return {@code true} if all elements of matrices are equal within
      *         {@code epsilon} tolerance, and {@code false} otherwise
      * @throws IllegalArgumentException if matrices have different sizes

@@ -172,8 +172,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * @param addendum vector to add
      * @return current vector increased by {@code addendum} vector
      */
-    public Vector2 add(final Vector2 v) {
-        return Vec2Math.add(this, v);
+    public Vector2 add(final Vector2 addendum) {
+        return Vec2Math.add(this, addendum);
     }
 
     /**
@@ -184,8 +184,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * @return new vector with sum of components of current vector and
      *         {@code addendum} vector
      */
-    public Vector2 added(final Vector2 v) {
-        return Vec2Math.added(this, v);
+    public Vector2 added(final Vector2 addendum) {
+        return Vec2Math.added(this, addendum);
     }
 
     /**
@@ -195,8 +195,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * @param subtrahend vector to subtract
      * @return current vector subtracted by {@code subtrahend} vector
      */
-    public Vector2 sub(final Vector2 v) {
-        return Vec2Math.sub(this, v);
+    public Vector2 sub(final Vector2 subtrahend) {
+        return Vec2Math.sub(this, subtrahend);
     }
 
     /**
@@ -207,8 +207,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * @return new vector with components resulting current vector subtracted
      *         by {@code subtrahend} vector
      */
-    public Vector2 subtracted(final Vector2 v) {
-        return Vec2Math.subtracted(this, v);
+    public Vector2 subtracted(final Vector2 subtrahend) {
+        return Vec2Math.subtracted(this, subtrahend);
     }
 
     /**

@@ -198,8 +198,9 @@ public class Vec3Math {
      * Returns {@code true} if components of vectors are equal within
      * {@code epsilon} tolerance
      * 
-     * @param v1 first vector of size 3 for comparison
-     * @param v2 second vector of size 3 for comparison
+     * @param v1  first vector of size 3 for comparison
+     * @param v2  second vector of size 3 for comparison
+     * @param eps tolerance
      * @return {@code true} if all components of vectors are equal within
      *         {@code epsilon} tolerance, and {@code false} otherwise
      */
@@ -237,7 +238,6 @@ public class Vec3Math {
     /**
      * Constructs new vector of size 3 with all 0 components.
      * 
-     * @param size size of vector to be constructed
      * @return new zero vector of size 3
      */
     public static Vector3 zeroVec() {

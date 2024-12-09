@@ -2,6 +2,8 @@ package com.github.ia1phai.linear_algebra;
 
 /**
  * Interface for equatable entities by its number values.
+ * 
+ * @param <T> class for comparison
  */
 public interface Equatable<T> {
 
@@ -20,7 +22,8 @@ public interface Equatable<T> {
      * Returns {@code true} if number values of objects are equal
      * 
      * @param other object for comparison
-     * @return
+     * @return {@code true} if number values of objects are approximately equal, and
+     *         {@code false} otherwise
      */
     boolean equalsTo(T other);
 }
