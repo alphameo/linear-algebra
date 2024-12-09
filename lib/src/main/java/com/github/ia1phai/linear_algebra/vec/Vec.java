@@ -13,18 +13,6 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
     private final float[] entries;
 
     /**
-     * Copies given vec values into new vector.
-     * 
-     * @param v vector for copying
-     */
-    public Vec(final Vector v) {
-        this(v.size());
-        for (int i = 0; i < entries.length; i++) {
-            this.entries[i] = v.get(i);
-        }
-    }
-
-    /**
      * Constructs new vector of given size.
      * 
      * @param size size of vector for construction
@@ -37,6 +25,18 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
         this(entries.length);
         for (int i = 0; i < entries.length; i++) {
             this.entries[i] = entries[i];
+        }
+    }
+
+    /**
+     * Copies given vec values into new vector.
+     * 
+     * @param v vector for copying
+     */
+    public Vec(final Vector v) {
+        this(v.size());
+        for (int i = 0; i < entries.length; i++) {
+            this.entries[i] = v.get(i);
         }
     }
 
