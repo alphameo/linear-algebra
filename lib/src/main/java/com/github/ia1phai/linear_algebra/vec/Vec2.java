@@ -12,6 +12,9 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
 
     private final float[] entries;
 
+    /**
+     * Constructs new vector of given size with all 0.
+     */
     public Vec2() {
         entries = new float[2];
     }

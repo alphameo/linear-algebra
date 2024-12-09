@@ -21,6 +21,11 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
         this.entries = new float[size];
     }
 
+    /**
+     * Constructs new vector using values from {@code entries}.
+     * 
+     * @param entries values for vector components
+     */
     public Vec(final float... entries) {
         this(entries.length);
         for (int i = 0; i < entries.length; i++) {
