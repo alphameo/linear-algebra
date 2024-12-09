@@ -13,7 +13,7 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
     private final float[] entries;
 
     /**
-     * Constructs new vector of given size.
+     * Constructs new vector of given size with all 0.
      * 
      * @param size size of vector for construction
      */
