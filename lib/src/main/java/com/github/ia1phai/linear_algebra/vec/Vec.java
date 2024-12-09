@@ -6,7 +6,7 @@ import com.github.ia1phai.linear_algebra.Copyable;
 import com.github.ia1phai.linear_algebra.Equatable;
 
 /**
- * Default implementation of Vector interface.
+ * Default implementation of arbitrary vector ({@code Vector interface}).
  */
 public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
 

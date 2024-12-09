@@ -10,7 +10,7 @@ import com.github.ia1phai.linear_algebra.Equatable;
  */
 public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
 
-    float[] entries;
+    private final float[] entries;
 
     public Vec3() {
         entries = new float[3];

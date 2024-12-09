@@ -6,11 +6,11 @@ import com.github.ia1phai.linear_algebra.Copyable;
 import com.github.ia1phai.linear_algebra.Equatable;
 
 /**
- * Vec2
+ * Default implementation of vector with size 2 ({@code Vector2 interface}).
  */
 public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
 
-    float[] entries;
+    private final float[] entries;
 
     public Vec2() {
         entries = new float[2];
