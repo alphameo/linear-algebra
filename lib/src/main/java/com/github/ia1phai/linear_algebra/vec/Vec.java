@@ -186,6 +186,7 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * @param subtrahend vector to subtract
      * @return new vector with components resulting current vector subtracted
      *         by {@code subtrahend} vector
+     * @throws IllegalArgumentException if vectors have different sizes
      */
     public Vector subtracted(final Vector subtrahend) {
         return VecMath.subtracted(this, subtrahend);

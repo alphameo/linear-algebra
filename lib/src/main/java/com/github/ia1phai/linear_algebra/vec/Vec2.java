@@ -13,18 +13,29 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
     private final float[] entries;
 
     /**
-     * Constructs new vector of given size with all 0.
+     * Constructs new vector of size 2 with all 0.
      */
     public Vec2() {
         entries = new float[2];
     }
 
+    /**
+     * Constructs new vector using values {@code x} and {@code y}.
+     * 
+     * @param x first component of vector
+     * @param y second component of vector
+     */
     public Vec2(final float x, final float y) {
         this();
         entries[0] = x;
         entries[1] = y;
     }
 
+    /**
+     * Copies given vector of size 2 values into new vector of size 2.
+     * 
+     * @param v vector of size 2 for copying
+     */
     public Vec2(final Vector2 v) {
         this(v.x(), v.y());
     }
@@ -67,62 +78,157 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
         entries[1] = value;
     }
 
+    @Override
     public int size() {
         return 2;
     }
 
-    public float len() {
-        return Vec2Math.len(this);
-    }
-
+    /**
+     * Calculates square of vector length.
+     * <p>
+     * You can use it if you need fast comparison.
+     * 
+     * @return square length of vector
+     */
     public float len2() {
         return Vec2Math.len2(this);
     }
 
-    public Vector2 normalize() {
-        return Vec2Math.normalize(this);
+    /**
+     * Calculates length of vector.
+     * 
+     * @return length of vector
+     */
+    public float len() {
+        return Vec2Math.len(this);
     }
 
-    public Vector2 normalized() {
-        return Vec2Math.normalized(new Vec2(this));
-    }
-
+    /**
+     * Multiplies the components of vector by a scalar value.
+     *
+     * @param multiplier scalar value
+     * @return current vector with multiplied components
+     */
     public Vector2 mult(final float multiplier) {
         return Vec2Math.mult(this, multiplier);
     }
 
+    /**
+     * Copies vector and multiplies its components by a scalar.
+     * value.
+     *
+     * @param multiplier scalar value
+     * @return new vector with multiplied components of current vector
+     */
     public Vector2 multiplied(final float multiplier) {
         return Vec2Math.multiplied(this, multiplier);
     }
 
+    /**
+     * Divides the components of vector by a scalar value.
+     * 
+     * @param divisor scalar value
+     * @return current vector with divided components
+     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     */
     public Vector2 divide(final float divisor) {
         return Vec2Math.divide(this, divisor);
     }
 
+    /**
+     * Copies vector and divides its components by a scalar value.
+     *
+     * @param divisor scalar value
+     * @return new vector with divided components of current vector
+     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     */
     public Vector2 divided(final float divisor) {
         return Vec2Math.divided(this, divisor);
     }
 
+    /**
+     * Normalizes vector (divide each component by vector length)
+     * 
+     * @return current vector with normalized components
+     * @throws IllegalArgumentException if length of vector equals 0
+     */
+    public Vector2 normalize() {
+        return Vec2Math.normalize(this);
+    }
+
+    /**
+     * Copies and normalizes vector (divide each component by vector length)
+     * 
+     * @return current vector with normalized components of given vector
+     * @throws IllegalArgumentException if length of vector equals 0
+     */
+    public Vector2 normalized() {
+        return Vec2Math.normalized(new Vec2(this));
+    }
+
+    /**
+     * Adds the {@code addendum} vector components to the current vector components.
+     *
+     * @param addendum vector to add
+     * @return current vector increased by {@code addendum} vector
+     */
     public Vector2 add(final Vector2 v) {
         return Vec2Math.add(this, v);
     }
 
+    /**
+     * Copies currnet vector and adds the {@code addendum} vector components to its
+     * components.
+     *
+     * @param addendum vector to add
+     * @return new vector with sum of components of current vector and
+     *         {@code addendum} vector
+     */
     public Vector2 added(final Vector2 v) {
         return Vec2Math.added(this, v);
     }
 
+    /**
+     * Subtracts the {@code subtrahend} vector components from the current vector
+     * components.
+     * 
+     * @param subtrahend vector to subtract
+     * @return current vector subtracted by {@code subtrahend} vector
+     */
     public Vector2 sub(final Vector2 v) {
         return Vec2Math.sub(this, v);
     }
 
+    /**
+     * Copies current vector and subtracts the {@code subtrahend} vector components
+     * from its components.
+     * 
+     * @param subtrahend vector to subtract
+     * @return new vector with components resulting current vector subtracted
+     *         by {@code subtrahend} vector
+     */
     public Vector2 subtracted(final Vector2 v) {
         return Vec2Math.subtracted(this, v);
     }
 
+    /**
+     * Calculates dot product (scalar product) of vectors.
+     *
+     * @param v second vector
+     * @return dot (scalar) product of vectors
+     */
     public float dot(final Vector2 v) {
         return Vec2Math.dot(this, v);
     }
 
+    /**
+     * Constructs new vector of size 3 with components of curren vector and 1
+     * <p>
+     * (x, y, 1)
+     *
+     * @return new vector of size 3 including components of current vector and 1 as
+     *         last component
+     */
     public Vector3 toVec3() {
         return Vec2Math.toVec3(this);
     }
@@ -169,20 +275,21 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
         return VecMath.equals(this, (Vector) obj);
     }
 
+    /**
+     * Constructs new vector of size 2 with all 0 components.
+     * 
+     * @return new zero vector of size 2
+     */
     public static Vector2 zeroVec() {
         return Vec2Math.zeroVec();
     }
 
+    /**
+     * Constructs new vector of size 2 with all 1 components.
+     * 
+     * @return new unit vector of size 2
+     */
     public static Vector2 unitVec() {
         return Vec2Math.unitVec();
     }
-
-    public static Vector2 zeroVector() {
-        return Vec2Math.zeroVec();
-    }
-
-    public static Vector2 unitVector() {
-        return Vec2Math.unitVec();
-    }
-
 }

@@ -170,6 +170,7 @@ public class VecMath {
      * @param subtrahend vector to subtract
      * @return new vector with components resulting {@code target} vector subtracted
      *         by {@code subtrahend} vector
+     * @throws IllegalArgumentException if given vectors have different sizes
      */
     public static Vector subtracted(final Vector target, final Vector subtrahend) {
         return sub(new Vec(target), subtrahend);

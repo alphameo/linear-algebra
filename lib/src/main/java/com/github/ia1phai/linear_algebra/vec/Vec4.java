@@ -6,16 +6,28 @@ import com.github.ia1phai.linear_algebra.Copyable;
 import com.github.ia1phai.linear_algebra.Equatable;
 
 /**
- * Vec4
+ * Default implementation of vector with size 2 ({@code Vector2 interface}).
  */
 public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
 
     private final float[] entries;
 
+    /**
+     * Constructs new vector of size 4 with all 0.
+     */
     public Vec4() {
         entries = new float[4];
     }
 
+    /**
+     * Constructs new vector using values {@code x}, {@code y}, {@code z} and
+     * {@code w}.
+     * 
+     * @param x first component of vector
+     * @param y second component of vector
+     * @param z third component of vector
+     * @param w fourth component of vector
+     */
     public Vec4(final float x, final float y, final float z, final float w) {
         this();
         entries[0] = x;
@@ -24,6 +36,11 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
         entries[3] = w;
     }
 
+    /**
+     * Copies given vector of size 4 values into new vector of size 2.
+     * 
+     * @param v vector of size 4 for copying
+     */
     public Vec4(final Vector4 v) {
         this(v.x(), v.y(), v.z(), v.w());
     }
@@ -86,58 +103,144 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
         entries[3] = value;
     }
 
+    @Override
     public int size() {
         return 4;
     }
 
-    public float len() {
-        return Vec4Math.len(this);
-    }
-
+    /**
+     * Calculates square of vector length.
+     * <p>
+     * You can use it if you need fast comparison.
+     * 
+     * @return square length of vector
+     */
     public float len2() {
         return Vec4Math.len2(this);
     }
 
-    public Vector4 normalize() {
-        return Vec4Math.normalize(this);
+    /**
+     * Calculates length of vector.
+     * 
+     * @return length of vector
+     */
+    public float len() {
+        return Vec4Math.len(this);
     }
 
-    public Vector4 normalized() {
-        return Vec4Math.normalized(new Vec4(this));
-    }
-
+    /**
+     * Multiplies the components of vector by a scalar value.
+     *
+     * @param multiplier scalar value
+     * @return current vector with multiplied components
+     */
     public Vector4 mult(final float multiplier) {
         return Vec4Math.mult(this, multiplier);
     }
 
+    /**
+     * Copies vector and multiplies its components by a scalar.
+     * value.
+     *
+     * @param multiplier scalar value
+     * @return new vector with multiplied components of current vector
+     */
     public Vector4 multiplied(final float multiplier) {
         return Vec4Math.multiplied(this, multiplier);
     }
 
+    /**
+     * Divides the components of vector by a scalar value.
+     * 
+     * @param divisor scalar value
+     * @return current vector with divided components
+     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     */
     public Vector4 divide(final float divisor) {
         return Vec4Math.divide(this, divisor);
     }
 
+    /**
+     * Copies vector and divides its components by a scalar value.
+     *
+     * @param divisor scalar value
+     * @return new vector with divided components of current vector
+     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     */
     public Vector4 divided(final float divisor) {
         return Vec4Math.divided(this, divisor);
     }
 
+    /**
+     * Normalizes vector (divide each component by vector length)
+     * 
+     * @return current vector with normalized components
+     * @throws IllegalArgumentException if length of vector equals 0
+     */
+    public Vector4 normalize() {
+        return Vec4Math.normalize(this);
+    }
+
+    /**
+     * Copies and normalizes vector (divide each component by vector length)
+     * 
+     * @return current vector with normalized components of given vector
+     */
+    public Vector4 normalized() {
+        return Vec4Math.normalized(new Vec4(this));
+    }
+
+    /**
+     * Adds the {@code addendum} vector components to the current vector components.
+     *
+     * @param addendum vector to add
+     * @return current vector increased by {@code addendum} vector
+     */
     public Vector4 add(final Vector4 other) {
         return Vec4Math.add(this, other);
     }
 
+    /**
+     * Copies currnet vector and adds the {@code addendum} vector components to its
+     * components.
+     *
+     * @param addendum vector to add
+     * @return new vector with sum of components of current vector and
+     *         {@code addendum} vector
+     */
     public Vector4 added(final Vector4 other) {
         return Vec4Math.added(this, other);
     }
 
+    /**
+     * Subtracts the {@code subtrahend} vector components from the current vector
+     * components.
+     * 
+     * @param subtrahend vector to subtract
+     * @return current vector subtracted by {@code subtrahend} vector
+     */
     public Vector4 sub(final Vector4 other) {
         return Vec4Math.sub(this, other);
     }
 
+    /**
+     * Copies current vector and subtracts the {@code subtrahend} vector components
+     * from its components.
+     * 
+     * @param subtrahend vector to subtract
+     * @return new vector with components resulting current vector subtracted
+     *         by {@code subtrahend} vector
+     */
     public Vector4 subtracted(final Vector4 other) {
         return Vec4Math.subtracted(this, other);
     }
 
+    /**
+     * Calculates dot product (scalar product) of vectors.
+     *
+     * @param v second vector
+     * @return dot (scalar) product of vectors
+     */
     public float dot(final Vector4 other) {
         return Vec4Math.dot(this, other);
     }
@@ -184,10 +287,20 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
         return VecMath.equals(this, (Vector) obj);
     }
 
+    /**
+     * Constructs new vector of size 4 with all 0 components.
+     * 
+     * @return new zero vector of size 4
+     */
     public static Vector4 zeroVector() {
         return new Vec4();
     }
 
+    /**
+     * Constructs new vector of size 4 with all 1 components.
+     * 
+     * @return new unit vector of size 4
+     */
     public static Vector4 unitVector() {
         return Vec4Math.unitVec();
     }

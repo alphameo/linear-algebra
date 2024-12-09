@@ -6,16 +6,26 @@ import com.github.ia1phai.linear_algebra.Copyable;
 import com.github.ia1phai.linear_algebra.Equatable;
 
 /**
- * Vec3
+ * Default implementation of vector with size 3 ({@code Vector3 interface}).
  */
 public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
 
     private final float[] entries;
 
+    /**
+     * Constructs new vector of size 3 with all 0.
+     */
     public Vec3() {
         entries = new float[3];
     }
 
+    /**
+     * Constructs new vector using values {@code x}, {@code y} and {@code z}.
+     * 
+     * @param x first component of vector
+     * @param y second component of vector
+     * @param z third component of vector
+     */
     public Vec3(final float x, final float y, final float z) {
         this();
         entries[0] = x;
@@ -23,6 +33,11 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
         entries[2] = z;
     }
 
+    /**
+     * Copies given vector of size 3 values into new vector of size 3.
+     * 
+     * @param v vector of size 3 for copying
+     */
     public Vec3(final Vector3 v) {
         this(v.x(), v.y(), v.z());
     }
@@ -74,58 +89,155 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
         entries[2] = value;
     }
 
+    @Override
     public int size() {
         return 3;
     }
 
-    public float len() {
-        return Vec3Math.len(this);
-    }
-
+    /**
+     * Calculates square of vector length.
+     * <p>
+     * You can use it if you need fast comparison.
+     * 
+     * @return square length of vector
+     */
     public float len2() {
         return Vec3Math.len2(this);
     }
 
-    public Vector3 normalize() {
-        return Vec3Math.normalize(this);
+    /**
+     * Calculates length of vector.
+     * 
+     * @return length of vector
+     */
+    public float len() {
+        return Vec3Math.len(this);
     }
 
-    public Vector3 normalized() {
-        return Vec3Math.normalized(new Vec3(this));
-    }
-
+    /**
+     * Multiplies the components of vector by a scalar value.
+     *
+     * @param multiplier scalar value
+     * @return current vector with multiplied components
+     */
     public Vector3 mult(final float multiplier) {
         return Vec3Math.mult(this, multiplier);
     }
 
+    /**
+     * Copies vector and multiplies its components by a scalar.
+     * value.
+     *
+     * @param multiplier scalar value
+     * @return new vector with multiplied components of current vector
+     */
     public Vector3 multiplied(final float multiplier) {
         return Vec3Math.multiplied(this, multiplier);
     }
 
+    /**
+     * Divides the components of vector by a scalar value.
+     * 
+     * @param divisor scalar value
+     * @return current vector with divided components
+     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     */
+    public Vector3 divide(final float divisor) {
+        return Vec3Math.divide(this, divisor);
+    }
+
+    /**
+     * Divides the components of vector by a scalar value.
+     * 
+     * @param divisor scalar value
+     * @return current vector with divided components
+     * @throws IllegalArgumentException if {@code divisor} approximately equal to 0
+     */
     public Vector3 divided(final float divisor) {
         return Vec3Math.divided(this, divisor);
     }
 
+    /**
+     * Normalizes vector (divide each component by vector length)
+     * 
+     * @return current vector with normalized components
+     * @throws IllegalArgumentException if length of vector equals 0
+     */
+    public Vector3 normalize() {
+        return Vec3Math.normalize(this);
+    }
+
+    /**
+     * Copies and normalizes vector (divide each component by vector length)
+     * 
+     * @return current vector with normalized components of given vector
+     * @throws IllegalArgumentException if length of vector equals 0
+     */
+    public Vector3 normalized() {
+        return Vec3Math.normalized(new Vec3(this));
+    }
+
+    /**
+     * Adds the {@code addendum} vector components to the current vector components.
+     *
+     * @param addendum vector to add
+     * @return current vector increased by {@code addendum} vector
+     */
     public Vector3 add(final Vector3 other) {
         return Vec3Math.add(this, other);
     }
 
+    /**
+     * Copies currnet vector and adds the {@code addendum} vector components to its
+     * components.
+     *
+     * @param addendum vector to add
+     * @return new vector with sum of components of current vector and
+     *         {@code addendum} vector
+     */
     public Vector3 added(final Vector3 other) {
         return Vec3Math.added(this, other);
     }
 
+    /**
+     * Subtracts the {@code subtrahend} vector components from the current vector
+     * components.
+     * 
+     * @param subtrahend vector to subtract
+     * @return current vector subtracted by {@code subtrahend} vector
+     */
     public Vector3 sub(final Vector3 other) {
         return Vec3Math.sub(this, other);
     }
 
+    /**
+     * Copies current vector and subtracts the {@code subtrahend} vector components
+     * from its components.
+     * 
+     * @param subtrahend vector to subtract
+     * @return new vector with components resulting current vector subtracted
+     *         by {@code subtrahend} vector
+     */
     public Vector3 subtracted(final Vector3 other) {
         return Vec3Math.subtracted(this, other);
     }
 
+    /**
+     * Calculates dot product (scalar product) of vectors.
+     *
+     * @param v second vector
+     * @return dot (scalar) product of vectors
+     */
     public float dot(final Vector3 other) {
         return Vec3Math.dot(this, other);
     }
 
+    /**
+     * Calculates cross product (vector product) of vectors.
+     *
+     * @param v second vector
+     * @return vector, which represents cross (vector) product of vectors
+     */
     public Vector3 cross(final Vector3 vec) {
         final Vector3 result = new Vec3();
         Vec3Math.cross(this, vec);
@@ -133,6 +245,14 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
         return result;
     }
 
+    /**
+     * Constructs new vector of size 4 with components of current vector and 1
+     * <p>
+     * (x, y, z, 1)
+     *
+     * @return new vector of size 3 including components of current vector and 1 as
+     *         last component
+     */
     public Vector4 toVec4() {
         return Vec3Math.toVec4(this);
     }
@@ -179,10 +299,20 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
         return VecMath.equals(this, (Vector) obj);
     }
 
+    /**
+     * Constructs new vector of size 3 with all 0 components.
+     * 
+     * @return new zero vector of size 3
+     */
     public static Vector3 zeroVec() {
         return Vec3Math.zeroVec();
     }
 
+    /**
+     * Constructs new vector of size 4 with all 1 components.
+     * 
+     * @return new unit vector of size 4
+     */
     public static Vector3 unitVec() {
         return Vec3Math.unitVec();
     }
