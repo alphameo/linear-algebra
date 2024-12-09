@@ -24,7 +24,7 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
         entries[3] = w;
     }
 
-    public Vec4(Vector4 v) {
+    public Vec4(final Vector4 v) {
         this(v.x(), v.y(), v.z(), v.w());
     }
 
@@ -143,7 +143,7 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
     }
 
     @Override
-    public boolean equalsEpsilonTo(Vector4 other, float eps) {
+    public boolean equalsEpsilonTo(final Vector4 other, final float eps) {
         return Vec4Math.equalsEpsilon(this, other, eps);
     }
 

@@ -125,7 +125,7 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
     }
 
     @Override
-    public boolean equalsEpsilonTo(Vector2 other, float eps) {
+    public boolean equalsEpsilonTo(final Vector2 other, final float eps) {
         return Vec2Math.equalsEpsilon(this, other, eps);
     }
 

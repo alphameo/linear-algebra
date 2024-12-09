@@ -23,7 +23,7 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
         entries[2] = z;
     }
 
-    public Vec3(Vector3 v) {
+    public Vec3(final Vector3 v) {
         this(v.x(), v.y(), v.z());
     }
 
@@ -138,7 +138,7 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
     }
 
     @Override
-    public boolean equalsEpsilonTo(Vector3 other, float eps) {
+    public boolean equalsEpsilonTo(final Vector3 other, final float eps) {
         return Vec3Math.equalsEpsilon(this, other, eps);
     }
 
