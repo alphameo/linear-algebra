@@ -309,11 +309,11 @@ public class Mat4Math {
     }
 
     /**
-     * Calculates product of matrix 4x4 and vector of size 3.
+     * Calculates product of matrix 4x4 and vector of size 4.
      *
      * @param m matrix 4x4 (left)
-     * @param v column vector of size 3 (right)
-     * @return vector of size 3, which represents product of given matrix and vector
+     * @param v column vector of size 4 (right)
+     * @return vector of size 4, which represents product of given matrix and vector
      */
     public static Vector4 prod(final Matrix4 m, final Vector4 v) {
         final Vector4 result = new Vec4();
