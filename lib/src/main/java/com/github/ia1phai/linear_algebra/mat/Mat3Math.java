@@ -528,16 +528,6 @@ public class Mat3Math {
     }
 
     /**
-     * Returns {@code true} if matrix 3x3 is square.
-     * 
-     * @param m matrix 3x3 for analysis
-     * @return {@code true} if matrix is square, and {@code false} otherwise
-     */
-    public static boolean square(final Matrix3 m) {
-        return true;
-    }
-
-    /**
      * Returns {@code true} if matrix 3x3 elements are approximately equal 0.
      * 
      * @param m matrix 3x3 for analysis
