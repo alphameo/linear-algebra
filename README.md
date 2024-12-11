@@ -5,11 +5,15 @@ Java 21+ library for linear algebra.
 1. The library uses JDK21. You can try to downgrade the JDK, but do it at your own risk.
 2. The architecture is not final. Some methods are planned to be overriden (but potom).
 
-## Install
+## Installation
 
-### Maven
+### Using Maven Central Repository
 
-`pom.xml`:
+#### All possible ways to connect the library to your project are located at:
+
+https://central.sonatype.com/artifact/io.github.alphameo/linear_algebra
+
+Maven example for `pom.xml`:
 
 ```xml
 <dependency>
@@ -19,23 +23,23 @@ Java 21+ library for linear algebra.
 </dependency>
 ```
 
-### Gradle (Kotlin)
-
-`build.gradle.kts`:
+Gradle (Kotlin) example for `build.gradle.kts`:
 
 ```kts
 implementation("io.guthub.alphameo:linear-algebra:1.0.0")
 ```
 
-## Download
+### Manual Build
+
+#### Download
 
 If you want to build the library by yourself or just download the JAR files.
 
-### Release
+##### Release
 
 Just download the release. It includes the compiled classes, source files and Javadoc JARs.
 
-### Git
+##### Git
 
 You can clone the repository:
 
@@ -47,11 +51,11 @@ git clone https://github.com/alphameo/linear-algebra.git
 git clone git@github.com:alphameo/linear-algebra.git
 ```
 
-### Source ZIP
+##### Source ZIP
 
 You can download the ZIP with "Code" > "Download ZIP" button. Then unzip where you need it.
 
-## Build
+#### Build
 
 If you have cloned the repository or downloaded the source code, you can build the library with the Gradle wrapper.
 
@@ -71,31 +75,9 @@ Windows:
 
 All JAR files are located at `lib/build/libs`.
 
-## Import
+#### Import
 
-### JARs
-
-Put all JARs into the `libs` folder in the root directory of your project.
-
-Then you can connect it to project using IDE
-
-If you are using Gradle with the Kotlin DSL, you can do this by yourself. Add to the `build.gradle.kts`:
-
-```kts
-dependencies {
-    // other dependencies
-
-    implementation(file("../libs/linear_algebra-1.0.0.jar"))
-    // implementation() or api() - read the gradle documentation
-    // 1.0.0 is version that you want to use
-}
-```
-
-As the path, valid relative path to the JAR with the respect to `build.gradle.kts` file should be specified.
-
-Instead of the `file()` call, `files()` can be used.
-
-### Maven artifact
+##### Maven artifact
 
 It's the recommended way. It includes all the JARs, so Javadocs are included for the usage with the LSPs. Also, it's the easiest and most convenient approach.
 
@@ -132,6 +114,28 @@ dependencies {
     // 1.0.0 is version that you want to use
 }
 ```
+
+##### JARs
+
+Put all JARs into the `libs` folder in the root directory of your project.
+
+Then you can connect it to project using IDE
+
+If you are using Gradle with the Kotlin DSL, you can do this by yourself. Add to the `build.gradle.kts`:
+
+```kts
+dependencies {
+    // other dependencies
+
+    implementation(file("../libs/linear_algebra-1.0.0.jar"))
+    // implementation() or api() - read the gradle documentation
+    // 1.0.0 is version that you want to use
+}
+```
+
+As the path, valid relative path to the JAR with the respect to `build.gradle.kts` file should be specified.
+
+Instead of the `file()` call, `files()` can be used.
 
 ## Usage
 
