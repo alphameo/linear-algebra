@@ -20,10 +20,10 @@ You can clone the repository:
 
 ```sh
 # https
-git clone https://github.com/IA1phaI/linear-algebra.git
+git clone https://github.com/alphameo/linear-algebra.git
 
 # ssh
-git clone git@github.com:IA1phaI/linear-algebra.git
+git clone git@github.com:alphameo/linear-algebra.git
 ```
 
 ### Source ZIP
@@ -64,7 +64,7 @@ If you are using Gradle with the Kotlin DSL, you can do this by yourself. Add to
 dependencies {
     // other dependencies
 
-    implementation(file("../libs/linear-algebra-0.1.0.jar"))
+    implementation(file("../libs/linear_algebra-0.1.0.jar"))
     // implementation() or api() - read the gradle documentation
     // 0.1.0 is version that you want to use
 }
@@ -106,7 +106,7 @@ repositories {
 dependencies {
     // other dependencies
 
-    implementation("com.github.ia1phai.linear_algebra:0.1.0")
+    implementation("com.github.alphameo.linear_algebra:0.1.0")
     // implementation() or api() - read the gradle documentation
     // 0.1.0 is version that you want to use
 }
