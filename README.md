@@ -11,7 +11,7 @@ Java 21+ library for linear algebra.
 
 `pom.xml`:
 
-```
+```xml
 <dependency>
   <groupId>io.github.alphameo</groupId>
   <artifactId>linear_algebra</artifactId>
@@ -23,7 +23,7 @@ Java 21+ library for linear algebra.
 
 `build.gradle.kts`:
 
-```
+```kts
 implementation("io.guthub.alphameo:linear-algebra:1.0.0")
 ```
 
@@ -127,7 +127,7 @@ repositories {
 dependencies {
     // other dependencies
 
-    implementation("com.github.alphameo.linear_algebra:1.0.0")
+    implementation("io.github.alphameo.linear_algebra:1.0.0")
     // implementation() or api() - read the gradle documentation
     // 1.0.0 is version that you want to use
 }
