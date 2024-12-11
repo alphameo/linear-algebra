@@ -1,4 +1,4 @@
-rootProject.name = "linear-algebra"
+rootProject.name = "linear_algebra"
 
 pluginManagement {
     repositories {
