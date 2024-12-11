@@ -3,8 +3,29 @@
 Java 21+ library for linear algebra.
 
 1. The library uses JDK21. You can try to downgrade the JDK, but do it at your own risk.
-2. Javadoc is WIP.
-3. The architecture is not final. Some methods are planned to be overriden.
+2. The architecture is not final. Some methods are planned to be overriden (but potom).
+
+## Install
+
+### Maven
+
+`pom.xml`:
+
+```
+<dependency>
+  <groupId>io.github.alphameo</groupId>
+  <artifactId>linear_algebra</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+
+### Gradle (Kotlin)
+
+`build.gradle.kts`:
+
+```
+implementation("io.guthub.alphameo:linear-algebra:1.0.0")
+```
 
 ## Download
 
@@ -64,7 +85,7 @@ If you are using Gradle with the Kotlin DSL, you can do this by yourself. Add to
 dependencies {
     // other dependencies
 
-    implementation(file("../libs/linear_algebra-0.1.0.jar"))
+    implementation(file("../libs/linear_algebra-1.0.0.jar"))
     // implementation() or api() - read the gradle documentation
     // 0.1.0 is version that you want to use
 }
@@ -78,18 +99,18 @@ Instead of the `file()` call, `files()` can be used.
 
 It's the recommended way. It includes all the JARs, so Javadocs are included for the usage with the LSPs. Also, it's the easiest and most convenient approach.
 
-At the moment only local Maven repository is supported. Publish the library as a Maven artifact to the local repository (`.m2` directory in the home directory):
+Publish the library as a Maven artifact to the local repository (`.m2` directory in the home directory):
 
 Linux and MacOS:
 
 ```sh
-./gradlew :lib:publishToMavenLocal
+./gradlew :lib:deployLocalM2
 ```
 
 Windows:
 
 ```powershell
-.\gradlew.bat :lib:publishToMavenLocal
+.\gradlew.bat :lib:deployLocalM2
 ```
 
 The artifact includes all the JARs.
@@ -106,7 +127,7 @@ repositories {
 dependencies {
     // other dependencies
 
-    implementation("com.github.alphameo.linear_algebra:0.1.0")
+    implementation("com.github.alphameo.linear_algebra:1.0.0")
     // implementation() or api() - read the gradle documentation
     // 0.1.0 is version that you want to use
 }
