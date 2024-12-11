@@ -63,7 +63,7 @@ deployer {
 
         license(MIT)
 
-        developer("alphameo", "pavel.2014.play.gmail.com")
+        developer("alphameo", "pavel.2014.play@gmail.com")
     }
 
     localSpec("m2") {
