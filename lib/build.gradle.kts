@@ -79,7 +79,7 @@ deployer {
 
         signing {
             key.set(secret("GPG_KEY"))
-            password.set(secret("GPG_PASSWORD"))
+            password.set(secret("GPG_PWD"))
         }
     }
 
