@@ -10,6 +10,12 @@ import io.github.alphameo.linear_algebra.vec.Vector;
 public final class MatMath {
 
     /**
+     * Default empty constructor
+     */
+    public MatMath() {
+    }
+
+    /**
      * Transposes given square matrix
      *
      * @param m square matrix for transpose

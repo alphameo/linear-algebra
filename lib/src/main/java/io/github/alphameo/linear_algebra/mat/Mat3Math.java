@@ -13,6 +13,12 @@ import io.github.alphameo.linear_algebra.vec.Vector3;
 public final class Mat3Math {
 
     /**
+     * Default empty constructor
+     */
+    public Mat3Math() {
+    }
+
+    /**
      * Constant array of enums for fast and safe access to matrix 3x3 rows
      */
     public static final Matrix3Row[] ROWS = Matrix3Row.values();

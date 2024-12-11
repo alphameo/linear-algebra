@@ -9,6 +9,12 @@ import io.github.alphameo.linear_algebra.vec.Vector;
 public class Validator {
 
     /**
+     * Default empty constructor
+     */
+    public Validator() {
+    }
+
+    /**
      * Default value tolerance.
      */
     public static final float EPS = 0.000001f;

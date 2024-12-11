@@ -8,6 +8,12 @@ import io.github.alphameo.linear_algebra.Validator;
 public final class Vec2Math {
 
     /**
+     * Default empty constructor
+     */
+    public Vec2Math() {
+    }
+
+    /**
      * Calculates square of vector length.
      * <p>
      * You can use it if you need fast comparison.

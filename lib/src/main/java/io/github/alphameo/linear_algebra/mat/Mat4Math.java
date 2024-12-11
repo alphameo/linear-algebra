@@ -22,6 +22,12 @@ public final class Mat4Math {
     public static final Matrix4Col[] COLS = Matrix4Col.values();
 
     /**
+     * Default empty constructor
+     */
+    public Mat4Math() {
+    }
+
+    /**
      * Transposes given matrix 4x4
      *
      * @param m matrix 4x4 for transpose
