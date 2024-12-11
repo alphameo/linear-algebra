@@ -87,7 +87,7 @@ dependencies {
 
     implementation(file("../libs/linear_algebra-1.0.0.jar"))
     // implementation() or api() - read the gradle documentation
-    // 0.1.0 is version that you want to use
+    // 1.0.0 is version that you want to use
 }
 ```
 
@@ -129,7 +129,7 @@ dependencies {
 
     implementation("com.github.alphameo.linear_algebra:1.0.0")
     // implementation() or api() - read the gradle documentation
-    // 0.1.0 is version that you want to use
+    // 1.0.0 is version that you want to use
 }
 ```
 
