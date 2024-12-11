@@ -1,13 +1,15 @@
 plugins {
     id("base")
+    `kotlin-dsl`
     id("java-library")
     id("java-library-distribution")
 
     id("maven-publish")
+    id("org.jreleaser") version "1.15.0"
 }
 
-version = "0.3.0"
-group = "com.github.ia1phai"
+version = "1.0.0"
+group = "io.github.alphameo"
 
 base {
     archivesName.set(rootProject.name)
@@ -15,6 +17,7 @@ base {
 
 repositories {
     mavenCentral()
+    gradlePluginPortal()
 }
 
 dependencies {
@@ -42,23 +45,13 @@ tasks.test {
 
 publishing {
     publications {
-        create<MavenPublication>("maven") {
-            artifactId = rootProject.name
-
-            pom {
-                name.set(rootProject.name)
-                description.set("Java Linear Algebra Library.")
-                url.set("https://github.com/ia1phai/lenear-algebra")
-
-                licenses {
-                    license {
-                        name.set("MIT License")
-                        url.set("https://github.com/ia1phai/linear-algebra/blob/main/LICENSE")
-                    }
-                }
-            }
-
+        create<MavenPublication>("release") {
             from(components["java"])
+        }
+    }
+    repositories {
+        maven {
+            setUrl(layout.buildDirectory.dir("staging-deploy"))
         }
     }
 }
