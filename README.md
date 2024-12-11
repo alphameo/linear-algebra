@@ -26,7 +26,7 @@ Maven example for `pom.xml`:
 Gradle (Kotlin) example for `build.gradle.kts`:
 
 ```kts
-implementation("io.guthub.alphameo:linear-algebra:1.0.0")
+implementation("io.github.alphameo:linear-algebra:1.0.0")
 ```
 
 ### Manual Build
