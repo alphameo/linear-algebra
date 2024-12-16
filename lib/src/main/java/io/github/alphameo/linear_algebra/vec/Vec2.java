@@ -7,6 +7,8 @@ import io.github.alphameo.linear_algebra.Equatable;
 
 /**
  * Default implementation of vector with size 2 ({@code Vector2 interface}).
+ *
+ * @since 1.0.0
  */
 public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
 
@@ -14,6 +16,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
 
     /**
      * Constructs new vector of size 2 with all 0.
+     *
+     * @since 1.0.0
      */
     public Vec2() {
         entries = new float[2];
@@ -24,6 +28,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * 
      * @param x first component of vector
      * @param y second component of vector
+     *
+     * @since 1.0.0
      */
     public Vec2(final float x, final float y) {
         this();
@@ -35,6 +41,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * Copies given vector of size 2 values into new vector of size 2.
      * 
      * @param v vector of size 2 for copying
+     *
+     * @since 1.0.0
      */
     public Vec2(final Vector2 v) {
         this(v.x(), v.y());
@@ -89,6 +97,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * You can use it if you need fast comparison.
      * 
      * @return square length of vector
+     *
+     * @since 1.0.0
      */
     public float len2() {
         return Vec2Math.len2(this);
@@ -98,6 +108,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * Calculates length of vector.
      * 
      * @return length of vector
+     *
+     * @since 1.0.0
      */
     public float len() {
         return Vec2Math.len(this);
@@ -108,6 +120,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      *
      * @param multiplier scalar value
      * @return current vector with multiplied components
+     *
+     * @since 1.0.0
      */
     public Vector2 mult(final float multiplier) {
         return Vec2Math.mult(this, multiplier);
@@ -119,6 +133,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      *
      * @param multiplier scalar value
      * @return new vector with multiplied components of current vector
+     *
+     * @since 1.0.0
      */
     public Vector2 multiplied(final float multiplier) {
         return Vec2Math.multiplied(this, multiplier);
@@ -130,6 +146,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * @param divisor scalar value
      * @return current vector with divided components
      * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     *
+     * @since 1.0.0
      */
     public Vector2 divide(final float divisor) throws ArithmeticException {
         return Vec2Math.divide(this, divisor);
@@ -141,6 +159,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * @param divisor scalar value
      * @return new vector with divided components of current vector
      * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     *
+     * @since 1.0.0
      */
     public Vector2 divided(final float divisor) throws ArithmeticException {
         return Vec2Math.divided(this, divisor);
@@ -151,6 +171,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * 
      * @return current vector with normalized components
      * @throws ArithmeticException if length of vector equals 0
+     *
+     * @since 1.0.0
      */
     public Vector2 normalize() throws ArithmeticException {
         return Vec2Math.normalize(this);
@@ -161,6 +183,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * 
      * @return current vector with normalized components of given vector
      * @throws ArithmeticException if length of vector equals 0
+     *
+     * @since 1.0.0
      */
     public Vector2 normalized() throws ArithmeticException {
         return Vec2Math.normalized(new Vec2(this));
@@ -171,6 +195,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      *
      * @param addendum vector to add
      * @return current vector increased by {@code addendum} vector
+     *
+     * @since 1.0.0
      */
     public Vector2 add(final Vector2 addendum) {
         return Vec2Math.add(this, addendum);
@@ -183,6 +209,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * @param addendum vector to add
      * @return new vector with sum of components of current vector and
      *         {@code addendum} vector
+     *
+     * @since 1.0.0
      */
     public Vector2 added(final Vector2 addendum) {
         return Vec2Math.added(this, addendum);
@@ -194,6 +222,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * 
      * @param subtrahend vector to subtract
      * @return current vector subtracted by {@code subtrahend} vector
+     *
+     * @since 1.0.0
      */
     public Vector2 sub(final Vector2 subtrahend) {
         return Vec2Math.sub(this, subtrahend);
@@ -206,6 +236,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * @param subtrahend vector to subtract
      * @return new vector with components resulting current vector subtracted
      *         by {@code subtrahend} vector
+     *
+     * @since 1.0.0
      */
     public Vector2 subtracted(final Vector2 subtrahend) {
         return Vec2Math.subtracted(this, subtrahend);
@@ -216,6 +248,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      *
      * @param v second vector
      * @return dot (scalar) product of vectors
+     *
+     * @since 1.0.0
      */
     public float dot(final Vector2 v) {
         return Vec2Math.dot(this, v);
@@ -228,6 +262,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      *
      * @return new vector of size 3 including components of current vector and 1 as
      *         last component
+     *
+     * @since 1.0.0
      */
     public Vector3 toVec3() {
         return Vec2Math.toVec3(this);
@@ -279,6 +315,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * Constructs new vector of size 2 with all 0 components.
      * 
      * @return new zero vector of size 2
+     *
+     * @since 1.0.0
      */
     public static Vector2 zeroVec() {
         return Vec2Math.zeroVec();
@@ -288,6 +326,8 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
      * Constructs new vector of size 2 with all 1 components.
      * 
      * @return new unit vector of size 2
+     *
+     * @since 1.0.0
      */
     public static Vector2 unitVec() {
         return Vec2Math.unitVec();

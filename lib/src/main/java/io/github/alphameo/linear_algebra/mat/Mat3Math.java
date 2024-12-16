@@ -9,22 +9,30 @@ import io.github.alphameo.linear_algebra.vec.Vector3;
 
 /**
  * Class with static functions for matrices 3x3.
+ *
+ * @since 1.0.0
  */
 public final class Mat3Math {
 
     /**
      * Default empty constructor
+     *
+     * @since 1.0.0
      */
     public Mat3Math() {
     }
 
     /**
      * Constant array of enums for fast and safe access to matrix 3x3 rows
+     *
+     * @since 1.0.0
      */
     public static final Matrix3Row[] ROWS = Matrix3Row.values();
 
     /**
      * Constant array of enums for fast and safe access to matrix 3x3 columns
+     *
+     * @since 1.0.0
      */
     public static final Matrix3Col[] COLS = Matrix3Col.values();
 
@@ -33,6 +41,8 @@ public final class Mat3Math {
      *
      * @param m matrix 3x3 for transpose
      * @return given matrix 3x3, which is transposed
+     *
+     * @since 1.0.0
      */
     public static Matrix3 transpose(final Matrix3 m) {
         float tmp;
@@ -52,6 +62,8 @@ public final class Mat3Math {
      * 
      * @param m matrix 3x3 for transpose
      * @return new matrix 3x3, which is result of transposing of given matrix 3x3
+     *
+     * @since 1.0.0
      */
     public static Matrix3 transposed(final Matrix3 m) {
         return transpose(new Mat3(m));
@@ -64,6 +76,8 @@ public final class Mat3Math {
      * @param r1 first row for swapping
      * @param r2 second row for swapping
      * @return given matrix 3x3 with swapped rows
+     *
+     * @since 1.0.0
      */
     public static Matrix3 swapRows(final Matrix3 m, final Matrix3Row r1, final Matrix3Row r2) {
         float tmp;
@@ -84,6 +98,8 @@ public final class Mat3Math {
      * @param r2 second index of row for swapping
      * @return given 3x3 matrix with swapped rows
      * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
+     *
+     * @since 1.0.0
      */
     public static Matrix3 swapRows(final Matrix3 m, final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         return swapRows(m, ROWS[r1], ROWS[r2]);
@@ -96,6 +112,8 @@ public final class Mat3Math {
      * @param r1 first row for swapping
      * @param r2 second row for swapping
      * @return new matrix 3x3 with swapped rows of given matrix 3x3
+     *
+     * @since 1.0.0
      */
     public static Matrix3 swappedRows(final Matrix3 m, final Matrix3Row r1, final Matrix3Row r2) {
         return swapRows(new Mat3(m), r1, r2);
@@ -109,6 +127,8 @@ public final class Mat3Math {
      * @param r2 second index of row for swapping
      * @return new matrix 3x3 with swapped rows of given matrix 3x3
      * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
+     *
+     * @since 1.0.0
      */
     public static Matrix3 swappedRows(final Matrix3 m, final int r1, final int r2)
             throws ArrayIndexOutOfBoundsException {
@@ -122,6 +142,8 @@ public final class Mat3Math {
      * @param c1 first column for swapping
      * @param c2 second column for swapping
      * @return given matrix 3x3 with swapped columns
+     *
+     * @since 1.0.0
      */
     public static Matrix3 swapCols(final Matrix3 m, final Matrix3Col c1, final Matrix3Col c2) {
         float tmp;
@@ -141,6 +163,8 @@ public final class Mat3Math {
      * @param c1 first index of column for swapping
      * @param c2 second index of column for swapping
      * @return given matrix 3x3 with swapped columns
+     *
+     * @since 1.0.0
      */
     public static Matrix3 swapCols(final Matrix3 m, final int c1, final int c2) {
         return swapCols(m, COLS[c1], COLS[c2]);
@@ -153,6 +177,8 @@ public final class Mat3Math {
      * @param c1 first column for swapping
      * @param c2 second column for swapping
      * @return new matrix 3x3 with swapped columns of given matrix 3x3
+     *
+     * @since 1.0.0
      */
     public static Matrix3 swappedCols(final Matrix3 m, final Matrix3Col c1, final Matrix3Col c2) {
         return swapCols(new Mat3(m), c1, c2);
@@ -166,6 +192,8 @@ public final class Mat3Math {
      * @param c2 second index of column for swapping
      * @return new matrix 3x3 with swapped columns of given matrix 3x3
      * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
+     *
+     * @since 1.0.0
      */
     public static Matrix3 swappedCols(final Matrix3 m, final int c1, final int c2)
             throws ArrayIndexOutOfBoundsException {
@@ -178,6 +206,8 @@ public final class Mat3Math {
      * @param m          matrix 3x3 for multiplication
      * @param multiplier scalar value
      * @return given matrix 3x3 with multiplied elements
+     *
+     * @since 1.0.0
      */
     public static Matrix3 mult(final Matrix3 m, final float multiplier) {
         for (final Matrix3Row r : ROWS) {
@@ -195,6 +225,8 @@ public final class Mat3Math {
      * @param m          matrix for multiplication
      * @param multiplier scalar value
      * @return new matrix 3x3 with multiplied elements of given matrix
+     *
+     * @since 1.0.0
      */
     public static Matrix3 multiplied(final Matrix3 m, final float multiplier) {
         return mult(new Mat3(m), multiplier);
@@ -207,6 +239,8 @@ public final class Mat3Math {
      * @param divisor scalar value
      * @return given matrix 3x3 with divided elements
      * @throws ArithmeticException if {@code divisor} approximately equals 0
+     *
+     * @since 1.0.0
      */
     public static Matrix3 divide(final Matrix3 m, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
@@ -226,6 +260,8 @@ public final class Mat3Math {
      * @param divisor scalar value
      * @return new matrix 3x3 with divided elements of given matrix
      * @throws ArithmeticException if {@code divisor} approximately equals 0
+     *
+     * @since 1.0.0
      */
     public static Matrix3 divided(final Matrix3 m, final float divisor) throws ArithmeticException {
         return divide(new Mat3(m), divisor);
@@ -238,6 +274,8 @@ public final class Mat3Math {
      * @param target   matrix 3x3 to be added
      * @param addendum matrix 3x3 to add
      * @return {@code target} matrix 3x3 increased by {@code addendum} matrix 3x3
+     *
+     * @since 1.0.0
      */
     public static Matrix3 add(final Matrix3 target, final Matrix3 addendum) {
         for (final Matrix3Row r : ROWS) {
@@ -257,6 +295,8 @@ public final class Mat3Math {
      * @param addendum matrix 3x3 to add
      * @return new matrix 3x3 with sum of elements of {@code target} matrix 3x3 and
      *         {@code addendum} matrix 3x3
+     *
+     * @since 1.0.0
      */
     public static Matrix3 added(final Matrix3 target, final Matrix3 addendum) {
         return add(new Mat3(target), addendum);
@@ -269,6 +309,8 @@ public final class Mat3Math {
      * @param target     matrix 3x3 to be subtracted
      * @param subtrahend matrix 3x3 to subtract
      * @return {@code target} matrix 3x3 subtracted by {@code addendum} matrix 3x3
+     *
+     * @since 1.0.0
      */
     public static Matrix3 sub(final Matrix3 target, final Matrix3 subtrahend) {
         for (final Matrix3Row r : ROWS) {
@@ -288,6 +330,8 @@ public final class Mat3Math {
      * @param subtrahend matrix 3x3 to subtract
      * @return new matrix 4x4 with components resulting {@code target} matrix 4x4
      *         subtracted by {@code subtrahend} matrix 4x4
+     *
+     * @since 1.0.0
      */
     public static Matrix3 subtracted(final Matrix3 target, final Matrix3 subtrahend) {
         return sub(new Mat3(target), subtrahend);
@@ -299,6 +343,8 @@ public final class Mat3Math {
      * @param m1 first (left) matrix 3x3
      * @param m2 second (right) matrix 3x3
      * @return matrix 3x3, which represents product of given matrices
+     *
+     * @since 1.0.0
      */
     public static Matrix3 prod(final Matrix3 m1, final Matrix3 m2) {
         final Matrix3 result = new Mat3();
@@ -321,6 +367,8 @@ public final class Mat3Math {
      * @param m matrix 3x3 (left)
      * @param v column vector of size 3 (right)
      * @return vector of size 3, which represents product of given matrix and vector
+     *
+     * @since 1.0.0
      */
     public static Vector3 prod(final Matrix3 m, final Vector3 v) {
         final Vector3 result = new Vec3();
@@ -341,6 +389,8 @@ public final class Mat3Math {
      * 
      * @param m matrix 3x3 to be triangulated
      * @return given matrix 3x3, which is triangulated
+     *
+     * @since 1.0.0
      */
     public static Matrix3 triangulate(final Matrix3 m) {
         int countOfSwaps = 0;
@@ -389,6 +439,8 @@ public final class Mat3Math {
      * 
      * @param m matrix 3x3 to be triangulated
      * @return new matrix 3x3, which is result of triangulating of given matrix 3x3
+     *
+     * @since 1.0.0
      */
     public static Matrix3 triangulated(final Matrix3 m) {
         return triangulate(new Mat3(m));
@@ -399,6 +451,8 @@ public final class Mat3Math {
      * 
      * @param m matrix 3x3 for determinant calculation
      * @return matrix 3x3 determinant
+     *
+     * @since 1.0.0
      */
     public static float det(final Matrix3 m) {
         return m.get(R0, C0) * m.get(R1, C1) * m.get(R2, C2)
@@ -415,6 +469,8 @@ public final class Mat3Math {
      * @param m matrix 3x3 for invertible matrix 3x3 construction
      * @return invertible matrix 3x3
      * @throws RuntimeException if matrix determinant equals to 0
+     *
+     * @since 1.0.0
      */
     public static Matrix3 invertible(final Matrix3 m) throws RuntimeException {
         final Matrix3 result = cofactorMatrix(m);
@@ -435,6 +491,8 @@ public final class Mat3Math {
      * @param r row to exclude
      * @param c column to exclude
      * @return minor matrix excluding given row and column
+     *
+     * @since 1.0.0
      */
     public static Matrix minorMatrix(final Matrix3 m, final Matrix3Row r, final Matrix3Col c) {
         final Matrix result = new Mat(2);
@@ -466,6 +524,8 @@ public final class Mat3Math {
      * @param r row index to exclude
      * @param c column index to exclude
      * @return minor matrix excluding given row and column
+     *
+     * @since 1.0.0
      */
     public static Matrix minorMatrix(final Matrix3 m, final int r, final int c) {
         return minorMatrix(m, ROWS[r], COLS[c]);
@@ -479,6 +539,8 @@ public final class Mat3Math {
      * @param r row for cofactor calculation
      * @param c column for cofactor calculation
      * @return cofactor value from given positions in given matrix 3x3
+     *
+     * @since 1.0.0
      */
     public static float cofactor(final Matrix3 m, final Matrix3Row r, final Matrix3Col c) {
         final int coefficient = (r.ordinal() + c.ordinal()) % 2 == 0 ? 1 : -1;
@@ -493,6 +555,8 @@ public final class Mat3Math {
      * @param r index of row for cofactor calculation
      * @param c index of column for cofactor calculation
      * @return cofactor value from given positions in given matrix 3x3
+     *
+     * @since 1.0.0
      */
     public static float cofactor(final Matrix3 m, final int r, final int c) {
         return cofactor(m, ROWS[r], COLS[c]);
@@ -503,6 +567,8 @@ public final class Mat3Math {
      * 
      * @param m matrix 3x3 for matrix of cofactors construction
      * @return matrix 3x3 of cofactors
+     *
+     * @since 1.0.0
      */
     public static Matrix3 cofactorMatrix(final Matrix3 m) {
         final Matrix3 result = new Mat3();
@@ -521,6 +587,8 @@ public final class Mat3Math {
      * @param m matrix 3x3 for analysis
      * @return {@code true} if matrix elements are approximately equal 0, and
      *         {@code false} otherwise
+     *
+     * @since 1.0.0
      */
     public static boolean isZeroed(final Matrix3 m) {
         for (final Matrix3Row r : ROWS) {
@@ -540,6 +608,8 @@ public final class Mat3Math {
      * @param m matrix for analysis
      * @return {@code true} if matrix is square diagonal, and {@code false}
      *         otherwise
+     *
+     * @since 1.0.0
      */
     public static boolean diagonal(final Matrix3 m) {
         for (final Matrix3Row r : ROWS) {
@@ -574,6 +644,8 @@ public final class Mat3Math {
      * @param insertionRow row for insertion 0
      * @param insertionCol column for insertion 0
      * @return new matrix 4x4
+     *
+     * @since 1.0.0
      */
     public static Matrix4 toMat4(final Matrix3 m, final Matrix4Row insertionRow, final Matrix4Col insertionCol) {
         final Matrix4 result = new Mat4();
@@ -620,6 +692,8 @@ public final class Mat3Math {
      * @param insertionCol column index for insertion 0
      * @return new matrix 4x4
      * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
+     *
+     * @since 1.0.0
      */
     public static Matrix4 toMat4(final Matrix3 m, final int insertionRow, final int insertionCol)
             throws ArrayIndexOutOfBoundsException {
@@ -644,6 +718,8 @@ public final class Mat3Math {
      * 
      * @param m matrix 3x3
      * @return new matrix 4x4
+     *
+     * @since 1.0.0
      */
     public static Matrix4 toMat4(final Matrix3 m) {
         return toMat4(m, Matrix4Row.R3, Matrix4Col.C3);
@@ -658,6 +734,8 @@ public final class Mat3Math {
      * @param eps tolerance
      * @return {@code true} if all elements of matrices 3x3 are equal within
      *         {@code epsilon} tolerance, and {@code false} otherwise
+     *
+     * @since 1.0.0
      */
     public static boolean equalsEpsilon(final Matrix3 m1, final Matrix3 m2, final float eps) {
         for (final Matrix3Row r : ROWS) {
@@ -678,6 +756,8 @@ public final class Mat3Math {
      * @param m2 second matrix 3x3 for comparison
      * @return {@code true} if all elements of matrices 3x3 are approximately equal,
      *         and {@code false} otherwise
+     *
+     * @since 1.0.0
      */
     public static boolean equals(final Matrix3 m1, final Matrix3 m2) {
         return equalsEpsilon(m1, m2, Validator.EPS);
@@ -687,6 +767,8 @@ public final class Mat3Math {
      * Constructs matrix 3x3 of with all 0 elements.
      * 
      * @return matrix 3x3 with all 0 elements
+     *
+     * @since 1.0.0
      */
     public static Matrix3 zeroMat() {
         return new Mat3();
@@ -696,6 +778,8 @@ public final class Mat3Math {
      * Constructs square matrix 3x3 with 1 on main diagonal.
      * 
      * @return square matrix 3x3 with 1 on main diagonal
+     *
+     * @since 1.0.0
      */
     public static Matrix3 unitMat() {
         final Matrix3 result = new Mat3();

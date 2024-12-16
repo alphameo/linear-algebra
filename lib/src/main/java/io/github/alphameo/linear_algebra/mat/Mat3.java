@@ -8,6 +8,8 @@ import io.github.alphameo.linear_algebra.vec.Vector3;
 
 /**
  * Default implementation of matrix 3x3 ({@code Matrix3 interface}).
+ *
+ * @since 1.0.0
  */
 public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
 
@@ -15,6 +17,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
 
     /**
      * Constructs new matrix 3x3 with all 0.
+     *
+     * @since 1.0.0
      */
     public Mat3() {
         this.entries = new float[3][3];
@@ -32,6 +36,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param m20 element under row = 2, column = 0
      * @param m21 element under row = 2, column = 1
      * @param m22 element under row = 2, column = 2
+     *
+     * @since 1.0.0
      */
     public Mat3(
             final float m00, final float m01, final float m02,
@@ -55,6 +61,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param entries values for matrix elements
      * @throws IllegalArgumentException if given two dimensional array cannot be
      *                                  interpreted as matrix 3x3
+     *
+     * @since 1.0.0
      */
     public Mat3(final float entries[][]) {
         this();
@@ -76,6 +84,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * Copies given matrix 3x3 values into new matrix 3x3.
      * 
      * @param m matrix 3x3 for copying
+     *
+     * @since 1.0.0
      */
     public Mat3(final Matrix3 m) {
         this();
@@ -134,6 +144,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * Transposes current matrix.
      *
      * @return current transposed matrix
+     *
+     * @since 1.0.0
      */
     public Matrix3 transpose() {
         return Mat3Math.transpose(this);
@@ -143,6 +155,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * Construts transposed matrix from current matrix.
      *
      * @return new matrix, which is result of transposing of current square matrix
+     *
+     * @since 1.0.0
      */
     public Matrix3 transposed() {
         return Mat3Math.transposed(this);
@@ -154,6 +168,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param r1 first row for swapping
      * @param r2 second row for swapping
      * @return current matrix with swapped rows
+     *
+     * @since 1.0.0
      */
     public Matrix3 swapRows(final Matrix3Row r1, final Matrix3Row r2) {
         return Mat3Math.swapRows(this, r1, r2);
@@ -166,6 +182,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param r2 second index of row for swapping
      * @return current matrix with swapped rows
      * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
+     *
+     * @since 1.0.0
      */
     public Matrix3 swapRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         return Mat3Math.swapRows(this, r1, r2);
@@ -177,6 +195,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param r1 first row for swapping
      * @param r2 second row for swapping
      * @return new matrix with swapped rows of curren matrix
+     *
+     * @since 1.0.0
      */
     public Matrix3 swappedRows(final Matrix3Row r1, final Matrix3Row r2) {
         return Mat3Math.swappedRows(this, r1, r2);
@@ -189,6 +209,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param r2 second index of row for swapping
      * @return new matrix with swapped rows of curren matrix
      * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
+     *
+     * @since 1.0.0
      */
     public Matrix3 swappedRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         return Mat3Math.swappedRows(this, r1, r2);
@@ -200,6 +222,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param c1 first column for swapping
      * @param c2 second column for swapping
      * @return current matrix with swapped columns
+     *
+     * @since 1.0.0
      */
     public Matrix3 swapCols(final Matrix3Col c1, final Matrix3Col c2) {
         return Mat3Math.swapCols(this, c1, c2);
@@ -212,6 +236,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param c2 second index of column for swapping
      * @return current matrix with swapped columns
      * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
+     *
+     * @since 1.0.0
      */
     public Matrix3 swapCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
         return Mat3Math.swapCols(this, c1, c2);
@@ -223,6 +249,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param c1 first column for swapping
      * @param c2 second column for swapping
      * @return new matrix with swapped columns of current matrix
+     *
+     * @since 1.0.0
      */
     public Matrix3 swappedCols(final Matrix3Col c1, final Matrix3Col c2) {
         return Mat3Math.swappedCols(this, c1, c2);
@@ -235,6 +263,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param c2 second index of column for swapping
      * @return new matrix with swapped columns of current matrix
      * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
+     *
+     * @since 1.0.0
      */
     public Matrix3 swappedCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
         return Mat3Math.swappedCols(this, c1, c2);
@@ -245,6 +275,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * 
      * @param multiplier scalar value
      * @return current matrix with multiplied elements
+     *
+     * @since 1.0.0
      */
     public Matrix3 mult(final float multiplier) {
         return Mat3Math.mult(this, multiplier);
@@ -255,6 +287,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * 
      * @param multiplier scalar value
      * @return new matrix with multiplied elements of current matrix
+     *
+     * @since 1.0.0
      */
     public Matrix3 multiplied(final float multiplier) {
         return Mat3Math.multiplied(this, multiplier);
@@ -266,6 +300,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param divisor scalar value
      * @return current matrix with divided elements
      * @throws ArithmeticException if {@code divisor} approximately equals 0
+     *
+     * @since 1.0.0
      */
     public Matrix3 divide(final float divisor) throws ArithmeticException {
         return Mat3Math.divide(this, divisor);
@@ -277,6 +313,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param divisor scalar value
      * @return new matrix with divided elements of current matrix
      * @throws ArithmeticException if {@code divisor} approximately equals 0
+     *
+     * @since 1.0.0
      */
     public Matrix3 divided(final float divisor) throws ArithmeticException {
         return Mat3Math.divided(this, divisor);
@@ -288,6 +326,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * 
      * @param addendum matrix 3x3 to add
      * @return current matrix increased by {@code addendum} matrix
+     *
+     * @since 1.0.0
      */
     public Matrix3 add(final Matrix3 addendum) {
         return Mat3Math.add(this, addendum);
@@ -300,6 +340,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param addendum matrix 3x3 to add
      * @return new matrix with sum of elements of current matrix and
      *         {@code addendum} matrix
+     *
+     * @since 1.0.0
      */
     public Matrix3 added(final Matrix3 addendum) {
         return Mat3Math.added(this, addendum);
@@ -311,6 +353,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * 
      * @param subtrahend matrix 3x3 to subtract
      * @return current matrix subtracted by {@code addendum} matrix
+     *
+     * @since 1.0.0
      */
     public Matrix3 sub(final Matrix3 subtrahend) {
         return Mat3Math.sub(this, subtrahend);
@@ -322,6 +366,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * 
      * @param subtrahend matrix 3x3 to subtract
      * @return current matrix subtracted by {@code addendum} matrix
+     *
+     * @since 1.0.0
      */
     public Matrix3 subtracted(final Matrix3 subtrahend) {
         return Mat3Math.subtracted(this, subtrahend);
@@ -332,6 +378,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      *
      * @param m second (right) matrix 3x3
      * @return matrix, which represents product of matrices
+     *
+     * @since 1.0.0
      */
     public Matrix3 prod(final Matrix3 m) {
         return Mat3Math.prod(this, m);
@@ -343,6 +391,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param v column vector of size 3 (right)
      * @return vector of size 3, which represents product of current matrix and
      *         given vector
+     *
+     * @since 1.0.0
      */
     public Vector3 prod(final Vector3 v) {
         return Mat3Math.prod(this, v);
@@ -352,6 +402,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * Triangulates current matrix.
      * 
      * @return current matrix, which is triangulated
+     *
+     * @since 1.0.0
      */
     public Matrix3 triangulate() {
         return Mat3Math.triangulate(this);
@@ -361,6 +413,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * Copies current matrix and triangulates it.
      * 
      * @return new matrix, which is result of triangulating of current matrix
+     *
+     * @since 1.0.0
      */
     public Matrix3 triangulated() {
         return Mat3Math.triangulated(this);
@@ -370,6 +424,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * Calculates matrix determinant.
      * 
      * @return matrix determinant
+     *
+     * @since 1.0.0
      */
     public float det() {
         return Mat3Math.det(this);
@@ -380,6 +436,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      *
      * @return invertible matrix
      * @throws RuntimeException if matrix determinant equals to 0
+     *
+     * @since 1.0.0
      */
     public Matrix3 invertible() {
         return Mat3Math.invertible(this);
@@ -392,6 +450,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param r row to exclude
      * @param c column to exclude
      * @return minor matrix excluding given row and column
+     *
+     * @since 1.0.0
      */
     public Matrix minorMatrix(final Matrix3Row r, final Matrix3Col c) {
         return Mat3Math.minorMatrix(this, r, c);
@@ -403,6 +463,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param r row index to exclude
      * @param c column index to exclude
      * @return minor matrix excluding given row and column
+     *
+     * @since 1.0.0
      */
     public Matrix minorMatrix(final int r, final int c) {
         return Mat3Math.minorMatrix(this, r, c);
@@ -415,6 +477,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param r index of row for cofactor calculation
      * @param c index of column for cofactor calculation
      * @return cofactor value from given positions in current matrix
+     *
+     * @since 1.0.0
      */
     public float cofactor(final Matrix3Row r, final Matrix3Col c) {
         return Mat3Math.cofactor(this, r, c);
@@ -427,6 +491,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param r index of row for cofactor calculation
      * @param c index of column for cofactor calculation
      * @return cofactor value from given positions in current matrix
+     *
+     * @since 1.0.0
      */
     public float cofactor(final int r, final int c) {
         return Mat3Math.cofactor(this, r, c);
@@ -436,6 +502,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * Constructs matrix of cofactors (algebraic complements)
      * 
      * @return matrix of cofactors
+     *
+     * @since 1.0.0
      */
     public Matrix3 cofactorMatrix() {
         return Mat3Math.cofactorMatrix(this);
@@ -445,6 +513,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * Returns true, because matrix is square.
      * 
      * @return {@code true}
+     *
+     * @since 1.0.0
      */
     public boolean square() {
         return true;
@@ -455,6 +525,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * 
      * @return {@code true} if matrix elements are approximately equal 0, and
      *         {@code false} otherwise
+     *
+     * @since 1.0.0
      */
     public boolean isZeroed() {
         return Mat3Math.isZeroed(this);
@@ -465,6 +537,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * 
      * @return {@code true} if matrix is square diagonal, and {@code false}
      *         otherwise
+     *
+     * @since 1.0.0
      */
     public boolean diagonal() {
         return Mat3Math.diagonal(this);
@@ -484,6 +558,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * </pre>
      * 
      * @return new matrix 4x4
+     *
+     * @since 1.0.0
      */
     public Matrix4 toMat4() {
         return Mat3Math.toMat4(this);
@@ -506,6 +582,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param insertionRow row for insertion 0
      * @param insertionCol column for insertion 0
      * @return new matrix 4x4
+     *
+     * @since 1.0.0
      */
     public Matrix4 toMat4(final Matrix4Row insertionRow, final Matrix4Col insertionCol) {
         return Mat3Math.toMat4(this, insertionRow, insertionCol);
@@ -527,6 +605,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * @param insertionRow row index for insertion 0
      * @param insertionCol column index for insertion 0
      * @return new matrix 4x4
+     *
+     * @since 1.0.0
      */
     public Matrix4 toMat4(final int insertionRow, final int insertionCol) {
         return Mat3Math.toMat4(this, insertionRow, insertionCol);
@@ -587,6 +667,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * Constructs matrix 3x3 of with all 0 elements.
      * 
      * @return matrix 3x3 with all 0 elements
+     *
+     * @since 1.0.0
      */
     public static Matrix3 zeroMat() {
         return Mat3Math.zeroMat();
@@ -596,6 +678,8 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
      * Constructs square matrix 3x3 with 1 on main diagonal.
      * 
      * @return square matrix 3x3 with 1 on main diagonal
+     *
+     * @since 1.0.0
      */
     public static Matrix3 unitMat() {
         return Mat3Math.unitMat();

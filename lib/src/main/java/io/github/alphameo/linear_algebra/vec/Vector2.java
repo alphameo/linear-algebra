@@ -2,6 +2,8 @@ package io.github.alphameo.linear_algebra.vec;
 
 /**
  * Interface for vector of size 2.
+ *
+ * @since 1.0.0
  */
 public interface Vector2 extends Vector {
 
@@ -9,6 +11,8 @@ public interface Vector2 extends Vector {
      * Returns x component (index = 0) of vector with size 2.
      * 
      * @return x component of vector with size 2
+     *
+     * @since 1.0.0
      */
     float x();
 
@@ -16,6 +20,8 @@ public interface Vector2 extends Vector {
      * Returns x component (index = 1) of vector with size 2.
      * 
      * @return x component of vector with size 2
+     *
+     * @since 1.0.0
      */
     float y();
 
@@ -23,6 +29,8 @@ public interface Vector2 extends Vector {
      * Sets value of x component (index = 0) inside vector.
      *
      * @param value component value to be set
+     *
+     * @since 1.0.0
      */
     void setX(float value);
 
@@ -30,6 +38,8 @@ public interface Vector2 extends Vector {
      * Sets value of x component (index = 1) inside vector.
      *
      * @param value component value to be set
+     *
+     * @since 1.0.0
      */
     void setY(float value);
 }

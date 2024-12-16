@@ -4,11 +4,15 @@ import io.github.alphameo.linear_algebra.Validator;
 
 /**
  * Class with static functions for arbitrary vectors.
+ *
+ * @since 1.0.0
  */
 public final class Vec2Math {
 
     /**
      * Default empty constructor
+     *
+     * @since 1.0.0
      */
     public Vec2Math() {
     }
@@ -20,6 +24,8 @@ public final class Vec2Math {
      * 
      * @param v vector of size 2 for square length calculation
      * @return square length of given vector
+     *
+     * @since 1.0.0
      */
     public static float len2(final Vector2 v) {
         return v.x() * v.x() + v.y() * v.y();
@@ -30,6 +36,8 @@ public final class Vec2Math {
      * 
      * @param v vector of size 2 for length calculation
      * @return length of given vector
+     *
+     * @since 1.0.0
      */
     public static float len(final Vector2 v) {
         return (float) Math.sqrt(len2(v));
@@ -41,6 +49,8 @@ public final class Vec2Math {
      * @param v          vector of size 2 for multiplication
      * @param multiplier scalar value
      * @return given vector with multiplied components
+     *
+     * @since 1.0.0
      */
     public static Vector2 mult(final Vector2 v, final float multiplier) {
         v.setX(v.x() * multiplier);
@@ -56,6 +66,8 @@ public final class Vec2Math {
      * @param v          vector of size 2 for multiplication
      * @param multiplier scalar value
      * @return new vector of size 2 with multiplied components of given vector
+     *
+     * @since 1.0.0
      */
     public static Vector2 multiplied(final Vector2 v, final float multiplier) {
         return mult(new Vec2(v), multiplier);
@@ -68,6 +80,8 @@ public final class Vec2Math {
      * @param divisor scalar value
      * @return given vector with divided components
      * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     *
+     * @since 1.0.0
      */
     public static Vector2 divide(final Vector2 v, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
@@ -85,6 +99,8 @@ public final class Vec2Math {
      * @param divisor scalar value
      * @return new vector of size 2 with divided components of given vector
      * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     *
+     * @since 1.0.0
      */
     public static Vector2 divided(final Vector2 v, final float divisor) throws ArithmeticException {
         return divide(new Vec2(v), divisor);
@@ -96,6 +112,8 @@ public final class Vec2Math {
      * @param v vector of size 2 to be normalized
      * @return given vector with normalized components
      * @throws ArithmeticException if length of given vector equals 0
+     *
+     * @since 1.0.0
      */
     public static Vector2 normalize(final Vector2 v) throws ArithmeticException {
         return divide(v, len(v));
@@ -107,6 +125,8 @@ public final class Vec2Math {
      * @param v vector of size 2 to be normalized
      * @return new vector of size 2 with normalized components of given vector
      * @throws ArithmeticException if length of given vector equals 0
+     *
+     * @since 1.0.0
      */
     public static Vector2 normalized(final Vector2 v) throws ArithmeticException {
         return divided(v, len(v));
@@ -119,6 +139,8 @@ public final class Vec2Math {
      * @param target   vector of size 2 to be added
      * @param addendum vector of size 2 to add
      * @return {@code target} vector increased by {@code addendum} vector
+     *
+     * @since 1.0.0
      */
     public static Vector2 add(final Vector2 target, final Vector2 addendum) {
         target.setX(target.x() + addendum.x());
@@ -136,6 +158,8 @@ public final class Vec2Math {
      * @return new vector of size 2 with sum of components of {@code target} vector
      *         and
      *         {@code addendum} vector
+     *
+     * @since 1.0.0
      */
     public static Vector2 added(final Vector2 target, final Vector2 addendum) {
         return add(new Vec2(target), addendum);
@@ -148,6 +172,8 @@ public final class Vec2Math {
      * @param target     vector of size 2 to be subtracted
      * @param subtrahend vector of size 2 to subtract
      * @return {@code target} vector subtracted by {@code subtrahend} vector
+     *
+     * @since 1.0.0
      */
     public static Vector2 sub(final Vector2 target, final Vector2 subtrahend) {
         target.setX(target.x() - subtrahend.x());
@@ -164,6 +190,8 @@ public final class Vec2Math {
      * @param subtrahend vector of size 2 to subtract
      * @return new vector of size 2 with components resulting {@code target} vector
      *         subtracted by {@code subtrahend} vector
+     *
+     * @since 1.0.0
      */
     public static Vector2 subtracted(final Vector2 target, final Vector2 subtrahend) {
         return sub(new Vec2(target), subtrahend);
@@ -175,6 +203,8 @@ public final class Vec2Math {
      * @param v1 first vector of size 2
      * @param v2 second vector of size 2
      * @return dot (scalar) product of given vectors
+     *
+     * @since 1.0.0
      */
     public static float dot(final Vector2 v1, final Vector2 v2) {
         return v1.x() * v2.x() + v1.y() * v2.y();
@@ -189,6 +219,8 @@ public final class Vec2Math {
      * @param eps tolerance
      * @return {@code true} if all components of vectors are equal within
      *         {@code epsilon} tolerance, and {@code false} otherwise
+     *
+     * @since 1.0.0
      */
     public static boolean equalsEpsilon(final Vector2 v1, final Vector2 v2, final float eps) {
         return Validator.equalsEpsilon(v1.x(), v2.x(), eps)
@@ -202,6 +234,8 @@ public final class Vec2Math {
      * @param v2 second vector of size 2 for comparison
      * @return {@code true} if all components of vectors are approximately equal,
      *         and {@code false} otherwise
+     *
+     * @since 1.0.0
      */
     public static boolean equals(final Vector2 v1, final Vector2 v2) {
         return equalsEpsilon(v1, v2, Validator.EPS);
@@ -215,6 +249,8 @@ public final class Vec2Math {
      * @param v vector of size 2
      * @return new vector of size 3 including components of given vector and 1 as
      *         last component
+     *
+     * @since 1.0.0
      */
     public static Vector3 toVec3(final Vector2 v) {
         return new Vec3(v.x(), v.y(), 1);
@@ -224,6 +260,8 @@ public final class Vec2Math {
      * Constructs new vector of size 2 with all 0 components.
      * 
      * @return new zero vector of size 2
+     *
+     * @since 1.0.0
      */
     public static Vector2 zeroVec() {
         return new Vec2();
@@ -233,6 +271,8 @@ public final class Vec2Math {
      * Constructs new vector of size 2 with all 1 components.
      * 
      * @return new unit vector of size 2
+     *
+     * @since 1.0.0
      */
     public static Vector2 unitVec() {
         return new Vec2(1, 1);

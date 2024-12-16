@@ -6,11 +6,15 @@ import io.github.alphameo.linear_algebra.vec.Vector;
 
 /**
  * Class with static functions for arbitrary matrices.
+ *
+ * @since 1.0.0
  */
 public final class MatMath {
 
     /**
      * Default empty constructor
+     *
+     * @since 1.0.0
      */
     public MatMath() {
     }
@@ -20,6 +24,8 @@ public final class MatMath {
      *
      * @param m square matrix for transpose
      * @return given square matrix, which is transposed
+     *
+     * @since 1.0.0
      */
     public static Matrix transposeSquare(final Matrix m) {
         if (!square(m)) {
@@ -43,6 +49,8 @@ public final class MatMath {
      *
      * @param m square matrix for transpose
      * @return new matrix, which is result of transposing of given square matrix
+     *
+     * @since 1.0.0
      */
     public static Matrix transposed(final Matrix m) {
         Matrix result = new Mat(m.width(), m.height());
@@ -63,6 +71,8 @@ public final class MatMath {
      * @param r2 second index of row for swapping
      * @return given matrix with swapped rows
      * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
+     *
+     * @since 1.0.0
      */
     public static Matrix swapRows(final Matrix m, final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         float tmp;
@@ -83,6 +93,8 @@ public final class MatMath {
      * @param r2 second index of row for swapping
      * @return new matrix with swapped rows of given matrix
      * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
+     *
+     * @since 1.0.0
      */
     public static Matrix swappedRows(final Matrix m, final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         return swapRows(new Mat(m), r1, r2);
@@ -96,6 +108,8 @@ public final class MatMath {
      * @param c2 second index of column for swapping
      * @return given matrix with swapped columns
      * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
+     *
+     * @since 1.0.0
      */
     public static Matrix swapCols(final Matrix m, final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
         float tmp;
@@ -116,6 +130,8 @@ public final class MatMath {
      * @param c2 second index of column for swapping
      * @return new matrix with swapped columns of given matrix
      * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
+     *
+     * @since 1.0.0
      */
     public static Matrix swappedCols(final Matrix m, final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
         return swapCols(new Mat(m), c1, c2);
@@ -127,6 +143,8 @@ public final class MatMath {
      * @param m          matrix for multiplication
      * @param multiplier scalar value
      * @return given matrix with multiplied elements
+     *
+     * @since 1.0.0
      */
     public static Matrix mult(final Matrix m, final float multiplier) {
         for (int r = 0; r < m.height(); r++) {
@@ -144,6 +162,8 @@ public final class MatMath {
      * @param m          matrix for multiplication
      * @param multiplier scalar value
      * @return new matrix with multiplied elements of given matrix
+     *
+     * @since 1.0.0
      */
     public static Matrix multiplied(final Matrix m, final float multiplier) {
         return mult(new Mat(m), multiplier);
@@ -156,6 +176,8 @@ public final class MatMath {
      * @param divisor scalar value
      * @return given matrix with divided elements
      * @throws ArithmeticException if {@code divisor} approximately equals 0
+     *
+     * @since 1.0.0
      */
     public static Matrix divide(final Matrix m, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
@@ -175,6 +197,8 @@ public final class MatMath {
      * @param divisor scalar value
      * @return new matrix with divided elements of given matrix
      * @throws ArithmeticException if {@code divisor} approximately equals 0
+     *
+     * @since 1.0.0
      */
     public static Matrix divided(final Matrix m, final float divisor) throws ArithmeticException {
         return mult(new Mat(m), divisor);
@@ -188,6 +212,8 @@ public final class MatMath {
      * @param addendum matrix to add
      * @return {@code target} matrix increased by {@code addendum} matrix
      * @throws IllegalArgumentException if matrices have different sizes
+     *
+     * @since 1.0.0
      */
     public static Matrix add(final Matrix target, final Matrix addendum) {
         Validator.validateMatrixSizes(target, addendum, "Addition denied");
@@ -209,6 +235,8 @@ public final class MatMath {
      * @return new matrix with sum of elements of {@code target} matrix and
      *         {@code addendum} matrix
      * @throws IllegalArgumentException if matrices have different sizes
+     *
+     * @since 1.0.0
      */
     public static Matrix added(final Matrix target, final Matrix addendum) {
         return add(new Mat(target), addendum);
@@ -222,6 +250,8 @@ public final class MatMath {
      * @param subtrahend matrix to subtract
      * @return {@code target} matrix subtracted by {@code addendum} matrix
      * @throws IllegalArgumentException if matrices have different sizes
+     *
+     * @since 1.0.0
      */
     public static Matrix sub(final Matrix target, final Matrix subtrahend) {
         Validator.validateMatrixSizes(target, subtrahend, "Subtraction denied");
@@ -243,6 +273,8 @@ public final class MatMath {
      * @return new matrix with components resulting current matrix subtracted
      *         by {@code subtrahend} matrix
      * @throws IllegalArgumentException if matrices have different sizes
+     *
+     * @since 1.0.0
      */
     public static Matrix subtracted(final Matrix target, final Matrix subtrahend) {
         return sub(new Mat(target), subtrahend);
@@ -256,6 +288,8 @@ public final class MatMath {
      * @return matrix, which represents product of given matrices
      * @throws IllegalArgumentException if the first matrix width is not equal to
      *                                  the second matrix height
+     *
+     * @since 1.0.0
      */
     public static Matrix prod(final Matrix m1, final Matrix m2) {
         if (m1.width() != m2.height()) {
@@ -287,6 +321,8 @@ public final class MatMath {
      * @return vector, which represents product of given matrix and vector
      * @throws IllegalArgumentException if width of the matrix is not equal to the
      *                                  vector size
+     *
+     * @since 1.0.0
      */
     public static Vector prod(final Matrix m, final Vector v) {
         if (m.width() != v.size()) {
@@ -314,6 +350,8 @@ public final class MatMath {
      * 
      * @param m matrix to be triangulated
      * @return given matrix, which is triangulated
+     *
+     * @since 1.0.0
      */
     public static Matrix triangulate(final Matrix m) {
         int countOfSwaps = 0;
@@ -359,6 +397,8 @@ public final class MatMath {
      * 
      * @param m matrix to be triangulated
      * @return new matrix, which is result of triangulating of given matrix
+     *
+     * @since 1.0.0
      */
     public static Matrix triangulated(final Matrix m) {
         return triangulate(new Mat(m));
@@ -384,6 +424,8 @@ public final class MatMath {
      * @param m matrix for determinant calculation
      * @return matrix determinant
      * @throws UnsupportedOperationException if matrix is not square
+     *
+     * @since 1.0.0
      */
     public static float detThroughCofactors(final Matrix m) {
         if (!square(m)) {
@@ -413,6 +455,8 @@ public final class MatMath {
      * @param m matrix for determinant calculation
      * @return matrix determinant
      * @throws UnsupportedOperationException if matrix is not square
+     *
+     * @since 1.0.0
      */
     public static float det(final Matrix m) {
         if (!square(m)) {
@@ -435,6 +479,8 @@ public final class MatMath {
      * @return invertible matrix
      * @throws UnsupportedOperationException if matrix is not square
      * @throws RuntimeException              if matrix determinant equals to 0
+     *
+     * @since 1.0.0
      */
     public static Matrix invertible(final Matrix m) {
         if (!square(m)) {
@@ -464,6 +510,8 @@ public final class MatMath {
      * @param c column index to exclude
      * @return minor matrix excluding given row and column
      * @throws UnsupportedOperationException if matrix is not square
+     *
+     * @since 1.0.0
      */
     public static Matrix minorMatrix(final Matrix m, final int r, final int c) {
         if (!square(m)) {
@@ -500,6 +548,8 @@ public final class MatMath {
      * @param c index of column for cofactor calculation
      * @return cofactor value from given positions in given matrix
      * @throws UnsupportedOperationException if matrix is not square
+     *
+     * @since 1.0.0
      */
     public static float cofactor(final Matrix m, final int r, final int c) {
         if (!square(m)) {
@@ -516,6 +566,8 @@ public final class MatMath {
      * @param m matrix for matrix of cofactors construction
      * @return matrix of cofactors
      * @throws UnsupportedOperationException if matrix is not square
+     *
+     * @since 1.0.0
      */
     public static Matrix cofactorMatrix(final Matrix m) {
         if (!square(m)) {
@@ -537,6 +589,8 @@ public final class MatMath {
      * 
      * @param m matrix for analysis
      * @return {@code true} if matrix is square, and {@code false} otherwise
+     *
+     * @since 1.0.0
      */
     public static boolean square(final Matrix m) {
         return m.width() == m.height();
@@ -548,6 +602,8 @@ public final class MatMath {
      * @param m matrix for analysis
      * @return {@code true} if matrix elements are approximately equal 0, and
      *         {@code false} otherwise
+     *
+     * @since 1.0.0
      */
     public static boolean isZeroed(final Matrix m) {
         for (int i = 0; i < m.height(); i++) {
@@ -567,6 +623,8 @@ public final class MatMath {
      * @param m matrix for analysis
      * @return {@code true} if matrix is square diagonal, and {@code false}
      *         otherwise
+     *
+     * @since 1.0.0
      */
     public static boolean diagonal(final Matrix m) {
         if (!square(m)) {
@@ -597,6 +655,8 @@ public final class MatMath {
      * @return {@code true} if all elements of matrices are equal within
      *         {@code epsilon} tolerance, and {@code false} otherwise
      * @throws IllegalArgumentException if matrices have different sizes
+     *
+     * @since 1.0.0
      */
     public static boolean equalsEpsilon(final Matrix m1, final Matrix m2, final float eps) {
         Validator.validateMatrixSizes(m1, m2, "Equalizationt denied");
@@ -619,6 +679,8 @@ public final class MatMath {
      * @return {@code true} if all elements of matrices are approximately equal, and
      *         {@code false} otherwise
      * @throws IllegalArgumentException if matrices have different sizes
+     *
+     * @since 1.0.0
      */
     public static boolean equals(final Matrix m1, final Matrix m2) {
         return equalsEpsilon(m1, m2, Validator.EPS);
@@ -630,6 +692,8 @@ public final class MatMath {
      * @param height height of matrix to be constructed
      * @param width  width of matrix to be constructed
      * @return matrix {@code height} x {@code width} with all 0 elements
+     *
+     * @since 1.0.0
      */
     public static Matrix zeroMat(final int height, final int width) {
         return new Mat(height, width);
@@ -640,6 +704,8 @@ public final class MatMath {
      * 
      * @param size height and width of matrix to be constructed
      * @return square matrix {@code size} x {@code size} with 1 on main diagonal
+     *
+     * @since 1.0.0
      */
     public static Matrix unitMat(final int size) {
         final Matrix result = new Mat(size);

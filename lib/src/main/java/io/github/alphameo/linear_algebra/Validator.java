@@ -5,17 +5,23 @@ import io.github.alphameo.linear_algebra.vec.Vector;
 
 /**
  * Class with static functions of validation
+ *
+ * @since 1.0.0
  */
 public class Validator {
 
     /**
      * Default empty constructor
+     *
+     * @since 1.0.0
      */
     public Validator() {
     }
 
     /**
      * Default value tolerance.
+     *
+     * @since 1.0.0
      */
     public static final float EPS = 0.000001f;
 
@@ -24,6 +30,8 @@ public class Validator {
      * 
      * @param divisor divisor value
      * @throws ArithmeticException if divisot approximately equals 0
+     *
+     * @since 1.0.0
      */
     public static void validateDivisor(final float divisor) throws ArithmeticException {
 
@@ -39,6 +47,8 @@ public class Validator {
      * @param v2         second vector for validation
      * @param errMessage specific message
      * @throws IllegalArgumentException if vector sizes are different
+     *
+     * @since 1.0.0
      */
     public static void validateVectorSizes(final Vector v1, final Vector v2,
             final String errMessage) throws IllegalArgumentException {
@@ -55,6 +65,8 @@ public class Validator {
      * @param m2         second matrix for validation
      * @param errMessage specific message
      * @throws IllegalArgumentException if vector sizes are different
+     *
+     * @since 1.0.0
      */
     public static void validateMatrixSizes(final Matrix m1, final Matrix m2,
             final String errMessage) {
@@ -72,6 +84,8 @@ public class Validator {
      * @param eps    tolerance
      * @return {@code true} if values are equal within {@code epsilon} tolerance,
      *         and {@code false} otherwise
+     *
+     * @since 1.0.0
      */
     public static boolean equalsEpsilon(float value1, float value2, float eps) {
         return Math.abs(value1 - value2) < eps;
@@ -84,6 +98,8 @@ public class Validator {
      * @param value2 second value for comparison
      * @return {@code true} if values are approximately equal, and {@code false}
      *         otherwise
+     *
+     * @since 1.0.0
      */
     public static boolean equals(float value1, float value2) {
         return Math.abs(value1 - value2) < EPS;

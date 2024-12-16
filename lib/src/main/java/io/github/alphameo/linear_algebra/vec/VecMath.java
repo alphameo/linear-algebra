@@ -4,11 +4,15 @@ import io.github.alphameo.linear_algebra.Validator;
 
 /**
  * Class with static functions for arbitrary vectors.
+ *
+ * @since 1.0.0
  */
 public final class VecMath {
 
     /**
      * Default empty constructor
+     *
+     * @since 1.0.0
      */
     public VecMath() {
     }
@@ -20,6 +24,8 @@ public final class VecMath {
      * 
      * @param v vector for square length calculation
      * @return square length of given vector
+     *
+     * @since 1.0.0
      */
     public static float len2(final Vector v) {
         float sum = 0;
@@ -35,6 +41,8 @@ public final class VecMath {
      * 
      * @param v vector for length calculation
      * @return length of given vector
+     *
+     * @since 1.0.0
      */
     public static float len(final Vector v) {
         return (float) Math.sqrt(len2(v));
@@ -46,6 +54,8 @@ public final class VecMath {
      * @param v          vector for multiplication
      * @param multiplier scalar value
      * @return given vector with multiplied components
+     *
+     * @since 1.0.0
      */
     public static Vector mult(final Vector v, final float multiplier) {
         for (int i = 0; i < v.size(); i++) {
@@ -62,6 +72,8 @@ public final class VecMath {
      * @param v          vector for multiplication
      * @param multiplier scalar value
      * @return new vector with multiplied components of given vector
+     *
+     * @since 1.0.0
      */
     public static Vector multiplied(final Vector v, final float multiplier) {
         return mult(new Vec(v), multiplier);
@@ -74,6 +86,8 @@ public final class VecMath {
      * @param divisor scalar value
      * @return given vector with divided components
      * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     *
+     * @since 1.0.0
      */
     public static Vector divide(final Vector v, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
@@ -91,6 +105,8 @@ public final class VecMath {
      * @param divisor scalar value
      * @return new vector with divided components of given vector
      * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     *
+     * @since 1.0.0
      */
     public static Vector divided(final Vector v, final float divisor) throws ArithmeticException {
         return divide(new Vec(v), divisor);
@@ -102,6 +118,8 @@ public final class VecMath {
      * @param v vector to be normalized
      * @return given vector with normalized components
      * @throws ArithmeticException if length of given vector equals 0
+     *
+     * @since 1.0.0
      */
     public static Vector normalize(final Vector v) throws ArithmeticException {
         return divide(v, len(v));
@@ -113,6 +131,8 @@ public final class VecMath {
      * @param v vector to be normalized
      * @return new vector with normalized components of given vector
      * @throws ArithmeticException if length of given vector equals 0
+     *
+     * @since 1.0.0
      */
     public static Vector normalized(final Vector v) throws ArithmeticException {
         return divided(v, len(v));
@@ -126,6 +146,8 @@ public final class VecMath {
      * @param addendum vector to add
      * @return {@code target} vector increased by {@code addendum} vector
      * @throws IllegalArgumentException if given vectors have different sizes
+     *
+     * @since 1.0.0
      */
     public static Vector add(final Vector target, final Vector addendum) {
         Validator.validateVectorSizes(target, addendum, "Addition denied");
@@ -145,6 +167,8 @@ public final class VecMath {
      * @return new vector with sum of components of {@code target} vector and
      *         {@code addendum} vector
      * @throws IllegalArgumentException if given vectors have different sizes
+     *
+     * @since 1.0.0
      */
     public static Vector added(final Vector target, final Vector addendum) {
         return add(new Vec(target), addendum);
@@ -158,6 +182,8 @@ public final class VecMath {
      * @param subtrahend vector to subtract
      * @return {@code target} vector subtracted by {@code subtrahend} vector
      * @throws IllegalArgumentException if given vectors have different sizes
+     *
+     * @since 1.0.0
      */
     public static Vector sub(final Vector target, final Vector subtrahend) {
         Validator.validateVectorSizes(target, subtrahend, "Subtraction denied");
@@ -177,6 +203,8 @@ public final class VecMath {
      * @return new vector with components resulting {@code target} vector subtracted
      *         by {@code subtrahend} vector
      * @throws IllegalArgumentException if given vectors have different sizes
+     *
+     * @since 1.0.0
      */
     public static Vector subtracted(final Vector target, final Vector subtrahend) {
         return sub(new Vec(target), subtrahend);
@@ -188,6 +216,8 @@ public final class VecMath {
      * @param v1 first vector
      * @param v2 second vector
      * @return dot (scalar) product of given vectors
+     *
+     * @since 1.0.0
      */
     public static float dot(final Vector v1, final Vector v2) {
         Validator.validateVectorSizes(v1, v2, "Scalar product denied");
@@ -206,6 +236,8 @@ public final class VecMath {
      * @param v2 second vector
      * @return vector, which represents cross (vector) product of given vectors
      * @throws IllegalArgumentException if vectors' sizes are not equal 3
+     *
+     * @since 1.0.0
      */
     public static Vector cross(final Vector v1, final Vector v2) {
         if (v1.size() != 3 || v2.size() != 3) {
@@ -230,6 +262,8 @@ public final class VecMath {
      * @param eps tolerance
      * @return {@code true} if all components of vectors are equal within
      *         {@code epsilon} tolerance, and {@code false} otherwise
+     *
+     * @since 1.0.0
      */
     public static boolean equalsEpsilon(final Vector v1, final Vector v2, final float eps) {
         Validator.validateVectorSizes(v1, v2, "Equalization denied");
@@ -249,6 +283,8 @@ public final class VecMath {
      * @param v2 second vector for comparison
      * @return {@code true} if all components of vectors are approximately equal,
      *         and {@code false} otherwise
+     *
+     * @since 1.0.0
      */
     public static boolean equals(final Vector v1, final Vector v2) {
         return equalsEpsilon(v1, v2, Validator.EPS);
@@ -259,6 +295,8 @@ public final class VecMath {
      * 
      * @param size size of vector to be constructed
      * @return new zero vector of given {@code size}
+     *
+     * @since 1.0.0
      */
     public static Vector zeroVec(final int size) {
         return new Vec(size);
@@ -269,6 +307,8 @@ public final class VecMath {
      * 
      * @param size size of vector to be constructed
      * @return new unit vector of given {@code size}
+     *
+     * @since 1.0.0
      */
     public static Vector unitVec(final int size) {
         final Vector result = new Vec(size);

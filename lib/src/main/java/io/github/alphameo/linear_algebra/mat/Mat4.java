@@ -8,6 +8,8 @@ import io.github.alphameo.linear_algebra.vec.Vector4;
 
 /**
  * Default implementation of matrix 4x4 ({@code Matrix4 interface}).
+ *
+ * @since 1.0.0
  */
 public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
 
@@ -15,6 +17,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
 
     /**
      * Constructs new matrix 3x3 with all 0.
+     *
+     * @since 1.0.0
      */
     public Mat4() {
         this.entries = new float[4][4];
@@ -39,6 +43,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param m31 element under row = 3, column = 1
      * @param m32 element under row = 3, column = 2
      * @param m33 element under row = 3, column = 3
+     *
+     * @since 1.0.0
      */
     public Mat4(
             final float m00, final float m01, final float m02, final float m03,
@@ -70,6 +76,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param entries values for matrix elements
      * @throws IllegalArgumentException if given two dimensional array cannot be
      *                                  interpreted as matrix 4x4
+     *
+     * @since 1.0.0
      */
     public Mat4(final float entries[][]) throws IllegalArgumentException {
         this();
@@ -91,6 +99,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * Copies given matrix 4x4 values into new matrix 4x4.
      * 
      * @param m matrix 4x4 for copying
+     *
+     * @since 1.0.0
      */
     public Mat4(final Matrix4 m) {
         this();
@@ -149,6 +159,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * Transposes current matrix.
      *
      * @return current transposed matrix
+     *
+     * @since 1.0.0
      */
     public Matrix4 transpose() {
         return Mat4Math.transpose(this);
@@ -158,6 +170,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * Construts transposed matrix from current matrix.
      *
      * @return new matrix, which is result of transposing of current square matrix
+     *
+     * @since 1.0.0
      */
     public Matrix4 transposed() {
         return this.copy().transpose();
@@ -169,6 +183,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param r1 first row for swapping
      * @param r2 second row for swapping
      * @return current matrix with swapped rows
+     *
+     * @since 1.0.0
      */
     public Matrix4 swapRows(final Matrix4Row r1, final Matrix4Row r2) {
         return Mat4Math.swapRows(this, r1, r2);
@@ -181,6 +197,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param r2 second index of row for swapping
      * @return current matrix with swapped rows
      * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
+     *
+     * @since 1.0.0
      */
     public Matrix4 swapRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         return Mat4Math.swapRows(this, r1, r2);
@@ -192,6 +210,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param r1 first row for swapping
      * @param r2 second row for swapping
      * @return new matrix with swapped rows of curren matrix
+     *
+     * @since 1.0.0
      */
     public Matrix4 swappedRows(final Matrix4Row r1, final Matrix4Row r2) {
         return Mat4Math.swappedRows(this, r1, r2);
@@ -204,6 +224,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param r2 second index of row for swapping
      * @return new matrix with swapped rows of curren matrix
      * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
+     *
+     * @since 1.0.0
      */
     public Matrix4 swappedRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         return Mat4Math.swappedRows(this, r1, r2);
@@ -215,6 +237,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param c1 first column for swapping
      * @param c2 second column for swapping
      * @return current matrix with swapped columns
+     *
+     * @since 1.0.0
      */
     public Matrix4 swapCols(final Matrix4Col c1, final Matrix4Col c2) {
         return Mat4Math.swapCols(this, c1, c2);
@@ -227,6 +251,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param c2 second index of column for swapping
      * @return current matrix with swapped columns
      * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
+     *
+     * @since 1.0.0
      */
     public Matrix4 swapCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
         return Mat4Math.swapCols(this, c1, c2);
@@ -238,6 +264,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param c1 first column for swapping
      * @param c2 second column for swapping
      * @return new matrix with swapped columns of current matrix
+     *
+     * @since 1.0.0
      */
     public Matrix4 swappedCols(final Matrix4Col c1, final Matrix4Col c2) {
         return Mat4Math.swappedCols(this, c1, c2);
@@ -250,6 +278,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param c2 second index of column for swapping
      * @return new matrix with swapped columns of current matrix
      * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
+     *
+     * @since 1.0.0
      */
     public Matrix4 swappedCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
         return Mat4Math.swappedCols(this, c1, c2);
@@ -260,6 +290,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * 
      * @param multiplier scalar value
      * @return current matrix with multiplied elements
+     *
+     * @since 1.0.0
      */
     public Matrix4 mult(final float multiplier) {
         return Mat4Math.mult(this, multiplier);
@@ -270,6 +302,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * 
      * @param multiplier scalar value
      * @return new matrix with multiplied elements of current matrix
+     *
+     * @since 1.0.0
      */
     public Matrix4 multiplied(final float multiplier) {
         return Mat4Math.multiplied(this, multiplier);
@@ -281,6 +315,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param divisor scalar value
      * @return current matrix with divided elements
      * @throws ArithmeticException if {@code divisor} approximately equals 0
+     *
+     * @since 1.0.0
      */
     public Matrix4 divide(final float divisor) throws ArithmeticException {
         return Mat4Math.divide(this, divisor);
@@ -292,6 +328,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param divisor scalar value
      * @return new matrix with divided elements of current matrix
      * @throws ArithmeticException if {@code divisor} approximately equals 0
+     *
+     * @since 1.0.0
      */
     public Matrix4 divided(final float divisor) throws ArithmeticException {
         return Mat4Math.divide(this, divisor);
@@ -303,6 +341,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * 
      * @param addendum matrix 4x4 to add
      * @return current matrix increased by {@code addendum} matrix
+     *
+     * @since 1.0.0
      */
     public Matrix4 add(final Matrix4 addendum) {
         return Mat4Math.add(this, addendum);
@@ -315,6 +355,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param addendum matrix 4x4 to add
      * @return new matrix with sum of elements of current matrix and
      *         {@code addendum} matrix
+     *
+     * @since 1.0.0
      */
     public Matrix4 added(final Matrix4 addendum) {
         return Mat4Math.added(this, addendum);
@@ -326,6 +368,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * 
      * @param subtrahend matrix 4x4 to subtract
      * @return current matrix subtracted by {@code addendum} matrix
+     *
+     * @since 1.0.0
      */
     public Matrix4 sub(final Matrix4 subtrahend) {
         return Mat4Math.sub(this, subtrahend);
@@ -337,6 +381,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * 
      * @param subtrahend matrix 4x4 to subtract
      * @return current matrix subtracted by {@code addendum} matrix
+     *
+     * @since 1.0.0
      */
     public Matrix4 subtracted(final Matrix4 subtrahend) {
         return Mat4Math.subtracted(this, subtrahend);
@@ -347,6 +393,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      *
      * @param m second (right) matrix 4x4
      * @return matrix, which represents product of matrices
+     *
+     * @since 1.0.0
      */
     public Matrix4 prod(final Matrix4 m) {
         return Mat4Math.prod(this, m);
@@ -358,6 +406,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param v column vector of size 4 (right)
      * @return vector of size 4, which represents product of current matrix and
      *         given vector
+     *
+     * @since 1.0.0
      */
     public Vector4 prod(final Vector4 v) {
         return Mat4Math.prod(this, v);
@@ -367,6 +417,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * Triangulates current matrix.
      * 
      * @return current matrix, which is triangulated
+     *
+     * @since 1.0.0
      */
     public Matrix4 triangulate() {
         return Mat4Math.triangulate(this);
@@ -376,6 +428,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * Copies current matrix and triangulates it.
      * 
      * @return new matrix, which is result of triangulating of current matrix
+     *
+     * @since 1.0.0
      */
     public Matrix4 triangulated() {
         return Mat4Math.triangulated(this);
@@ -385,6 +439,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * Calculates matrix determinant.
      * 
      * @return matrix determinant
+     *
+     * @since 1.0.0
      */
     public float det() {
         return Mat4Math.det(this);
@@ -395,6 +451,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      *
      * @return invertible matrix
      * @throws RuntimeException if matrix determinant equals to 0
+     *
+     * @since 1.0.0
      */
     public Matrix4 invertible() throws RuntimeException {
         return Mat4Math.invertible(this);
@@ -407,6 +465,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param r row to exclude
      * @param c column to exclude
      * @return minor matrix excluding given row and column
+     *
+     * @since 1.0.0
      */
     public Matrix3 minorMatrix(final Matrix4Row r, final Matrix4Col c) {
         return Mat4Math.minorMatrix(this, r, c);
@@ -418,6 +478,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param r row index to exclude
      * @param c column index to exclude
      * @return minor matrix excluding given row and column
+     *
+     * @since 1.0.0
      */
     public Matrix3 minorMatrix(final int r, final int c) {
         return Mat4Math.minorMatrix(this, r, c);
@@ -430,6 +492,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param r index of row for cofactor calculation
      * @param c index of column for cofactor calculation
      * @return cofactor value from given positions in current matrix
+     *
+     * @since 1.0.0
      */
     public float cofactor(final Matrix4Row r, final Matrix4Col c) {
         return Mat4Math.cofactor(this, r, c);
@@ -442,6 +506,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * @param r index of row for cofactor calculation
      * @param c index of column for cofactor calculation
      * @return cofactor value from given positions in current matrix
+     *
+     * @since 1.0.0
      */
     public float cofactor(final int r, final int c) {
         return Mat4Math.cofactor(this, r, c);
@@ -451,6 +517,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * Constructs matrix of cofactors (algebraic complements)
      * 
      * @return matrix of cofactors
+     *
+     * @since 1.0.0
      */
     public Matrix4 cofactorMatrix() {
         return Mat4Math.cofactorMatrix(this);
@@ -460,6 +528,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * Returns true, because matrix is square.
      * 
      * @return {@code true}
+     *
+     * @since 1.0.0
      */
     public boolean square() {
         return true;
@@ -470,6 +540,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * 
      * @return {@code true} if matrix elements are approximately equal 0, and
      *         {@code false} otherwise
+     *
+     * @since 1.0.0
      */
     public boolean isZeroed() {
         return Mat4Math.isZeroed(this);
@@ -480,6 +552,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * 
      * @return {@code true} if matrix is square diagonal, and {@code false}
      *         otherwise
+     *
+     * @since 1.0.0
      */
     public boolean diagonal() {
         return Mat4Math.diagonal(this);
@@ -540,6 +614,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * Constructs matrix 4x4 of with all 0 elements.
      * 
      * @return matrix 4x4 with all 0 elements
+     *
+     * @since 1.0.0
      */
     public static Matrix4 zeroMat() {
         return Mat4Math.zeroMat();
@@ -549,6 +625,8 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * Constructs square matrix 4x4 with 1 on main diagonal.
      * 
      * @return square matrix 4x4 with 1 on main diagonal
+     *
+     * @since 1.0.0
      */
     public static Matrix4 unitMat() {
         return Mat4Math.unitMat();

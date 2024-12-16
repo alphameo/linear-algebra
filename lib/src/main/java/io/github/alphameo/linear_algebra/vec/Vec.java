@@ -7,6 +7,8 @@ import io.github.alphameo.linear_algebra.Equatable;
 
 /**
  * Default implementation of arbitrary vector ({@code Vector interface}).
+ *
+ * @since 1.0.0
  */
 public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
 
@@ -16,6 +18,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * Constructs new vector of given size with all 0.
      * 
      * @param size size of vector for construction
+     *
+     * @since 1.0.0
      */
     public Vec(final int size) {
         this.entries = new float[size];
@@ -25,6 +29,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * Constructs new vector using values from {@code entries}.
      * 
      * @param entries values for vector components
+     *
+     * @since 1.0.0
      */
     public Vec(final float... entries) {
         this(entries.length);
@@ -37,6 +43,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * Copies given vector values into new vector.
      * 
      * @param v vector for copying
+     *
+     * @since 1.0.0
      */
     public Vec(final Vector v) {
         this(v.size());
@@ -66,6 +74,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * You can use it if you need fast comparison.
      * 
      * @return square length of vector
+     *
+     * @since 1.0.0
      */
     public float len2() {
         return VecMath.len2(this);
@@ -75,6 +85,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * Calculates length of vector.
      * 
      * @return length of vector
+     *
+     * @since 1.0.0
      */
     public float len() {
         return VecMath.len(this);
@@ -85,6 +97,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      *
      * @param multiplier scalar value
      * @return current vector with multiplied components
+     *
+     * @since 1.0.0
      */
     public Vector mult(final float multiplier) {
         return VecMath.mult(this, multiplier);
@@ -96,6 +110,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      *
      * @param multiplier scalar value
      * @return new vector with multiplied components of current vector
+     *
+     * @since 1.0.0
      */
     public Vector multiplied(final float multiplier) {
         return VecMath.multiplied(this, multiplier);
@@ -107,6 +123,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * @param divisor scalar value
      * @return current vector with divided components
      * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     *
+     * @since 1.0.0
      */
     public Vector divide(final float divisor) throws ArithmeticException {
         return VecMath.divide(this, divisor);
@@ -118,6 +136,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * @param divisor scalar value
      * @return new vector with divided components of current vector
      * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     *
+     * @since 1.0.0
      */
     public Vector divided(final float divisor) throws ArithmeticException {
         return VecMath.divided(this, divisor);
@@ -128,6 +148,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * 
      * @return current vector with normalized components
      * @throws ArithmeticException if length of vector equals 0
+     *
+     * @since 1.0.0
      */
     public Vector normalize() throws ArithmeticException {
         return VecMath.normalize(this);
@@ -138,6 +160,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * 
      * @return current vector with normalized components of given vector
      * @throws ArithmeticException if length of vector equals 0
+     *
+     * @since 1.0.0
      */
     public Vector normalized() throws ArithmeticException {
         return VecMath.normalized(new Vec(this));
@@ -149,6 +173,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * @param addendum vector to add
      * @return current vector increased by {@code addendum} vector
      * @throws IllegalArgumentException if vectors have different sizes
+     *
+     * @since 1.0.0
      */
     public Vector add(final Vector addendum) {
         return VecMath.add(this, addendum);
@@ -162,6 +188,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * @return new vector with sum of components of current vector and
      *         {@code addendum} vector
      * @throws IllegalArgumentException if vectors have different sizes
+     *
+     * @since 1.0.0
      */
     public Vector added(final Vector addendum) {
         return VecMath.added(this, addendum);
@@ -174,6 +202,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * @param subtrahend vector to subtract
      * @return current vector subtracted by {@code subtrahend} vector
      * @throws IllegalArgumentException if vectors have different sizes
+     *
+     * @since 1.0.0
      */
     public Vector sub(final Vector subtrahend) {
         return VecMath.sub(this, subtrahend);
@@ -187,6 +217,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * @return new vector with components resulting current vector subtracted
      *         by {@code subtrahend} vector
      * @throws IllegalArgumentException if vectors have different sizes
+     *
+     * @since 1.0.0
      */
     public Vector subtracted(final Vector subtrahend) {
         return VecMath.subtracted(this, subtrahend);
@@ -197,6 +229,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      *
      * @param v second vector
      * @return dot (scalar) product of vectors
+     *
+     * @since 1.0.0
      */
     public float dot(final Vector v) {
         return VecMath.dot(this, v);
@@ -208,6 +242,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * @param v second vector
      * @return vector, which represents cross (vector) product of vectors
      * @throws IllegalArgumentException if vectors' sizes are not equal 3
+     *
+     * @since 1.0.0
      */
     public Vector cross(final Vector v) {
         return VecMath.cross(this, v);
@@ -260,6 +296,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * 
      * @param size size of vector to be constructed
      * @return new zero vector of given {@code size}
+     *
+     * @since 1.0.0
      */
     public static Vector zeroVec(final int size) {
         return VecMath.zeroVec(size);
@@ -270,6 +308,8 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
      * 
      * @param size size of vector to be constructed
      * @return new unit vector of given {@code size}
+     *
+     * @since 1.0.0
      */
     public static Vector unitVec(final int size) {
         return VecMath.unitVec(size);

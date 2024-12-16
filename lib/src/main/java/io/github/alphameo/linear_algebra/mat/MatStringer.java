@@ -2,6 +2,8 @@ package io.github.alphameo.linear_algebra.mat;
 
 /**
  * MatUtils
+ *
+ * @since 1.0.0
  */
 class MatStringer {
 

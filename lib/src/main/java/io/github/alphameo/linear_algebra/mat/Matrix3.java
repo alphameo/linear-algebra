@@ -2,6 +2,8 @@ package io.github.alphameo.linear_algebra.mat;
 
 /**
  * Interface for matrix 3x3.
+ *
+ * @since 1.0.0
  */
 public interface Matrix3 extends Matrix {
 
@@ -11,6 +13,8 @@ public interface Matrix3 extends Matrix {
      * @param r row of element
      * @param c column of element
      * @return element at given position
+     *
+     * @since 1.0.0
      */
     float get(Matrix3Row r, Matrix3Col c);
 
@@ -20,6 +24,8 @@ public interface Matrix3 extends Matrix {
      * @param r     row for putting value
      * @param c     column for putting value
      * @param value component value to be put
+     *
+     * @since 1.0.0
      */
     void set(Matrix3Row r, Matrix3Col c, float value);
 }
