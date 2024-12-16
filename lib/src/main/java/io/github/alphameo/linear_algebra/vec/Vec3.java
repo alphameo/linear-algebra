@@ -7,6 +7,8 @@ import io.github.alphameo.linear_algebra.Equatable;
 
 /**
  * Default implementation of vector with size 3 ({@code Vector3 interface}).
+ *
+ * @since 1.0.0
  */
 public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
 
@@ -14,6 +16,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
 
     /**
      * Constructs new vector of size 3 with all 0.
+     *
+     * @since 1.0.0
      */
     public Vec3() {
         entries = new float[3];
@@ -26,6 +30,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * @param x first component of vector
      * @param y second component of vector
      * @param z third component of vector
+     *
+     * @since 1.0.0
      */
     public Vec3(final float x, final float y, final float z) {
         this();
@@ -38,6 +44,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * Copies given vector of size 3 values into new vector of size 3.
      * 
      * @param v vector of size 3 for copying
+     *
+     * @since 1.0.0
      */
     public Vec3(final Vector3 v) {
         this(v.x(), v.y(), v.z());
@@ -101,6 +109,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * You can use it if you need fast comparison.
      * 
      * @return square length of vector
+     *
+     * @since 1.0.0
      */
     public float len2() {
         return Vec3Math.len2(this);
@@ -110,6 +120,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * Calculates length of vector.
      * 
      * @return length of vector
+     *
+     * @since 1.0.0
      */
     public float len() {
         return Vec3Math.len(this);
@@ -120,6 +132,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      *
      * @param multiplier scalar value
      * @return current vector with multiplied components
+     *
+     * @since 1.0.0
      */
     public Vector3 mult(final float multiplier) {
         return Vec3Math.mult(this, multiplier);
@@ -131,6 +145,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      *
      * @param multiplier scalar value
      * @return new vector with multiplied components of current vector
+     *
+     * @since 1.0.0
      */
     public Vector3 multiplied(final float multiplier) {
         return Vec3Math.multiplied(this, multiplier);
@@ -142,6 +158,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * @param divisor scalar value
      * @return current vector with divided components
      * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     *
+     * @since 1.0.0
      */
     public Vector3 divide(final float divisor) throws ArithmeticException {
         return Vec3Math.divide(this, divisor);
@@ -153,6 +171,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * @param divisor scalar value
      * @return current vector with divided components
      * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     *
+     * @since 1.0.0
      */
     public Vector3 divided(final float divisor) throws ArithmeticException {
         return Vec3Math.divided(this, divisor);
@@ -163,6 +183,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * 
      * @return current vector with normalized components
      * @throws ArithmeticException if length of vector equals 0
+     *
+     * @since 1.0.0
      */
     public Vector3 normalize() throws ArithmeticException {
         return Vec3Math.normalize(this);
@@ -173,6 +195,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * 
      * @return current vector with normalized components of given vector
      * @throws ArithmeticException if length of vector equals 0
+     *
+     * @since 1.0.0
      */
     public Vector3 normalized() throws ArithmeticException {
         return Vec3Math.normalized(new Vec3(this));
@@ -183,6 +207,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      *
      * @param addendum vector to add
      * @return current vector increased by {@code addendum} vector
+     *
+     * @since 1.0.0
      */
     public Vector3 add(final Vector3 addendum) {
         return Vec3Math.add(this, addendum);
@@ -195,6 +221,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * @param addendum vector to add
      * @return new vector with sum of components of current vector and
      *         {@code addendum} vector
+     *
+     * @since 1.0.0
      */
     public Vector3 added(final Vector3 addendum) {
         return Vec3Math.added(this, addendum);
@@ -206,6 +234,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * 
      * @param subtrahend vector to subtract
      * @return current vector subtracted by {@code subtrahend} vector
+     *
+     * @since 1.0.0
      */
     public Vector3 sub(final Vector3 subtrahend) {
         return Vec3Math.sub(this, subtrahend);
@@ -218,6 +248,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * @param subtrahend vector to subtract
      * @return new vector with components resulting current vector subtracted
      *         by {@code subtrahend} vector
+     *
+     * @since 1.0.0
      */
     public Vector3 subtracted(final Vector3 subtrahend) {
         return Vec3Math.subtracted(this, subtrahend);
@@ -228,6 +260,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      *
      * @param v second vector
      * @return dot (scalar) product of vectors
+     *
+     * @since 1.0.0
      */
     public float dot(final Vector3 v) {
         return Vec3Math.dot(this, v);
@@ -238,6 +272,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      *
      * @param v second vector
      * @return vector, which represents cross (vector) product of vectors
+     *
+     * @since 1.0.0
      */
     public Vector3 cross(final Vector3 v) {
         final Vector3 result = new Vec3();
@@ -253,6 +289,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      *
      * @return new vector of size 3 including components of current vector and 1 as
      *         last component
+     *
+     * @since 1.0.0
      */
     public Vector4 toVec4() {
         return Vec3Math.toVec4(this);
@@ -304,6 +342,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * Constructs new vector of size 3 with all 0 components.
      * 
      * @return new zero vector of size 3
+     *
+     * @since 1.0.0
      */
     public static Vector3 zeroVec() {
         return Vec3Math.zeroVec();
@@ -313,6 +353,8 @@ public class Vec3 implements Vector3, Equatable<Vector3>, Copyable<Vec3> {
      * Constructs new vector of size 4 with all 1 components.
      * 
      * @return new unit vector of size 4
+     *
+     * @since 1.0.0
      */
     public static Vector3 unitVec() {
         return Vec3Math.unitVec();
