@@ -8,21 +8,29 @@ import io.github.alphameo.linear_algebra.vec.Vector4;
 
 /**
  * Class with static functions for matrices 4x4.
+ *
+ * @since 1.0.0
  */
 public final class Mat4Math {
 
     /**
      * Constant array of enums for fast and safe access to matrix 4x4 rows
+     *
+     * @since 1.0.0
      */
     public static final Matrix4Row[] ROWS = Matrix4Row.values();
 
     /**
      * Constant array of enums for fast and safe access to matrix 4x4 columns
+     *
+     * @since 1.0.0
      */
     public static final Matrix4Col[] COLS = Matrix4Col.values();
 
     /**
      * Default empty constructor
+     *
+     * @since 1.0.0
      */
     public Mat4Math() {
     }
@@ -32,6 +40,8 @@ public final class Mat4Math {
      *
      * @param m matrix 4x4 for transpose
      * @return given matrix 4x4, which is transposed
+     *
+     * @since 1.0.0
      */
     public static Matrix4 transpose(final Matrix4 m) {
         float tmp;
@@ -51,6 +61,8 @@ public final class Mat4Math {
      * 
      * @param m matrix 4x4 for transpose
      * @return new matrix 4x4, which is result of transposing of given matrix 4x4
+     *
+     * @since 1.0.0
      */
     public static Matrix4 transposed(final Matrix4 m) {
         return transpose(new Mat4(m));
@@ -63,6 +75,8 @@ public final class Mat4Math {
      * @param r1 first row for swapping
      * @param r2 second row for swapping
      * @return given matrix 4x4 with swapped rows
+     *
+     * @since 1.0.0
      */
     public static Matrix4 swapRows(final Matrix4 m, final Matrix4Row r1, final Matrix4Row r2) {
         float tmp;
@@ -83,6 +97,8 @@ public final class Mat4Math {
      * @param r2 second index of row for swapping
      * @return given 4x4 matrix with swapped rows
      * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
+     *
+     * @since 1.0.0
      */
     public static Matrix4 swapRows(final Matrix4 m, final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         swapRows(m, ROWS[r1], ROWS[r2]);
@@ -97,6 +113,8 @@ public final class Mat4Math {
      * @param r1 first row for swapping
      * @param r2 second row for swapping
      * @return new matrix 4x4 with swapped rows of given matrix 4x4
+     *
+     * @since 1.0.0
      */
     public static Matrix4 swappedRows(final Matrix4 m, final Matrix4Row r1, final Matrix4Row r2) {
         return swapRows(new Mat4(m), r1, r2);
@@ -110,6 +128,8 @@ public final class Mat4Math {
      * @param r2 second index of row for swapping
      * @return new matrix 4x4 with swapped rows of given matrix 4x4
      * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
+     *
+     * @since 1.0.0
      */
     public static Matrix4 swappedRows(final Matrix4 m, final int r1, final int r2)
             throws ArrayIndexOutOfBoundsException {
@@ -123,6 +143,8 @@ public final class Mat4Math {
      * @param c1 first column for swapping
      * @param c2 second column for swapping
      * @return given matrix 4x4 with swapped columns
+     *
+     * @since 1.0.0
      */
     public static Matrix4 swapCols(final Matrix4 m, final Matrix4Col c1, final Matrix4Col c2) {
         float tmp;
@@ -142,6 +164,8 @@ public final class Mat4Math {
      * @param c1 first index of column for swapping
      * @param c2 second index of column for swapping
      * @return given matrix 4x4 with swapped columns
+     *
+     * @since 1.0.0
      */
     public static Matrix4 swapCols(final Matrix4 m, final int c1, final int c2) {
         return swapCols(m, COLS[c1], COLS[c2]);
@@ -155,6 +179,8 @@ public final class Mat4Math {
      * @param c2 second column for swapping
      * @return new matrix 4x4 with swapped columns of given matrix 4x4
      * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
+     *
+     * @since 1.0.0
      */
     public static Matrix4 swappedCols(final Matrix4 m, final Matrix4Col c1, final Matrix4Col c2)
             throws ArrayIndexOutOfBoundsException {
@@ -169,6 +195,8 @@ public final class Mat4Math {
      * @param c2 second index of column for swapping
      * @return new matrix 4x4 with swapped columns of given matrix 4x4
      * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
+     *
+     * @since 1.0.0
      */
     public static Matrix4 swappedCols(final Matrix4 m, final int c1, final int c2)
             throws ArrayIndexOutOfBoundsException {
@@ -181,6 +209,8 @@ public final class Mat4Math {
      * @param m          matrix 4x4 for multiplication
      * @param multiplier scalar value
      * @return given matrix 4x4 with multiplied elements
+     *
+     * @since 1.0.0
      */
     public static Matrix4 mult(final Matrix4 m, final float multiplier) {
         for (final Matrix4Row r : ROWS) {
@@ -198,6 +228,8 @@ public final class Mat4Math {
      * @param m          matrix for multiplication
      * @param multiplier scalar value
      * @return new matrix 4x4 with multiplied elements of given matrix
+     *
+     * @since 1.0.0
      */
     public static Matrix4 multiplied(final Matrix4 m, final float multiplier) {
         return mult(new Mat4(m), multiplier);
@@ -210,6 +242,8 @@ public final class Mat4Math {
      * @param divisor scalar value
      * @return given matrix 4x4 with divided elements
      * @throws ArithmeticException if {@code divisor} approximately equals 0
+     *
+     * @since 1.0.0
      */
     public static Matrix4 divide(final Matrix4 m, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
@@ -229,6 +263,8 @@ public final class Mat4Math {
      * @param divisor scalar value
      * @return new matrix 4x4 with divided elements of given matrix
      * @throws ArithmeticException if {@code divisor} approximately equals 0
+     *
+     * @since 1.0.0
      */
     public static Matrix4 divided(final Matrix4 m, final float divisor) throws ArithmeticException {
         return divide(new Mat4(m), divisor);
@@ -241,6 +277,8 @@ public final class Mat4Math {
      * @param target   matrix 4x4 to be added
      * @param addendum matrix 4x4 to add
      * @return {@code target} matrix 4x4 increased by {@code addendum} matrix 4x4
+     *
+     * @since 1.0.0
      */
     public static Matrix4 add(final Matrix4 target, final Matrix4 addendum) {
         for (final Matrix4Row r : ROWS) {
@@ -260,6 +298,8 @@ public final class Mat4Math {
      * @param addendum matrix 4x4 to add
      * @return new matrix 4x4 with sum of elements of {@code target} matrix 4x4 and
      *         {@code addendum} matrix 4x4
+     *
+     * @since 1.0.0
      */
     public static Matrix4 added(final Matrix4 target, final Matrix4 addendum) {
         return add(new Mat4(target), addendum);
@@ -272,6 +312,8 @@ public final class Mat4Math {
      * @param target     matrix 4x4 to be subtracted
      * @param subtrahend matrix 4x4 to subtract
      * @return {@code target} matrix 4x4 subtracted by {@code addendum} matrix 4x4
+     *
+     * @since 1.0.0
      */
     public static Matrix4 sub(final Matrix4 target, final Matrix4 subtrahend) {
         for (final Matrix4Row r : ROWS) {
@@ -291,6 +333,8 @@ public final class Mat4Math {
      * @param subtrahend matrix 4x4 to subtract
      * @return new matrix 4x4 with components resulting {@code target} matrix 4x4
      *         subtracted by {@code subtrahend} matrix 4x4
+     *
+     * @since 1.0.0
      */
     public static Matrix4 subtracted(final Matrix4 target, final Matrix4 subtrahend) {
         return sub(new Mat4(target), subtrahend);
@@ -302,6 +346,8 @@ public final class Mat4Math {
      * @param m1 first (left) matrix 4x4
      * @param m2 second (right) matrix 4x4
      * @return matrix 4x4, which represents product of given matrices
+     *
+     * @since 1.0.0
      */
     public static Matrix4 prod(final Matrix4 m1, final Matrix4 m2) {
         final Matrix4 result = new Mat4();
@@ -324,6 +370,8 @@ public final class Mat4Math {
      * @param m matrix 4x4 (left)
      * @param v column vector of size 4 (right)
      * @return vector of size 4, which represents product of given matrix and vector
+     *
+     * @since 1.0.0
      */
     public static Vector4 prod(final Matrix4 m, final Vector4 v) {
         final Vector4 result = new Vec4();
@@ -344,6 +392,8 @@ public final class Mat4Math {
      * 
      * @param m matrix 4x4 to be triangulated
      * @return given matrix 4x4, which is triangulated
+     *
+     * @since 1.0.0
      */
     public static Matrix4 triangulate(final Matrix4 m) {
         int countOfSwaps = 0;
@@ -392,6 +442,8 @@ public final class Mat4Math {
      * 
      * @param m matrix 4x4 to be triangulated
      * @return new matrix 4x4, which is result of triangulating of given matrix 4x4
+     *
+     * @since 1.0.0
      */
     public static Matrix4 triangulated(final Matrix4 m) {
         return triangulate(new Mat4(m));
@@ -402,6 +454,8 @@ public final class Mat4Math {
      * 
      * @param m matrix 4x4 for determinant calculation
      * @return matrix 4x4 determinant
+     *
+     * @since 1.0.0
      */
     public static float det(final Matrix4 m) {
         float determinant = 0;
@@ -417,6 +471,8 @@ public final class Mat4Math {
      * @param m matrix 4x4 for invertible matrix 4x4 construction
      * @return invertible matrix 4x4
      * @throws RuntimeException if matrix determinant equals to 0
+     *
+     * @since 1.0.0
      */
     public static Matrix4 invertible(final Matrix4 m) throws RuntimeException {
         final Matrix4 result = cofactorMatrix(m);
@@ -437,6 +493,8 @@ public final class Mat4Math {
      * @param r row to exclude
      * @param c column to exclude
      * @return minor matrix excluding given row and column
+     *
+     * @since 1.0.0
      */
     public static Matrix3 minorMatrix(final Matrix4 m, final Matrix4Row r, final Matrix4Col c) {
         final Matrix3 result = new Mat3();
@@ -471,6 +529,8 @@ public final class Mat4Math {
      * @param r row index to exclude
      * @param c column index to exclude
      * @return minor matrix excluding given row and column
+     *
+     * @since 1.0.0
      */
     public static Matrix3 minorMatrix(final Matrix4 m, final int r, final int c) {
         return minorMatrix(m, ROWS[r], COLS[c]);
@@ -484,6 +544,8 @@ public final class Mat4Math {
      * @param r row for cofactor calculation
      * @param c column for cofactor calculation
      * @return cofactor value from given positions in given matrix 4x4
+     *
+     * @since 1.0.0
      */
     public static float cofactor(final Matrix4 m, final Matrix4Row r, final Matrix4Col c) {
         final int coefficient = (r.ordinal() + c.ordinal()) % 2 == 0 ? 1 : -1;
@@ -498,6 +560,8 @@ public final class Mat4Math {
      * @param r index of row for cofactor calculation
      * @param c index of column for cofactor calculation
      * @return cofactor value from given positions in given matrix 4x4
+     *
+     * @since 1.0.0
      */
     public static float cofactor(final Matrix4 m, final int r, final int c) {
         return cofactor(m, ROWS[r], COLS[c]);
@@ -508,6 +572,8 @@ public final class Mat4Math {
      * 
      * @param m matrix 4x4 for matrix of cofactors construction
      * @return matrix 4x4 of cofactors
+     *
+     * @since 1.0.0
      */
     public static Matrix4 cofactorMatrix(final Matrix4 m) {
         final Matrix4 result = new Mat4();
@@ -529,6 +595,8 @@ public final class Mat4Math {
      * @param eps tolerance
      * @return {@code true} if all elements of matrices 4x4 are equal within
      *         {@code epsilon} tolerance, and {@code false} otherwise
+     *
+     * @since 1.0.0
      */
     public static boolean equalsEpsilon(final Matrix4 m1, final Matrix4 m2, final float eps) {
         for (final Matrix4Row r : ROWS) {
@@ -549,6 +617,8 @@ public final class Mat4Math {
      * @param m2 second matrix 4x4 for comparison
      * @return {@code true} if all elements of matrices 4x4 are approximately equal,
      *         and {@code false} otherwise
+     *
+     * @since 1.0.0
      */
     public static boolean equals(final Matrix4 m1, final Matrix4 m2) {
         return equalsEpsilon(m1, m2, Validator.EPS);
@@ -560,6 +630,8 @@ public final class Mat4Math {
      * @param m matrix 4x4 for analysis
      * @return {@code true} if matrix elements are approximately equal 0, and
      *         {@code false} otherwise
+     *
+     * @since 1.0.0
      */
     public static boolean isZeroed(final Matrix4 m) {
         for (final Matrix4Row r : ROWS) {
@@ -579,6 +651,8 @@ public final class Mat4Math {
      * @param m matrix for analysis
      * @return {@code true} if matrix is square diagonal, and {@code false}
      *         otherwise
+     *
+     * @since 1.0.0
      */
     public static boolean diagonal(final Matrix4 m) {
         for (final Matrix4Row r : ROWS) {
@@ -599,6 +673,8 @@ public final class Mat4Math {
      * Constructs matrix 4x4 of with all 0 elements.
      * 
      * @return matrix 4x4 with all 0 elements
+     *
+     * @since 1.0.0
      */
     public static Matrix4 zeroMat() {
         return new Mat4();
@@ -608,6 +684,8 @@ public final class Mat4Math {
      * Constructs square matrix 4x4 with 1 on main diagonal.
      * 
      * @return square matrix 4x4 with 1 on main diagonal
+     *
+     * @since 1.0.0
      */
     public static Matrix4 unitMat() {
         final Matrix4 result = new Mat4();
