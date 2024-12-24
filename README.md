@@ -127,7 +127,7 @@ If you are using Gradle with the Kotlin DSL, you can do this by yourself. Add to
 dependencies {
     // other dependencies
 
-    implementation(file("../libs/linear_algebra-1.0.0.jar"))
+    implementation(files("../libs/linear_algebra-1.0.0.jar"))
     // implementation() or api() - read the gradle documentation
     // 1.0.0 is version that you want to use
 }
