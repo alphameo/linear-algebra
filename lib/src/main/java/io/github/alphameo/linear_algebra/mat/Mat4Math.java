@@ -479,7 +479,7 @@ public final class Mat4Math {
         final float determinant = det(m);
 
         if (determinant == 0) {
-            throw new RuntimeException("Invertible matrix does not exitst: determinant is 0");
+            throw new RuntimeException("Invertible matrix does not exist: determinant is 0");
         }
         transpose(result);
         mult(result, 1 / determinant);

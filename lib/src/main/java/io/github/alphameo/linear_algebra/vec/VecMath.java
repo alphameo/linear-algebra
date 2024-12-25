@@ -242,7 +242,7 @@ public final class VecMath {
     public static Vector cross(final Vector v1, final Vector v2) {
         if (v1.size() != 3 || v2.size() != 3) {
             throw new IllegalArgumentException(
-                    String.format(String.format("Cross product denien: vector size must be 3, but given are %d, %d"),
+                    String.format(String.format("Cross product denied: vector size must be 3, but given are %d, %d"),
                             v1.size(), v2.size()));
         }
         final Vector result = new Vec(3);
@@ -303,7 +303,7 @@ public final class VecMath {
     }
 
     /**
-     * Constructs new vector of given {@code size} with all 1 components.
+     * Constructs new vector of given {@code size} with 1 as components.
      * 
      * @param size size of vector to be constructed
      * @return new unit vector of given {@code size}

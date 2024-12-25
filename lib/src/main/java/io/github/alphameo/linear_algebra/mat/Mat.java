@@ -42,7 +42,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
      * Constructs new matrix using values from {@code entries}.
      * 
      * @param entries values for matrix elements
-     * @throws IllegalArgumentException if given two dimensional array cannot be
+     * @throws IllegalArgumentException if given two-dimensional array cannot be
      *                                  interpreted as rectangular matrix
      *
      * @since 1.0.0
@@ -114,7 +114,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
     }
 
     /**
-     * Construts transposed matrix from current matrix.
+     * Constructs transposed matrix from current matrix.
      *
      * @return new matrix, which is result of transposing of current square matrix
      *
@@ -143,12 +143,12 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
      * 
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
-     * @return new matrix with swapped rows of curren matrix
+     * @return new matrix with swapped rows of current matrix
      * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      *
      * @since 1.0.0
      */
-    public Matrix swapppedRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
+    public Matrix swappedRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         return MatMath.swappedRows(this, r1, r2);
     }
 
@@ -345,7 +345,7 @@ public class Mat implements Matrix, Equatable<Matrix>, Copyable<Mat> {
      *
      * @since 1.0.0
      */
-    public float detThroughtCofactors() {
+    public float detViaCofactors() {
         return MatMath.detThroughCofactors(this);
     }
 

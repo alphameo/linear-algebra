@@ -291,7 +291,7 @@ public final class Vec3Math {
     }
 
     /**
-     * Constructs new vector of size 3 with all 1 components.
+     * Constructs new vector of size 3 with 1 as components.
      * 
      * @return new unit vector of size 3
      *

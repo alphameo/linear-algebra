@@ -29,7 +29,7 @@ public class Validator {
      * Checks 0 divisor.
      * 
      * @param divisor divisor value
-     * @throws ArithmeticException if divisot approximately equals 0
+     * @throws ArithmeticException if divisor approximately equals 0
      *
      * @since 1.0.0
      */

@@ -29,5 +29,5 @@ public enum Matrix4Row {
      *
      * @since 1.0.0
      */
-    R3;
+    R3
 }

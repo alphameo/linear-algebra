@@ -74,7 +74,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * Constructs new matrix 4x4 using values from {@code entries}.
      * 
      * @param entries values for matrix elements
-     * @throws IllegalArgumentException if given two dimensional array cannot be
+     * @throws IllegalArgumentException if given two-dimensional array cannot be
      *                                  interpreted as matrix 4x4
      *
      * @since 1.0.0
@@ -167,7 +167,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
     }
 
     /**
-     * Construts transposed matrix from current matrix.
+     * Constructs transposed matrix from current matrix.
      *
      * @return new matrix, which is result of transposing of current square matrix
      *
@@ -209,7 +209,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * 
      * @param r1 first row for swapping
      * @param r2 second row for swapping
-     * @return new matrix with swapped rows of curren matrix
+     * @return new matrix with swapped rows of current matrix
      *
      * @since 1.0.0
      */
@@ -222,7 +222,7 @@ public class Mat4 implements Matrix4, Equatable<Matrix4>, Copyable<Mat4> {
      * 
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
-     * @return new matrix with swapped rows of curren matrix
+     * @return new matrix with swapped rows of current matrix
      * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      *
      * @since 1.0.0

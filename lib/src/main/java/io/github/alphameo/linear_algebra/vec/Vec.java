@@ -304,7 +304,7 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
     }
 
     /**
-     * Constructs new vector of given {@code size} with all 1 components.
+     * Constructs new vector of given {@code size} with 1 as components.
      * 
      * @param size size of vector to be constructed
      * @return new unit vector of given {@code size}

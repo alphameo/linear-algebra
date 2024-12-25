@@ -23,5 +23,5 @@ public enum Matrix3Row {
      *
      * @since 1.0.0
      */
-    R2;
+    R2
 }

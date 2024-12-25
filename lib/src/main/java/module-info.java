@@ -1,7 +1,5 @@
 /**
  * Java library for Linear algebra
- *
- * @version 1.0.0
  */
 module io.github.alphameo.linear_algebra {
     // matrices

@@ -29,5 +29,5 @@ public enum Matrix4Col {
      *
      * @since 1.0.0
      */
-    C3;
+    C3
 }

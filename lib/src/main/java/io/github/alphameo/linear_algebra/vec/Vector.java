@@ -15,7 +15,7 @@ public interface Vector {
      *
      * @since 1.0.0
      */
-    public float get(int i);
+    float get(int i);
 
     /**
      * Sets value into given position inside vector.
@@ -25,7 +25,7 @@ public interface Vector {
      *
      * @since 1.0.0
      */
-    public void set(int i, final float value);
+    void set(int i, final float value);
 
     /**
      * Returns size (components count) of vector.
@@ -34,5 +34,5 @@ public interface Vector {
      *
      * @since 1.0.0
      */
-    public int size();
+    int size();
 }

@@ -203,7 +203,7 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
     }
 
     /**
-     * Copies currnet vector and adds the {@code addendum} vector components to its
+     * Copies current vector and adds the {@code addendum} vector components to its
      * components.
      *
      * @param addendum vector to add
@@ -256,7 +256,7 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
     }
 
     /**
-     * Constructs new vector of size 3 with components of curren vector and 1
+     * Constructs new vector of size 3 with components of current vector and 1
      * <p>
      * (x, y, 1)
      *
@@ -323,7 +323,7 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
     }
 
     /**
-     * Constructs new vector of size 2 with all 1 components.
+     * Constructs new vector of size 2 with 1 as components.
      * 
      * @return new unit vector of size 2
      *

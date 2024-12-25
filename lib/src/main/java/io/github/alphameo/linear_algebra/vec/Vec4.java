@@ -228,7 +228,7 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
     }
 
     /**
-     * Copies currnet vector and adds the {@code addendum} vector components to its
+     * Copies current vector and adds the {@code addendum} vector components to its
      * components.
      *
      * @param addendum vector to add
@@ -334,7 +334,7 @@ public class Vec4 implements Vector4, Equatable<Vector4>, Copyable<Vec4> {
     }
 
     /**
-     * Constructs new vector of size 4 with all 1 components.
+     * Constructs new vector of size 4 with 1 as components.
      * 
      * @return new unit vector of size 4
      *

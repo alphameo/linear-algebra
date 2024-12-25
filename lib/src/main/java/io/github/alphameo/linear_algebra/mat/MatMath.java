@@ -29,7 +29,7 @@ public final class MatMath {
      */
     public static Matrix transposeSquare(final Matrix m) {
         if (!square(m)) {
-            throw new IllegalArgumentException("Inaplicable method ::transposeSquare for non-square matrix");
+            throw new IllegalArgumentException("Inapplicable method ::transposeSquare for non-square matrix");
         }
 
         float tmp;
@@ -45,7 +45,7 @@ public final class MatMath {
     }
 
     /**
-     * Construts transposed matrix from given matrix
+     * Constructs transposed matrix from given matrix
      *
      * @param m square matrix for transpose
      * @return new matrix, which is result of transposing of given square matrix
@@ -494,7 +494,7 @@ public final class MatMath {
         }
 
         if (determinant == 0) {
-            throw new RuntimeException("Invertible matrix does not exitst: determinant is 0");
+            throw new RuntimeException("Invertible matrix does not exist: determinant is 0");
         }
         transposeSquare(result);
         mult(result, 1 / determinant);
@@ -659,7 +659,7 @@ public final class MatMath {
      * @since 1.0.0
      */
     public static boolean equalsEpsilon(final Matrix m1, final Matrix m2, final float eps) {
-        Validator.validateMatrixSizes(m1, m2, "Equalizationt denied");
+        Validator.validateMatrixSizes(m1, m2, "Equalization denied");
         for (int r = 0; r < m1.height(); r++) {
             for (int c = 0; c < m2.width(); c++) {
                 if (!Validator.equalsEpsilon(m1.get(r, c), m2.get(r, c), eps)) {
