@@ -6,4 +6,7 @@ module io.github.alphameo.linear_algebra {
     exports io.github.alphameo.linear_algebra.mat;
     // vectors
     exports io.github.alphameo.linear_algebra.vec;
+
+    // utility
+    exports io.github.alphameo.linear_algebra;
 }

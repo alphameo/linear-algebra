@@ -2,7 +2,6 @@ package io.github.alphameo.linear_algebra.vec;
 
 import java.util.Arrays;
 
-import io.github.alphameo.linear_algebra.Copyable;
 import io.github.alphameo.linear_algebra.Equatable;
 
 /**
@@ -10,7 +9,7 @@ import io.github.alphameo.linear_algebra.Equatable;
  *
  * @since 1.0.0
  */
-public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
+public class Vec2 implements Vector2, Equatable<Vector2>, Cloneable {
 
     private final float[] entries;
 
@@ -280,7 +279,7 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Copyable<Vec2> {
     }
 
     @Override
-    public Vec2 copy() {
+    protected Vector2 clone() {
         return new Vec2(this.x(), this.y());
     }
 

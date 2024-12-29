@@ -2,7 +2,6 @@ package io.github.alphameo.linear_algebra.vec;
 
 import java.util.Arrays;
 
-import io.github.alphameo.linear_algebra.Copyable;
 import io.github.alphameo.linear_algebra.Equatable;
 
 /**
@@ -10,7 +9,7 @@ import io.github.alphameo.linear_algebra.Equatable;
  *
  * @since 1.0.0
  */
-public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
+public class Vec implements Vector, Equatable<Vector>, Cloneable {
 
     private final float[] entries;
 
@@ -181,7 +180,7 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
     }
 
     /**
-     * Copies currnet vector and adds the {@code addendum} vector components to its
+     * Copies current vector and adds the {@code addendum} vector components to its
      * components.
      *
      * @param addendum vector to add
@@ -260,7 +259,7 @@ public class Vec implements Vector, Equatable<Vector>, Copyable<Vec> {
     }
 
     @Override
-    public Vec copy() {
+    public Vector clone() {
         return new Vec(entries);
     }
 

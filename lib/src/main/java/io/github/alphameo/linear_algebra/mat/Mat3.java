@@ -2,7 +2,6 @@ package io.github.alphameo.linear_algebra.mat;
 
 import java.util.Arrays;
 
-import io.github.alphameo.linear_algebra.Copyable;
 import io.github.alphameo.linear_algebra.Equatable;
 import io.github.alphameo.linear_algebra.vec.Vector3;
 
@@ -11,7 +10,7 @@ import io.github.alphameo.linear_algebra.vec.Vector3;
  *
  * @since 1.0.0
  */
-public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
+public class Mat3 implements Matrix3, Equatable<Matrix3>, Cloneable {
 
     private final float[][] entries;
 
@@ -623,7 +622,7 @@ public class Mat3 implements Matrix3, Equatable<Matrix3>, Copyable<Mat3> {
     }
 
     @Override
-    public Mat3 copy() {
+    public Matrix3 clone() {
         final Mat3 result = new Mat3();
 
         for (final Matrix3Row i : Matrix3Row.values()) {
