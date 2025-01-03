@@ -10,7 +10,7 @@ import io.github.alphameo.linear_algebra.vec.Vector4;
  *
  * @since 1.0.0
  */
-public class Mat4 implements Matrix4, Equatable<Matrix4>, Cloneable {
+public class Mat4 implements Matrix4, Equatable<Matrix4> {
 
     private final float[][] entries;
 

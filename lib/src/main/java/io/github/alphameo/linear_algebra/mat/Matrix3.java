@@ -8,7 +8,7 @@ package io.github.alphameo.linear_algebra.mat;
 public interface Matrix3 extends Matrix {
 
     /**
-     * Safely returns element at given row and column inside vector.
+     * Safely returns element at given row and column inside matrix 3x3.
      * 
      * @param r row of element
      * @param c column of element
@@ -28,4 +28,11 @@ public interface Matrix3 extends Matrix {
      * @since 1.0.0
      */
     void set(Matrix3Row r, Matrix3Col c, float value);
+
+    /**
+     * Creates and returns a copy of current matrix 3x3.
+     * 
+     * @return copy of matrix 3x3
+     */
+    Matrix3 clone();
 }

@@ -10,7 +10,7 @@ import io.github.alphameo.linear_algebra.vec.Vector3;
  *
  * @since 1.0.0
  */
-public class Mat3 implements Matrix3, Equatable<Matrix3>, Cloneable {
+public class Mat3 implements Matrix3, Equatable<Matrix3> {
 
     private final float[][] entries;
 

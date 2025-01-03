@@ -10,7 +10,7 @@ import io.github.alphameo.linear_algebra.vec.Vector;
  *
  * @since 1.0.0
  */
-public class Mat implements Matrix, Equatable<Matrix>, Cloneable {
+public class Mat implements Matrix, Equatable<Matrix> {
 
     private float[][] entries;
 

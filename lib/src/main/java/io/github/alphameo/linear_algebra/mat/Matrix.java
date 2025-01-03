@@ -5,7 +5,7 @@ package io.github.alphameo.linear_algebra.mat;
  *
  * @since 1.0.0
  */
-public interface Matrix {
+public interface Matrix extends Cloneable {
 
     /**
      * Returns element at given row index and column index inside matrix.
@@ -46,4 +46,11 @@ public interface Matrix {
      * @since 1.0.0
      */
     int height();
+
+    /**
+     * Creates and returns a copy of current matrix.
+     * 
+     * @return copy of matrix
+     */
+    Matrix clone();
 }
