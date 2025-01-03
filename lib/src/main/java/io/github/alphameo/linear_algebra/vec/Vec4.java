@@ -9,7 +9,7 @@ import io.github.alphameo.linear_algebra.Equatable;
  *
  * @since 1.0.0
  */
-public class Vec4 implements Vector4, Equatable<Vector4>, Cloneable {
+public class Vec4 implements Vector4, Equatable<Vector4> {
 
     private final float[] entries;
 

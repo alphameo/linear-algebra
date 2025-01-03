@@ -60,4 +60,11 @@ public interface Vector3 extends Vector {
      * @since 1.0.0
      */
     void setZ(float value);
+
+    /**
+     * Creates and returns a copy of current vector of size 3.
+     * 
+     * @return copy of vector of size 3
+     */
+    Vector3 clone();
 }

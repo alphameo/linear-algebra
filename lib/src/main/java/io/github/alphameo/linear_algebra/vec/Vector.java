@@ -5,7 +5,7 @@ package io.github.alphameo.linear_algebra.vec;
  *
  * @since 1.0.0
  */
-public interface Vector {
+public interface Vector extends Cloneable {
 
     /**
      * Returns component at given position inside vector.
@@ -35,4 +35,11 @@ public interface Vector {
      * @since 1.0.0
      */
     int size();
+
+    /**
+     * Creates and returns a copy of current vector.
+     * 
+     * @return copy of vector
+     */
+    Vector clone();
 }

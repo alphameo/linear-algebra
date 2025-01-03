@@ -78,4 +78,11 @@ public interface Vector4 extends Vector {
      * @since 1.0.0
      */
     void setW(float value);
+
+    /**
+     * Creates and returns a copy of current vector of size 4.
+     * 
+     * @return copy of vector of size 4
+     */
+    Vector4 clone();
 }

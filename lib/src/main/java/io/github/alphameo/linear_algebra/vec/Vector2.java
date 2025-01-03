@@ -42,4 +42,11 @@ public interface Vector2 extends Vector {
      * @since 1.0.0
      */
     void setY(float value);
+
+    /**
+     * Creates and returns a copy of current vector of size 2.
+     * 
+     * @return copy of vector of size 2
+     */
+    Vector2 clone();
 }

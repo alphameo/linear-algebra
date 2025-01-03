@@ -9,7 +9,7 @@ import io.github.alphameo.linear_algebra.Equatable;
  *
  * @since 1.0.0
  */
-public class Vec2 implements Vector2, Equatable<Vector2>, Cloneable {
+public class Vec2 implements Vector2, Equatable<Vector2> {
 
     private final float[] entries;
 
@@ -279,7 +279,7 @@ public class Vec2 implements Vector2, Equatable<Vector2>, Cloneable {
     }
 
     @Override
-    protected Vector2 clone() {
+    public Vector2 clone() {
         return new Vec2(this.x(), this.y());
     }
 
