@@ -372,14 +372,18 @@ public final class Mat3Math {
      */
     public static Vector3 prod(final Matrix3 m, final Vector3 v) {
         final Vector3 result = new Vec3();
-        for (int i = 0; i < m.height(); i++) {
-            float value = 0;
-            for (int elem = 0; elem < v.size(); elem++) {
-                value += m.get(ROWS[i], COLS[elem]) * v.get(elem);
-            }
 
-            result.set(i, value);
-        }
+        result.setX(m.get(R0, C0) * v.x()
+                + m.get(R0, C1) * v.y()
+                + m.get(R0, C2) * v.z());
+
+        result.setY(m.get(R1, C0) * v.x()
+                + m.get(R1, C1) * v.y()
+                + m.get(R1, C2) * v.z());
+
+        result.setZ(m.get(R2, C0) * v.x()
+                + m.get(R2, C1) * v.y()
+                + m.get(R2, C2) * v.z());
 
         return result;
     }

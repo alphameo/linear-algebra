@@ -1,6 +1,7 @@
 package io.github.alphameo.linear_algebra.mat;
 
 import static io.github.alphameo.linear_algebra.mat.Matrix4Row.*;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Col.*;
 
 import io.github.alphameo.linear_algebra.Validator;
 import io.github.alphameo.linear_algebra.vec.Vec4;
@@ -375,14 +376,26 @@ public final class Mat4Math {
      */
     public static Vector4 prod(final Matrix4 m, final Vector4 v) {
         final Vector4 result = new Vec4();
-        for (int i = 0; i < m.height(); i++) {
-            float value = 0;
-            for (int elem = 0; elem < v.size(); elem++) {
-                value += m.get(ROWS[i], COLS[elem]) * v.get(elem);
-            }
 
-            result.set(i, value);
-        }
+        result.setX(m.get(R0, C0) * v.x()
+                + m.get(R0, C1) * v.y()
+                + m.get(R0, C2) * v.z()
+                + m.get(R0, C3) * v.w());
+
+        result.setY(m.get(R1, C0) * v.x()
+                + m.get(R1, C1) * v.y()
+                + m.get(R1, C2) * v.z()
+                + m.get(R1, C3) * v.w());
+
+        result.setZ(m.get(R2, C0) * v.x()
+                + m.get(R2, C1) * v.y()
+                + m.get(R2, C2) * v.z()
+                + m.get(R2, C3) * v.w());
+
+        result.setW(m.get(R3, C0) * v.x()
+                + m.get(R3, C1) * v.y()
+                + m.get(R3, C2) * v.z()
+                + m.get(R3, C3) * v.w());
 
         return result;
     }
