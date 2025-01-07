@@ -97,7 +97,7 @@ public final class MatMath {
      * @since 1.0.0
      */
     public static Matrix swappedRows(final Matrix m, final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
-        return swapRows(new Mat(m), r1, r2);
+        return swapRows(m.clone(), r1, r2);
     }
 
     /**
@@ -134,7 +134,7 @@ public final class MatMath {
      * @since 1.0.0
      */
     public static Matrix swappedCols(final Matrix m, final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
-        return swapCols(new Mat(m), c1, c2);
+        return swapCols(m.clone(), c1, c2);
     }
 
     /**
@@ -166,7 +166,7 @@ public final class MatMath {
      * @since 1.0.0
      */
     public static Matrix multiplied(final Matrix m, final float multiplier) {
-        return mult(new Mat(m), multiplier);
+        return mult(m.clone(), multiplier);
     }
 
     /**
@@ -201,7 +201,7 @@ public final class MatMath {
      * @since 1.0.0
      */
     public static Matrix divided(final Matrix m, final float divisor) throws ArithmeticException {
-        return mult(new Mat(m), divisor);
+        return mult(m.clone(), divisor);
     }
 
     /**
@@ -239,7 +239,7 @@ public final class MatMath {
      * @since 1.0.0
      */
     public static Matrix added(final Matrix target, final Matrix addendum) {
-        return add(new Mat(target), addendum);
+        return add(target.clone(), addendum);
     }
 
     /**
@@ -277,7 +277,7 @@ public final class MatMath {
      * @since 1.0.0
      */
     public static Matrix subtracted(final Matrix target, final Matrix subtrahend) {
-        return sub(new Mat(target), subtrahend);
+        return sub(target.clone(), subtrahend);
     }
 
     /**
@@ -401,7 +401,7 @@ public final class MatMath {
      * @since 1.0.0
      */
     public static Matrix triangulated(final Matrix m) {
-        return triangulate(new Mat(m));
+        return triangulate(m.clone());
     }
 
     private static float det2(final Matrix m) {

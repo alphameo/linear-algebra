@@ -66,7 +66,7 @@ public final class Mat4Math {
      * @since 1.0.0
      */
     public static Matrix4 transposed(final Matrix4 m) {
-        return transpose(new Mat4(m));
+        return transpose(m.clone());
     }
 
     /**
@@ -118,7 +118,7 @@ public final class Mat4Math {
      * @since 1.0.0
      */
     public static Matrix4 swappedRows(final Matrix4 m, final Matrix4Row r1, final Matrix4Row r2) {
-        return swapRows(new Mat4(m), r1, r2);
+        return swapRows(m.clone(), r1, r2);
     }
 
     /**
@@ -134,7 +134,7 @@ public final class Mat4Math {
      */
     public static Matrix4 swappedRows(final Matrix4 m, final int r1, final int r2)
             throws ArrayIndexOutOfBoundsException {
-        return swapRows(new Mat4(m), r1, r2);
+        return swappedRows(m, ROWS[r1], ROWS[r2]);
     }
 
     /**
@@ -185,7 +185,7 @@ public final class Mat4Math {
      */
     public static Matrix4 swappedCols(final Matrix4 m, final Matrix4Col c1, final Matrix4Col c2)
             throws ArrayIndexOutOfBoundsException {
-        return swapCols(new Mat4(m), c1, c2);
+        return swapCols(m.clone(), c1, c2);
     }
 
     /**
@@ -201,7 +201,7 @@ public final class Mat4Math {
      */
     public static Matrix4 swappedCols(final Matrix4 m, final int c1, final int c2)
             throws ArrayIndexOutOfBoundsException {
-        return swapCols(new Mat4(m), c1, c2);
+        return swappedCols(m, COLS[c1], COLS[c2]);
     }
 
     /**
@@ -233,7 +233,7 @@ public final class Mat4Math {
      * @since 1.0.0
      */
     public static Matrix4 multiplied(final Matrix4 m, final float multiplier) {
-        return mult(new Mat4(m), multiplier);
+        return mult(m.clone(), multiplier);
     }
 
     /**
@@ -268,7 +268,7 @@ public final class Mat4Math {
      * @since 1.0.0
      */
     public static Matrix4 divided(final Matrix4 m, final float divisor) throws ArithmeticException {
-        return divide(new Mat4(m), divisor);
+        return divide(m.clone(), divisor);
     }
 
     /**
@@ -303,7 +303,7 @@ public final class Mat4Math {
      * @since 1.0.0
      */
     public static Matrix4 added(final Matrix4 target, final Matrix4 addendum) {
-        return add(new Mat4(target), addendum);
+        return add(target.clone(), addendum);
     }
 
     /**
@@ -338,7 +338,7 @@ public final class Mat4Math {
      * @since 1.0.0
      */
     public static Matrix4 subtracted(final Matrix4 target, final Matrix4 subtrahend) {
-        return sub(new Mat4(target), subtrahend);
+        return sub(target.clone(), subtrahend);
     }
 
     /**
@@ -459,7 +459,7 @@ public final class Mat4Math {
      * @since 1.0.0
      */
     public static Matrix4 triangulated(final Matrix4 m) {
-        return triangulate(new Mat4(m));
+        return triangulate(m.clone());
     }
 
     /**

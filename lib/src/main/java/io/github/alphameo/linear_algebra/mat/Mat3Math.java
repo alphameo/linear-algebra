@@ -66,7 +66,7 @@ public final class Mat3Math {
      * @since 1.0.0
      */
     public static Matrix3 transposed(final Matrix3 m) {
-        return transpose(new Mat3(m));
+        return transpose(m.clone());
     }
 
     /**
@@ -116,7 +116,7 @@ public final class Mat3Math {
      * @since 1.0.0
      */
     public static Matrix3 swappedRows(final Matrix3 m, final Matrix3Row r1, final Matrix3Row r2) {
-        return swapRows(new Mat3(m), r1, r2);
+        return swapRows(m.clone(), r1, r2);
     }
 
     /**
@@ -181,7 +181,7 @@ public final class Mat3Math {
      * @since 1.0.0
      */
     public static Matrix3 swappedCols(final Matrix3 m, final Matrix3Col c1, final Matrix3Col c2) {
-        return swapCols(new Mat3(m), c1, c2);
+        return swapCols(m.clone(), c1, c2);
     }
 
     /**
@@ -197,7 +197,7 @@ public final class Mat3Math {
      */
     public static Matrix3 swappedCols(final Matrix3 m, final int c1, final int c2)
             throws ArrayIndexOutOfBoundsException {
-        return swapCols(new Mat3(m), c1, c2);
+        return swappedCols(m, COLS[c1], COLS[c2]);
     }
 
     /**
@@ -229,7 +229,7 @@ public final class Mat3Math {
      * @since 1.0.0
      */
     public static Matrix3 multiplied(final Matrix3 m, final float multiplier) {
-        return mult(new Mat3(m), multiplier);
+        return mult(m.clone(), multiplier);
     }
 
     /**
@@ -264,7 +264,7 @@ public final class Mat3Math {
      * @since 1.0.0
      */
     public static Matrix3 divided(final Matrix3 m, final float divisor) throws ArithmeticException {
-        return divide(new Mat3(m), divisor);
+        return divide(m.clone(), divisor);
     }
 
     /**
@@ -299,7 +299,7 @@ public final class Mat3Math {
      * @since 1.0.0
      */
     public static Matrix3 added(final Matrix3 target, final Matrix3 addendum) {
-        return add(new Mat3(target), addendum);
+        return add(target.clone(), addendum);
     }
 
     /**
@@ -334,7 +334,7 @@ public final class Mat3Math {
      * @since 1.0.0
      */
     public static Matrix3 subtracted(final Matrix3 target, final Matrix3 subtrahend) {
-        return sub(new Mat3(target), subtrahend);
+        return sub(target.clone(), subtrahend);
     }
 
     /**
@@ -447,7 +447,7 @@ public final class Mat3Math {
      * @since 1.0.0
      */
     public static Matrix3 triangulated(final Matrix3 m) {
-        return triangulate(new Mat3(m));
+        return triangulate(m.clone());
     }
 
     /**
