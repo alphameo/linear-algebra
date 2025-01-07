@@ -497,4 +497,32 @@ public class TestMat3Math {
 
         Assertions.assertEquals(expected, m);
     }
+
+    @Test
+    public void testFromVectorRows() {
+        Vector3 v1 = new Vec3(1, 2, 3);
+        Vector3 v2 = new Vec3(4, 5, 6);
+        Vector3 v3 = new Vec3(7, 8, 9);
+        Matrix3 m = Mat3Math.fromVectorRows(v1, v2, v3);
+        Matrix3 expected = new Mat3(
+                1, 2, 3,
+                4, 5, 6,
+                7, 8, 9);
+
+        Assertions.assertEquals(expected, m);
+    }
+
+    @Test
+    public void testFromVectorCols() {
+        Vector3 v1 = new Vec3(1, 2, 3);
+        Vector3 v2 = new Vec3(4, 5, 6);
+        Vector3 v3 = new Vec3(7, 8, 9);
+        Matrix3 m = Mat3Math.fromVectorCols(v1, v2, v3);
+        Matrix3 expected = new Mat3(
+                1, 4, 7,
+                2, 5, 8,
+                3, 6, 9);
+
+        Assertions.assertEquals(expected, m);
+    }
 }
