@@ -715,4 +715,50 @@ public final class MatMath {
 
         return result;
     }
+
+    /**
+     * Constructs matrix from given vector-rows.
+     * 
+     * @param vectors for matrix construction taken as rows
+     * @return matrix with values from vectors
+     * @throws IllegalArgumentException if vectors have different lengths
+     *
+     * @since 2.1.0
+     */
+    public static Matrix fromVectorRows(Vector... vectors) {
+        Mat result = new Mat(vectors.length, vectors[0].size());
+        for (int r = 0; r < vectors.length; r++) {
+            if (vectors[r].size() != vectors[0].size()) {
+                throw new IllegalArgumentException("Matrix creation denied: vectors with different sizes");
+            }
+            for (int c = 0; c < vectors[0].size(); c++) {
+                result.set(r, c, vectors[r].get(c));
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Constructs matrix from given vector-columns.
+     * 
+     * @param vectors for matrix construction taken as columns
+     * @return matrix with values from vectors
+     * @throws IllegalArgumentException if vectors have different lengths
+     *
+     * @since 2.1.0
+     */
+    public static Matrix fromVectorCols(Vector... vectors) {
+        Mat result = new Mat(vectors[0].size(), vectors.length);
+        for (int c = 0; c < vectors.length; c++) {
+            if (vectors[c].size() != vectors[0].size()) {
+                throw new IllegalArgumentException("Matrix creation denied: vectors with different sizes");
+            }
+            for (int r = 0; r < vectors[0].size(); r++) {
+                result.set(r, c, vectors[c].get(r));
+            }
+        }
+
+        return result;
+    }
 }
