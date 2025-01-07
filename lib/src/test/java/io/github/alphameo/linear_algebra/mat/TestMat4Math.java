@@ -474,7 +474,7 @@ public class TestMat4Math {
         Vector4 v2 = new Vec4(4, 5, 6, 5);
         Vector4 v3 = new Vec4(7, 8, 9, 8);
         Vector4 v4 = new Vec4(1, 6, 5, 0);
-        Matrix4 m = Mat4Math.fromVectorRows(v1, v2, v3, v4);
+        Matrix4 m = Mat4Math.fromVecRows(v1, v2, v3, v4);
         Matrix4 expected = new Mat4(
                 1, 2, 3, 0,
                 4, 5, 6, 5,
@@ -490,7 +490,7 @@ public class TestMat4Math {
         Vector4 v2 = new Vec4(4, 5, 6, 5);
         Vector4 v3 = new Vec4(7, 8, 9, 8);
         Vector4 v4 = new Vec4(1, 6, 5, 0);
-        Matrix4 m = Mat4Math.fromVectorCols(v1, v2, v3, v4);
+        Matrix4 m = Mat4Math.fromVecCols(v1, v2, v3, v4);
         Matrix4 expected = new Mat4(
                 1, 4, 7, 1,
                 2, 5, 8, 6,

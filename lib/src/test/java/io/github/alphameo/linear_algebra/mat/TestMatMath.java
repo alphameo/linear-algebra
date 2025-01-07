@@ -543,7 +543,7 @@ public class TestMatMath {
         Vector v1 = new Vec(1, 2, 3, 3);
         Vector v2 = new Vec(4, 5, 6, 4);
         Vector v3 = new Vec(7, 8, 9, 6);
-        Matrix m = MatMath.fromVectorRows(v1, v2, v3);
+        Matrix m = MatMath.fromVecRows(v1, v2, v3);
         Matrix expected = new Mat(new float[][] {
                 { 1, 2, 3, 3 },
                 { 4, 5, 6, 4 },
@@ -559,7 +559,7 @@ public class TestMatMath {
         Vector v2 = new Vec(4, 5);
         Vector v3 = new Vec(7, 8, 9);
         try {
-            Matrix m = MatMath.fromVectorRows(v1, v2, v3);
+            Matrix m = MatMath.fromVecRows(v1, v2, v3);
             Assertions.fail();
         } catch (Exception e) {
             Assertions.assertTrue(true);
@@ -570,7 +570,7 @@ public class TestMatMath {
     public void testFromVectorCols() {
         Vector v1 = new Vec(1, 2, 3);
         Vector v2 = new Vec(4, 5, 6);
-        Matrix m = MatMath.fromVectorCols(v1, v2);
+        Matrix m = MatMath.fromVecCols(v1, v2);
         Matrix expected = new Mat(new float[][] {
                 { 1, 4 },
                 { 2, 5 },
@@ -586,7 +586,7 @@ public class TestMatMath {
         Vector v2 = new Vec(4, 5);
         Vector v3 = new Vec(7, 8, 9);
         try {
-            Matrix m = MatMath.fromVectorCols(v1, v2, v3);
+            Matrix m = MatMath.fromVecCols(v1, v2, v3);
             Assertions.fail();
         } catch (Exception e) {
             Assertions.assertTrue(true);

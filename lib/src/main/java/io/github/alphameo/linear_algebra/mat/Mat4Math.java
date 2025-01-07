@@ -717,7 +717,7 @@ public final class Mat4Math {
      *
      * @since 2.1.0
      */
-    public static Matrix4 fromVectorRows(Vector4 v1, Vector4 v2, Vector4 v3, Vector4 v4) {
+    public static Matrix4 fromVecRows(Vector4 v1, Vector4 v2, Vector4 v3, Vector4 v4) {
         Mat4 result = new Mat4();
 
         result.set(R0, C0, v1.x());
@@ -751,7 +751,7 @@ public final class Mat4Math {
      *
      * @since 2.1.0
      */
-    public static Matrix4 fromVectorCols(Vector4 v1, Vector4 v2, Vector4 v3, Vector4 v4) {
+    public static Matrix4 fromVecCols(Vector4 v1, Vector4 v2, Vector4 v3, Vector4 v4) {
         Mat4 result = new Mat4();
 
         result.set(R0, C0, v1.x());

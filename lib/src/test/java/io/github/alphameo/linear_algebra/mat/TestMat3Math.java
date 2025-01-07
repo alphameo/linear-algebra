@@ -503,7 +503,7 @@ public class TestMat3Math {
         Vector3 v1 = new Vec3(1, 2, 3);
         Vector3 v2 = new Vec3(4, 5, 6);
         Vector3 v3 = new Vec3(7, 8, 9);
-        Matrix3 m = Mat3Math.fromVectorRows(v1, v2, v3);
+        Matrix3 m = Mat3Math.fromVecRows(v1, v2, v3);
         Matrix3 expected = new Mat3(
                 1, 2, 3,
                 4, 5, 6,
@@ -517,7 +517,7 @@ public class TestMat3Math {
         Vector3 v1 = new Vec3(1, 2, 3);
         Vector3 v2 = new Vec3(4, 5, 6);
         Vector3 v3 = new Vec3(7, 8, 9);
-        Matrix3 m = Mat3Math.fromVectorCols(v1, v2, v3);
+        Matrix3 m = Mat3Math.fromVecCols(v1, v2, v3);
         Matrix3 expected = new Mat3(
                 1, 4, 7,
                 2, 5, 8,

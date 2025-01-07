@@ -802,7 +802,7 @@ public final class Mat3Math {
      *
      * @since 2.1.0
      */
-    public static Matrix3 fromVectorRows(Vector3 v1, Vector3 v2, Vector3 v3) {
+    public static Matrix3 fromVecRows(Vector3 v1, Vector3 v2, Vector3 v3) {
         Mat3 result = new Mat3();
 
         result.set(R0, C0, v1.x());
@@ -828,7 +828,7 @@ public final class Mat3Math {
      *
      * @since 2.1.0
      */
-    public static Matrix3 fromVectorCols(Vector3 v1, Vector3 v2, Vector3 v3) {
+    public static Matrix3 fromVecCols(Vector3 v1, Vector3 v2, Vector3 v3) {
         Mat3 result = new Mat3();
 
         result.set(R0, C0, v1.x());

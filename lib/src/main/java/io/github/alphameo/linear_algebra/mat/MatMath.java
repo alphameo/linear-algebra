@@ -725,7 +725,7 @@ public final class MatMath {
      *
      * @since 2.1.0
      */
-    public static Matrix fromVectorRows(Vector... vectors) {
+    public static Matrix fromVecRows(Vector... vectors) {
         Mat result = new Mat(vectors.length, vectors[0].size());
         for (int r = 0; r < vectors.length; r++) {
             if (vectors[r].size() != vectors[0].size()) {
@@ -748,7 +748,7 @@ public final class MatMath {
      *
      * @since 2.1.0
      */
-    public static Matrix fromVectorCols(Vector... vectors) {
+    public static Matrix fromVecCols(Vector... vectors) {
         Mat result = new Mat(vectors[0].size(), vectors.length);
         for (int c = 0; c < vectors.length; c++) {
             if (vectors[c].size() != vectors[0].size()) {
