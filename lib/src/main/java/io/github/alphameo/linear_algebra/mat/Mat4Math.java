@@ -708,4 +708,72 @@ public final class Mat4Math {
 
         return result;
     }
+
+    /**
+     * Constructs matrix 4x4 from given vector-rows of size 4.
+     * 
+     * @param vectors of size 4 for matrix 4x4 construction taken as rows
+     * @return matrix 4x4 with values from vectors of size 4
+     *
+     * @since 2.1.0
+     */
+    public static Matrix4 fromVectorRows(Vector4 v1, Vector4 v2, Vector4 v3, Vector4 v4) {
+        Mat4 result = new Mat4();
+
+        result.set(R0, C0, v1.x());
+        result.set(R0, C1, v1.y());
+        result.set(R0, C2, v1.z());
+        result.set(R0, C3, v1.w());
+
+        result.set(R1, C0, v2.x());
+        result.set(R1, C1, v2.y());
+        result.set(R1, C2, v2.z());
+        result.set(R1, C3, v2.w());
+
+        result.set(R2, C0, v3.x());
+        result.set(R2, C1, v3.y());
+        result.set(R2, C2, v3.z());
+        result.set(R2, C3, v3.w());
+
+        result.set(R3, C0, v4.x());
+        result.set(R3, C1, v4.y());
+        result.set(R3, C2, v4.z());
+        result.set(R3, C3, v4.w());
+
+        return result;
+    }
+
+    /**
+     * Constructs matrix 4x4 from given vector-columns of size 4.
+     * 
+     * @param vectors of size 4 for matrix 4x4 construction taken as columns
+     * @return matrix 4x4 with values from vectors of size 4
+     *
+     * @since 2.1.0
+     */
+    public static Matrix4 fromVectorCols(Vector4 v1, Vector4 v2, Vector4 v3, Vector4 v4) {
+        Mat4 result = new Mat4();
+
+        result.set(R0, C0, v1.x());
+        result.set(R1, C0, v1.y());
+        result.set(R2, C0, v1.z());
+        result.set(R3, C0, v1.w());
+
+        result.set(R0, C1, v2.x());
+        result.set(R1, C1, v2.y());
+        result.set(R2, C1, v2.z());
+        result.set(R3, C1, v2.w());
+
+        result.set(R0, C2, v3.x());
+        result.set(R1, C2, v3.y());
+        result.set(R2, C2, v3.z());
+        result.set(R3, C2, v3.w());
+
+        result.set(R0, C3, v4.x());
+        result.set(R1, C3, v4.y());
+        result.set(R2, C3, v4.z());
+        result.set(R3, C3, v4.w());
+
+        return result;
+    }
 }
