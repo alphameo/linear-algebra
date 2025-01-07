@@ -29,7 +29,7 @@ public class TestMat4Math {
         });
 
         Assertions.assertEquals(expected, transposed(m));
-        Assertions.assertTrue(Mat4Math.equals(expected, transposed(m)));
+        Assertions.assertEquals(expected, transpose(m));
     }
 
     @Test
@@ -49,6 +49,9 @@ public class TestMat4Math {
 
         Assertions.assertEquals(expected, swappedRows(m, Matrix4Row.R0, Matrix4Row.R2));
         Assertions.assertEquals(expected, swappedRows(m, 0, 2));
+        Assertions.assertEquals(expected, swapRows(m, Matrix4Row.R0, Matrix4Row.R2));
+        swapRows(m, Matrix4Row.R0, Matrix4Row.R2);
+        Assertions.assertEquals(expected, swapRows(m, 0, 2));
     }
 
     @Test
@@ -68,6 +71,9 @@ public class TestMat4Math {
 
         Assertions.assertEquals(expected, swappedCols(m, Matrix4Col.C0, Matrix4Col.C2));
         Assertions.assertEquals(expected, swappedCols(m, 0, 2));
+        Assertions.assertEquals(expected, swapCols(m, Matrix4Col.C0, Matrix4Col.C2));
+        swapCols(m, Matrix4Col.C0, Matrix4Col.C2);
+        Assertions.assertEquals(expected, swapCols(m, 0, 2));
     }
 
     @Test
@@ -85,6 +91,7 @@ public class TestMat4Math {
                 { 6, 12, 18, 6 }
         });
 
+        Assertions.assertEquals(expected, multiplied(m, 2));
         Assertions.assertEquals(expected, mult(m, 2));
     }
 
@@ -103,6 +110,7 @@ public class TestMat4Math {
                 { 3, 6, 9, 3 }
         });
 
+        Assertions.assertEquals(expected, divided(m, 2));
         Assertions.assertEquals(expected, divide(m, 2));
     }
 
@@ -121,6 +129,7 @@ public class TestMat4Math {
                 { 6, 12, 18, 6 }
         });
 
+        Assertions.assertEquals(expected, added(m, m));
         Assertions.assertEquals(expected, add(m, m));
     }
 
@@ -139,6 +148,7 @@ public class TestMat4Math {
                 { 3, 6, 9, 3 }
         });
 
+        Assertions.assertEquals(expected, subtracted(m, expected));
         Assertions.assertEquals(expected, sub(m, expected));
     }
 

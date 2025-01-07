@@ -44,6 +44,7 @@ public class TestMatMath {
                 { 1, 2, 3 }
         });
 
+        Assertions.assertEquals(expected, swappedRows(m, 0, 2));
         Assertions.assertEquals(expected, swapRows(m, 0, 2));
     }
 
@@ -60,6 +61,7 @@ public class TestMatMath {
                 { 9, 8, 7, 0 }
         });
 
+        Assertions.assertEquals(expected, swappedCols(m, 0, 2));
         Assertions.assertEquals(expected, swapCols(m, 0, 2));
     }
 
@@ -76,6 +78,7 @@ public class TestMatMath {
                 { 14, 16, 18, 0 }
         });
 
+        Assertions.assertEquals(expected, multiplied(m, 2));
         Assertions.assertEquals(expected, mult(m, 2));
     }
 
@@ -92,6 +95,7 @@ public class TestMatMath {
                 { 7, 8, 9, 0 }
         });
 
+        Assertions.assertEquals(expected, divided(m, 2));
         Assertions.assertEquals(expected, divide(m, 2));
     }
 
@@ -108,6 +112,7 @@ public class TestMatMath {
                 { 14, 16, 18, 0 }
         });
 
+        Assertions.assertEquals(expected, added(m, m));
         Assertions.assertEquals(expected, add(m, m));
     }
 
@@ -124,6 +129,7 @@ public class TestMatMath {
                 { 7, 8, 9, 0 }
         });
 
+        Assertions.assertEquals(expected, subtracted(m, expected));
         Assertions.assertEquals(expected, sub(m, expected));
     }
 

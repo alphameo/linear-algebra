@@ -27,7 +27,7 @@ public class TestMat3Math {
         });
 
         Assertions.assertEquals(expected, transposed(m));
-        Assertions.assertTrue(Mat3Math.equals(expected, transposed(m)));
+        Assertions.assertEquals(expected, transpose(m));
     }
 
     @Test
@@ -45,6 +45,9 @@ public class TestMat3Math {
 
         Assertions.assertEquals(expected, swappedRows(m, Matrix3Row.R0, Matrix3Row.R2));
         Assertions.assertEquals(expected, swappedRows(m, 0, 2));
+        Assertions.assertEquals(expected, swapRows(m, Matrix3Row.R0, Matrix3Row.R2));
+        swapRows(m, Matrix3Row.R0, Matrix3Row.R2);
+        Assertions.assertEquals(expected, swapRows(m, 0, 2));
     }
 
     @Test
@@ -62,6 +65,9 @@ public class TestMat3Math {
 
         Assertions.assertEquals(expected, swappedCols(m, Matrix3Col.C0, Matrix3Col.C2));
         Assertions.assertEquals(expected, swappedCols(m, 0, 2));
+        Assertions.assertEquals(expected, swappedCols(m, Matrix3Col.C0, Matrix3Col.C2));
+        swappedCols(m, 0, 2);
+        Assertions.assertEquals(expected, swappedCols(m, 0, 2));
     }
 
     @Test
@@ -77,6 +83,7 @@ public class TestMat3Math {
                 { 14, 16, 18 }
         });
 
+        Assertions.assertEquals(expected, multiplied(m, 2));
         Assertions.assertEquals(expected, mult(m, 2));
     }
 
@@ -93,6 +100,7 @@ public class TestMat3Math {
                 { 7, 8, 9 }
         });
 
+        Assertions.assertEquals(expected, divided(m, 2));
         Assertions.assertEquals(expected, divide(m, 2));
     }
 
@@ -109,6 +117,7 @@ public class TestMat3Math {
                 { 14, 16, 18 }
         });
 
+        Assertions.assertEquals(expected, added(m, m));
         Assertions.assertEquals(expected, add(m, m));
     }
 
@@ -125,6 +134,7 @@ public class TestMat3Math {
                 { 7, 8, 9 }
         });
 
+        Assertions.assertEquals(expected, subtracted(m, expected));
         Assertions.assertEquals(expected, sub(m, expected));
     }
 
