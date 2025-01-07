@@ -291,7 +291,7 @@ public class Vec4 implements Vector4, Equatable<Vector4> {
 
     @Override
     public Vec4 clone() {
-        return new Vec4(this.x(), this.y(), this.y(), this.w());
+        return new Vec4(this.x(), this.y(), this.z(), this.w());
     }
 
     @Override

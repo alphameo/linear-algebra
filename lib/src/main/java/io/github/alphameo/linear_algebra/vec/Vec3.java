@@ -307,7 +307,7 @@ public class Vec3 implements Vector3, Equatable<Vector3> {
 
     @Override
     public Vector3 clone() {
-        return new Vec3(this.x(), this.y(), this.y());
+        return new Vec3(this.x(), this.y(), this.z());
     }
 
     @Override

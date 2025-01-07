@@ -105,6 +105,8 @@ public final class Vec3Math {
      * @since 1.0.0
      */
     public static Vector3 divided(final Vector3 v, final float divisor) throws ArithmeticException {
+        System.out.println(v);
+        System.out.println(v.clone());
         return divide(v.clone(), divisor);
     }
 
