@@ -19,14 +19,14 @@ Maven example for `pom.xml`:
 <dependency>
   <groupId>io.github.alphameo</groupId>
   <artifactId>linear_algebra</artifactId>
-  <version>2.0.1</version>
+  <version>2.1.0</version>
 </dependency>
 ```
 
 Gradle (Kotlin) example for `build.gradle.kts`:
 
 ```kts
-implementation("io.github.alphameo:linear_algebra:2.0.1")
+implementation("io.github.alphameo:linear_algebra:2.1.0")
 ```
 
 ### Manual Build
@@ -109,9 +109,9 @@ repositories {
 dependencies {
     // other dependencies
 
-    implementation("io.github.alphameo.linear_algebra:2.0.1")
+    implementation("io.github.alphameo.linear_algebra:2.1.0")
     // implementation() or api() - read the gradle documentation
-    // 2.0.1 is version that you want to use
+    // 2.1.0 is version that you want to use
 }
 ```
 
@@ -127,9 +127,9 @@ If you are using Gradle with the Kotlin DSL, you can do this by yourself. Add to
 dependencies {
     // other dependencies
 
-    implementation(files("../libs/linear_algebra-2.0.1.jar"))
+    implementation(files("../libs/linear_algebra-2.1.0.jar"))
     // implementation() or api() - read the gradle documentation
-    // 2.0.1 is version that you want to use
+    // 2.1.0 is version that you want to use
 }
 ```
 
