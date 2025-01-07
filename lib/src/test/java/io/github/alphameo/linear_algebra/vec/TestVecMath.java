@@ -30,10 +30,13 @@ public class TestVecMath {
     public void testMultiply() {
         Vector v1 = new Vec(-12, 3, 4, 8);
         Vector expected = new Vec(-18, 4.5f, 6, 12);
+
+        Vector v = multiplied(v1, 1.5f);
         mult(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
-        Assertions.assertEquals(v1, expected);
+        Assertions.assertEquals(expected, v);
+        Assertions.assertEquals(expected, v1);
     }
 
     @Test
@@ -41,10 +44,12 @@ public class TestVecMath {
         Vector v1 = new Vec(-18, 4.5f, 6, 12);
         Vector expected = new Vec(-12, 3, 4, 8);
 
+        Vector v = divided(v1, 1.5f);
         divide(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
-        Assertions.assertEquals(v1, expected);
+        Assertions.assertEquals(expected, v);
+        Assertions.assertEquals(expected, v1);
     }
 
     @Test
@@ -53,10 +58,12 @@ public class TestVecMath {
         Vector v2 = new Vec(1, 2, 3, 4);
         Vector expected = new Vec(-11, 5, 7, 12);
 
+        Vector v = added(v1, v2);
         add(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
-        Assertions.assertEquals(v1, expected);
+        Assertions.assertEquals(expected, v);
+        Assertions.assertEquals(expected, v1);
     }
 
     @Test
@@ -65,9 +72,11 @@ public class TestVecMath {
         Vector v2 = new Vec(1, 2.03f, 3, 4);
         Vector expected = new Vec(-13, 0.97f, 1, 4);
 
+        Vector v = subtracted(v1, v2);
         sub(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
+        Assertions.assertEquals(expected, v);
         Assertions.assertEquals(expected, v1);
     }
 

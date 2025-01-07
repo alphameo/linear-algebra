@@ -24,10 +24,12 @@ public class TestVec4Math {
         Vector4 v1 = new Vec4(-12, 3, 4, 8);
         Vector4 expected = new Vec4(-18, 4.5f, 6, 12);
 
+        Vector4 v = multiplied(v1, 1.5f);
         mult(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
-        Assertions.assertEquals(v1, expected);
+        Assertions.assertEquals(expected, v);
+        Assertions.assertEquals(expected, v1);
     }
 
     @Test
@@ -35,10 +37,12 @@ public class TestVec4Math {
         Vector4 v1 = new Vec4(-18, 4.5f, 6, 12);
         Vector4 expected = new Vec4(-12, 3, 4, 8);
 
+        Vector4 v = divided(v1, 1.5f);
         divide(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
-        Assertions.assertEquals(v1, expected);
+        Assertions.assertEquals(expected, v);
+        Assertions.assertEquals(expected, v1);
     }
 
     @Test
@@ -47,10 +51,12 @@ public class TestVec4Math {
         Vector4 v2 = new Vec4(1, 2, 3, 4);
         Vector4 expected = new Vec4(-11, 5, 7, 12);
 
+        Vector4 v = added(v1, v2);
         add(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
-        Assertions.assertEquals(v1, expected);
+        Assertions.assertEquals(expected, v);
+        Assertions.assertEquals(expected, v1);
     }
 
     @Test
@@ -59,9 +65,11 @@ public class TestVec4Math {
         Vector4 v2 = new Vec4(1, 2.03f, 3, 4);
         Vector4 expected = new Vec4(-13, 0.97f, 1, 4);
 
+        Vector4 v = subtracted(v1, v2);
         sub(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
+        Assertions.assertEquals(expected, v);
         Assertions.assertEquals(expected, v1);
     }
 
