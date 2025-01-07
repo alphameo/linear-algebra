@@ -72,7 +72,7 @@ public final class Vec4Math {
      * @since 1.0.0
      */
     public static Vector4 multiplied(final Vector4 v, final float multiplier) {
-        return mult(new Vec4(v), multiplier);
+        return mult(v.clone(), multiplier);
     }
 
     /**
@@ -107,7 +107,7 @@ public final class Vec4Math {
      * @since 1.0.0
      */
     public static Vector4 divided(final Vector4 v, final float divisor) throws ArithmeticException {
-        return divide(new Vec4(v), divisor);
+        return divide(v.clone(), divisor);
     }
 
     /**
@@ -133,7 +133,7 @@ public final class Vec4Math {
      * @since 1.0.0
      */
     public static Vector4 normalized(final Vector4 v) throws ArithmeticException {
-        return divided(v, len(v));
+        return divided(v.clone(), len(v));
     }
 
     /**
@@ -168,7 +168,7 @@ public final class Vec4Math {
      * @since 1.0.0
      */
     public static Vector4 added(final Vector4 target, final Vector4 addendum) {
-        return add(new Vec4(target), addendum);
+        return add(target.clone(), addendum);
     }
 
     /**
@@ -202,7 +202,7 @@ public final class Vec4Math {
      * @since 1.0.0
      */
     public static Vector4 subtracted(final Vector4 target, final Vector4 subtrahend) {
-        return sub(new Vec4(target), subtrahend);
+        return sub(target.clone(), subtrahend);
     }
 
     /**

@@ -76,7 +76,7 @@ public final class VecMath {
      * @since 1.0.0
      */
     public static Vector multiplied(final Vector v, final float multiplier) {
-        return mult(new Vec(v), multiplier);
+        return mult(v.clone(), multiplier);
     }
 
     /**
@@ -109,7 +109,7 @@ public final class VecMath {
      * @since 1.0.0
      */
     public static Vector divided(final Vector v, final float divisor) throws ArithmeticException {
-        return divide(new Vec(v), divisor);
+        return divide(v.clone(), divisor);
     }
 
     /**
@@ -135,7 +135,7 @@ public final class VecMath {
      * @since 1.0.0
      */
     public static Vector normalized(final Vector v) throws ArithmeticException {
-        return divided(v, len(v));
+        return divided(v.clone(), len(v));
     }
 
     /**
@@ -171,7 +171,7 @@ public final class VecMath {
      * @since 1.0.0
      */
     public static Vector added(final Vector target, final Vector addendum) {
-        return add(new Vec(target), addendum);
+        return add(target.clone(), addendum);
     }
 
     /**
@@ -207,7 +207,7 @@ public final class VecMath {
      * @since 1.0.0
      */
     public static Vector subtracted(final Vector target, final Vector subtrahend) {
-        return sub(new Vec(target), subtrahend);
+        return sub(target.clone(), subtrahend);
     }
 
     /**
