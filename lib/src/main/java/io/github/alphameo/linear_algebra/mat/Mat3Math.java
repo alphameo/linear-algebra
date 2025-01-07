@@ -793,4 +793,56 @@ public final class Mat3Math {
 
         return result;
     }
+
+    /**
+     * Constructs matrix 3x3 from given vector-rows of size 3.
+     * 
+     * @param vectors of size 3 for matrix 3x3 construction taken as rows
+     * @return matrix 3x3 with values from vectors of size 3
+     *
+     * @since 2.1.0
+     */
+    public static Matrix3 fromVectorRows(Vector3 v1, Vector3 v2, Vector3 v3) {
+        Mat3 result = new Mat3();
+
+        result.set(R0, C0, v1.x());
+        result.set(R0, C1, v1.y());
+        result.set(R0, C2, v1.z());
+
+        result.set(R1, C0, v2.x());
+        result.set(R1, C1, v2.y());
+        result.set(R1, C2, v2.z());
+
+        result.set(R2, C0, v3.x());
+        result.set(R2, C1, v3.y());
+        result.set(R2, C2, v3.z());
+
+        return result;
+    }
+
+    /**
+     * Constructs matrix 3x3 from given vector-columns of size 3.
+     * 
+     * @param vectors of size 3 for matrix 3x3 construction taken as columns
+     * @return matrix 3x3 with values from vectors of size 3
+     *
+     * @since 2.1.0
+     */
+    public static Matrix3 fromVectorCols(Vector3 v1, Vector3 v2, Vector3 v3) {
+        Mat3 result = new Mat3();
+
+        result.set(R0, C0, v1.x());
+        result.set(R1, C0, v1.y());
+        result.set(R2, C0, v1.z());
+
+        result.set(R0, C1, v2.x());
+        result.set(R1, C1, v2.y());
+        result.set(R2, C1, v2.z());
+
+        result.set(R0, C2, v3.x());
+        result.set(R1, C2, v3.y());
+        result.set(R2, C2, v3.z());
+
+        return result;
+    }
 }
