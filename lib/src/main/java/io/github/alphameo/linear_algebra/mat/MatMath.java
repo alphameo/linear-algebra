@@ -201,7 +201,7 @@ public final class MatMath {
      * @since 1.0.0
      */
     public static Matrix divided(final Matrix m, final float divisor) throws ArithmeticException {
-        return mult(m.clone(), divisor);
+        return divide(m.clone(), divisor);
     }
 
     /**
