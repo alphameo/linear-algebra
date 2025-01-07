@@ -537,4 +537,59 @@ public class TestMatMath {
 
         Assertions.assertEquals(expected, m);
     }
+
+    @Test
+    public void testFromVectorRows() {
+        Vector v1 = new Vec(1, 2, 3, 3);
+        Vector v2 = new Vec(4, 5, 6, 4);
+        Vector v3 = new Vec(7, 8, 9, 6);
+        Matrix m = MatMath.fromVectorRows(v1, v2, v3);
+        Matrix expected = new Mat(new float[][] {
+                { 1, 2, 3, 3 },
+                { 4, 5, 6, 4 },
+                { 7, 8, 9, 6 }
+        });
+
+        Assertions.assertEquals(expected, m);
+    }
+
+    @Test
+    public void testFromVectorRowsException() {
+        Vector v1 = new Vec(1, 2, 3);
+        Vector v2 = new Vec(4, 5);
+        Vector v3 = new Vec(7, 8, 9);
+        try {
+            Matrix m = MatMath.fromVectorRows(v1, v2, v3);
+            Assertions.fail();
+        } catch (Exception e) {
+            Assertions.assertTrue(true);
+        }
+    }
+
+    @Test
+    public void testFromVectorCols() {
+        Vector v1 = new Vec(1, 2, 3);
+        Vector v2 = new Vec(4, 5, 6);
+        Matrix m = MatMath.fromVectorCols(v1, v2);
+        Matrix expected = new Mat(new float[][] {
+                { 1, 4 },
+                { 2, 5 },
+                { 3, 6 }
+        });
+
+        Assertions.assertEquals(expected, m);
+    }
+
+    @Test
+    public void testFromVectorColsException() {
+        Vector v1 = new Vec(1, 2, 3);
+        Vector v2 = new Vec(4, 5);
+        Vector v3 = new Vec(7, 8, 9);
+        try {
+            Matrix m = MatMath.fromVectorCols(v1, v2, v3);
+            Assertions.fail();
+        } catch (Exception e) {
+            Assertions.assertTrue(true);
+        }
+    }
 }
