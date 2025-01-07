@@ -8,7 +8,7 @@ plugins {
     id("io.deepmedia.tools.deployer") version "0.15.0"
 }
 
-version = "2.0.1"
+version = "2.1.0"
 group = "io.github.alphameo"
 
 base {
