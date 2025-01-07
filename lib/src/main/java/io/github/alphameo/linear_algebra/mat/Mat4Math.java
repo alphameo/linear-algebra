@@ -712,7 +712,10 @@ public final class Mat4Math {
     /**
      * Constructs matrix 4x4 from given vector-rows of size 4.
      * 
-     * @param vectors of size 4 for matrix 4x4 construction taken as rows
+     * @param v1 of size 4 for matrix 4x4 construction taken as first row
+     * @param v2 of size 4 for matrix 4x4 construction taken as second row
+     * @param v3 of size 4 for matrix 4x4 construction taken as third row
+     * @param v4 of size 4 for matrix 4x4 construction taken as fourth row
      * @return matrix 4x4 with values from vectors of size 4
      *
      * @since 2.1.0
@@ -746,7 +749,10 @@ public final class Mat4Math {
     /**
      * Constructs matrix 4x4 from given vector-columns of size 4.
      * 
-     * @param vectors of size 4 for matrix 4x4 construction taken as columns
+     * @param v1 of size 4 for matrix 4x4 construction taken as first column
+     * @param v2 of size 4 for matrix 4x4 construction taken as second column
+     * @param v3 of size 4 for matrix 4x4 construction taken as third column
+     * @param v4 of size 4 for matrix 4x4 construction taken as fourth column
      * @return matrix 4x4 with values from vectors of size 4
      *
      * @since 2.1.0
