@@ -167,20 +167,6 @@ public interface Vector2 extends Vector {
     }
 
     /**
-     * Constructs 3-dimensional vector with components of current vector and 1
-     * <p>
-     * (x, y, 1)
-     *
-     * @return 3-dimensional vector including components of current vector and 1
-     *         as last component
-     *
-     * @since 1.0.0
-     */
-    default Vector3 toVec3() {
-        return Vec2Math.toVec3(this);
-    }
-
-    /**
      * Returns {@code true} if components of current and given 2-dimensional vectors
      * are equal within {@code epsilon} tolerance.
      * 
@@ -208,6 +194,20 @@ public interface Vector2 extends Vector {
      */
     default boolean equalsTo(final Vector2 v) {
         return Vec2Math.equals(this, v);
+    }
+
+    /**
+     * Constructs 3-dimensional vector with components of current vector and 1
+     * <p>
+     * (x, y, 1)
+     *
+     * @return 3-dimensional vector including components of current vector and 1
+     *         as last component
+     *
+     * @since 1.0.0
+     */
+    default Vector3 toVec3() {
+        return Vec2Math.toVec3(this);
     }
 
     /**
