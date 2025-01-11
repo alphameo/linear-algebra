@@ -434,26 +434,4 @@ public interface Matrix4 extends Matrix {
     default boolean equalsTo(final Matrix4 m) {
         return Mat4Math.equals(this, m);
     }
-
-    /**
-     * Constructs matrix 4x4 of with all 0 elements.
-     * 
-     * @return matrix 4x4 with all 0 elements
-     *
-     * @since 1.0.0
-     */
-    static Matrix4 zeroMat() {
-        return Mat4Math.zeroMat();
-    }
-
-    /**
-     * Constructs square matrix 4x4 with 1 on main diagonal.
-     * 
-     * @return square matrix 4x4 with 1 on main diagonal
-     *
-     * @since 1.0.0
-     */
-    static Matrix4 unitMat() {
-        return Mat4Math.unitMat();
-    }
 }
