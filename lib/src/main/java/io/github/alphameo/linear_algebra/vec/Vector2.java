@@ -52,42 +52,42 @@ public interface Vector2 extends Vector {
 
     @Override
     default float len2() {
-        return Vec2Math.len2(this);
+        return Vector2Math.len2(this);
     }
 
     @Override
     default float len() {
-        return Vec2Math.len(this);
+        return Vector2Math.len(this);
     }
 
     @Override
     default Vector mult(float multiplier) {
-        return Vec2Math.mult(this, multiplier);
+        return Vector2Math.mult(this, multiplier);
     }
 
     @Override
     default Vector multiplied(float multiplier) {
-        return Vec2Math.multiplied(this, multiplier);
+        return Vector2Math.multiplied(this, multiplier);
     }
 
     @Override
     default Vector divide(float divisor) throws ArithmeticException {
-        return Vec2Math.divide(this, divisor);
+        return Vector2Math.divide(this, divisor);
     }
 
     @Override
     default Vector divided(float divisor) throws ArithmeticException {
-        return Vec2Math.divided(this, divisor);
+        return Vector2Math.divided(this, divisor);
     }
 
     @Override
     default Vector normalize() throws ArithmeticException {
-        return Vec2Math.normalize(this);
+        return Vector2Math.normalize(this);
     }
 
     @Override
     default Vector normalized() throws ArithmeticException {
-        return Vec2Math.normalized(this);
+        return Vector2Math.normalized(this);
     }
 
     /**
@@ -99,7 +99,7 @@ public interface Vector2 extends Vector {
      * @since 1.0.0
      */
     default Vector2 add(final Vector2 addendum) {
-        return Vec2Math.add(this, addendum);
+        return Vector2Math.add(this, addendum);
     }
 
     /**
@@ -113,7 +113,7 @@ public interface Vector2 extends Vector {
      * @since 1.0.0
      */
     default Vector2 added(final Vector2 addendum) {
-        return Vec2Math.added(this, addendum);
+        return Vector2Math.added(this, addendum);
     }
 
     /**
@@ -126,7 +126,7 @@ public interface Vector2 extends Vector {
      * @since 1.0.0
      */
     default Vector2 sub(final Vector2 subtrahend) {
-        return Vec2Math.sub(this, subtrahend);
+        return Vector2Math.sub(this, subtrahend);
     }
 
     /**
@@ -140,7 +140,7 @@ public interface Vector2 extends Vector {
      * @since 1.0.0
      */
     default Vector2 subtracted(final Vector2 subtrahend) {
-        return Vec2Math.subtracted(this, subtrahend);
+        return Vector2Math.subtracted(this, subtrahend);
     }
 
     /**
@@ -152,7 +152,7 @@ public interface Vector2 extends Vector {
      * @since 1.0.0
      */
     default float dot(final Vector2 v) {
-        return Vec2Math.dot(this, v);
+        return Vector2Math.dot(this, v);
     }
 
     /**
@@ -179,7 +179,7 @@ public interface Vector2 extends Vector {
      * @since 1.0.0
      */
     default boolean equalsEpsilonTo(final Vector2 v, final float eps) {
-        return Vec2Math.equalsEpsilon(this, v, eps);
+        return Vector2Math.equalsEpsilon(this, v, eps);
     }
 
     /**
@@ -193,7 +193,7 @@ public interface Vector2 extends Vector {
      * @since 1.0.0
      */
     default boolean equalsTo(final Vector2 v) {
-        return Vec2Math.equals(this, v);
+        return Vector2Math.equals(this, v);
     }
 
     /**
@@ -207,6 +207,6 @@ public interface Vector2 extends Vector {
      * @since 1.0.0
      */
     default Vector3 toVec3() {
-        return Vec2Math.toVec3(this);
+        return Vector2Math.toVec3(this);
     }
 }

@@ -1,6 +1,6 @@
 package io.github.alphameo.linear_algebra.mat;
 
-import static io.github.alphameo.linear_algebra.mat.MatMath.*;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.*;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -292,7 +292,7 @@ public class TestMatMath {
                 { 2, 3, -3, 1 }
         });
 
-        Assertions.assertTrue(Validator.equalsEpsilon(3, MatMath.det(m), 0.0001f));
+        Assertions.assertTrue(Validator.equalsEpsilon(3, MatrixMath.det(m), 0.0001f));
     }
 
     @Test
@@ -409,7 +409,7 @@ public class TestMatMath {
                 { 7, 8, 9 }
         });
 
-        Assertions.assertTrue(MatMath.equals(m1, m2));
+        Assertions.assertTrue(MatrixMath.equals(m1, m2));
     }
 
     @Test
@@ -426,7 +426,7 @@ public class TestMatMath {
                 { 7, 8, 9 }
         });
 
-        Assertions.assertTrue(!MatMath.equals(m1, m2));
+        Assertions.assertTrue(!MatrixMath.equals(m1, m2));
     }
 
     @Test
@@ -522,7 +522,7 @@ public class TestMatMath {
 
     @Test
     public void testZeroMat() {
-        Matrix m = MatMath.zeroMat(3, 4);
+        Matrix m = MatrixMath.zeroMat(3, 4);
         Matrix expected = new Mat(new float[][] {
                 { 0, 0, 0, 0 },
                 { 0, 0, 0, 0 },
@@ -534,7 +534,7 @@ public class TestMatMath {
 
     @Test
     public void testUnitMat() {
-        Matrix m = MatMath.unitMat(3);
+        Matrix m = MatrixMath.unitMat(3);
         Matrix expected = new Mat(new float[][] {
                 { 1, 0, 0 },
                 { 0, 1, 0 },
@@ -549,7 +549,7 @@ public class TestMatMath {
         Vector v1 = new Vec(1, 2, 3, 3);
         Vector v2 = new Vec(4, 5, 6, 4);
         Vector v3 = new Vec(7, 8, 9, 6);
-        Matrix m = MatMath.fromVecRows(v1, v2, v3);
+        Matrix m = MatrixMath.fromVecRows(v1, v2, v3);
         Matrix expected = new Mat(new float[][] {
                 { 1, 2, 3, 3 },
                 { 4, 5, 6, 4 },
@@ -565,7 +565,7 @@ public class TestMatMath {
         Vector v2 = new Vec(4, 5);
         Vector v3 = new Vec(7, 8, 9);
         try {
-            Matrix m = MatMath.fromVecRows(v1, v2, v3);
+            Matrix m = MatrixMath.fromVecRows(v1, v2, v3);
             Assertions.fail();
         } catch (Exception e) {
             Assertions.assertTrue(true);
@@ -576,7 +576,7 @@ public class TestMatMath {
     public void testFromVectorCols() {
         Vector v1 = new Vec(1, 2, 3);
         Vector v2 = new Vec(4, 5, 6);
-        Matrix m = MatMath.fromVecCols(v1, v2);
+        Matrix m = MatrixMath.fromVecCols(v1, v2);
         Matrix expected = new Mat(new float[][] {
                 { 1, 4 },
                 { 2, 5 },
@@ -592,7 +592,7 @@ public class TestMatMath {
         Vector v2 = new Vec(4, 5);
         Vector v3 = new Vec(7, 8, 9);
         try {
-            Matrix m = MatMath.fromVecCols(v1, v2, v3);
+            Matrix m = MatrixMath.fromVecCols(v1, v2, v3);
             Assertions.fail();
         } catch (Exception e) {
             Assertions.assertTrue(true);

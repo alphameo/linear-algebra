@@ -94,7 +94,7 @@ public class Vec implements Vector {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        return VecMath.equals(this, (Vector) obj);
+        return VectorMath.equals(this, (Vector) obj);
     }
 
     /**
@@ -106,7 +106,7 @@ public class Vec implements Vector {
      * @since 1.0.0
      */
     public static Vector zeroVec(final int size) {
-        return VecMath.zeroVec(size);
+        return VectorMath.zeroVec(size);
     }
 
     /**
@@ -118,6 +118,6 @@ public class Vec implements Vector {
      * @since 1.0.0
      */
     public static Vector unitVec(final int size) {
-        return VecMath.unitVec(size);
+        return VectorMath.unitVec(size);
     }
 }

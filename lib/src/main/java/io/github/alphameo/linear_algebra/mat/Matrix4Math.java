@@ -12,7 +12,7 @@ import io.github.alphameo.linear_algebra.vec.Vector4;
  *
  * @since 1.0.0
  */
-public final class Mat4Math {
+public final class Matrix4Math {
 
     /**
      * Constant array of enums for fast and safe access to matrix 4x4 rows
@@ -33,7 +33,7 @@ public final class Mat4Math {
      *
      * @since 1.0.0
      */
-    public Mat4Math() {
+    public Matrix4Math() {
     }
 
     /**
@@ -562,7 +562,7 @@ public final class Mat4Math {
      */
     public static float cofactor(final Matrix4 m, final Matrix4Row r, final Matrix4Col c) {
         final int coefficient = (r.ordinal() + c.ordinal()) % 2 == 0 ? 1 : -1;
-        return coefficient * Mat3Math.det(minorMatrix(m, r, c));
+        return coefficient * Matrix3Math.det(minorMatrix(m, r, c));
     }
 
     /**

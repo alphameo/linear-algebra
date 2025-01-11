@@ -141,7 +141,7 @@ public class Mat implements Matrix {
             return false;
         }
         final Mat other = (Mat) obj;
-        return MatMath.equals(this, other);
+        return MatrixMath.equals(this, other);
     }
 
     /**
@@ -154,7 +154,7 @@ public class Mat implements Matrix {
      * @since 1.0.0
      */
     public static Matrix zeroMat(final int height, final int width) {
-        return MatMath.zeroMat(height, width);
+        return MatrixMath.zeroMat(height, width);
     }
 
     /**
@@ -166,6 +166,6 @@ public class Mat implements Matrix {
      * @since 1.0.0
      */
     public static Matrix unitMat(final int size) {
-        return MatMath.unitMat(size);
+        return MatrixMath.unitMat(size);
     }
 }

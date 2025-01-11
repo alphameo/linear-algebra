@@ -53,7 +53,7 @@ public interface Vector extends Cloneable {
      * @since 1.0.0
      */
     default float len2() {
-        return VecMath.len2(this);
+        return VectorMath.len2(this);
     }
 
     /**
@@ -64,7 +64,7 @@ public interface Vector extends Cloneable {
      * @since 1.0.0
      */
     default float len() {
-        return VecMath.len(this);
+        return VectorMath.len(this);
     }
 
     /**
@@ -76,7 +76,7 @@ public interface Vector extends Cloneable {
      * @since 1.0.0
      */
     default Vector mult(final float multiplier) {
-        return VecMath.mult(this, multiplier);
+        return VectorMath.mult(this, multiplier);
     }
 
     /**
@@ -89,7 +89,7 @@ public interface Vector extends Cloneable {
      * @since 1.0.0
      */
     default Vector multiplied(final float multiplier) {
-        return VecMath.multiplied(this, multiplier);
+        return VectorMath.multiplied(this, multiplier);
     }
 
     /**
@@ -102,7 +102,7 @@ public interface Vector extends Cloneable {
      * @since 1.0.0
      */
     default Vector divide(final float divisor) throws ArithmeticException {
-        return VecMath.divide(this, divisor);
+        return VectorMath.divide(this, divisor);
     }
 
     /**
@@ -115,7 +115,7 @@ public interface Vector extends Cloneable {
      * @since 1.0.0
      */
     default Vector divided(final float divisor) throws ArithmeticException {
-        return VecMath.divided(this, divisor);
+        return VectorMath.divided(this, divisor);
     }
 
     /**
@@ -127,7 +127,7 @@ public interface Vector extends Cloneable {
      * @since 1.0.0
      */
     default Vector normalize() throws ArithmeticException {
-        return VecMath.normalize(this);
+        return VectorMath.normalize(this);
     }
 
     /**
@@ -139,7 +139,7 @@ public interface Vector extends Cloneable {
      * @since 1.0.0
      */
     default Vector normalized() throws ArithmeticException {
-        return VecMath.normalized(new Vec(this));
+        return VectorMath.normalized(new Vec(this));
     }
 
     /**
@@ -152,7 +152,7 @@ public interface Vector extends Cloneable {
      * @since 1.0.0
      */
     default Vector add(final Vector addendum) {
-        return VecMath.add(this, addendum);
+        return VectorMath.add(this, addendum);
     }
 
     /**
@@ -167,7 +167,7 @@ public interface Vector extends Cloneable {
      * @since 1.0.0
      */
     default Vector added(final Vector addendum) {
-        return VecMath.added(this, addendum);
+        return VectorMath.added(this, addendum);
     }
 
     /**
@@ -181,7 +181,7 @@ public interface Vector extends Cloneable {
      * @since 1.0.0
      */
     default Vector sub(final Vector subtrahend) {
-        return VecMath.sub(this, subtrahend);
+        return VectorMath.sub(this, subtrahend);
     }
 
     /**
@@ -196,7 +196,7 @@ public interface Vector extends Cloneable {
      * @since 1.0.0
      */
     default Vector subtracted(final Vector subtrahend) {
-        return VecMath.subtracted(this, subtrahend);
+        return VectorMath.subtracted(this, subtrahend);
     }
 
     /**
@@ -208,7 +208,7 @@ public interface Vector extends Cloneable {
      * @since 1.0.0
      */
     default float dot(final Vector v) {
-        return VecMath.dot(this, v);
+        return VectorMath.dot(this, v);
     }
 
     /**
@@ -221,7 +221,7 @@ public interface Vector extends Cloneable {
      * @since 1.0.0
      */
     default Vector cross(final Vector v) {
-        return VecMath.cross(this, v);
+        return VectorMath.cross(this, v);
     }
 
     /**
@@ -236,7 +236,7 @@ public interface Vector extends Cloneable {
      * @since 1.0.0
      */
     default boolean equalsEpsilonTo(final Vector v, final float eps) {
-        return VecMath.equalsEpsilon(this, v, eps);
+        return VectorMath.equalsEpsilon(this, v, eps);
     }
 
     /**
@@ -250,6 +250,6 @@ public interface Vector extends Cloneable {
      * @since 1.0.0
      */
     default boolean equalsTo(final Vector v) {
-        return VecMath.equals(this, v);
+        return VectorMath.equals(this, v);
     }
 }

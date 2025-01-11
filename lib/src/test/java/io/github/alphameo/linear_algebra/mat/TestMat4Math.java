@@ -1,6 +1,6 @@
 package io.github.alphameo.linear_algebra.mat;
 
-import static io.github.alphameo.linear_algebra.mat.Mat4Math.*;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.*;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -269,8 +269,8 @@ public class TestMat4Math {
                 { 7, 2, 8 }
         });
 
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, 0, 0)));
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, Matrix4Row.R0, Matrix4Col.C0)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, 0, 0)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, Matrix4Row.R0, Matrix4Col.C0)));
     }
 
     @Test
@@ -288,8 +288,8 @@ public class TestMat4Math {
                 { 5, 2, 8 }
         });
 
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, 1, 1)));
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, Matrix4Row.R1, Matrix4Col.C1)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, 1, 1)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, Matrix4Row.R1, Matrix4Col.C1)));
     }
 
     @Test
@@ -307,8 +307,8 @@ public class TestMat4Math {
                 { 5, 7, 8 }
         });
 
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, 2, 2)));
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, Matrix4Row.R2, Matrix4Col.C2)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, 2, 2)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, Matrix4Row.R2, Matrix4Col.C2)));
     }
 
     @Test
@@ -326,8 +326,8 @@ public class TestMat4Math {
                 { 7, 8, 9 }
         });
 
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, 3, 3)));
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, Matrix4Row.R3, Matrix4Col.C3)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, 3, 3)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, Matrix4Row.R3, Matrix4Col.C3)));
     }
 
     @Test
@@ -370,7 +370,7 @@ public class TestMat4Math {
                 { 5, 7, 2, 8 }
         });
 
-        Assertions.assertTrue(MatMath.equals(m1, m2));
+        Assertions.assertTrue(MatrixMath.equals(m1, m2));
     }
 
     @Test
@@ -389,7 +389,7 @@ public class TestMat4Math {
                 { 5, 7, 2, 8 }
         });
 
-        Assertions.assertTrue(!MatMath.equals(m1, m2));
+        Assertions.assertTrue(!MatrixMath.equals(m1, m2));
     }
 
     @Test
@@ -484,7 +484,7 @@ public class TestMat4Math {
         Vector4 v2 = new Vec4(4, 5, 6, 5);
         Vector4 v3 = new Vec4(7, 8, 9, 8);
         Vector4 v4 = new Vec4(1, 6, 5, 0);
-        Matrix4 m = Mat4Math.fromVecRows(v1, v2, v3, v4);
+        Matrix4 m = Matrix4Math.fromVecRows(v1, v2, v3, v4);
         Matrix4 expected = new Mat4(
                 1, 2, 3, 0,
                 4, 5, 6, 5,
@@ -500,7 +500,7 @@ public class TestMat4Math {
         Vector4 v2 = new Vec4(4, 5, 6, 5);
         Vector4 v3 = new Vec4(7, 8, 9, 8);
         Vector4 v4 = new Vec4(1, 6, 5, 0);
-        Matrix4 m = Mat4Math.fromVecCols(v1, v2, v3, v4);
+        Matrix4 m = Matrix4Math.fromVecCols(v1, v2, v3, v4);
         Matrix4 expected = new Mat4(
                 1, 4, 7, 1,
                 2, 5, 8, 6,

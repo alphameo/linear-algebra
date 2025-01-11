@@ -88,42 +88,42 @@ public interface Vector4 extends Vector {
 
     @Override
     default float len2() {
-        return Vec4Math.len2(this);
+        return Vector4Math.len2(this);
     }
 
     @Override
     default float len() {
-        return Vec4Math.len(this);
+        return Vector4Math.len(this);
     }
 
     @Override
     default Vector mult(float multiplier) {
-        return Vec4Math.mult(this, multiplier);
+        return Vector4Math.mult(this, multiplier);
     }
 
     @Override
     default Vector multiplied(float multiplier) {
-        return Vec4Math.multiplied(this, multiplier);
+        return Vector4Math.multiplied(this, multiplier);
     }
 
     @Override
     default Vector divide(float divisor) throws ArithmeticException {
-        return Vec4Math.divide(this, divisor);
+        return Vector4Math.divide(this, divisor);
     }
 
     @Override
     default Vector divided(float divisor) throws ArithmeticException {
-        return Vec4Math.divided(this, divisor);
+        return Vector4Math.divided(this, divisor);
     }
 
     @Override
     default Vector normalize() throws ArithmeticException {
-        return Vec4Math.normalize(this);
+        return Vector4Math.normalize(this);
     }
 
     @Override
     default Vector normalized() throws ArithmeticException {
-        return Vec4Math.normalized(this);
+        return Vector4Math.normalized(this);
     }
 
     /**
@@ -135,7 +135,7 @@ public interface Vector4 extends Vector {
      * @since 1.0.0
      */
     default Vector4 add(final Vector4 addendum) {
-        return Vec4Math.add(this, addendum);
+        return Vector4Math.add(this, addendum);
     }
 
     /**
@@ -149,7 +149,7 @@ public interface Vector4 extends Vector {
      * @since 1.0.0
      */
     default Vector4 added(final Vector4 addendum) {
-        return Vec4Math.added(this, addendum);
+        return Vector4Math.added(this, addendum);
     }
 
     /**
@@ -162,7 +162,7 @@ public interface Vector4 extends Vector {
      * @since 1.0.0
      */
     default Vector4 sub(final Vector4 subtrahend) {
-        return Vec4Math.sub(this, subtrahend);
+        return Vector4Math.sub(this, subtrahend);
     }
 
     /**
@@ -176,7 +176,7 @@ public interface Vector4 extends Vector {
      * @since 1.0.0
      */
     default Vector4 subtracted(final Vector4 subtrahend) {
-        return Vec4Math.subtracted(this, subtrahend);
+        return Vector4Math.subtracted(this, subtrahend);
     }
 
     /**
@@ -188,7 +188,7 @@ public interface Vector4 extends Vector {
      * @since 1.0.0
      */
     default float dot(final Vector4 v) {
-        return Vec4Math.dot(this, v);
+        return Vector4Math.dot(this, v);
     }
 
     /**
@@ -214,7 +214,7 @@ public interface Vector4 extends Vector {
      * @since 1.0.0
      */
     default boolean equalsEpsilonTo(final Vector4 other, final float eps) {
-        return Vec4Math.equalsEpsilon(this, other, eps);
+        return Vector4Math.equalsEpsilon(this, other, eps);
     }
 
     /**
@@ -228,6 +228,6 @@ public interface Vector4 extends Vector {
      * @since 1.0.0
      */
     default boolean equalsTo(final Vector4 other) {
-        return Vec4Math.equals(this, other);
+        return Vector4Math.equals(this, other);
     }
 }

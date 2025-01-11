@@ -12,14 +12,14 @@ import io.github.alphameo.linear_algebra.vec.Vector3;
  *
  * @since 1.0.0
  */
-public final class Mat3Math {
+public final class Matrix3Math {
 
     /**
      * Default empty constructor
      *
      * @since 1.0.0
      */
-    public Mat3Math() {
+    public Matrix3Math() {
     }
 
     /**
@@ -548,7 +548,7 @@ public final class Mat3Math {
      */
     public static float cofactor(final Matrix3 m, final Matrix3Row r, final Matrix3Col c) {
         final int coefficient = (r.ordinal() + c.ordinal()) % 2 == 0 ? 1 : -1;
-        return coefficient * MatMath.detThroughCofactors(minorMatrix(m, r, c));
+        return coefficient * MatrixMath.detThroughCofactors(minorMatrix(m, r, c));
     }
 
     /**

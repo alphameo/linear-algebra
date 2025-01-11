@@ -189,7 +189,7 @@ public class Mat4 implements Matrix4 {
             return false;
         }
         final Mat4 other = (Mat4) obj;
-        return Mat4Math.equals(this, other);
+        return Matrix4Math.equals(this, other);
     }
 
     /**
@@ -200,7 +200,7 @@ public class Mat4 implements Matrix4 {
      * @since 1.0.0
      */
     public static Matrix4 zeroMat() {
-        return Mat4Math.zeroMat();
+        return Matrix4Math.zeroMat();
     }
 
     /**
@@ -211,6 +211,6 @@ public class Mat4 implements Matrix4 {
      * @since 1.0.0
      */
     public static Matrix4 unitMat() {
-        return Mat4Math.unitMat();
+        return Matrix4Math.unitMat();
     }
 }

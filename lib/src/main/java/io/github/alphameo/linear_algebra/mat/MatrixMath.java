@@ -9,14 +9,14 @@ import io.github.alphameo.linear_algebra.vec.Vector;
  *
  * @since 1.0.0
  */
-public final class MatMath {
+public final class MatrixMath {
 
     /**
      * Default empty constructor
      *
      * @since 1.0.0
      */
-    public MatMath() {
+    public MatrixMath() {
     }
 
     /**
@@ -435,9 +435,9 @@ public final class MatMath {
         if (m.width() == 1) {
             return m.get(0, 0);
         } else if (m.width() == 2) {
-            return MatMath.det2(m);
+            return MatrixMath.det2(m);
         } else if (m.width() == 3) {
-            return MatMath.det3(m);
+            return MatrixMath.det3(m);
         }
 
         float determinant = 0;

@@ -7,14 +7,14 @@ import io.github.alphameo.linear_algebra.Validator;
  *
  * @since 1.0.0
  */
-public final class Vec2Math {
+public final class Vector2Math {
 
     /**
      * Default empty constructor
      *
      * @since 1.0.0
      */
-    public Vec2Math() {
+    public Vector2Math() {
     }
 
     /**

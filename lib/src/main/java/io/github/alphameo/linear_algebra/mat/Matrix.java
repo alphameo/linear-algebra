@@ -65,7 +65,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default float det() {
-        return MatMath.det(this);
+        return MatrixMath.det(this);
     }
 
     /**
@@ -77,7 +77,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default float detViaCofactors() {
-        return MatMath.detThroughCofactors(this);
+        return MatrixMath.detThroughCofactors(this);
     }
 
     /**
@@ -92,7 +92,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default float cofactor(final int r, final int c) {
-        return MatMath.cofactor(this, r, c);
+        return MatrixMath.cofactor(this, r, c);
     }
 
     /**
@@ -103,7 +103,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default boolean square() {
-        return MatMath.square(this);
+        return MatrixMath.square(this);
     }
 
     /**
@@ -115,7 +115,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default boolean isZeroed() {
-        return MatMath.isZeroed(this);
+        return MatrixMath.isZeroed(this);
     }
 
     /**
@@ -127,7 +127,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default boolean diagonal() {
-        return MatMath.diagonal(this);
+        return MatrixMath.diagonal(this);
     }
 
     /**
@@ -147,7 +147,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix transposed() {
-        return MatMath.transposed(this);
+        return MatrixMath.transposed(this);
     }
 
     /**
@@ -161,7 +161,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix swapRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
-        return MatMath.swapRows(this, r1, r2);
+        return MatrixMath.swapRows(this, r1, r2);
     }
 
     /**
@@ -175,7 +175,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix swappedRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
-        return MatMath.swappedRows(this, r1, r2);
+        return MatrixMath.swappedRows(this, r1, r2);
     }
 
     /**
@@ -189,7 +189,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix swapCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
-        return MatMath.swapCols(this, c1, c2);
+        return MatrixMath.swapCols(this, c1, c2);
     }
 
     /**
@@ -203,7 +203,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix swappedCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
-        return MatMath.swappedCols(this, c1, c2);
+        return MatrixMath.swappedCols(this, c1, c2);
     }
 
     /**
@@ -215,7 +215,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix mult(final float multiplier) {
-        return MatMath.mult(this, multiplier);
+        return MatrixMath.mult(this, multiplier);
     }
 
     /**
@@ -227,7 +227,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix multiplied(final float multiplier) {
-        return MatMath.multiplied(this, multiplier);
+        return MatrixMath.multiplied(this, multiplier);
     }
 
     /**
@@ -240,7 +240,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix divide(final float divisor) throws ArithmeticException {
-        return MatMath.divide(this, divisor);
+        return MatrixMath.divide(this, divisor);
     }
 
     /**
@@ -253,7 +253,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix divided(final float divisor) throws ArithmeticException {
-        return MatMath.divided(this, divisor);
+        return MatrixMath.divided(this, divisor);
     }
 
     /**
@@ -267,7 +267,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix add(final Matrix addendum) {
-        return MatMath.add(this, addendum);
+        return MatrixMath.add(this, addendum);
     }
 
     /**
@@ -282,7 +282,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix added(final Matrix addendum) {
-        return MatMath.added(this, addendum);
+        return MatrixMath.added(this, addendum);
     }
 
     /**
@@ -296,7 +296,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix sub(final Matrix subtrahend) {
-        return MatMath.sub(this, subtrahend);
+        return MatrixMath.sub(this, subtrahend);
     }
 
     /**
@@ -310,7 +310,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix subtracted(final Matrix subtrahend) {
-        return MatMath.subtracted(this, subtrahend);
+        return MatrixMath.subtracted(this, subtrahend);
     }
 
     /**
@@ -324,7 +324,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix prod(final Matrix m) {
-        return MatMath.prod(this, m);
+        return MatrixMath.prod(this, m);
     }
 
     /**
@@ -338,7 +338,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Vector prod(final Vector v) {
-        return MatMath.prod(this, v);
+        return MatrixMath.prod(this, v);
     }
 
     /**
@@ -349,7 +349,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix triangulate() {
-        return MatMath.triangulate(this);
+        return MatrixMath.triangulate(this);
     }
 
     /**
@@ -360,7 +360,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix triangulated() {
-        return MatMath.triangulated(this);
+        return MatrixMath.triangulated(this);
     }
 
     /**
@@ -373,7 +373,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix invertible() {
-        return MatMath.invertible(this);
+        return MatrixMath.invertible(this);
     }
 
     /**
@@ -387,7 +387,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix minorMatrix(final int r, final int c) {
-        return MatMath.minorMatrix(this, r, c);
+        return MatrixMath.minorMatrix(this, r, c);
     }
 
     /**
@@ -400,7 +400,7 @@ public interface Matrix extends Cloneable {
      */
     default Matrix cofactorMatrix() {
         final Matrix result = new Mat(this.height(), this.width());
-        MatMath.cofactorMatrix(this);
+        MatrixMath.cofactorMatrix(this);
 
         return result;
     }
@@ -417,7 +417,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default boolean equalsEpsilonTo(final Matrix m, final float eps) {
-        return MatMath.equalsEpsilon(this, m, eps);
+        return MatrixMath.equalsEpsilon(this, m, eps);
     }
 
     /**
@@ -431,6 +431,6 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default boolean equalsTo(final Matrix m) {
-        return MatMath.equals(this, m);
+        return MatrixMath.equals(this, m);
     }
 }

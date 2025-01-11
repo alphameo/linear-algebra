@@ -1,6 +1,6 @@
 package io.github.alphameo.linear_algebra.mat;
 
-import static io.github.alphameo.linear_algebra.mat.Mat3Math.*;
+import static io.github.alphameo.linear_algebra.mat.Matrix3Math.*;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -243,8 +243,8 @@ public class TestMat3Math {
                 { 8, 9 }
         });
 
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, 0, 0)));
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, Matrix3Row.R0, Matrix3Col.C0)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, 0, 0)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, Matrix3Row.R0, Matrix3Col.C0)));
     }
 
     @Test
@@ -260,8 +260,8 @@ public class TestMat3Math {
                 { 7, 9 }
         });
 
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, 1, 1)));
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, Matrix3Row.R1, Matrix3Col.C1)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, 1, 1)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, Matrix3Row.R1, Matrix3Col.C1)));
     }
 
     @Test
@@ -277,8 +277,8 @@ public class TestMat3Math {
                 { 4, 12 },
         });
 
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, 2, 2)));
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, Matrix3Row.R2, Matrix3Col.C2)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, 2, 2)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, Matrix3Row.R2, Matrix3Col.C2)));
     }
 
     @Test
@@ -317,7 +317,7 @@ public class TestMat3Math {
                 { 7, 8, 9 }
         });
 
-        Assertions.assertTrue(MatMath.equals(m1, m2));
+        Assertions.assertTrue(MatrixMath.equals(m1, m2));
     }
 
     @Test
@@ -334,7 +334,7 @@ public class TestMat3Math {
                 { 7, 8, 9 }
         });
 
-        Assertions.assertTrue(!MatMath.equals(m1, m2));
+        Assertions.assertTrue(!MatrixMath.equals(m1, m2));
     }
 
     @Test
@@ -408,11 +408,11 @@ public class TestMat3Math {
         });
 
         Assertions.assertEquals(expected,
-                Mat3Math.toMat4(
+                Matrix3Math.toMat4(
                         m,
                         Matrix4Row.R0,
                         Matrix4Col.C0));
-        Assertions.assertEquals(expected, Mat3Math.toMat4(m, 0, 0));
+        Assertions.assertEquals(expected, Matrix3Math.toMat4(m, 0, 0));
     }
 
     @Test
@@ -431,11 +431,11 @@ public class TestMat3Math {
         });
 
         Assertions.assertEquals(expected,
-                Mat3Math.toMat4(
+                Matrix3Math.toMat4(
                         m,
                         Matrix4Row.R1,
                         Matrix4Col.C1));
-        Assertions.assertEquals(expected, Mat3Math.toMat4(m, 1, 1));
+        Assertions.assertEquals(expected, Matrix3Math.toMat4(m, 1, 1));
     }
 
     @Test
@@ -454,11 +454,11 @@ public class TestMat3Math {
         });
 
         Assertions.assertEquals(expected,
-                Mat3Math.toMat4(
+                Matrix3Math.toMat4(
                         m,
                         Matrix4Row.R2,
                         Matrix4Col.C2));
-        Assertions.assertEquals(expected, Mat3Math.toMat4(m, 2, 2));
+        Assertions.assertEquals(expected, Matrix3Math.toMat4(m, 2, 2));
     }
 
     @Test
@@ -477,11 +477,11 @@ public class TestMat3Math {
         });
 
         Assertions.assertEquals(expected,
-                Mat3Math.toMat4(
+                Matrix3Math.toMat4(
                         m,
                         Matrix4Row.R3,
                         Matrix4Col.C3));
-        Assertions.assertEquals(expected, Mat3Math.toMat4(m, 3, 3));
+        Assertions.assertEquals(expected, Matrix3Math.toMat4(m, 3, 3));
     }
 
     @Test
@@ -513,7 +513,7 @@ public class TestMat3Math {
         Vector3 v1 = new Vec3(1, 2, 3);
         Vector3 v2 = new Vec3(4, 5, 6);
         Vector3 v3 = new Vec3(7, 8, 9);
-        Matrix3 m = Mat3Math.fromVecRows(v1, v2, v3);
+        Matrix3 m = Matrix3Math.fromVecRows(v1, v2, v3);
         Matrix3 expected = new Mat3(
                 1, 2, 3,
                 4, 5, 6,
@@ -527,7 +527,7 @@ public class TestMat3Math {
         Vector3 v1 = new Vec3(1, 2, 3);
         Vector3 v2 = new Vec3(4, 5, 6);
         Vector3 v3 = new Vec3(7, 8, 9);
-        Matrix3 m = Mat3Math.fromVecCols(v1, v2, v3);
+        Matrix3 m = Matrix3Math.fromVecCols(v1, v2, v3);
         Matrix3 expected = new Mat3(
                 1, 4, 7,
                 2, 5, 8,

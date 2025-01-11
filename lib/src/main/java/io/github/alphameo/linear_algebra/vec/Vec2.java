@@ -117,7 +117,7 @@ public class Vec2 implements Vector2 {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        return VecMath.equals(this, (Vector) obj);
+        return VectorMath.equals(this, (Vector) obj);
     }
 
     /**
@@ -128,7 +128,7 @@ public class Vec2 implements Vector2 {
      * @since 1.0.0
      */
     public static Vector2 zeroVec() {
-        return Vec2Math.zeroVec();
+        return Vector2Math.zeroVec();
     }
 
     /**
@@ -139,6 +139,6 @@ public class Vec2 implements Vector2 {
      * @since 1.0.0
      */
     public static Vector2 unitVec() {
-        return Vec2Math.unitVec();
+        return Vector2Math.unitVec();
     }
 }

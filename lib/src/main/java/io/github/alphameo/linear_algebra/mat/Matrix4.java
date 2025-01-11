@@ -40,17 +40,17 @@ public interface Matrix4 extends Matrix {
 
     @Override
     default float det() {
-        return Mat4Math.det(this);
+        return Matrix4Math.det(this);
     }
 
     @Override
     default float detViaCofactors() {
-        return MatMath.detThroughCofactors(this);
+        return MatrixMath.detThroughCofactors(this);
     }
 
     @Override
     default float cofactor(final int r, final int c) {
-        return Mat4Math.cofactor(this, r, c);
+        return Matrix4Math.cofactor(this, r, c);
     }
 
     @Override
@@ -60,17 +60,17 @@ public interface Matrix4 extends Matrix {
 
     @Override
     default boolean isZeroed() {
-        return Mat4Math.isZeroed(this);
+        return Matrix4Math.isZeroed(this);
     }
 
     @Override
     default boolean diagonal() {
-        return Mat4Math.diagonal(this);
+        return Matrix4Math.diagonal(this);
     }
 
     @Override
     default Matrix4 transpose() {
-        return Mat4Math.transpose(this);
+        return Matrix4Math.transpose(this);
     }
 
     /**
@@ -81,7 +81,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 transposed() {
-        return Mat4Math.transposed(this);
+        return Matrix4Math.transposed(this);
     }
 
     /**
@@ -94,7 +94,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 swapRows(final Matrix4Row r1, final Matrix4Row r2) {
-        return Mat4Math.swapRows(this, r1, r2);
+        return Matrix4Math.swapRows(this, r1, r2);
     }
 
     /**
@@ -108,7 +108,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 swapRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
-        return Mat4Math.swapRows(this, r1, r2);
+        return Matrix4Math.swapRows(this, r1, r2);
     }
 
     /**
@@ -121,7 +121,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 swappedRows(final Matrix4Row r1, final Matrix4Row r2) {
-        return Mat4Math.swappedRows(this, r1, r2);
+        return Matrix4Math.swappedRows(this, r1, r2);
     }
 
     /**
@@ -135,7 +135,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 swappedRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
-        return Mat4Math.swappedRows(this, r1, r2);
+        return Matrix4Math.swappedRows(this, r1, r2);
     }
 
     /**
@@ -148,7 +148,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 swapCols(final Matrix4Col c1, final Matrix4Col c2) {
-        return Mat4Math.swapCols(this, c1, c2);
+        return Matrix4Math.swapCols(this, c1, c2);
     }
 
     /**
@@ -162,7 +162,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 swapCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
-        return Mat4Math.swapCols(this, c1, c2);
+        return Matrix4Math.swapCols(this, c1, c2);
     }
 
     /**
@@ -175,7 +175,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 swappedCols(final Matrix4Col c1, final Matrix4Col c2) {
-        return Mat4Math.swappedCols(this, c1, c2);
+        return Matrix4Math.swappedCols(this, c1, c2);
     }
 
     /**
@@ -189,7 +189,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 swappedCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
-        return Mat4Math.swappedCols(this, c1, c2);
+        return Matrix4Math.swappedCols(this, c1, c2);
     }
 
     /**
@@ -201,7 +201,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 mult(final float multiplier) {
-        return Mat4Math.mult(this, multiplier);
+        return Matrix4Math.mult(this, multiplier);
     }
 
     /**
@@ -213,7 +213,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 multiplied(final float multiplier) {
-        return Mat4Math.multiplied(this, multiplier);
+        return Matrix4Math.multiplied(this, multiplier);
     }
 
     /**
@@ -226,7 +226,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 divide(final float divisor) throws ArithmeticException {
-        return Mat4Math.divide(this, divisor);
+        return Matrix4Math.divide(this, divisor);
     }
 
     /**
@@ -239,7 +239,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 divided(final float divisor) throws ArithmeticException {
-        return Mat4Math.divide(this, divisor);
+        return Matrix4Math.divide(this, divisor);
     }
 
     /**
@@ -252,7 +252,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 add(final Matrix4 addendum) {
-        return Mat4Math.add(this, addendum);
+        return Matrix4Math.add(this, addendum);
     }
 
     /**
@@ -266,7 +266,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 added(final Matrix4 addendum) {
-        return Mat4Math.added(this, addendum);
+        return Matrix4Math.added(this, addendum);
     }
 
     /**
@@ -279,7 +279,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 sub(final Matrix4 subtrahend) {
-        return Mat4Math.sub(this, subtrahend);
+        return Matrix4Math.sub(this, subtrahend);
     }
 
     /**
@@ -292,7 +292,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 subtracted(final Matrix4 subtrahend) {
-        return Mat4Math.subtracted(this, subtrahend);
+        return Matrix4Math.subtracted(this, subtrahend);
     }
 
     /**
@@ -304,7 +304,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 prod(final Matrix4 m) {
-        return Mat4Math.prod(this, m);
+        return Matrix4Math.prod(this, m);
     }
 
     /**
@@ -317,7 +317,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Vector4 prod(final Vector4 v) {
-        return Mat4Math.prod(this, v);
+        return Matrix4Math.prod(this, v);
     }
 
     /**
@@ -328,7 +328,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 triangulate() {
-        return Mat4Math.triangulate(this);
+        return Matrix4Math.triangulate(this);
     }
 
     /**
@@ -339,7 +339,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 triangulated() {
-        return Mat4Math.triangulated(this);
+        return Matrix4Math.triangulated(this);
     }
 
     /**
@@ -351,7 +351,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 invertible() throws RuntimeException {
-        return Mat4Math.invertible(this);
+        return Matrix4Math.invertible(this);
     }
 
     /**
@@ -365,7 +365,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix3 minorMatrix(final Matrix4Row r, final Matrix4Col c) {
-        return Mat4Math.minorMatrix(this, r, c);
+        return Matrix4Math.minorMatrix(this, r, c);
     }
 
     /**
@@ -378,7 +378,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix3 minorMatrix(final int r, final int c) {
-        return Mat4Math.minorMatrix(this, r, c);
+        return Matrix4Math.minorMatrix(this, r, c);
     }
 
     /**
@@ -392,7 +392,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default float cofactor(final Matrix4Row r, final Matrix4Col c) {
-        return Mat4Math.cofactor(this, r, c);
+        return Matrix4Math.cofactor(this, r, c);
     }
 
     /**
@@ -403,7 +403,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 cofactorMatrix() {
-        return Mat4Math.cofactorMatrix(this);
+        return Matrix4Math.cofactorMatrix(this);
     }
 
     /**
@@ -418,7 +418,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default boolean equalsEpsilonTo(final Matrix4 m, final float eps) {
-        return Mat4Math.equalsEpsilon(this, m, eps);
+        return Matrix4Math.equalsEpsilon(this, m, eps);
     }
 
     /**
@@ -432,6 +432,6 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default boolean equalsTo(final Matrix4 m) {
-        return Mat4Math.equals(this, m);
+        return Matrix4Math.equals(this, m);
     }
 }

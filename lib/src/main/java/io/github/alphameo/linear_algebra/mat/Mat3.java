@@ -174,7 +174,7 @@ public class Mat3 implements Matrix3 {
             return false;
         }
         final Mat3 other = (Mat3) obj;
-        return Mat3Math.equals(this, other);
+        return Matrix3Math.equals(this, other);
     }
 
     /**
@@ -185,7 +185,7 @@ public class Mat3 implements Matrix3 {
      * @since 1.0.0
      */
     public static Matrix3 zeroMat() {
-        return Mat3Math.zeroMat();
+        return Matrix3Math.zeroMat();
     }
 
     /**
@@ -196,6 +196,6 @@ public class Mat3 implements Matrix3 {
      * @since 1.0.0
      */
     public static Matrix3 unitMat() {
-        return Mat3Math.unitMat();
+        return Matrix3Math.unitMat();
     }
 }

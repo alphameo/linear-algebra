@@ -1,6 +1,6 @@
 package io.github.alphameo.linear_algebra.vec;
 
-import static io.github.alphameo.linear_algebra.vec.Vec4Math.*;
+import static io.github.alphameo.linear_algebra.vec.Vector4Math.*;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -87,7 +87,7 @@ public class TestVec4Math {
         Vector4 v1 = new Vec4(-12, 3, 4, 0.1f);
         Vector4 v2 = new Vec4(-12, 3, 4, 0.1f);
 
-        Assertions.assertTrue(VecMath.equals(v1, v2));
+        Assertions.assertTrue(VectorMath.equals(v1, v2));
     }
 
     @Test
@@ -95,7 +95,7 @@ public class TestVec4Math {
         Vector4 v1 = new Vec4(-12, 3, 4, 12.4f);
         Vector4 v2 = new Vec4(-12, 4, 4, 12.3f);
 
-        Assertions.assertTrue(!VecMath.equals(v1, v2));
+        Assertions.assertTrue(!VectorMath.equals(v1, v2));
     }
 
     @Test

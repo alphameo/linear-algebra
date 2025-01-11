@@ -70,42 +70,42 @@ public interface Vector3 extends Vector {
 
     @Override
     default float len2() {
-        return Vec3Math.len2(this);
+        return Vector3Math.len2(this);
     }
 
     @Override
     default float len() {
-        return Vec3Math.len(this);
+        return Vector3Math.len(this);
     }
 
     @Override
     default Vector mult(float multiplier) {
-        return Vec3Math.mult(this, multiplier);
+        return Vector3Math.mult(this, multiplier);
     }
 
     @Override
     default Vector multiplied(float multiplier) {
-        return Vec3Math.multiplied(this, multiplier);
+        return Vector3Math.multiplied(this, multiplier);
     }
 
     @Override
     default Vector divide(float divisor) throws ArithmeticException {
-        return Vec3Math.divide(this, divisor);
+        return Vector3Math.divide(this, divisor);
     }
 
     @Override
     default Vector divided(float divisor) throws ArithmeticException {
-        return Vec3Math.divided(this, divisor);
+        return Vector3Math.divided(this, divisor);
     }
 
     @Override
     default Vector normalize() throws ArithmeticException {
-        return Vec3Math.normalize(this);
+        return Vector3Math.normalize(this);
     }
 
     @Override
     default Vector normalized() throws ArithmeticException {
-        return Vec3Math.normalized(this);
+        return Vector3Math.normalized(this);
     }
 
     /**
@@ -117,7 +117,7 @@ public interface Vector3 extends Vector {
      * @since 1.0.0
      */
     default Vector3 add(final Vector3 addendum) {
-        return Vec3Math.add(this, addendum);
+        return Vector3Math.add(this, addendum);
     }
 
     /**
@@ -131,7 +131,7 @@ public interface Vector3 extends Vector {
      * @since 1.0.0
      */
     default Vector3 added(final Vector3 addendum) {
-        return Vec3Math.added(this, addendum);
+        return Vector3Math.added(this, addendum);
     }
 
     /**
@@ -144,7 +144,7 @@ public interface Vector3 extends Vector {
      * @since 1.0.0
      */
     default Vector3 sub(final Vector3 subtrahend) {
-        return Vec3Math.sub(this, subtrahend);
+        return Vector3Math.sub(this, subtrahend);
     }
 
     /**
@@ -158,7 +158,7 @@ public interface Vector3 extends Vector {
      * @since 1.0.0
      */
     default Vector3 subtracted(final Vector3 subtrahend) {
-        return Vec3Math.subtracted(this, subtrahend);
+        return Vector3Math.subtracted(this, subtrahend);
     }
 
     /**
@@ -170,7 +170,7 @@ public interface Vector3 extends Vector {
      * @since 1.0.0
      */
     default float dot(final Vector3 v) {
-        return Vec3Math.dot(this, v);
+        return Vector3Math.dot(this, v);
     }
 
     /**
@@ -183,7 +183,7 @@ public interface Vector3 extends Vector {
      */
     default Vector3 cross(final Vector3 v) {
         final Vector3 result = new Vec3();
-        Vec3Math.cross(this, v);
+        Vector3Math.cross(this, v);
 
         return result;
     }
@@ -200,7 +200,7 @@ public interface Vector3 extends Vector {
      * @since 1.0.0
      */
     default boolean equalsEpsilonTo(final Vector3 other, final float eps) {
-        return Vec3Math.equalsEpsilon(this, other, eps);
+        return Vector3Math.equalsEpsilon(this, other, eps);
     }
 
     /**
@@ -214,7 +214,7 @@ public interface Vector3 extends Vector {
      * @since 1.0.0
      */
     default boolean equalsTo(final Vector3 other) {
-        return Vec3Math.equals(this, other);
+        return Vector3Math.equals(this, other);
     }
 
     /**
@@ -228,6 +228,6 @@ public interface Vector3 extends Vector {
      * @since 1.0.0
      */
     default Vector4 toVec4() {
-        return Vec3Math.toVec4(this);
+        return Vector3Math.toVec4(this);
     }
 }

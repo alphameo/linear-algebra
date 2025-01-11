@@ -142,7 +142,7 @@ public class Vec4 implements Vector4 {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        return VecMath.equals(this, (Vector) obj);
+        return VectorMath.equals(this, (Vector) obj);
     }
 
     /**
@@ -164,6 +164,6 @@ public class Vec4 implements Vector4 {
      * @since 1.0.0
      */
     public static Vector4 unitVector() {
-        return Vec4Math.unitVec();
+        return Vector4Math.unitVec();
     }
 }

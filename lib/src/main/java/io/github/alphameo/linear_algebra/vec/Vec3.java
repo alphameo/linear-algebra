@@ -129,7 +129,7 @@ public class Vec3 implements Vector3 {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        return VecMath.equals(this, (Vector) obj);
+        return VectorMath.equals(this, (Vector) obj);
     }
 
     /**
@@ -140,7 +140,7 @@ public class Vec3 implements Vector3 {
      * @since 1.0.0
      */
     public static Vector3 zeroVec() {
-        return Vec3Math.zeroVec();
+        return Vector3Math.zeroVec();
     }
 
     /**
@@ -151,6 +151,6 @@ public class Vec3 implements Vector3 {
      * @since 1.0.0
      */
     public static Vector3 unitVec() {
-        return Vec3Math.unitVec();
+        return Vector3Math.unitVec();
     }
 }
