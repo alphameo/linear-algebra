@@ -502,26 +502,4 @@ public interface Matrix3 extends Matrix {
     default Matrix4 toMat4(final int insertionRow, final int insertionCol) {
         return Mat3Math.toMat4(this, insertionRow, insertionCol);
     }
-
-    /**
-     * Constructs matrix 3x3 of with all 0 elements.
-     * 
-     * @return matrix 3x3 with all 0 elements
-     *
-     * @since 1.0.0
-     */
-    static Matrix3 zeroMat() {
-        return Mat3Math.zeroMat();
-    }
-
-    /**
-     * Constructs square matrix 3x3 with 1 on main diagonal.
-     * 
-     * @return square matrix 3x3 with 1 on main diagonal
-     *
-     * @since 1.0.0
-     */
-    static Matrix3 unitMat() {
-        return Mat3Math.unitMat();
-    }
 }

@@ -131,4 +131,26 @@ public class Vec3 implements Vector3 {
         }
         return VecMath.equals(this, (Vector) obj);
     }
+
+    /**
+     * Constructs new vector of size 3 with all 0 components.
+     * 
+     * @return new zero vector of size 3
+     *
+     * @since 1.0.0
+     */
+    public static Vector3 zeroVec() {
+        return Vec3Math.zeroVec();
+    }
+
+    /**
+     * Constructs new vector of size 4 with 1 as components.
+     * 
+     * @return new unit vector of size 4
+     *
+     * @since 1.0.0
+     */
+    public static Vector3 unitVec() {
+        return Vec3Math.unitVec();
+    }
 }

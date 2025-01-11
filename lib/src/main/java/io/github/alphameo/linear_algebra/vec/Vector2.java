@@ -209,26 +209,4 @@ public interface Vector2 extends Vector {
     default Vector3 toVec3() {
         return Vec2Math.toVec3(this);
     }
-
-    /**
-     * Constructs new 2-dimensional vector with all 0 components.
-     * 
-     * @return new 2-dimensional zero vector
-     *
-     * @since 1.0.0
-     */
-    public static Vector2 zeroVec() {
-        return Vec2Math.zeroVec();
-    }
-
-    /**
-     * Constructs new 2-dimensional vector with 1 as components.
-     * 
-     * @return new 2-dimensional unit vector
-     *
-     * @since 1.0.0
-     */
-    public static Vector2 unitVec() {
-        return Vec2Math.unitVec();
-    }
 }

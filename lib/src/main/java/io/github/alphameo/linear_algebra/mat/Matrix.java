@@ -433,29 +433,4 @@ public interface Matrix extends Cloneable {
     default boolean equalsTo(final Matrix m) {
         return MatMath.equals(this, m);
     }
-
-    /**
-     * Constructs matrix of given sizes with all 0 elements.
-     * 
-     * @param height height of matrix to be constructed
-     * @param width  width of matrix to be constructed
-     * @return matrix {@code height} x {@code width} with all 0 elements
-     *
-     * @since 1.0.0
-     */
-    static Matrix zeroMat(final int height, final int width) {
-        return MatMath.zeroMat(height, width);
-    }
-
-    /**
-     * Constructs square matrix of given size with 1 on main diagonal.
-     * 
-     * @param size height and width of matrix to be constructed
-     * @return square matrix {@code size} x {@code size} with 1 on main diagonal
-     *
-     * @since 1.0.0
-     */
-    static Matrix unitMat(final int size) {
-        return MatMath.unitMat(size);
-    }
 }

@@ -176,4 +176,26 @@ public class Mat3 implements Matrix3 {
         final Mat3 other = (Mat3) obj;
         return Mat3Math.equals(this, other);
     }
+
+    /**
+     * Constructs matrix 3x3 of with all 0 elements.
+     * 
+     * @return matrix 3x3 with all 0 elements
+     *
+     * @since 1.0.0
+     */
+    public static Matrix3 zeroMat() {
+        return Mat3Math.zeroMat();
+    }
+
+    /**
+     * Constructs square matrix 3x3 with 1 on main diagonal.
+     * 
+     * @return square matrix 3x3 with 1 on main diagonal
+     *
+     * @since 1.0.0
+     */
+    public static Matrix3 unitMat() {
+        return Mat3Math.unitMat();
+    }
 }

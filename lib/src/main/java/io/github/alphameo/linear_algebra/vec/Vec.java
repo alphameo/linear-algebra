@@ -96,4 +96,28 @@ public class Vec implements Vector {
         }
         return VecMath.equals(this, (Vector) obj);
     }
+
+    /**
+     * Constructs new vector of given {@code size} with all 0 components.
+     * 
+     * @param size size of vector to be constructed
+     * @return new zero vector of given {@code size}
+     *
+     * @since 1.0.0
+     */
+    public static Vector zeroVec(final int size) {
+        return VecMath.zeroVec(size);
+    }
+
+    /**
+     * Constructs new vector of given {@code size} with 1 as components.
+     * 
+     * @param size size of vector to be constructed
+     * @return new unit vector of given {@code size}
+     *
+     * @since 1.0.0
+     */
+    public static Vector unitVec(final int size) {
+        return VecMath.unitVec(size);
+    }
 }

@@ -119,4 +119,26 @@ public class Vec2 implements Vector2 {
         }
         return VecMath.equals(this, (Vector) obj);
     }
+
+    /**
+     * Constructs new 2-dimensional vector with all 0 components.
+     * 
+     * @return new 2-dimensional zero vector
+     *
+     * @since 1.0.0
+     */
+    public static Vector2 zeroVec() {
+        return Vec2Math.zeroVec();
+    }
+
+    /**
+     * Constructs new 2-dimensional vector with 1 as components.
+     * 
+     * @return new 2-dimensional unit vector
+     *
+     * @since 1.0.0
+     */
+    public static Vector2 unitVec() {
+        return Vec2Math.unitVec();
+    }
 }
