@@ -44,11 +44,11 @@ public interface Vector extends Cloneable {
     Vector clone();
 
     /**
-     * Calculates square of vector length.
+     * Calculates square of vector length (or norm).
      * <p>
      * You can use it if you need fast comparison.
      * 
-     * @return square length of vector
+     * @return squared length (or norm) of vector
      *
      * @since 1.0.0
      */
