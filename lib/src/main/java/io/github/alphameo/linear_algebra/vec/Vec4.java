@@ -2,8 +2,6 @@ package io.github.alphameo.linear_algebra.vec;
 
 import java.util.Arrays;
 
-import io.github.alphameo.linear_algebra.Equatable;
-
 /**
  * Default implementation of vector with size 2 ({@code Vector2 interface}).
  *
