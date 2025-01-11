@@ -28,9 +28,9 @@ public interface Vector extends Cloneable {
     void set(int i, final float value);
 
     /**
-     * Returns size (components count) of vector.
+     * Returns size (or dimension or components count) of vector.
      * 
-     * @return size of vector
+     * @return size | dimension | components count of vector
      *
      * @since 1.0.0
      */
@@ -57,9 +57,9 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Calculates length of vector.
+     * Calculates length (or norm) of vector.
      * 
-     * @return length of vector
+     * @return length | norm of vector
      *
      * @since 1.0.0
      */
