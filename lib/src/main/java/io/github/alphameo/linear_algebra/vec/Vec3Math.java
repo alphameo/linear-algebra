@@ -234,7 +234,7 @@ public final class Vec3Math {
 
     /**
      * Returns {@code true} if components of vectors are equal within
-     * {@code epsilon} tolerance
+     * {@code epsilon} tolerance.
      * 
      * @param v1  first vector of size 3 for comparison
      * @param v2  second vector of size 3 for comparison
@@ -251,7 +251,7 @@ public final class Vec3Math {
     }
 
     /**
-     * Returns {@code true} if components of vectors are approximately equal
+     * Returns {@code true} if components of vectors are approximately equal.
      * 
      * @param v1 first vector of size 3 for comparison
      * @param v2 second vector of size 3 for comparison

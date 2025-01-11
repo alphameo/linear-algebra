@@ -255,7 +255,7 @@ public final class VecMath {
 
     /**
      * Returns {@code true} if components of vectors are equal within
-     * {@code epsilon} tolerance
+     * {@code epsilon} tolerance.
      * 
      * @param v1  first vector for comparison
      * @param v2  second vector for comparison
@@ -277,7 +277,7 @@ public final class VecMath {
     }
 
     /**
-     * Returns {@code true} if components of vectors are approximately equal
+     * Returns {@code true} if components of vectors are approximately equal.
      * 
      * @param v1 first vector for comparison
      * @param v2 second vector for comparison

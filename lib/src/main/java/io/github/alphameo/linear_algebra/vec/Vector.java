@@ -1,7 +1,7 @@
 package io.github.alphameo.linear_algebra.vec;
 
 /**
- * Interface for arbitrary vector.
+ * Interface for N-dimensional vector.
  *
  * @since 1.0.0
  */

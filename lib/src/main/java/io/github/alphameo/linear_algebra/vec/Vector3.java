@@ -1,14 +1,14 @@
 package io.github.alphameo.linear_algebra.vec;
 
 /**
- * Interface for vector of size 3.
+ * Interface for 3-dimensional vector.
  *
  * @since 1.0.0
  */
 public interface Vector3 extends Vector {
 
     /**
-     * Returns x component (index = 0).
+     * Returns x component (index = 0) of 3-dimensional vector.
      * 
      * @return x component of vector
      *
@@ -17,16 +17,16 @@ public interface Vector3 extends Vector {
     float x();
 
     /**
-     * Returns x component (index = 1).
+     * Returns y component (index = 1) of 3-dimensional vector.
      * 
-     * @return x component of vector
+     * @return y component of vector
      *
      * @since 1.0.0
      */
     float y();
 
     /**
-     * Returns z component (index = 2).
+     * Returns z component (index = 1) of 3-dimensional vector.
      * 
      * @return z component of vector
      *
@@ -35,7 +35,7 @@ public interface Vector3 extends Vector {
     float z();
 
     /**
-     * Sets value of x component (index = 0) inside vector.
+     * Sets value of x component (index = 0) inside 3-dimensional vector.
      *
      * @param value component value to be set
      *
@@ -44,7 +44,7 @@ public interface Vector3 extends Vector {
     void setX(float value);
 
     /**
-     * Sets value of y component (index = 1) inside vector.
+     * Sets value of y component (index = 1) inside 3-dimensional vector.
      *
      * @param value component value to be set
      *
@@ -53,7 +53,7 @@ public interface Vector3 extends Vector {
     void setY(float value);
 
     /**
-     * Sets value of z component (index = 2) inside vector.
+     * Sets value of z component (index = 2) inside 3-dimensional vector.
      *
      * @param value component value to be set
      *
@@ -62,9 +62,9 @@ public interface Vector3 extends Vector {
     void setZ(float value);
 
     /**
-     * Creates and returns a copy of current vector of size 3.
+     * Creates and returns a copy of current 3-dimensional vector.
      * 
-     * @return copy of vector of size 3
+     * @return copy of 3-dimensional vector
      */
     Vector3 clone();
 }
