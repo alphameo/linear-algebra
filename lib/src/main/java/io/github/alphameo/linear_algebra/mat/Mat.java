@@ -2,9 +2,6 @@ package io.github.alphameo.linear_algebra.mat;
 
 import java.util.Arrays;
 
-import io.github.alphameo.linear_algebra.Equatable;
-import io.github.alphameo.linear_algebra.vec.Vector;
-
 /**
  * Default implementation of arbitrary matrix ({@code Matrix interface}).
  *
