@@ -70,7 +70,7 @@ public interface Vector3 extends Vector {
 
     @Override
     default float len2() {
-        return Vec2Math.len2(this);
+        return Vec3Math.len2(this);
     }
 
     @Override
@@ -238,7 +238,7 @@ public interface Vector3 extends Vector {
      *
      * @since 1.0.0
      */
-    default static Vector3 zeroVec() {
+    static Vector3 zeroVec() {
         return Vec3Math.zeroVec();
     }
 
@@ -249,7 +249,7 @@ public interface Vector3 extends Vector {
      *
      * @since 1.0.0
      */
-    default static Vector3 unitVec() {
+    static Vector3 unitVec() {
         return Vec3Math.unitVec();
     }
 }
