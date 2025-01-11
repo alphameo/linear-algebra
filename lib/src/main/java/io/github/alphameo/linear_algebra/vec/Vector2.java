@@ -90,9 +90,14 @@ public interface Vector2 extends Vector {
         return Vec2Math.normalized(new Vec2(this));
     }
 
+    /**
+     * This operation is not supported due to wrong dimension of current vector
+     *
+     * @throws UnsupportedOperationException ALWAYS
+     */
     @Override
     default Vector cross(Vector v) {
-        throw new IllegalArgumentException(
+        throw new UnsupportedOperationException(
                 String.format("Cross product denied: vectors must be 3-dimensional"));
     }
 
