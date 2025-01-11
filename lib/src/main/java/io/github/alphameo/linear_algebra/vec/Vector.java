@@ -225,7 +225,7 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Returns {@code true} if components of current and given vectors equal
+     * Returns {@code true} if components of current and given vectors are equal
      * within {@code epsilon} tolerance.
      * 
      * @param v   vector for comparison

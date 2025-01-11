@@ -123,8 +123,8 @@ public interface Vector2 extends Vector {
     }
 
     /**
-     * Subtracts the {@code subtrahend} vector components from the current vector
-     * components.
+     * Subtracts components of 2-dimensional {@code subtrahend} vector from the
+     * components of 2-dimensional current vector.
      * 
      * @param subtrahend vector to subtract
      * @return current vector subtracted by {@code subtrahend} vector
@@ -136,12 +136,12 @@ public interface Vector2 extends Vector {
     }
 
     /**
-     * Copies current vector and subtracts the {@code subtrahend} vector components
-     * from its components.
+     * Copies current 2-dimensional vector and subtracts the 2-dimensional
+     * {@code subtrahend} vector components from its components.
      * 
      * @param subtrahend vector to subtract
-     * @return new vector with components resulting current vector subtracted
-     *         by {@code subtrahend} vector
+     * @return new vector with components resulting current vector
+     *         subtracted by {@code subtrahend} vector
      *
      * @since 1.0.0
      */
@@ -150,9 +150,9 @@ public interface Vector2 extends Vector {
     }
 
     /**
-     * Calculates dot product (scalar product) of vectors.
+     * Calculates dot product (scalar product) of 2-dimensional vectors.
      *
-     * @param v second vector
+     * @param v second vector for dot product
      * @return dot (scalar) product of vectors
      *
      * @since 1.0.0
@@ -162,12 +162,12 @@ public interface Vector2 extends Vector {
     }
 
     /**
-     * Constructs new vector of size 3 with components of current vector and 1
+     * Constructs 3-dimensional vector with components of current vector and 1
      * <p>
      * (x, y, 1)
      *
-     * @return new vector of size 3 including components of current vector and 1 as
-     *         last component
+     * @return 3-dimensional vector including components of current vector and 1
+     *         as last component
      *
      * @since 1.0.0
      */
@@ -175,18 +175,40 @@ public interface Vector2 extends Vector {
         return Vec2Math.toVec3(this);
     }
 
-    default boolean equalsEpsilonTo(final Vector2 other, final float eps) {
-        return Vec2Math.equalsEpsilon(this, other, eps);
+    /**
+     * Returns {@code true} if components of current and given 2-dimensional vectors
+     * are equal within {@code epsilon} tolerance.
+     * 
+     * @param v   vector for comparison
+     * @param eps tolerance
+     * @return {@code true} if all components of current and given vectors are equal
+     *         within {@code epsilon} tolerance, and {@code false}
+     *         otherwise
+     *
+     * @since 1.0.0
+     */
+    default boolean equalsEpsilonTo(final Vector2 v, final float eps) {
+        return Vec2Math.equalsEpsilon(this, v, eps);
     }
 
+    /**
+     * Returns {@code true} if components of current and given 2-dimensional vectors
+     * are approximately equal.
+     * 
+     * @param v vector for comparison
+     * @return {@code true} if all components of current and given vectors are
+     *         approximately equal, and {@code false} otherwise
+     *
+     * @since 1.0.0
+     */
     default boolean equalsTo(final Vector2 v) {
         return Vec2Math.equals(this, v);
     }
 
     /**
-     * Constructs new vector of size 2 with all 0 components.
+     * Constructs new 2-dimensional vector with all 0 components.
      * 
-     * @return new zero vector of size 2
+     * @return new 2-dimensional zero vector
      *
      * @since 1.0.0
      */
@@ -195,9 +217,9 @@ public interface Vector2 extends Vector {
     }
 
     /**
-     * Constructs new vector of size 2 with 1 as components.
+     * Constructs new 2-dimensional vector with 1 as components.
      * 
-     * @return new unit vector of size 2
+     * @return new 2-dimensional unit vector
      *
      * @since 1.0.0
      */
