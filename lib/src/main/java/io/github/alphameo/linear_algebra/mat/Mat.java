@@ -118,7 +118,7 @@ public class Mat implements Matrix {
 
     @Override
     public String toString() {
-        return MatStringer.matrixToString(this);
+        return MatrixStringer.matrixToString(this);
     }
 
     @Override

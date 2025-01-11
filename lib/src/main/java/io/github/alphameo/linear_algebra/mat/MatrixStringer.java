@@ -5,7 +5,7 @@ package io.github.alphameo.linear_algebra.mat;
  *
  * @since 1.0.0
  */
-class MatStringer {
+class MatrixStringer {
 
     public static String matrixToString(Matrix m) {
 

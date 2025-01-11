@@ -151,7 +151,7 @@ public class Mat3 implements Matrix3 {
 
     @Override
     public String toString() {
-        return MatStringer.matrixToString(this);
+        return MatrixStringer.matrixToString(this);
     }
 
     @Override

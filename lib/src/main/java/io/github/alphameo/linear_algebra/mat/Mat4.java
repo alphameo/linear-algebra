@@ -166,7 +166,7 @@ public class Mat4 implements Matrix4 {
 
     @Override
     public String toString() {
-        return MatStringer.matrixToString(this);
+        return MatrixStringer.matrixToString(this);
     }
 
     @Override
