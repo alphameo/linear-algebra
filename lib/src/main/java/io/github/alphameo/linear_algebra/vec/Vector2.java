@@ -87,18 +87,7 @@ public interface Vector2 extends Vector {
 
     @Override
     default Vector normalized() throws ArithmeticException {
-        return Vec2Math.normalized(new Vec2(this));
-    }
-
-    /**
-     * This operation is not supported due to wrong dimension of current vector
-     *
-     * @throws UnsupportedOperationException ALWAYS
-     */
-    @Override
-    default Vector cross(Vector v) {
-        throw new UnsupportedOperationException(
-                String.format("Cross product denied: vectors must be 3-dimensional"));
+        return Vec2Math.normalized(this);
     }
 
     /**
@@ -164,6 +153,17 @@ public interface Vector2 extends Vector {
      */
     default float dot(final Vector2 v) {
         return Vec2Math.dot(this, v);
+    }
+
+    /**
+     * This operation is not supported due to wrong dimension of current vector
+     *
+     * @throws UnsupportedOperationException ALWAYS
+     */
+    @Override
+    default Vector cross(Vector v) {
+        throw new UnsupportedOperationException(
+                String.format("Cross product denied: vectors must be 3-dimensional"));
     }
 
     /**
