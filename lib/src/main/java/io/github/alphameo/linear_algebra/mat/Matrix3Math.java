@@ -277,7 +277,7 @@ public final class Matrix3Math {
      *
      * @since 1.0.0
      */
-    public static Matrix3 add(final Matrix3 target, final Matrix3 addendum) {
+    public static Matrix3 addIncr(final Matrix3 target, final Matrix3 addendum) {
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
                 target.set(r, c, target.get(r, c) + addendum.get(r, c));
@@ -298,8 +298,8 @@ public final class Matrix3Math {
      *
      * @since 1.0.0
      */
-    public static Matrix3 added(final Matrix3 target, final Matrix3 addendum) {
-        return add(target.clone(), addendum);
+    public static Matrix3 add(final Matrix3 target, final Matrix3 addendum) {
+        return addIncr(target.clone(), addendum);
     }
 
     /**
@@ -312,7 +312,7 @@ public final class Matrix3Math {
      *
      * @since 1.0.0
      */
-    public static Matrix3 sub(final Matrix3 target, final Matrix3 subtrahend) {
+    public static Matrix3 subIncr(final Matrix3 target, final Matrix3 subtrahend) {
         for (final Matrix3Row r : ROWS) {
             for (final Matrix3Col c : COLS) {
                 target.set(r, c, target.get(r, c) - subtrahend.get(r, c));
@@ -333,8 +333,8 @@ public final class Matrix3Math {
      *
      * @since 1.0.0
      */
-    public static Matrix3 subtracted(final Matrix3 target, final Matrix3 subtrahend) {
-        return sub(target.clone(), subtrahend);
+    public static Matrix3 sub(final Matrix3 target, final Matrix3 subtrahend) {
+        return subIncr(target.clone(), subtrahend);
     }
 
     /**
@@ -364,28 +364,88 @@ public final class Matrix3Math {
     /**
      * Calculates product of matrix 3x3 and vector of size 3.
      *
-     * @param m matrix 3x3 (left)
-     * @param v column vector of size 3 (right)
+     * @param m    matrix 3x3 (left)
+     * @param vCol column vector of size 3 (right)
      * @return vector of size 3, which represents product of given matrix and vector
      *
      * @since 1.0.0
      */
-    public static Vector3 prod(final Matrix3 m, final Vector3 v) {
+    public static Vector3 prodCol(final Matrix3 m, final Vector3 vCol) {
         final Vector3 result = new Vec3();
 
-        result.setX(m.get(R0, C0) * v.x()
-                + m.get(R0, C1) * v.y()
-                + m.get(R0, C2) * v.z());
+        result.setX(m.get(R0, C0) * vCol.x()
+                + m.get(R0, C1) * vCol.y()
+                + m.get(R0, C2) * vCol.z());
 
-        result.setY(m.get(R1, C0) * v.x()
-                + m.get(R1, C1) * v.y()
-                + m.get(R1, C2) * v.z());
+        result.setY(m.get(R1, C0) * vCol.x()
+                + m.get(R1, C1) * vCol.y()
+                + m.get(R1, C2) * vCol.z());
 
-        result.setZ(m.get(R2, C0) * v.x()
-                + m.get(R2, C1) * v.y()
-                + m.get(R2, C2) * v.z());
+        result.setZ(m.get(R2, C0) * vCol.x()
+                + m.get(R2, C1) * vCol.y()
+                + m.get(R2, C2) * vCol.z());
 
         return result;
+    }
+
+    public static Vector3 prodColIncr(final Matrix3 m, final Vector3 vCol) {
+        float x, y, z;
+        x = m.get(R0, C0) * vCol.x()
+                + m.get(R0, C1) * vCol.y()
+                + m.get(R0, C2) * vCol.z();
+
+        y = m.get(R1, C0) * vCol.x()
+                + m.get(R1, C1) * vCol.y()
+                + m.get(R1, C2) * vCol.z();
+
+        z = m.get(R2, C0) * vCol.x()
+                + m.get(R2, C1) * vCol.y()
+                + m.get(R2, C2) * vCol.z();
+
+        vCol.setX(x);
+        vCol.setY(y);
+        vCol.setZ(z);
+
+        return vCol;
+    }
+
+    public static Vector3 prodRow(final Matrix3 m, final Vector3 vRow) {
+        final Vector3 result = new Vec3();
+
+        result.setX(m.get(R0, C0) * vRow.x()
+                + m.get(R1, C0) * vRow.y()
+                + m.get(R2, C0) * vRow.z());
+
+        result.setY(m.get(R0, C1) * vRow.x()
+                + m.get(R1, C1) * vRow.y()
+                + m.get(R2, C1) * vRow.z());
+
+        result.setZ(m.get(R0, C2) * vRow.x()
+                + m.get(R1, C2) * vRow.y()
+                + m.get(R2, C2) * vRow.z());
+
+        return result;
+    }
+
+    public static Vector3 prodRowIncr(final Matrix3 m, final Vector3 vRow) {
+        float x, y, z;
+        x = m.get(R0, C0) * vRow.x()
+                + m.get(R1, C0) * vRow.y()
+                + m.get(R2, C0) * vRow.z();
+
+        y = m.get(R0, C1) * vRow.x()
+                + m.get(R1, C1) * vRow.y()
+                + m.get(R2, C1) * vRow.z();
+
+        z = m.get(R0, C2) * vRow.x()
+                + m.get(R1, C2) * vRow.y()
+                + m.get(R2, C2) * vRow.z();
+
+        vRow.setX(x);
+        vRow.setY(y);
+        vRow.setZ(z);
+
+        return vRow;
     }
 
     /**
@@ -651,7 +711,7 @@ public final class Matrix3Math {
      *
      * @since 1.0.0
      */
-    public static Matrix4 toMat4(final Matrix3 m, final Matrix4Row insertionRow, final Matrix4Col insertionCol) {
+    public static Matrix4 toMatrix4(final Matrix3 m, final Matrix4Row insertionRow, final Matrix4Col insertionCol) {
         final Matrix4 result = new Mat4();
         int destRow = 0;
         int destCol = 0;
@@ -701,7 +761,7 @@ public final class Matrix3Math {
      */
     public static Matrix4 toMat4(final Matrix3 m, final int insertionRow, final int insertionCol)
             throws ArrayIndexOutOfBoundsException {
-        return toMat4(
+        return toMatrix4(
                 m,
                 Matrix4Row.values()[insertionRow],
                 Matrix4Col.values()[insertionCol]);
@@ -725,8 +785,8 @@ public final class Matrix3Math {
      *
      * @since 1.0.0
      */
-    public static Matrix4 toMat4(final Matrix3 m) {
-        return toMat4(m, Matrix4Row.R3, Matrix4Col.C3);
+    public static Matrix4 toMatrix4(final Matrix3 m) {
+        return toMatrix4(m, Matrix4Row.R3, Matrix4Col.C3);
     }
 
     /**
@@ -774,7 +834,7 @@ public final class Matrix3Math {
      *
      * @since 1.0.0
      */
-    public static Matrix3 zeroMat() {
+    public static Matrix3 zeroMatrix() {
         return new Mat3();
     }
 
@@ -785,7 +845,7 @@ public final class Matrix3Math {
      *
      * @since 1.0.0
      */
-    public static Matrix3 unitMat() {
+    public static Matrix3 unitMatrix() {
         final Matrix3 result = new Mat3();
         for (int i = 0; i < result.width(); i++) {
             result.set(ROWS[i], COLS[i], 1);

@@ -281,7 +281,7 @@ public final class Matrix4Math {
      *
      * @since 1.0.0
      */
-    public static Matrix4 add(final Matrix4 target, final Matrix4 addendum) {
+    public static Matrix4 addIncr(final Matrix4 target, final Matrix4 addendum) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
                 target.set(r, c, target.get(r, c) + addendum.get(r, c));
@@ -302,8 +302,8 @@ public final class Matrix4Math {
      *
      * @since 1.0.0
      */
-    public static Matrix4 added(final Matrix4 target, final Matrix4 addendum) {
-        return add(target.clone(), addendum);
+    public static Matrix4 add(final Matrix4 target, final Matrix4 addendum) {
+        return addIncr(target.clone(), addendum);
     }
 
     /**
@@ -316,7 +316,7 @@ public final class Matrix4Math {
      *
      * @since 1.0.0
      */
-    public static Matrix4 sub(final Matrix4 target, final Matrix4 subtrahend) {
+    public static Matrix4 subIncr(final Matrix4 target, final Matrix4 subtrahend) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
                 target.set(r, c, target.get(r, c) - subtrahend.get(r, c));
@@ -338,7 +338,7 @@ public final class Matrix4Math {
      * @since 1.0.0
      */
     public static Matrix4 subtracted(final Matrix4 target, final Matrix4 subtrahend) {
-        return sub(target.clone(), subtrahend);
+        return subIncr(target.clone(), subtrahend);
     }
 
     /**
@@ -368,36 +368,124 @@ public final class Matrix4Math {
     /**
      * Calculates product of matrix 4x4 and vector of size 4.
      *
-     * @param m matrix 4x4 (left)
-     * @param v column vector of size 4 (right)
+     * @param m    matrix 4x4 (left)
+     * @param vCol column vector of size 4 (right)
      * @return vector of size 4, which represents product of given matrix and vector
      *
      * @since 1.0.0
      */
-    public static Vector4 prod(final Matrix4 m, final Vector4 v) {
+    public static Vector4 prodCol(final Matrix4 m, final Vector4 vCol) {
         final Vector4 result = new Vec4();
 
-        result.setX(m.get(R0, C0) * v.x()
-                + m.get(R0, C1) * v.y()
-                + m.get(R0, C2) * v.z()
-                + m.get(R0, C3) * v.w());
+        result.setX(m.get(R0, C0) * vCol.x()
+                + m.get(R0, C1) * vCol.y()
+                + m.get(R0, C2) * vCol.z()
+                + m.get(R0, C3) * vCol.w());
 
-        result.setY(m.get(R1, C0) * v.x()
-                + m.get(R1, C1) * v.y()
-                + m.get(R1, C2) * v.z()
-                + m.get(R1, C3) * v.w());
+        result.setY(m.get(R1, C0) * vCol.x()
+                + m.get(R1, C1) * vCol.y()
+                + m.get(R1, C2) * vCol.z()
+                + m.get(R1, C3) * vCol.w());
 
-        result.setZ(m.get(R2, C0) * v.x()
-                + m.get(R2, C1) * v.y()
-                + m.get(R2, C2) * v.z()
-                + m.get(R2, C3) * v.w());
+        result.setZ(m.get(R2, C0) * vCol.x()
+                + m.get(R2, C1) * vCol.y()
+                + m.get(R2, C2) * vCol.z()
+                + m.get(R2, C3) * vCol.w());
 
-        result.setW(m.get(R3, C0) * v.x()
-                + m.get(R3, C1) * v.y()
-                + m.get(R3, C2) * v.z()
-                + m.get(R3, C3) * v.w());
+        result.setW(m.get(R3, C0) * vCol.x()
+                + m.get(R3, C1) * vCol.y()
+                + m.get(R3, C2) * vCol.z()
+                + m.get(R3, C3) * vCol.w());
 
         return result;
+    }
+
+    public static Vector4 prodColIncr(final Matrix4 m, final Vector4 vCol) {
+        float x, y, z, w;
+
+        x = m.get(R0, C0) * vCol.x()
+                + m.get(R0, C1) * vCol.y()
+                + m.get(R0, C2) * vCol.z()
+                + m.get(R0, C3) * vCol.w();
+
+        y = m.get(R1, C0) * vCol.x()
+                + m.get(R1, C1) * vCol.y()
+                + m.get(R1, C2) * vCol.z()
+                + m.get(R1, C3) * vCol.w();
+
+        z = m.get(R2, C0) * vCol.x()
+                + m.get(R2, C1) * vCol.y()
+                + m.get(R2, C2) * vCol.z()
+                + m.get(R2, C3) * vCol.w();
+
+        w = m.get(R3, C0) * vCol.x()
+                + m.get(R3, C1) * vCol.y()
+                + m.get(R3, C2) * vCol.z()
+                + m.get(R3, C3) * vCol.w();
+
+        vCol.setY(x);
+        vCol.setY(y);
+        vCol.setZ(z);
+        vCol.setW(w);
+
+        return vCol;
+    }
+
+    public static Vector4 prodRow(final Matrix4 m, final Vector4 vRow) {
+        final Vector4 result = new Vec4();
+
+        result.setX(m.get(R0, C0) * vRow.x()
+                + m.get(R1, C0) * vRow.y()
+                + m.get(R2, C0) * vRow.z()
+                + m.get(R3, C0) * vRow.w());
+
+        result.setY(m.get(R0, C1) * vRow.x()
+                + m.get(R1, C1) * vRow.y()
+                + m.get(R2, C1) * vRow.z()
+                + m.get(R3, C1) * vRow.w());
+
+        result.setZ(m.get(R0, C2) * vRow.x()
+                + m.get(R1, C2) * vRow.y()
+                + m.get(R2, C2) * vRow.z()
+                + m.get(R3, C2) * vRow.w());
+
+        result.setW(m.get(R0, C3) * vRow.x()
+                + m.get(R1, C3) * vRow.y()
+                + m.get(R2, C3) * vRow.z()
+                + m.get(R3, C3) * vRow.w());
+
+        return result;
+    }
+
+    public static Vector4 prodRowIncr(final Matrix4 m, final Vector4 vRow) {
+        float x, y, z, w;
+
+        x = m.get(R0, C0) * vRow.x()
+                + m.get(R0, C1) * vRow.y()
+                + m.get(R0, C2) * vRow.z()
+                + m.get(R0, C3) * vRow.w();
+
+        y = m.get(R1, C0) * vRow.x()
+                + m.get(R1, C1) * vRow.y()
+                + m.get(R1, C2) * vRow.z()
+                + m.get(R1, C3) * vRow.w();
+
+        z = m.get(R2, C0) * vRow.x()
+                + m.get(R2, C1) * vRow.y()
+                + m.get(R2, C2) * vRow.z()
+                + m.get(R2, C3) * vRow.w();
+
+        w = m.get(R3, C0) * vRow.x()
+                + m.get(R3, C1) * vRow.y()
+                + m.get(R3, C2) * vRow.z()
+                + m.get(R3, C3) * vRow.w();
+
+        vRow.setY(x);
+        vRow.setY(y);
+        vRow.setZ(z);
+        vRow.setW(w);
+
+        return vRow;
     }
 
     /**
@@ -689,7 +777,7 @@ public final class Matrix4Math {
      *
      * @since 1.0.0
      */
-    public static Matrix4 zeroMat() {
+    public static Matrix4 zeroMatrix() {
         return new Mat4();
     }
 
@@ -700,7 +788,7 @@ public final class Matrix4Math {
      *
      * @since 1.0.0
      */
-    public static Matrix4 unitMat() {
+    public static Matrix4 unitMatrix() {
         final Matrix4 result = new Mat4();
         for (int i = 0; i < result.width(); i++) {
             result.set(ROWS[i], COLS[i], 1);

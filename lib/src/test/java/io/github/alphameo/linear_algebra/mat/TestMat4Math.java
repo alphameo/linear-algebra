@@ -129,8 +129,8 @@ public class TestMat4Math {
                 { 6, 12, 18, 6 }
         });
 
-        Assertions.assertEquals(expected, added(m, m));
         Assertions.assertEquals(expected, add(m, m));
+        Assertions.assertEquals(expected, addIncr(m, m));
     }
 
     @Test
@@ -149,7 +149,7 @@ public class TestMat4Math {
         });
 
         Assertions.assertEquals(expected, subtracted(m, expected));
-        Assertions.assertEquals(expected, sub(m, expected));
+        Assertions.assertEquals(expected, subIncr(m, expected));
     }
 
     @Test
@@ -454,7 +454,7 @@ public class TestMat4Math {
 
     @Test
     public void testZeroMat() {
-        Matrix4 m = zeroMat();
+        Matrix4 m = zeroMatrix();
         Matrix4 expected = new Mat4(new float[][] {
                 { 0, 0, 0, 0 },
                 { 0, 0, 0, 0 },
@@ -467,7 +467,7 @@ public class TestMat4Math {
 
     @Test
     public void testUnitMat() {
-        Matrix4 m = unitMat();
+        Matrix4 m = unitMatrix();
         Matrix4 expected = new Mat4(new float[][] {
                 { 1, 0, 0, 0 },
                 { 0, 1, 0, 0 },

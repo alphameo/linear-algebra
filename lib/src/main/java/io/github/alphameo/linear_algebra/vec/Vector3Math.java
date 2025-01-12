@@ -1,6 +1,8 @@
 package io.github.alphameo.linear_algebra.vec;
 
 import io.github.alphameo.linear_algebra.Validator;
+import io.github.alphameo.linear_algebra.mat.Matrix3;
+import io.github.alphameo.linear_algebra.mat.Matrix3Math;
 
 /**
  * Class with static functions for vectors of size 3.
@@ -232,6 +234,22 @@ public final class Vector3Math {
         return new Vec3(x, y, z);
     }
 
+    public static Vector3 transformColumn(final Vector3 vCol, final Matrix3 operator) {
+        return Matrix3Math.prodColIncr(operator, vCol);
+    }
+
+    public static Vector3 transformedColumn(final Vector3 vCol, final Matrix3 operator) {
+        return Matrix3Math.prodCol(operator, vCol);
+    }
+
+    public static Vector3 transformRow(final Vector3 vRow, final Matrix3 operator) {
+        return Matrix3Math.prodRowIncr(operator, vRow);
+    }
+
+    public static Vector3 transformedRow(final Vector3 vRow, final Matrix3 operator) {
+        return Matrix3Math.prodRow(operator, vRow);
+    }
+
     /**
      * Returns {@code true} if components of vectors are equal within
      * {@code epsilon} tolerance.
@@ -286,7 +304,7 @@ public final class Vector3Math {
      *
      * @since 1.0.0
      */
-    public static Vector3 zeroVec() {
+    public static Vector3 zeroVector() {
         return new Vec3();
     }
 
@@ -297,7 +315,7 @@ public final class Vector3Math {
      *
      * @since 1.0.0
      */
-    public static Vector3 unitVec() {
+    public static Vector3 unitVector() {
         return new Vec3(1, 1, 1);
     }
 }

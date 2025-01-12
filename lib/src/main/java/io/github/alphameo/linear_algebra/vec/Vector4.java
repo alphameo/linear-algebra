@@ -97,22 +97,22 @@ public interface Vector4 extends Vector {
     }
 
     @Override
-    default Vector mult(float multiplier) {
+    default Vector mulIncr(float multiplier) {
         return Vector4Math.mult(this, multiplier);
     }
 
     @Override
-    default Vector multiplied(float multiplier) {
+    default Vector mul(float multiplier) {
         return Vector4Math.multiplied(this, multiplier);
     }
 
     @Override
-    default Vector divide(float divisor) throws ArithmeticException {
+    default Vector divIncr(float divisor) throws ArithmeticException {
         return Vector4Math.divide(this, divisor);
     }
 
     @Override
-    default Vector divided(float divisor) throws ArithmeticException {
+    default Vector div(float divisor) throws ArithmeticException {
         return Vector4Math.divided(this, divisor);
     }
 

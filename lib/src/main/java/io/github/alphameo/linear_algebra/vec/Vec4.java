@@ -153,7 +153,7 @@ public class Vec4 implements Vector4 {
      * @since 1.0.0
      */
     public static Vector4 zeroVector() {
-        return new Vec4();
+        return Vector4Math.zeroVector();
     }
 
     /**
@@ -164,6 +164,6 @@ public class Vec4 implements Vector4 {
      * @since 1.0.0
      */
     public static Vector4 unitVector() {
-        return Vector4Math.unitVec();
+        return Vector4Math.unitVector();
     }
 }

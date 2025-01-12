@@ -146,7 +146,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix mult(final Matrix m, final float multiplier) {
+    public static Matrix mulIncr(final Matrix m, final float multiplier) {
         for (int r = 0; r < m.height(); r++) {
             for (int c = 0; c < m.width(); c++) {
                 m.set(r, c, m.get(r, c) * multiplier);
@@ -165,8 +165,8 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix multiplied(final Matrix m, final float multiplier) {
-        return mult(m.clone(), multiplier);
+    public static Matrix mul(final Matrix m, final float multiplier) {
+        return mulIncr(m.clone(), multiplier);
     }
 
     /**
@@ -179,7 +179,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix divide(final Matrix m, final float divisor) throws ArithmeticException {
+    public static Matrix divIncr(final Matrix m, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
         for (int r = 0; r < m.height(); r++) {
             for (int c = 0; c < m.width(); c++) {
@@ -200,8 +200,8 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix divided(final Matrix m, final float divisor) throws ArithmeticException {
-        return divide(m.clone(), divisor);
+    public static Matrix div(final Matrix m, final float divisor) throws ArithmeticException {
+        return divIncr(m.clone(), divisor);
     }
 
     /**
@@ -215,7 +215,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix add(final Matrix target, final Matrix addendum) {
+    public static Matrix addIncr(final Matrix target, final Matrix addendum) {
         Validator.validateMatrixSizes(target, addendum, "Addition denied");
         for (int r = 0; r < target.height(); r++) {
             for (int c = 0; c < addendum.width(); c++) {
@@ -238,8 +238,8 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix added(final Matrix target, final Matrix addendum) {
-        return add(target.clone(), addendum);
+    public static Matrix add(final Matrix target, final Matrix addendum) {
+        return addIncr(target.clone(), addendum);
     }
 
     /**
@@ -253,7 +253,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix sub(final Matrix target, final Matrix subtrahend) {
+    public static Matrix subIncr(final Matrix target, final Matrix subtrahend) {
         Validator.validateMatrixSizes(target, subtrahend, "Subtraction denied");
         for (int r = 0; r < target.height(); r++) {
             for (int c = 0; c < subtrahend.width(); c++) {
@@ -276,8 +276,8 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix subtracted(final Matrix target, final Matrix subtrahend) {
-        return sub(target.clone(), subtrahend);
+    public static Matrix sub(final Matrix target, final Matrix subtrahend) {
+        return subIncr(target.clone(), subtrahend);
     }
 
     /**
@@ -314,29 +314,103 @@ public final class MatrixMath {
     }
 
     /**
-     * Calculates product of matrix and vector.
+     * Puts result of matrix and vector-column product into {@code vCol}.
      *
-     * @param m matrix (left)
-     * @param v column vector (right)
+     * @param m    matrix (left)
+     * @param vCol vector-column (right)
+     * @return vector, which represents product of given matrix and vector-column
+     * @throws IllegalArgumentException if width of the matrix is not equal to the
+     *                                  vector size
+     *
+     * @since 1.0.0
+     */
+    public static Vector prodColIncr(final Matrix m, final Vector vCol) {
+        Vector res = prodCol(m, vCol);
+
+        for (int i = 0; i < vCol.size(); i++) {
+            vCol.set(i, res.get(i));
+        }
+
+        return vCol;
+    }
+
+    /**
+     * Calculates product of matrix and vector-column.
+     *
+     * @param m    matrix (left)
+     * @param vCol vector-column (right)
      * @return vector, which represents product of given matrix and vector
      * @throws IllegalArgumentException if width of the matrix is not equal to the
      *                                  vector size
      *
      * @since 1.0.0
      */
-    public static Vector prod(final Matrix m, final Vector v) {
-        if (m.width() != v.size()) {
+    public static Vector prodCol(final Matrix m, final Vector vCol) {
+        if (m.width() != vCol.size()) {
             throw new IllegalArgumentException(
-                    String.format("Matrix and vector product denied: matrix with size %dx%d and vector with size",
-                            m.height(),
-                            m.width(), v.size()));
+                    String.format(
+                            "Matrix and vector-column product denied: matrix with size %dx%d and %d-dimensional vector",
+                            m.height(), m.width(), vCol.size()));
+        }
+
+        final Vector result = new Vec(m.height());
+        for (int i = 0; i < m.width(); i++) {
+            float value = 0;
+            for (int elem = 0; elem < vCol.size(); elem++) {
+                value += m.get(elem, i) * vCol.get(elem);
+            }
+
+            result.set(i, value);
+        }
+
+        return result;
+    }
+
+    /**
+     * Puts result of matrix and vector-row product into {@code vRow}.
+     *
+     * @param m    matrix (right)
+     * @param vRow vector-row (left)
+     * @return vector, which represents product of given matrix and vector-row
+     * @throws IllegalArgumentException if width of the matrix is not equal to the
+     *                                  vector size
+     *
+     * @since 1.0.0
+     */
+    public static Vector prodRowIncr(final Matrix m, final Vector vRow) {
+        Vector res = prodCol(m, vRow);
+
+        for (int i = 0; i < vRow.size(); i++) {
+            vRow.set(i, res.get(i));
+        }
+
+        return vRow;
+    }
+
+    /**
+     * Calculates product of matrix and vector-row.
+     *
+     * @param m    matrix (right)
+     * @param vCol column vector (left)
+     * @return vector, which represents product of given matrix and vector
+     * @throws IllegalArgumentException if width of the matrix is not equal to the
+     *                                  vector size
+     *
+     * @since 1.0.0
+     */
+    public static Vector prodRow(final Matrix m, final Vector vRow) {
+        if (m.height() != vRow.size()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Matrix and vector-row product denied: matrix with size %dx%d and %d-dimensional vector",
+                            m.height(), m.width(), vRow.size()));
         }
 
         final Vector result = new Vec(m.height());
         for (int i = 0; i < m.height(); i++) {
             float value = 0;
-            for (int elem = 0; elem < v.size(); elem++) {
-                value += m.get(i, elem) * v.get(elem);
+            for (int elem = 0; elem < vRow.size(); elem++) {
+                value += m.get(i, elem) * vRow.get(elem);
             }
 
             result.set(i, value);
@@ -482,7 +556,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix invertible(final Matrix m) {
+    public static Matrix inv(final Matrix m) {
         if (!square(m)) {
             throw new UnsupportedOperationException("Invertible matrix does not exists: matrix is not square");
         }
@@ -497,7 +571,7 @@ public final class MatrixMath {
             throw new RuntimeException("Invertible matrix does not exist: determinant is 0");
         }
         transposeSquare(result);
-        mult(result, 1 / determinant);
+        mulIncr(result, 1 / determinant);
 
         return result;
     }
@@ -605,7 +679,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static boolean isZeroed(final Matrix m) {
+    public static boolean zeroed(final Matrix m) {
         for (int i = 0; i < m.height(); i++) {
             for (int j = 0; j < m.width(); j++) {
                 if (m.get(i, j) != 0) {
@@ -695,7 +769,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix zeroMat(final int height, final int width) {
+    public static Matrix zeroMatrix(final int height, final int width) {
         return new Mat(height, width);
     }
 
@@ -707,7 +781,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix unitMat(final int size) {
+    public static Matrix unitMatrix(final int size) {
         final Matrix result = new Mat(size);
         for (int i = 0; i < size; i++) {
             result.set(i, i, 1);

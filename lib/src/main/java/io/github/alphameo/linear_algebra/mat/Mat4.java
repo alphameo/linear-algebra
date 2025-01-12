@@ -199,8 +199,8 @@ public class Mat4 implements Matrix4 {
      *
      * @since 1.0.0
      */
-    public static Matrix4 zeroMat() {
-        return Matrix4Math.zeroMat();
+    public static Matrix4 zeroMatrix() {
+        return Matrix4Math.zeroMatrix();
     }
 
     /**
@@ -210,7 +210,7 @@ public class Mat4 implements Matrix4 {
      *
      * @since 1.0.0
      */
-    public static Matrix4 unitMat() {
-        return Matrix4Math.unitMat();
+    public static Matrix4 unitMatrix() {
+        return Matrix4Math.unitMatrix();
     }
 }

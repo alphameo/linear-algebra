@@ -31,8 +31,8 @@ public class TestVecMath {
         Vector v1 = new Vec(-12, 3, 4, 8);
         Vector expected = new Vec(-18, 4.5f, 6, 12);
 
-        Vector v = multiplied(v1, 1.5f);
-        mult(v1, 1.5f);
+        Vector v = mul(v1, 1.5f);
+        mulIncr(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -44,8 +44,8 @@ public class TestVecMath {
         Vector v1 = new Vec(-18, 4.5f, 6, 12);
         Vector expected = new Vec(-12, 3, 4, 8);
 
-        Vector v = divided(v1, 1.5f);
-        divide(v1, 1.5f);
+        Vector v = div(v1, 1.5f);
+        divIncr(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -58,8 +58,8 @@ public class TestVecMath {
         Vector v2 = new Vec(1, 2, 3, 4);
         Vector expected = new Vec(-11, 5, 7, 12);
 
-        Vector v = added(v1, v2);
-        add(v1, v2);
+        Vector v = add(v1, v2);
+        addIncr(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -72,8 +72,8 @@ public class TestVecMath {
         Vector v2 = new Vec(1, 2.03f, 3, 4);
         Vector expected = new Vec(-13, 0.97f, 1, 4);
 
-        Vector v = subtracted(v1, v2);
-        sub(v1, v2);
+        Vector v = sub(v1, v2);
+        subIncr(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -117,7 +117,7 @@ public class TestVecMath {
 
     @Test
     public void testZeroVect() {
-        Vector v = zeroVec(4);
+        Vector v = zeroVector(4);
         Vector expected = new Vec(0, 0, 0, 0);
 
         Assertions.assertEquals(expected, v);
@@ -125,7 +125,7 @@ public class TestVecMath {
 
     @Test
     public void testZeroVec() {
-        Vector v = zeroVec(5);
+        Vector v = zeroVector(5);
         Vector expected = new Vec(0, 0, 0, 0, 0);
 
         Assertions.assertEquals(expected, v);
@@ -133,7 +133,7 @@ public class TestVecMath {
 
     @Test
     public void testUnitVect() {
-        Vector v = unitVec(5);
+        Vector v = unitVector(5);
         Vector expected = new Vec(1, 1, 1, 1, 1);
 
         Assertions.assertEquals(expected, v);

@@ -1,6 +1,8 @@
 package io.github.alphameo.linear_algebra.vec;
 
 import io.github.alphameo.linear_algebra.Validator;
+import io.github.alphameo.linear_algebra.mat.Matrix4;
+import io.github.alphameo.linear_algebra.mat.Matrix4Math;
 
 /**
  * Class with static functions for vectors of size 4.
@@ -218,6 +220,22 @@ public final class Vector4Math {
         return v1.x() * v2.x() + v1.y() * v2.y() + v1.z() * v2.z() + v1.w() * v2.w();
     }
 
+    public static Vector4 transformColumn(final Vector4 vCol, final Matrix4 operator) {
+        return Matrix4Math.prodColIncr(operator, vCol);
+    }
+
+    public static Vector4 transformedColumn(final Vector4 vCol, final Matrix4 operator) {
+        return Matrix4Math.prodCol(operator, vCol);
+    }
+
+    public static Vector4 transformRow(final Vector4 vRow, final Matrix4 operator) {
+        return Matrix4Math.prodRowIncr(operator, vRow);
+    }
+
+    public static Vector4 transformedRow(final Vector4 vRow, final Matrix4 operator) {
+        return Matrix4Math.prodRow(operator, vRow);
+    }
+
     /**
      * Returns {@code true} if components of vectors are equal within
      * {@code epsilon} tolerance.
@@ -258,7 +276,7 @@ public final class Vector4Math {
      *
      * @since 1.0.0
      */
-    public static Vector4 zeroVec() {
+    public static Vector4 zeroVector() {
         return new Vec4();
     }
 
@@ -269,7 +287,7 @@ public final class Vector4Math {
      *
      * @since 1.0.0
      */
-    public static Vector4 unitVec() {
+    public static Vector4 unitVector() {
         return new Vec4(1, 1, 1, 1);
     }
 }

@@ -105,8 +105,8 @@ public class Vec implements Vector {
      *
      * @since 1.0.0
      */
-    public static Vector zeroVec(final int size) {
-        return VectorMath.zeroVec(size);
+    public static Vector zeroVector(final int size) {
+        return VectorMath.zeroVector(size);
     }
 
     /**
@@ -117,7 +117,7 @@ public class Vec implements Vector {
      *
      * @since 1.0.0
      */
-    public static Vector unitVec(final int size) {
-        return VectorMath.unitVec(size);
+    public static Vector unitVector(final int size) {
+        return VectorMath.unitVector(size);
     }
 }

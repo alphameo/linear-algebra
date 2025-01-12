@@ -79,22 +79,22 @@ public interface Vector3 extends Vector {
     }
 
     @Override
-    default Vector mult(float multiplier) {
+    default Vector mulIncr(float multiplier) {
         return Vector3Math.mult(this, multiplier);
     }
 
     @Override
-    default Vector multiplied(float multiplier) {
+    default Vector mul(float multiplier) {
         return Vector3Math.multiplied(this, multiplier);
     }
 
     @Override
-    default Vector divide(float divisor) throws ArithmeticException {
+    default Vector divIncr(float divisor) throws ArithmeticException {
         return Vector3Math.divide(this, divisor);
     }
 
     @Override
-    default Vector divided(float divisor) throws ArithmeticException {
+    default Vector div(float divisor) throws ArithmeticException {
         return Vector3Math.divided(this, divisor);
     }
 

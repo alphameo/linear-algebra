@@ -139,8 +139,8 @@ public class Vec3 implements Vector3 {
      *
      * @since 1.0.0
      */
-    public static Vector3 zeroVec() {
-        return Vector3Math.zeroVec();
+    public static Vector3 zeroVector() {
+        return Vector3Math.zeroVector();
     }
 
     /**
@@ -150,7 +150,7 @@ public class Vec3 implements Vector3 {
      *
      * @since 1.0.0
      */
-    public static Vector3 unitVec() {
-        return Vector3Math.unitVec();
+    public static Vector3 unitVector() {
+        return Vector3Math.unitVector();
     }
 }

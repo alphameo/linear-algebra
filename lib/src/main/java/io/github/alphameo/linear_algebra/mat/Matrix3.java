@@ -59,7 +59,7 @@ public interface Matrix3 extends Matrix {
     }
 
     @Override
-    default boolean isZeroed() {
+    default boolean zeroed() {
         return Matrix3Math.isZeroed(this);
     }
 
@@ -200,7 +200,7 @@ public interface Matrix3 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix3 mult(final float multiplier) {
+    default Matrix3 mulIncr(final float multiplier) {
         return Matrix3Math.mult(this, multiplier);
     }
 
@@ -212,7 +212,7 @@ public interface Matrix3 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix3 multiplied(final float multiplier) {
+    default Matrix3 mul(final float multiplier) {
         return Matrix3Math.multiplied(this, multiplier);
     }
 
@@ -225,7 +225,7 @@ public interface Matrix3 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix3 divide(final float divisor) throws ArithmeticException {
+    default Matrix3 divIncr(final float divisor) throws ArithmeticException {
         return Matrix3Math.divide(this, divisor);
     }
 
@@ -238,7 +238,7 @@ public interface Matrix3 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix3 divided(final float divisor) throws ArithmeticException {
+    default Matrix3 div(final float divisor) throws ArithmeticException {
         return Matrix3Math.divided(this, divisor);
     }
 
@@ -251,8 +251,8 @@ public interface Matrix3 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix3 add(final Matrix3 addendum) {
-        return Matrix3Math.add(this, addendum);
+    default Matrix3 addIncr(final Matrix3 addendum) {
+        return Matrix3Math.addIncr(this, addendum);
     }
 
     /**
@@ -265,8 +265,8 @@ public interface Matrix3 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix3 added(final Matrix3 addendum) {
-        return Matrix3Math.added(this, addendum);
+    default Matrix3 add(final Matrix3 addendum) {
+        return Matrix3Math.add(this, addendum);
     }
 
     /**
@@ -278,8 +278,8 @@ public interface Matrix3 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix3 sub(final Matrix3 subtrahend) {
-        return Matrix3Math.sub(this, subtrahend);
+    default Matrix3 subIncr(final Matrix3 subtrahend) {
+        return Matrix3Math.subIncr(this, subtrahend);
     }
 
     /**
@@ -291,8 +291,8 @@ public interface Matrix3 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix3 subtracted(final Matrix3 subtrahend) {
-        return Matrix3Math.subtracted(this, subtrahend);
+    default Matrix3 sub(final Matrix3 subtrahend) {
+        return Matrix3Math.sub(this, subtrahend);
     }
 
     /**
@@ -316,8 +316,20 @@ public interface Matrix3 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Vector3 prod(final Vector3 v) {
-        return Matrix3Math.prod(this, v);
+    default Vector3 prodCol(final Vector3 vCol) {
+        return Matrix3Math.prodCol(this, vCol);
+    }
+
+    default Vector3 transformColumn(final Vector3 vCol) {
+        return Matrix3Math.prodColIncr(this, vCol);
+    }
+
+    default Vector3 prodRow(final Vector3 vRow) {
+        return Matrix3Math.prodRow(this, vRow);
+    }
+
+    default Vector3 prodRowIncr(final Vector3 vRow) {
+        return Matrix3Math.prodRowIncr(this, vRow);
     }
 
     /**
@@ -350,7 +362,7 @@ public interface Matrix3 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix3 invertible() {
+    default Matrix3 inv() {
         return Matrix3Math.invertible(this);
     }
 
@@ -417,7 +429,7 @@ public interface Matrix3 extends Matrix {
      *
      * @since 1.0.0
      */
-    default boolean equalsEpsilonTo(final Matrix3 m, final float eps) {
+    default boolean equalsEpsilon(final Matrix3 m, final float eps) {
         return Matrix3Math.equalsEpsilon(this, m, eps);
     }
 
@@ -431,7 +443,7 @@ public interface Matrix3 extends Matrix {
      *
      * @since 1.0.0
      */
-    default boolean equalsTo(final Matrix3 m) {
+    default boolean equals(final Matrix3 m) {
         return Matrix3Math.equals(this, m);
     }
 
@@ -452,8 +464,8 @@ public interface Matrix3 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix4 toMat4() {
-        return Matrix3Math.toMat4(this);
+    default Matrix4 toMatrix4() {
+        return Matrix3Math.toMatrix4(this);
     }
 
     /**
@@ -476,8 +488,8 @@ public interface Matrix3 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix4 toMat4(final Matrix4Row insertionRow, final Matrix4Col insertionCol) {
-        return Matrix3Math.toMat4(this, insertionRow, insertionCol);
+    default Matrix4 toMatrix4(final Matrix4Row insertionRow, final Matrix4Col insertionCol) {
+        return Matrix3Math.toMatrix4(this, insertionRow, insertionCol);
     }
 
     /**
@@ -499,7 +511,7 @@ public interface Matrix3 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix4 toMat4(final int insertionRow, final int insertionCol) {
+    default Matrix4 toMatrix4(final int insertionRow, final int insertionCol) {
         return Matrix3Math.toMat4(this, insertionRow, insertionCol);
     }
 }

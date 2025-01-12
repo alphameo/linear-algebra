@@ -1,6 +1,8 @@
 package io.github.alphameo.linear_algebra.vec;
 
 import io.github.alphameo.linear_algebra.Validator;
+import io.github.alphameo.linear_algebra.mat.Matrix;
+import io.github.alphameo.linear_algebra.mat.MatrixMath;
 
 /**
  * Class with static functions for arbitrary vectors.
@@ -57,7 +59,7 @@ public final class VectorMath {
      *
      * @since 1.0.0
      */
-    public static Vector mult(final Vector v, final float multiplier) {
+    public static Vector mulIncr(final Vector v, final float multiplier) {
         for (int i = 0; i < v.size(); i++) {
             v.set(i, v.get(i) * multiplier);
         }
@@ -75,8 +77,8 @@ public final class VectorMath {
      *
      * @since 1.0.0
      */
-    public static Vector multiplied(final Vector v, final float multiplier) {
-        return mult(v.clone(), multiplier);
+    public static Vector mul(final Vector v, final float multiplier) {
+        return mulIncr(v.clone(), multiplier);
     }
 
     /**
@@ -89,7 +91,7 @@ public final class VectorMath {
      *
      * @since 1.0.0
      */
-    public static Vector divide(final Vector v, final float divisor) throws ArithmeticException {
+    public static Vector divIncr(final Vector v, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
         for (int i = 0; i < v.size(); i++) {
             v.set(i, v.get(i) / divisor);
@@ -108,8 +110,8 @@ public final class VectorMath {
      *
      * @since 1.0.0
      */
-    public static Vector divided(final Vector v, final float divisor) throws ArithmeticException {
-        return divide(v.clone(), divisor);
+    public static Vector div(final Vector v, final float divisor) throws ArithmeticException {
+        return divIncr(v.clone(), divisor);
     }
 
     /**
@@ -122,7 +124,7 @@ public final class VectorMath {
      * @since 1.0.0
      */
     public static Vector normalize(final Vector v) throws ArithmeticException {
-        return divide(v, len(v));
+        return divIncr(v, len(v));
     }
 
     /**
@@ -135,7 +137,7 @@ public final class VectorMath {
      * @since 1.0.0
      */
     public static Vector normalized(final Vector v) throws ArithmeticException {
-        return divided(v.clone(), len(v));
+        return div(v.clone(), len(v));
     }
 
     /**
@@ -149,7 +151,7 @@ public final class VectorMath {
      *
      * @since 1.0.0
      */
-    public static Vector add(final Vector target, final Vector addendum) {
+    public static Vector addIncr(final Vector target, final Vector addendum) {
         Validator.validateVectorSizes(target, addendum, "Addition denied");
         for (int i = 0; i < target.size(); i++) {
             target.set(i, target.get(i) + addendum.get(i));
@@ -170,8 +172,8 @@ public final class VectorMath {
      *
      * @since 1.0.0
      */
-    public static Vector added(final Vector target, final Vector addendum) {
-        return add(target.clone(), addendum);
+    public static Vector add(final Vector target, final Vector addendum) {
+        return addIncr(target.clone(), addendum);
     }
 
     /**
@@ -185,7 +187,7 @@ public final class VectorMath {
      *
      * @since 1.0.0
      */
-    public static Vector sub(final Vector target, final Vector subtrahend) {
+    public static Vector subIncr(final Vector target, final Vector subtrahend) {
         Validator.validateVectorSizes(target, subtrahend, "Subtraction denied");
         for (int i = 0; i < target.size(); i++) {
             target.set(i, target.get(i) - subtrahend.get(i));
@@ -206,8 +208,8 @@ public final class VectorMath {
      *
      * @since 1.0.0
      */
-    public static Vector subtracted(final Vector target, final Vector subtrahend) {
-        return sub(target.clone(), subtrahend);
+    public static Vector sub(final Vector target, final Vector subtrahend) {
+        return subIncr(target.clone(), subtrahend);
     }
 
     /**
@@ -251,6 +253,22 @@ public final class VectorMath {
         result.set(2, v1.get(0) * v2.get(1) - v1.get(1) * v2.get(0));
 
         return result;
+    }
+
+    public static Vector transformColumn(final Vector vCol, final Matrix operator) {
+        return MatrixMath.prodColIncr(operator, vCol);
+    }
+
+    public static Vector transformedColumn(final Vector vCol, final Matrix operator) {
+        return MatrixMath.prodCol(operator, vCol);
+    }
+
+    public static Vector transformRow(final Vector vRow, final Matrix operator) {
+        return MatrixMath.prodRowIncr(operator, vRow);
+    }
+
+    public static Vector transformedRow(final Vector vRow, final Matrix operator) {
+        return MatrixMath.prodRow(operator, vRow);
     }
 
     /**
@@ -298,7 +316,7 @@ public final class VectorMath {
      *
      * @since 1.0.0
      */
-    public static Vector zeroVec(final int size) {
+    public static Vector zeroVector(final int size) {
         return new Vec(size);
     }
 
@@ -310,7 +328,7 @@ public final class VectorMath {
      *
      * @since 1.0.0
      */
-    public static Vector unitVec(final int size) {
+    public static Vector unitVector(final int size) {
         final Vector result = new Vec(size);
         for (int i = 0; i < size; i++) {
             result.set(i, 1);

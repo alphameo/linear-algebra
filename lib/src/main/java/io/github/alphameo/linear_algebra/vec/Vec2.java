@@ -127,8 +127,8 @@ public class Vec2 implements Vector2 {
      *
      * @since 1.0.0
      */
-    public static Vector2 zeroVec() {
-        return Vector2Math.zeroVec();
+    public static Vector2 zeroVector() {
+        return Vector2Math.zeroVector();
     }
 
     /**
@@ -138,7 +138,7 @@ public class Vec2 implements Vector2 {
      *
      * @since 1.0.0
      */
-    public static Vector2 unitVec() {
-        return Vector2Math.unitVec();
+    public static Vector2 unitVector() {
+        return Vector2Math.unitVector();
     }
 }

@@ -59,7 +59,7 @@ public interface Matrix4 extends Matrix {
     }
 
     @Override
-    default boolean isZeroed() {
+    default boolean zeroed() {
         return Matrix4Math.isZeroed(this);
     }
 
@@ -200,7 +200,7 @@ public interface Matrix4 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix4 mult(final float multiplier) {
+    default Matrix4 mulIncr(final float multiplier) {
         return Matrix4Math.mult(this, multiplier);
     }
 
@@ -212,7 +212,7 @@ public interface Matrix4 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix4 multiplied(final float multiplier) {
+    default Matrix4 mul(final float multiplier) {
         return Matrix4Math.multiplied(this, multiplier);
     }
 
@@ -225,7 +225,7 @@ public interface Matrix4 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix4 divide(final float divisor) throws ArithmeticException {
+    default Matrix4 divIncr(final float divisor) throws ArithmeticException {
         return Matrix4Math.divide(this, divisor);
     }
 
@@ -238,7 +238,7 @@ public interface Matrix4 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix4 divided(final float divisor) throws ArithmeticException {
+    default Matrix4 div(final float divisor) throws ArithmeticException {
         return Matrix4Math.divide(this, divisor);
     }
 
@@ -251,8 +251,8 @@ public interface Matrix4 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix4 add(final Matrix4 addendum) {
-        return Matrix4Math.add(this, addendum);
+    default Matrix4 addIncr(final Matrix4 addendum) {
+        return Matrix4Math.addIncr(this, addendum);
     }
 
     /**
@@ -265,8 +265,8 @@ public interface Matrix4 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix4 added(final Matrix4 addendum) {
-        return Matrix4Math.added(this, addendum);
+    default Matrix4 add(final Matrix4 addendum) {
+        return Matrix4Math.add(this, addendum);
     }
 
     /**
@@ -278,8 +278,8 @@ public interface Matrix4 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix4 sub(final Matrix4 subtrahend) {
-        return Matrix4Math.sub(this, subtrahend);
+    default Matrix4 subIncr(final Matrix4 subtrahend) {
+        return Matrix4Math.subIncr(this, subtrahend);
     }
 
     /**
@@ -291,7 +291,7 @@ public interface Matrix4 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix4 subtracted(final Matrix4 subtrahend) {
+    default Matrix4 sub(final Matrix4 subtrahend) {
         return Matrix4Math.subtracted(this, subtrahend);
     }
 
@@ -316,8 +316,20 @@ public interface Matrix4 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Vector4 prod(final Vector4 v) {
-        return Matrix4Math.prod(this, v);
+    default Vector4 prodCol(final Vector4 vCol) {
+        return Matrix4Math.prodCol(this, vCol);
+    }
+
+    default Vector4 transformColumn(final Vector4 vCol) {
+        return Matrix4Math.prodColIncr(this, vCol);
+    }
+
+    default Vector4 prodRow(final Vector4 vRow) {
+        return Matrix4Math.prodRow(this, vRow);
+    }
+
+    default Vector4 prodRowIncr(final Vector4 vRow) {
+        return Matrix4Math.prodRowIncr(this, vRow);
     }
 
     /**
@@ -350,7 +362,7 @@ public interface Matrix4 extends Matrix {
      *
      * @since 1.0.0
      */
-    default Matrix4 invertible() throws RuntimeException {
+    default Matrix4 inv() throws RuntimeException {
         return Matrix4Math.invertible(this);
     }
 
@@ -417,7 +429,7 @@ public interface Matrix4 extends Matrix {
      *
      * @since 1.0.0
      */
-    default boolean equalsEpsilonTo(final Matrix4 m, final float eps) {
+    default boolean equalsEpsilon(final Matrix4 m, final float eps) {
         return Matrix4Math.equalsEpsilon(this, m, eps);
     }
 
@@ -431,7 +443,7 @@ public interface Matrix4 extends Matrix {
      *
      * @since 1.0.0
      */
-    default boolean equalsTo(final Matrix4 m) {
+    default boolean equals(final Matrix4 m) {
         return Matrix4Math.equals(this, m);
     }
 }

@@ -100,7 +100,7 @@ public class TestVec4Math {
 
     @Test
     public void testZeroVect() {
-        Vector4 v = zeroVec();
+        Vector4 v = zeroVector();
         Vector4 expected = new Vec4(0, 0, 0, 0);
 
         Assertions.assertEquals(expected, v);
@@ -108,7 +108,7 @@ public class TestVec4Math {
 
     @Test
     public void testZeroVec() {
-        Vector4 v = zeroVec();
+        Vector4 v = zeroVector();
         Vector4 expected = new Vec4(0, 0, 0, 0);
 
         Assertions.assertEquals(expected, v);
@@ -116,7 +116,7 @@ public class TestVec4Math {
 
     @Test
     public void testUnitVect() {
-        Vector4 v = unitVec();
+        Vector4 v = unitVector();
         Vector4 expected = new Vec4(1, 1, 1, 1);
 
         Assertions.assertEquals(expected, v);

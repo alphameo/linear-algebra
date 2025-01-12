@@ -153,8 +153,8 @@ public class Mat implements Matrix {
      *
      * @since 1.0.0
      */
-    public static Matrix zeroMat(final int height, final int width) {
-        return MatrixMath.zeroMat(height, width);
+    public static Matrix zeroMatrix(final int height, final int width) {
+        return MatrixMath.zeroMatrix(height, width);
     }
 
     /**
@@ -165,7 +165,7 @@ public class Mat implements Matrix {
      *
      * @since 1.0.0
      */
-    public static Matrix unitMat(final int size) {
-        return MatrixMath.unitMat(size);
+    public static Matrix unitMatrix(final int size) {
+        return MatrixMath.unitMatrix(size);
     }
 }

@@ -117,8 +117,8 @@ public class TestMat3Math {
                 { 14, 16, 18 }
         });
 
-        Assertions.assertEquals(expected, added(m, m));
         Assertions.assertEquals(expected, add(m, m));
+        Assertions.assertEquals(expected, addIncr(m, m));
     }
 
     @Test
@@ -134,8 +134,8 @@ public class TestMat3Math {
                 { 7, 8, 9 }
         });
 
-        Assertions.assertEquals(expected, subtracted(m, expected));
         Assertions.assertEquals(expected, sub(m, expected));
+        Assertions.assertEquals(expected, subIncr(m, expected));
     }
 
     @Test
@@ -408,7 +408,7 @@ public class TestMat3Math {
         });
 
         Assertions.assertEquals(expected,
-                Matrix3Math.toMat4(
+                Matrix3Math.toMatrix4(
                         m,
                         Matrix4Row.R0,
                         Matrix4Col.C0));
@@ -431,7 +431,7 @@ public class TestMat3Math {
         });
 
         Assertions.assertEquals(expected,
-                Matrix3Math.toMat4(
+                Matrix3Math.toMatrix4(
                         m,
                         Matrix4Row.R1,
                         Matrix4Col.C1));
@@ -454,7 +454,7 @@ public class TestMat3Math {
         });
 
         Assertions.assertEquals(expected,
-                Matrix3Math.toMat4(
+                Matrix3Math.toMatrix4(
                         m,
                         Matrix4Row.R2,
                         Matrix4Col.C2));
@@ -477,7 +477,7 @@ public class TestMat3Math {
         });
 
         Assertions.assertEquals(expected,
-                Matrix3Math.toMat4(
+                Matrix3Math.toMatrix4(
                         m,
                         Matrix4Row.R3,
                         Matrix4Col.C3));
@@ -486,7 +486,7 @@ public class TestMat3Math {
 
     @Test
     public void testZeroMat() {
-        Matrix3 m = zeroMat();
+        Matrix3 m = zeroMatrix();
         Matrix3 expected = new Mat3(new float[][] {
                 { 0, 0, 0 },
                 { 0, 0, 0 },
@@ -498,7 +498,7 @@ public class TestMat3Math {
 
     @Test
     public void testUnitMat() {
-        Matrix3 m = unitMat();
+        Matrix3 m = unitMatrix();
         Matrix3 expected = new Mat3(new float[][] {
                 { 1, 0, 0 },
                 { 0, 1, 0 },

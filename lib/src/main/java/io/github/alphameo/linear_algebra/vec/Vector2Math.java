@@ -263,7 +263,7 @@ public final class Vector2Math {
      *
      * @since 1.0.0
      */
-    public static Vector2 zeroVec() {
+    public static Vector2 zeroVector() {
         return new Vec2();
     }
 
@@ -274,7 +274,7 @@ public final class Vector2Math {
      *
      * @since 1.0.0
      */
-    public static Vector2 unitVec() {
+    public static Vector2 unitVector() {
         return new Vec2(1, 1);
     }
 }

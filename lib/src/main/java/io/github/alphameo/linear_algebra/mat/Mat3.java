@@ -184,8 +184,8 @@ public class Mat3 implements Matrix3 {
      *
      * @since 1.0.0
      */
-    public static Matrix3 zeroMat() {
-        return Matrix3Math.zeroMat();
+    public static Matrix3 zeroMatrix() {
+        return Matrix3Math.zeroMatrix();
     }
 
     /**
@@ -195,7 +195,7 @@ public class Mat3 implements Matrix3 {
      *
      * @since 1.0.0
      */
-    public static Matrix3 unitMat() {
-        return Matrix3Math.unitMat();
+    public static Matrix3 unitMatrix() {
+        return Matrix3Math.unitMatrix();
     }
 }

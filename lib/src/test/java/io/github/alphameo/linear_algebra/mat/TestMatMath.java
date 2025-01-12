@@ -78,8 +78,8 @@ public class TestMatMath {
                 { 14, 16, 18, 0 }
         });
 
-        Assertions.assertEquals(expected, multiplied(m, 2));
-        Assertions.assertEquals(expected, mult(m, 2));
+        Assertions.assertEquals(expected, mul(m, 2));
+        Assertions.assertEquals(expected, mulIncr(m, 2));
     }
 
     @Test
@@ -95,8 +95,8 @@ public class TestMatMath {
                 { 7, 8, 9, 0 }
         });
 
-        Assertions.assertEquals(expected, divided(m, 2));
-        Assertions.assertEquals(expected, divide(m, 2));
+        Assertions.assertEquals(expected, div(m, 2));
+        Assertions.assertEquals(expected, divIncr(m, 2));
     }
 
     @Test
@@ -112,8 +112,8 @@ public class TestMatMath {
                 { 14, 16, 18, 0 }
         });
 
-        Assertions.assertEquals(expected, added(m, m));
         Assertions.assertEquals(expected, add(m, m));
+        Assertions.assertEquals(expected, addIncr(m, m));
     }
 
     @Test
@@ -129,8 +129,8 @@ public class TestMatMath {
                 { 7, 8, 9, 0 }
         });
 
-        Assertions.assertEquals(expected, subtracted(m, expected));
         Assertions.assertEquals(expected, sub(m, expected));
+        Assertions.assertEquals(expected, subIncr(m, expected));
     }
 
     @Test
@@ -214,7 +214,7 @@ public class TestMatMath {
 
         Vector expected = new Vec(11, 32, 53, 17);
 
-        Assertions.assertEquals(expected, prod(m, v));
+        Assertions.assertEquals(expected, prodCol(m, v));
     }
 
     @Test
@@ -227,7 +227,7 @@ public class TestMatMath {
         Vector v = new Vec(1, 2, 4);
 
         try {
-            prod(m, v);
+            prodCol(m, v);
             Assertions.fail();
         } catch (Exception e) {
             Assertions.assertTrue(true);
@@ -322,7 +322,7 @@ public class TestMatMath {
                 { 13f / 21, -1f / 14, -1f / 21 }
         });
 
-        Assertions.assertEquals(expected, invertible(m));
+        Assertions.assertEquals(expected, inv(m));
     }
 
     @Test
@@ -483,7 +483,7 @@ public class TestMatMath {
                 { 0, 0, 0 }
         });
 
-        Assertions.assertTrue(isZeroed(m));
+        Assertions.assertTrue(zeroed(m));
     }
 
     @Test
@@ -495,7 +495,7 @@ public class TestMatMath {
                 { 0, 0, 0 }
         });
 
-        Assertions.assertTrue(!isZeroed(m));
+        Assertions.assertTrue(!zeroed(m));
     }
 
     @Test
@@ -522,7 +522,7 @@ public class TestMatMath {
 
     @Test
     public void testZeroMat() {
-        Matrix m = MatrixMath.zeroMat(3, 4);
+        Matrix m = MatrixMath.zeroMatrix(3, 4);
         Matrix expected = new Mat(new float[][] {
                 { 0, 0, 0, 0 },
                 { 0, 0, 0, 0 },
@@ -534,7 +534,7 @@ public class TestMatMath {
 
     @Test
     public void testUnitMat() {
-        Matrix m = MatrixMath.unitMat(3);
+        Matrix m = MatrixMath.unitMatrix(3);
         Matrix expected = new Mat(new float[][] {
                 { 1, 0, 0 },
                 { 0, 1, 0 },

@@ -75,8 +75,8 @@ public interface Vector extends Cloneable {
      *
      * @since 1.0.0
      */
-    default Vector mult(final float multiplier) {
-        return VectorMath.mult(this, multiplier);
+    default Vector mulIncr(final float multiplier) {
+        return VectorMath.mulIncr(this, multiplier);
     }
 
     /**
@@ -88,8 +88,8 @@ public interface Vector extends Cloneable {
      *
      * @since 1.0.0
      */
-    default Vector multiplied(final float multiplier) {
-        return VectorMath.multiplied(this, multiplier);
+    default Vector mul(final float multiplier) {
+        return VectorMath.mul(this, multiplier);
     }
 
     /**
@@ -101,8 +101,8 @@ public interface Vector extends Cloneable {
      *
      * @since 1.0.0
      */
-    default Vector divide(final float divisor) throws ArithmeticException {
-        return VectorMath.divide(this, divisor);
+    default Vector divIncr(final float divisor) throws ArithmeticException {
+        return VectorMath.divIncr(this, divisor);
     }
 
     /**
@@ -114,8 +114,8 @@ public interface Vector extends Cloneable {
      *
      * @since 1.0.0
      */
-    default Vector divided(final float divisor) throws ArithmeticException {
-        return VectorMath.divided(this, divisor);
+    default Vector div(final float divisor) throws ArithmeticException {
+        return VectorMath.div(this, divisor);
     }
 
     /**
@@ -151,8 +151,8 @@ public interface Vector extends Cloneable {
      *
      * @since 1.0.0
      */
-    default Vector add(final Vector addendum) {
-        return VectorMath.add(this, addendum);
+    default Vector addIncr(final Vector addendum) {
+        return VectorMath.addIncr(this, addendum);
     }
 
     /**
@@ -166,8 +166,8 @@ public interface Vector extends Cloneable {
      *
      * @since 1.0.0
      */
-    default Vector added(final Vector addendum) {
-        return VectorMath.added(this, addendum);
+    default Vector add(final Vector addendum) {
+        return VectorMath.add(this, addendum);
     }
 
     /**
@@ -180,8 +180,8 @@ public interface Vector extends Cloneable {
      *
      * @since 1.0.0
      */
-    default Vector sub(final Vector subtrahend) {
-        return VectorMath.sub(this, subtrahend);
+    default Vector subIncr(final Vector subtrahend) {
+        return VectorMath.subIncr(this, subtrahend);
     }
 
     /**
@@ -195,8 +195,8 @@ public interface Vector extends Cloneable {
      *
      * @since 1.0.0
      */
-    default Vector subtracted(final Vector subtrahend) {
-        return VectorMath.subtracted(this, subtrahend);
+    default Vector sub(final Vector subtrahend) {
+        return VectorMath.sub(this, subtrahend);
     }
 
     /**
@@ -224,6 +224,7 @@ public interface Vector extends Cloneable {
         return VectorMath.cross(this, v);
     }
 
+
     /**
      * Returns {@code true} if components of current and given vectors are equal
      * within {@code epsilon} tolerance.
@@ -235,7 +236,7 @@ public interface Vector extends Cloneable {
      *
      * @since 1.0.0
      */
-    default boolean equalsEpsilonTo(final Vector v, final float eps) {
+    default boolean equalsEpsilon(final Vector v, final float eps) {
         return VectorMath.equalsEpsilon(this, v, eps);
     }
 
@@ -249,7 +250,7 @@ public interface Vector extends Cloneable {
      *
      * @since 1.0.0
      */
-    default boolean equalsTo(final Vector v) {
+    default boolean equals(final Vector v) {
         return VectorMath.equals(this, v);
     }
 }

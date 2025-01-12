@@ -115,7 +115,7 @@ public class TestVec2Math {
 
     @Test
     public void testZeroVec() {
-        Vector2 v = zeroVec();
+        Vector2 v = zeroVector();
         Vector2 expected = new Vec2(0, 0);
 
         Assertions.assertEquals(expected, v);
@@ -123,7 +123,7 @@ public class TestVec2Math {
 
     @Test
     public void testUnitVec() {
-        Vector2 v = unitVec();
+        Vector2 v = unitVector();
         Vector2 expected = new Vec2(1, 1);
 
         Assertions.assertEquals(expected, v);
