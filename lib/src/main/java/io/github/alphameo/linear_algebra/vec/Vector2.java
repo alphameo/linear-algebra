@@ -5,7 +5,7 @@ package io.github.alphameo.linear_algebra.vec;
  *
  * @since 1.0.0
  */
-public interface Vector2 extends Vector {
+public interface Vector2 extends Vector, FixedVectorOperatable<Vector2> {
 
     /**
      * Returns x component (index = 0) of 2-dimensional vector.
@@ -43,11 +43,7 @@ public interface Vector2 extends Vector {
      */
     void setY(float value);
 
-    /**
-     * Creates and returns a copy of current 2-dimensional vector.
-     * 
-     * @return copy of 2-dimensional vector
-     */
+    @Override
     Vector2 clone();
 
     @Override
@@ -90,69 +86,48 @@ public interface Vector2 extends Vector {
         return Vector2Math.normalized(this);
     }
 
-    /**
-     * Adds the {@code addendum} vector components to the current vector components.
-     *
-     * @param addendum vector to add
-     * @return current vector increased by {@code addendum} vector
-     *
-     * @since 1.0.0
-     */
+    @Override
     default Vector2 add(final Vector2 addendum) {
         return Vector2Math.add(this, addendum);
     }
 
-    /**
-     * Copies current vector and adds the {@code addendum} vector components to its
-     * components.
-     *
-     * @param addendum vector to add
-     * @return new vector with sum of components of current vector and
-     *         {@code addendum} vector
-     *
-     * @since 1.0.0
-     */
+    @Override
     default Vector2 added(final Vector2 addendum) {
         return Vector2Math.added(this, addendum);
     }
 
-    /**
-     * Subtracts components of 2-dimensional {@code subtrahend} vector from the
-     * components of 2-dimensional current vector.
-     * 
-     * @param subtrahend vector to subtract
-     * @return current vector subtracted by {@code subtrahend} vector
-     *
-     * @since 1.0.0
-     */
+    @Override
     default Vector2 sub(final Vector2 subtrahend) {
         return Vector2Math.sub(this, subtrahend);
     }
 
-    /**
-     * Copies current 2-dimensional vector and subtracts the 2-dimensional
-     * {@code subtrahend} vector components from its components.
-     * 
-     * @param subtrahend vector to subtract
-     * @return new vector with components resulting current vector
-     *         subtracted by {@code subtrahend} vector
-     *
-     * @since 1.0.0
-     */
+    @Override
     default Vector2 subtracted(final Vector2 subtrahend) {
         return Vector2Math.subtracted(this, subtrahend);
     }
 
+    @Override
+    default float dot(final Vector2 v) {
+        return Vector2Math.dot(this, v);
+    }
+
+    @Override
+    default boolean equalsEpsilon(final Vector2 v, final float eps) {
+        return Vector2Math.equalsEpsilon(this, v, eps);
+    }
+
     /**
-     * Calculates dot product (scalar product) of 2-dimensional vectors.
-     *
-     * @param v second vector for dot product
-     * @return dot (scalar) product of vectors
+     * Returns {@code true} if components of current and given vectors are
+     * approximately equal.
+     * 
+     * @param v vector for comparison
+     * @return {@code true} if all components of current and given vectors are
+     *         approximately equal, and {@code false} otherwise
      *
      * @since 1.0.0
      */
-    default float dot(final Vector2 v) {
-        return Vector2Math.dot(this, v);
+    default boolean equals(final Vector2 v) {
+        return Vector2Math.equals(this, v);
     }
 
     /**
@@ -164,36 +139,6 @@ public interface Vector2 extends Vector {
     default Vector cross(Vector v) {
         throw new UnsupportedOperationException(
                 String.format("Cross product denied: vectors must be 3-dimensional"));
-    }
-
-    /**
-     * Returns {@code true} if components of current and given 2-dimensional vectors
-     * are equal within {@code epsilon} tolerance.
-     * 
-     * @param v   vector for comparison
-     * @param eps tolerance
-     * @return {@code true} if all components of current and given vectors are equal
-     *         within {@code epsilon} tolerance, and {@code false}
-     *         otherwise
-     *
-     * @since 1.0.0
-     */
-    default boolean equalsEpsilonTo(final Vector2 v, final float eps) {
-        return Vector2Math.equalsEpsilon(this, v, eps);
-    }
-
-    /**
-     * Returns {@code true} if components of current and given 2-dimensional vectors
-     * are approximately equal.
-     * 
-     * @param v vector for comparison
-     * @return {@code true} if all components of current and given vectors are
-     *         approximately equal, and {@code false} otherwise
-     *
-     * @since 1.0.0
-     */
-    default boolean equalsTo(final Vector2 v) {
-        return Vector2Math.equals(this, v);
     }
 
     /**

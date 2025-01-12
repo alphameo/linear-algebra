@@ -224,7 +224,6 @@ public interface Vector extends Cloneable {
         return VectorMath.cross(this, v);
     }
 
-
     /**
      * Returns {@code true} if components of current and given vectors are equal
      * within {@code epsilon} tolerance.
