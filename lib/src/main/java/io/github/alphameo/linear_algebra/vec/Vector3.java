@@ -75,32 +75,32 @@ public interface Vector3 extends Vector, FixedVectorOperatable<Vector3> {
     }
 
     @Override
-    default Vector mulIncr(float multiplier) {
+    default Vector3 mulIncr(float multiplier) {
         return Vector3Math.mult(this, multiplier);
     }
 
     @Override
-    default Vector mul(float multiplier) {
+    default Vector3 mul(float multiplier) {
         return Vector3Math.multiplied(this, multiplier);
     }
 
     @Override
-    default Vector divIncr(float divisor) throws ArithmeticException {
+    default Vector3 divIncr(float divisor) throws ArithmeticException {
         return Vector3Math.divide(this, divisor);
     }
 
     @Override
-    default Vector div(float divisor) throws ArithmeticException {
+    default Vector3 div(float divisor) throws ArithmeticException {
         return Vector3Math.divided(this, divisor);
     }
 
     @Override
-    default Vector normalize() throws ArithmeticException {
+    default Vector3 normalize() throws ArithmeticException {
         return Vector3Math.normalize(this);
     }
 
     @Override
-    default Vector normalized() throws ArithmeticException {
+    default Vector3 normalized() throws ArithmeticException {
         return Vector3Math.normalized(this);
     }
 
@@ -173,7 +173,7 @@ public interface Vector3 extends Vector, FixedVectorOperatable<Vector3> {
      *
      * @since 1.0.0
      */
-    default Vector4 toVec4() {
+    default Vector4 toVector4() {
         return Vector3Math.toVec4(this);
     }
 }
