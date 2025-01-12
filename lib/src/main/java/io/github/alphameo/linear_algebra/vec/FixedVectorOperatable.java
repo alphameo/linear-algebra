@@ -1,7 +1,7 @@
 package io.github.alphameo.linear_algebra.vec;
 
 /**
- * Interface that declares operations with fixed-dimensional vectors.
+ * Interface that declares operations between fixed-dimensional vectors.
  * <p>
  * {@code V} is a vector class/interface which should implements this
  * operations.
