@@ -1,11 +1,15 @@
 package io.github.alphameo.linear_algebra.vec;
 
+import io.github.alphameo.linear_algebra.mat.Matrix3;
+import io.github.alphameo.linear_algebra.mat.Matrix3Math;
+
 /**
  * Interface for 3-dimensional vector.
  *
  * @since 1.0.0
  */
-public interface Vector3 extends Vector, FixedVectorOperatable<Vector3> {
+public interface Vector3
+        extends Vector, FixedBetweenVectorOperatable<Vector3>, FixedVectorTransformable<Vector3, Matrix3> {
 
     /**
      * Returns x component (index = 0) of 3-dimensional vector.
@@ -161,6 +165,26 @@ public interface Vector3 extends Vector, FixedVectorOperatable<Vector3> {
         Vector3Math.cross(this, v);
 
         return result;
+    }
+
+    @Override
+    default Vector3 transformCol(Matrix3 operator) {
+        return Vector3Math.transformColumn(this, operator);
+    }
+
+    @Override
+    default Vector3 transformRow(Matrix3 operator) {
+        return Vector3Math.transformRow(this, operator);
+    }
+
+    @Override
+    default Vector3 transformedCol(Matrix3 operator) {
+        return Vector3Math.transformedColumn(this, operator);
+    }
+
+    @Override
+    default Vector3 transformedRow(Matrix3 operator) {
+        return Vector3Math.transformedRow(this, operator);
     }
 
     /**

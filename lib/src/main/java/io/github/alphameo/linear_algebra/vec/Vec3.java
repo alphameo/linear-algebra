@@ -9,6 +9,28 @@ import java.util.Arrays;
  */
 public class Vec3 implements Vector3 {
 
+    /**
+     * Constructs new vector of size 3 with all 0 components.
+     * 
+     * @return new zero vector of size 3
+     *
+     * @since 1.0.0
+     */
+    public static Vector3 zeroVector() {
+        return Vector3Math.zeroVector();
+    }
+
+    /**
+     * Constructs new vector of size 4 with 1 as components.
+     * 
+     * @return new unit vector of size 4
+     *
+     * @since 1.0.0
+     */
+    public static Vector3 unitVector() {
+        return Vector3Math.unitVector();
+    }
+
     private final float[] entries;
 
     /**
@@ -130,27 +152,5 @@ public class Vec3 implements Vector3 {
             return false;
         }
         return VectorMath.equals(this, (Vector) obj);
-    }
-
-    /**
-     * Constructs new vector of size 3 with all 0 components.
-     * 
-     * @return new zero vector of size 3
-     *
-     * @since 1.0.0
-     */
-    public static Vector3 zeroVector() {
-        return Vector3Math.zeroVector();
-    }
-
-    /**
-     * Constructs new vector of size 4 with 1 as components.
-     * 
-     * @return new unit vector of size 4
-     *
-     * @since 1.0.0
-     */
-    public static Vector3 unitVector() {
-        return Vector3Math.unitVector();
     }
 }

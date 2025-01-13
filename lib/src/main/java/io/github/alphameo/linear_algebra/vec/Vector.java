@@ -1,5 +1,8 @@
 package io.github.alphameo.linear_algebra.vec;
 
+import io.github.alphameo.linear_algebra.mat.Matrix;
+import io.github.alphameo.linear_algebra.mat.MatrixMath;
+
 /**
  * Interface for N-dimensional vector.
  *
@@ -222,6 +225,22 @@ public interface Vector extends Cloneable {
      */
     default Vector cross(final Vector v) {
         return VectorMath.cross(this, v);
+    }
+
+    default Vector transformCol(final Matrix operator) {
+        return VectorMath.transformColumn(this, operator);
+    }
+
+    default Vector transformedCol(final Matrix operator) {
+        return VectorMath.transformedColumn(this, operator);
+    }
+
+    default Vector transformRow(final Matrix operator) {
+        return VectorMath.transformRow(this, operator);
+    }
+
+    default Vector transformedRow(final Matrix operator) {
+        return VectorMath.transformedRow(this, operator);
     }
 
     /**

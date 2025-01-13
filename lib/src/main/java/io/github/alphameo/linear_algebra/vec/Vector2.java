@@ -5,7 +5,7 @@ package io.github.alphameo.linear_algebra.vec;
  *
  * @since 1.0.0
  */
-public interface Vector2 extends Vector, FixedVectorOperatable<Vector2> {
+public interface Vector2 extends Vector, FixedBetweenVectorOperatable<Vector2> {
 
     /**
      * Returns x component (index = 0) of 2-dimensional vector.

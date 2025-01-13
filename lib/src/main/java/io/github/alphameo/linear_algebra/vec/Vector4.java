@@ -1,11 +1,14 @@
 package io.github.alphameo.linear_algebra.vec;
 
+import io.github.alphameo.linear_algebra.mat.Matrix4;
+
 /**
  * Interface for 4-dimensional vector.
  *
  * @since 1.0.0
  */
-public interface Vector4 extends Vector, FixedVectorOperatable<Vector4> {
+public interface Vector4
+        extends Vector, FixedBetweenVectorOperatable<Vector4>, FixedVectorTransformable<Vector4, Matrix4> {
 
     /**
      * Returns x component (index = 0) of 4-dimensional vector.
@@ -145,6 +148,26 @@ public interface Vector4 extends Vector, FixedVectorOperatable<Vector4> {
     @Override
     default float dot(final Vector4 v) {
         return Vector4Math.dot(this, v);
+    }
+
+    @Override
+    default Vector4 transformCol(Matrix4 operator) {
+        return Vector4Math.transformColumn(this, operator);
+    }
+
+    @Override
+    default Vector4 transformRow(Matrix4 operator) {
+        return Vector4Math.transformRow(this, operator);
+    }
+
+    @Override
+    default Vector4 transformedCol(Matrix4 operator) {
+        return Vector4Math.transformedColumn(this, operator);
+    }
+
+    @Override
+    default Vector4 transformedRow(Matrix4 operator) {
+        return Vector4Math.transformedRow(this, operator);
     }
 
     @Override

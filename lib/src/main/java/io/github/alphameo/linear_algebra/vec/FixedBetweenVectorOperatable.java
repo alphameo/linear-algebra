@@ -4,11 +4,13 @@ package io.github.alphameo.linear_algebra.vec;
  * Interface that declares operations between fixed-dimensional vectors.
  * <p>
  * {@code V} is a vector class/interface which should implements this
- * operations.
+ * operations
+ *
+ * {@code M} collocated square matrix class
  *
  * @since 3.0.0
  */
-public interface FixedVectorOperatable<V> {
+public interface FixedBetweenVectorOperatable<V> {
     /**
      * Creates and returns a copy of current vector.
      * 
