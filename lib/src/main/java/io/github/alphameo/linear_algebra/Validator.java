@@ -102,6 +102,6 @@ public class Validator {
      * @since 1.0.0
      */
     public static boolean equals(float value1, float value2) {
-        return Math.abs(value1 - value2) < EPS;
+        return equalsEpsilon(value1, value2, EPS);
     }
 }
