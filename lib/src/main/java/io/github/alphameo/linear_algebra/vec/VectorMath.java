@@ -20,12 +20,12 @@ public final class VectorMath {
     }
 
     /**
-     * Calculates square of vector length.
+     * Returns the square of the length of the given vector.
      * <p>
      * You can use it if you need fast comparison.
      * 
      * @param v vector for square length calculation
-     * @return square length of given vector
+     * @return square length of vector {@code v}
      *
      * @since 1.0.0
      */
@@ -39,10 +39,10 @@ public final class VectorMath {
     }
 
     /**
-     * Calculates length of vector.
+     * Returns length of the given vector.
      * 
      * @param v vector for length calculation
-     * @return length of given vector
+     * @return length of vector {@code v}
      *
      * @since 1.0.0
      */
@@ -51,11 +51,11 @@ public final class VectorMath {
     }
 
     /**
-     * Multiplies the components of vector by a scalar value.
+     * Returns the given vector with its components multiplied by a scalar value.
      *
      * @param v          vector for multiplication
      * @param multiplier scalar value
-     * @return given vector with multiplied components
+     * @return vector {@code v} multiplied by {@code multiplier}
      *
      * @since 1.0.0
      */
@@ -68,12 +68,13 @@ public final class VectorMath {
     }
 
     /**
-     * Copies given vector and multiplies its components by a scalar.
-     * value.
+     * Returns the result of multiplying the components of the given vector by a
+     * scalar value.
      *
      * @param v          vector for multiplication
      * @param multiplier scalar value
-     * @return new vector with multiplied components of given vector
+     * @return new vector with components of vector {@code v} multiplied by
+     *         {@code multiplier}
      *
      * @since 1.0.0
      */
@@ -82,12 +83,12 @@ public final class VectorMath {
     }
 
     /**
-     * Divides the components of given vector by a scalar value.
+     * Returns the given vector with its components divided by a scalar value.
      * 
      * @param v       vector for division
      * @param divisor scalar value
-     * @return given vector with divided components
-     * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     * @return vector {@code v} divided by {@code divisor}
+     * @throws ArithmeticException if {@code divisor} is approximately equal to 0
      *
      * @since 1.0.0
      */
@@ -101,12 +102,14 @@ public final class VectorMath {
     }
 
     /**
-     * Copies given vector and divides its components by a scalar value.
+     * Returns the result of dividing the components of the given vector by a scalar
+     * value.
      *
      * @param v       vector for division
      * @param divisor scalar value
-     * @return new vector with divided components of given vector
-     * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     * @return new vector with components of vector {@code v} divided by
+     *         {@code divisor}
+     * @throws ArithmeticException if {@code divisor} is approximately equal to 0
      *
      * @since 1.0.0
      */
@@ -115,11 +118,13 @@ public final class VectorMath {
     }
 
     /**
-     * Normalizes given vector (divide each component by vector length)
+     * Returns the given vector with normalized components (divide each component by
+     * vector length)
      * 
      * @param v vector to be normalized
-     * @return given vector with normalized components
-     * @throws ArithmeticException if length of given vector equals 0
+     * @return vector {@code v} with normalized components
+     * @throws ArithmeticException if length of given vector is approximately equal
+     *                             0
      *
      * @since 1.0.0
      */
@@ -128,11 +133,13 @@ public final class VectorMath {
     }
 
     /**
-     * Copies and normalizes given vector (divide each component by vector length)
+     * Returns the result of normalization of the given vector (divide each
+     * component by vector length)
      * 
      * @param v vector to be normalized
      * @return new vector with normalized components of given vector
-     * @throws ArithmeticException if length of given vector equals 0
+     * @throws ArithmeticException if length of given vector is approximately equal
+     *                             0
      *
      * @since 1.0.0
      */
@@ -141,17 +148,17 @@ public final class VectorMath {
     }
 
     /**
-     * Adds the {@code addendum} vector components to the {@code target} vector
-     * components.
+     * Returns the target vector whose components the components of the subtracted
+     * vector have been subtracted.
      *
      * @param target   vector to be added
      * @param addendum vector to add
-     * @return {@code target} vector increased by {@code addendum} vector
+     * @return vector {@code target} increased by vector {@code addendum}
      * @throws IllegalArgumentException if given vectors have different sizes
      *
      * @since 1.0.0
      */
-    public static Vector addIncr(final Vector target, final Vector addendum) {
+    public static Vector addIncr(final Vector target, final Vector addendum) throws IllegalArgumentException {
         Validator.validateVectorSizes(target, addendum, "Addition denied");
         for (int i = 0; i < target.size(); i++) {
             target.set(i, target.get(i) + addendum.get(i));
@@ -161,28 +168,29 @@ public final class VectorMath {
     }
 
     /**
-     * Copies {@code target} vector and adds the {@code addendum} vector components
-     * to its components.
+     * Returns the result of adding the components of the addendum vector to the
+     * components of the target vector.
      *
      * @param target   vector to be added
      * @param addendum vector to add
-     * @return new vector with sum of components of {@code target} vector and
-     *         {@code addendum} vector
+     * @return new vector with the sum of vector {@code target} and vector
+     *         {@code addendum}
+     *
      * @throws IllegalArgumentException if given vectors have different sizes
      *
      * @since 1.0.0
      */
-    public static Vector add(final Vector target, final Vector addendum) {
+    public static Vector add(final Vector target, final Vector addendum) throws IllegalArgumentException {
         return addIncr(target.clone(), addendum);
     }
 
     /**
-     * Subtracts the {@code subtrahend} vector components from the {@code target}
-     * vector components.
+     * Returns the target vector from whose components have been subtracted the
+     * components of the subtrahend vector.
      * 
      * @param target     vector to be subtracted
      * @param subtrahend vector to subtract
-     * @return {@code target} vector subtracted by {@code subtrahend} vector
+     * @return vector {@code target} reduced by vector {@code subtrahend}
      * @throws IllegalArgumentException if given vectors have different sizes
      *
      * @since 1.0.0
@@ -197,13 +205,13 @@ public final class VectorMath {
     }
 
     /**
-     * Copies {@code target} vector and subtracts the {@code subtrahend} vector
-     * components from its components.
+     * Returns the result of subracting the components of the subtrahend vector from
+     * the components of the target vector.
      * 
      * @param target     vector to be subtracted
      * @param subtrahend vector to subtract
-     * @return new vector with components resulting {@code target} vector subtracted
-     *         by {@code subtrahend} vector
+     * @return new vector with result of subtracting {@code subtrahend} vector from
+     *         {@code target} vector
      * @throws IllegalArgumentException if given vectors have different sizes
      *
      * @since 1.0.0
@@ -213,15 +221,15 @@ public final class VectorMath {
     }
 
     /**
-     * Calculates dot product (scalar product) of given vectors.
+     * Returns dot product (scalar product) of given vectors.
      *
-     * @param v1 first vector
-     * @param v2 second vector
-     * @return dot (scalar) product of given vectors
+     * @param v1 first vector for dot product
+     * @param v2 second vector for dot product
+     * @return dot product of given vectors
      *
      * @since 1.0.0
      */
-    public static float dot(final Vector v1, final Vector v2) {
+    public static float dot(final Vector v1, final Vector v2) throws IllegalArgumentException {
         Validator.validateVectorSizes(v1, v2, "Scalar product denied");
         float sum = 0;
         for (int i = 0; i < v1.size(); i++) {
@@ -232,16 +240,16 @@ public final class VectorMath {
     }
 
     /**
-     * Calculates cross product (vector product) of given vectors.
+     * Returns result of cross product (vector product) of given vectors.
      *
-     * @param v1 first vector
-     * @param v2 second vector
-     * @return vector, which represents cross (vector) product of given vectors
+     * @param v1 first vector for cross product
+     * @param v2 second vector for cross product
+     * @return vector, which represents cross product of given vectors
      * @throws IllegalArgumentException if vectors' sizes are not equal 3
      *
      * @since 1.0.0
      */
-    public static Vector cross(final Vector v1, final Vector v2) {
+    public static Vector cross(final Vector v1, final Vector v2) throws IllegalArgumentException {
         if (v1.size() != 3 || v2.size() != 3) {
             throw new IllegalArgumentException(
                     String.format(String.format("Cross product denied: vector size must be 3, but given are %d, %d"),
@@ -255,35 +263,87 @@ public final class VectorMath {
         return result;
     }
 
-    public static Vector transformColumn(final Vector vCol, final Matrix operator) {
+    /**
+     * Returns the given vector-column transformed by the given
+     * transformation operator matrix.
+     *
+     * @param vCol     vector-column to be transformed
+     * @param operator transformation matrix
+     * @return vector {@code vCol} transformed by matrix {@code operator}
+     * @throws IllegalArgumentException if width of the given matrix is not equal
+     *                                  to dimension of the given vector-column
+     *
+     * @since 3.0.0
+     */
+    public static Vector transformColumn(final Vector vCol, final Matrix operator) throws IllegalArgumentException {
         return MatrixMath.prodColIncr(operator, vCol);
     }
 
-    public static Vector transformedColumn(final Vector vCol, final Matrix operator) {
+    /**
+     * Returns the result of transforming the given vector-column by the given
+     * transformation operator matrix.
+     *
+     * @param vCol     vector-column to be transformed
+     * @param operator transformation matrix
+     * @return new vector with result of transforming vector {@code vCol} by matrix
+     *         {@code operator}
+     * @throws IllegalArgumentException if width of the given matrix is not equal
+     *                                  to dimension of the given vector-column
+     *
+     * @since 3.0.0
+     */
+    public static Vector transformedColumn(final Vector vCol, final Matrix operator) throws IllegalArgumentException {
         return MatrixMath.prodCol(operator, vCol);
     }
 
-    public static Vector transformRow(final Vector vRow, final Matrix operator) {
+    /**
+     * Returns the given vector-row transformed by the given
+     * transformation operator matrix.
+     *
+     * @param vRow     vector-row to be transformed
+     * @param operator transformation matrix
+     * @return vector {@code vRow} transformed by matrix {@code operator}
+     * @throws IllegalArgumentException if height of the given matrix is not equal
+     *                                  to the dimension of the given vector-row
+     *
+     * @since 3.0.0
+     */
+    public static Vector transformRow(final Vector vRow, final Matrix operator) throws IllegalArgumentException {
         return MatrixMath.prodRowIncr(operator, vRow);
     }
 
-    public static Vector transformedRow(final Vector vRow, final Matrix operator) {
+    /**
+     * Returns the result of transforming the given vector-row by the given
+     * transformation operator matrix.
+     *
+     * @param vRow     vector-column to be transformed
+     * @param operator transformation matrix
+     * @return new vector with result of transforming vector {@code vRow} by matrix
+     *         {@code operator}
+     * @throws IllegalArgumentException if height of the given matrix is not equal
+     *                                  to dimension of the given vector-row
+     *
+     * @since 3.0.0
+     */
+    public static Vector transformedRow(final Vector vRow, final Matrix operator) throws IllegalArgumentException {
         return MatrixMath.prodRow(operator, vRow);
     }
 
     /**
-     * Returns {@code true} if components of vectors are equal within
+     * Returns {@code true} if components of two vectors are equal within
      * {@code epsilon} tolerance.
      * 
      * @param v1  first vector for comparison
      * @param v2  second vector for comparison
      * @param eps tolerance
      * @return {@code true} if all components of vectors are equal within
-     *         {@code epsilon} tolerance, and {@code false} otherwise
+     *         {@code eps} tolerance, and {@code false} otherwise
+     * @throws IllegalArgumentException if given vectors have different sizes
      *
      * @since 1.0.0
      */
-    public static boolean equalsEpsilon(final Vector v1, final Vector v2, final float eps) {
+    public static boolean equalsEpsilon(final Vector v1, final Vector v2, final float eps)
+            throws IllegalArgumentException {
         Validator.validateVectorSizes(v1, v2, "Equalization denied");
         for (int i = 0; i < v1.size(); i++) {
             if (!Validator.equalsEpsilon(v1.get(i), v2.get(i), eps)) {
@@ -295,24 +355,25 @@ public final class VectorMath {
     }
 
     /**
-     * Returns {@code true} if components of vectors are approximately equal.
+     * Returns {@code true} if components of two vectors are approximately equal.
      * 
      * @param v1 first vector for comparison
      * @param v2 second vector for comparison
      * @return {@code true} if all components of vectors are approximately equal,
      *         and {@code false} otherwise
+     * @throws IllegalArgumentException if given vectors have different sizes
      *
      * @since 1.0.0
      */
-    public static boolean equals(final Vector v1, final Vector v2) {
+    public static boolean equals(final Vector v1, final Vector v2) throws IllegalArgumentException {
         return equalsEpsilon(v1, v2, Validator.EPS);
     }
 
     /**
-     * Constructs new vector of given {@code size} with all 0 components.
+     * Constructs {@code size}-dimensional vector with all 0 components.
      * 
-     * @param size size of vector to be constructed
-     * @return new zero vector of given {@code size}
+     * @param size dimension of vector to be constructed
+     * @return zero {@code size}-dimensional vector
      *
      * @since 1.0.0
      */
@@ -321,10 +382,10 @@ public final class VectorMath {
     }
 
     /**
-     * Constructs new vector of given {@code size} with 1 as components.
+     * Constructs {@code size}-dimensional vector with all 1 components.
      * 
-     * @param size size of vector to be constructed
-     * @return new unit vector of given {@code size}
+     * @param size dimension of vector to be constructed
+     * @return unit {@code size}-dimensional vector
      *
      * @since 1.0.0
      */
