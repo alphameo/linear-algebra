@@ -71,7 +71,7 @@ public class Vec3 implements Vector3 {
     }
 
     @Override
-    public float get(final int i) {
+    public float get(final int i) throws IllegalArgumentException {
         if (i < 0 || i > 3) {
             throw new IllegalArgumentException(String.format("Index %d is out of Vec3 bounds", i));
         }

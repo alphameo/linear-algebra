@@ -46,7 +46,7 @@ public class Vec2 implements Vector2 {
     }
 
     @Override
-    public float get(final int i) {
+    public float get(final int i) throws IllegalArgumentException {
         if (i < 0 || i > 2) {
             throw new IllegalArgumentException(String.format("Index %d is out of Vec2 bounds", i));
         }

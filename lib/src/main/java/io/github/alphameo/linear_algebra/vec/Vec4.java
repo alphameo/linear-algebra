@@ -51,7 +51,7 @@ public class Vec4 implements Vector4 {
     }
 
     @Override
-    public float get(final int i) {
+    public float get(final int i) throws IllegalArgumentException {
         if (i < 0 || i > 4) {
             throw new IllegalArgumentException(String.format("Index %d is out of Vec4 bounds", i));
         }
