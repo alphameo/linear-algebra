@@ -3,16 +3,16 @@ package io.github.alphameo.linear_algebra.vec;
 import java.util.Arrays;
 
 /**
- * Default implementation of vector with size 3 ({@code Vector3 interface}).
+ * Default implementation of 3-dimensional vector ({@link Vector3}).
  *
  * @since 1.0.0
  */
 public class Vec3 implements Vector3 {
 
     /**
-     * Constructs new vector of size 3 with all 0 components.
+     * Constructs 3-dimensional vector with all 0 components.
      * 
-     * @return new zero vector of size 3
+     * @return new zero 3-dimensional vector
      *
      * @since 1.0.0
      */
@@ -21,9 +21,9 @@ public class Vec3 implements Vector3 {
     }
 
     /**
-     * Constructs new vector of size 4 with 1 as components.
+     * Constructs 3-dimensional vector with all 1 components.
      * 
-     * @return new unit vector of size 4
+     * @return new unit 3-dimensional vector
      *
      * @since 1.0.0
      */

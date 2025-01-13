@@ -187,12 +187,12 @@ public interface Vector3
     }
 
     /**
-     * Constructs new vector of size 4 with components of current vector and 1
+     * Constructs 4-dimensional vector with components of given vector and 1 as last
+     * component
      * <p>
      * (x, y, z, 1)
      *
-     * @return new vector of size 3 including components of current vector and 1 as
-     *         last component
+     * @return new vector of size 4 including components of given vector and 1
      *
      * @since 1.0.0
      */

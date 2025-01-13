@@ -3,7 +3,7 @@ package io.github.alphameo.linear_algebra.vec;
 import io.github.alphameo.linear_algebra.Validator;
 
 /**
- * Class with static functions for arbitrary vectors.
+ * Class with static functions for 2-dimensional vectors.
  *
  * @since 1.0.0
  */
@@ -18,29 +18,17 @@ public final class Vector2Math {
     }
 
     /**
-     * Calculates square of vector length.
+     * Returns the square of the length of the given vector.
      * <p>
      * You can use it if you need fast comparison.
      * 
-     * @param v vector of size 2 for square length calculation
-     * @return square length of given vector
+     * @param v vector for square length calculation
+     * @return squared length of vector {@code v}
      *
      * @since 1.0.0
      */
     public static float len2(final Vector2 v) {
         return v.x() * v.x() + v.y() * v.y();
-    }
-
-    /**
-     * Calculates length of vector.
-     * 
-     * @param v vector of size 2 for length calculation
-     * @return length of given vector
-     *
-     * @since 1.0.0
-     */
-    public static float len(final Vector2 v) {
-        return (float) Math.sqrt(len2(v));
     }
 
     /**
@@ -51,11 +39,8 @@ public final class Vector2Math {
      *
      * @since 1.0.0
      */
-    public static Vector2 mulAsgn(final Vector2 v, final float multiplier) {
-        v.setX(v.x() * multiplier);
-        v.setY(v.y() * multiplier);
-
-        return v;
+    public static float len(final Vector2 v) {
+        return (float) Math.sqrt(len2(v));
     }
 
     /**
@@ -67,17 +52,35 @@ public final class Vector2Math {
      *
      * @since 1.0.0
      */
+    public static Vector2 mulAsgn(final Vector2 v, final float multiplier) {
+        v.setX(v.x() * multiplier);
+        v.setY(v.y() * multiplier);
+
+        return v;
+    }
+
+    /**
+     * Returns the result of multiplying the components of the given vector by a
+     * scalar value.
+     *
+     * @param v          vector for multiplication
+     * @param multiplier scalar value
+     * @return new vector with components of vector {@code v} multiplied by
+     *         {@code multiplier}
+     *
+     * @since 1.0.0
+     */
     public static Vector2 mul(final Vector2 v, final float multiplier) {
         return mulAsgn(v.clone(), multiplier);
     }
 
     /**
-     * Divides the components of vector by a scalar value.
+     * Divides components of given vector by a scalar value and returns it.
      * 
-     * @param v       vector of size 2 for division
+     * @param v       vector for division
      * @param divisor scalar value
-     * @return given vector with divided components
-     * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     * @return vector {@code v} divided by {@code divisor}
+     * @throws ArithmeticException if {@code divisor} is approximately equal to 0
      *
      * @since 1.0.0
      */
@@ -91,12 +94,14 @@ public final class Vector2Math {
     }
 
     /**
-     * Copies given vector and divides its components by a scalar value.
+     * Returns the result of dividing the components of the given vector by a scalar
+     * value.
      *
-     * @param v       vector of size 2 for division
+     * @param v       vector for division
      * @param divisor scalar value
-     * @return new vector of size 2 with divided components of given vector
-     * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     * @return new vector with components of vector {@code v} divided by
+     *         {@code divisor}
+     * @throws ArithmeticException if {@code divisor} is approximately equal to 0
      *
      * @since 1.0.0
      */
@@ -105,11 +110,13 @@ public final class Vector2Math {
     }
 
     /**
-     * Normalizes given vector (divide each component by vector length)
+     * Normalize components of given vector (divide each component by vector length)
+     * and returns it.
      * 
-     * @param v vector of size 2 to be normalized
-     * @return given vector with normalized components
-     * @throws ArithmeticException if length of given vector equals 0
+     * @param v vector to be normalized
+     * @return vector {@code v} with normalized components
+     * @throws ArithmeticException if length of the given vector is approximately
+     *                             equal 0
      *
      * @since 1.0.0
      */
@@ -118,11 +125,13 @@ public final class Vector2Math {
     }
 
     /**
-     * Copies and normalizes given vector (divide each component by vector length)
+     * Returns the result of normalization of the given vector (divide each
+     * component by vector length)
      * 
-     * @param v vector of size 2 to be normalized
-     * @return new vector of size 2 with normalized components of given vector
-     * @throws ArithmeticException if length of given vector equals 0
+     * @param v vector to be normalized
+     * @return new vector with normalized components of the given vector
+     * @throws ArithmeticException if length of the given vector is approximately
+     *                             equal 0
      *
      * @since 1.0.0
      */
@@ -131,12 +140,12 @@ public final class Vector2Math {
     }
 
     /**
-     * Adds the {@code addendum} vector components to the {@code target} vector
-     * components.
+     * Adds the components of the addendum vector to the components of the target
+     * vector and returns it.
      *
-     * @param target   vector of size 2 to be added
-     * @param addendum vector of size 2 to add
-     * @return {@code target} vector increased by {@code addendum} vector
+     * @param target   vector to be added
+     * @param addendum vector to add
+     * @return vector {@code target} increased by vector {@code addendum}
      *
      * @since 1.0.0
      */
@@ -148,14 +157,14 @@ public final class Vector2Math {
     }
 
     /**
-     * Copies {@code target} vector and adds the {@code addendum} vector components
-     * to its components.
+     * Returns the result of adding the components of the addendum vector to the
+     * components of the target vector.
      *
-     * @param target   vector of size 2 to be added
-     * @param addendum vector of size 2 to add
-     * @return new vector of size 2 with sum of components of {@code target} vector
-     *         and
-     *         {@code addendum} vector
+     * @param target   vector to be added
+     * @param addendum vector to add
+     * @return new vector with the sum of vector {@code target} and vector
+     *         {@code addendum}
+     *
      *
      * @since 1.0.0
      */
@@ -164,12 +173,12 @@ public final class Vector2Math {
     }
 
     /**
-     * Subtracts the {@code subtrahend} vector components from the {@code target}
-     * vector components.
+     * Subtracts components of the subtrahend vector from the components of the
+     * target vector and returns it.
      * 
-     * @param target     vector of size 2 to be subtracted
-     * @param subtrahend vector of size 2 to subtract
-     * @return {@code target} vector subtracted by {@code subtrahend} vector
+     * @param target     vector to be subtracted
+     * @param subtrahend vector to subtract
+     * @return vector {@code target} reduced by vector {@code subtrahend}
      *
      * @since 1.0.0
      */
@@ -181,13 +190,13 @@ public final class Vector2Math {
     }
 
     /**
-     * Copies {@code target} vector and subtracts the {@code subtrahend} vector
-     * components from its components.
+     * Returns the result of subtracting the components of the subtrahend vector
+     * from the components of the target vector.
      * 
-     * @param target     vector of size 2 to be subtracted
-     * @param subtrahend vector of size 2 to subtract
-     * @return new vector of size 2 with components resulting {@code target} vector
-     *         subtracted by {@code subtrahend} vector
+     * @param target     vector to be subtracted
+     * @param subtrahend vector to subtract
+     * @return new vector with result of subtracting vector {@code subtrahend} from
+     *         vector {@code target}
      *
      * @since 1.0.0
      */
@@ -196,11 +205,11 @@ public final class Vector2Math {
     }
 
     /**
-     * Calculates dot product (scalar product) of given vectors.
+     * Returns dot product (scalar product) of the given vectors.
      *
-     * @param v1 first vector of size 2
-     * @param v2 second vector of size 2
-     * @return dot (scalar) product of given vectors
+     * @param v1 first vector for dot product
+     * @param v2 second vector for dot product
+     * @return dot product of the given vectors
      *
      * @since 1.0.0
      */
@@ -209,14 +218,14 @@ public final class Vector2Math {
     }
 
     /**
-     * Returns {@code true} if components of vectors are equal within
+     * Returns {@code true} if the components of two vectors are equal within
      * {@code epsilon} tolerance.
      * 
-     * @param v1  first vector of size 2 for comparison
-     * @param v2  second vector of size 2 for comparison
+     * @param v1  first vector for comparison
+     * @param v2  second vector for comparison
      * @param eps tolerance
      * @return {@code true} if all components of vectors are equal within
-     *         {@code epsilon} tolerance, and {@code false} otherwise
+     *         {@code eps} tolerance, and {@code false} otherwise
      *
      * @since 1.0.0
      */
@@ -226,10 +235,11 @@ public final class Vector2Math {
     }
 
     /**
-     * Returns {@code true} if components of vectors are approximately equal.
+     * Returns {@code true} if the components of two vectors are approximately
+     * equal.
      * 
-     * @param v1 first vector of size 2 for comparison
-     * @param v2 second vector of size 2 for comparison
+     * @param v1 first vector for comparison
+     * @param v2 second vector for comparison
      * @return {@code true} if all components of vectors are approximately equal,
      *         and {@code false} otherwise
      *
@@ -240,13 +250,13 @@ public final class Vector2Math {
     }
 
     /**
-     * Constructs new vector of size 3 with components of given vector and 1
+     * Constructs 3-dimensional vector with components of given vector and 1 as last
+     * component
      * <p>
      * (x, y, 1)
      *
-     * @param v vector of size 2
-     * @return new vector of size 3 including components of given vector and 1 as
-     *         last component
+     * @param v 2-dimensional vector
+     * @return new 3-dimensional vector including components of given vector and 1
      *
      * @since 1.0.0
      */
@@ -255,9 +265,9 @@ public final class Vector2Math {
     }
 
     /**
-     * Constructs new vector of size 2 with all 0 components.
+     * Constructs 2-dimensional vector with all 0 components.
      * 
-     * @return new zero vector of size 2
+     * @return new zero 2-dimensional vector
      *
      * @since 1.0.0
      */
@@ -266,9 +276,9 @@ public final class Vector2Math {
     }
 
     /**
-     * Constructs new vector of size 2 with 1 as components.
+     * Constructs 2-dimensional vector with all 1 components.
      * 
-     * @return new unit vector of size 2
+     * @return new unit 2-dimensional vector
      *
      * @since 1.0.0
      */

@@ -3,7 +3,7 @@ package io.github.alphameo.linear_algebra.vec;
 import java.util.Arrays;
 
 /**
- * Default implementation of vector with size 2 ({@link Vector2}).
+ * Default implementation of 2-dimensional vector ({@link Vector2}).
  *
  * @since 1.0.0
  */
@@ -121,9 +121,9 @@ public class Vec2 implements Vector2 {
     }
 
     /**
-     * Constructs new 2-dimensional vector with all 0 components.
+     * Constructs 2-dimensional vector with all 0 components.
      * 
-     * @return new 2-dimensional zero vector
+     * @return new zero 2-dimensional vector
      *
      * @since 1.0.0
      */
@@ -132,9 +132,9 @@ public class Vec2 implements Vector2 {
     }
 
     /**
-     * Constructs new 2-dimensional vector with 1 as components.
+     * Constructs 2-dimensional vector with all 1 components.
      * 
-     * @return new 2-dimensional unit vector
+     * @return new unit 2-dimensional vector
      *
      * @since 1.0.0
      */

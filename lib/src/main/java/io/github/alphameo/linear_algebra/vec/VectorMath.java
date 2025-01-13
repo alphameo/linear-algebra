@@ -139,8 +139,7 @@ public final class VectorMath {
      * @param v vector to be normalized
      * @return new vector with normalized components of the given vector
      * @throws ArithmeticException if length of the given vector is approximately
-     *                             equal
-     *                             0
+     *                             equal 0
      *
      * @since 1.0.0
      */

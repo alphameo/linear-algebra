@@ -111,6 +111,17 @@ public interface Vector2 extends Vector, FixedVectorOperatable<Vector2> {
         return Vector2Math.dot(this, v);
     }
 
+    /**
+     * This operation is not supported due to wrong dimension of current vector
+     *
+     * @throws UnsupportedOperationException ALWAYS
+     */
+    @Override
+    default Vector cross(Vector v) {
+        throw new UnsupportedOperationException(
+                String.format("Cross product denied: vectors must be 3-dimensional"));
+    }
+
     @Override
     default boolean equalsEpsilon(final Vector2 v, final float eps) {
         return Vector2Math.equalsEpsilon(this, v, eps);
@@ -131,23 +142,12 @@ public interface Vector2 extends Vector, FixedVectorOperatable<Vector2> {
     }
 
     /**
-     * This operation is not supported due to wrong dimension of current vector
-     *
-     * @throws UnsupportedOperationException ALWAYS
-     */
-    @Override
-    default Vector cross(Vector v) {
-        throw new UnsupportedOperationException(
-                String.format("Cross product denied: vectors must be 3-dimensional"));
-    }
-
-    /**
-     * Constructs 3-dimensional vector with components of current vector and 1
+     * Constructs 3-dimensional vector with components of given vector and 1 as last
+     * component
      * <p>
      * (x, y, 1)
      *
-     * @return 3-dimensional vector including components of current vector and 1
-     *         as last component
+     * @return new vector of size 3 including components of given vector and 1 as
      *
      * @since 1.0.0
      */

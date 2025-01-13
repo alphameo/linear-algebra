@@ -20,12 +20,12 @@ public final class Vector3Math {
     }
 
     /**
-     * Calculates square of vector length.
+     * Returns the square of the length of the given vector.
      * <p>
      * You can use it if you need fast comparison.
      * 
-     * @param v vector of size 3 for square length calculation
-     * @return square length of given vector
+     * @param v vector for square length calculation
+     * @return squared length of vector {@code v}
      *
      * @since 1.0.0
      */
@@ -34,10 +34,10 @@ public final class Vector3Math {
     }
 
     /**
-     * Calculates length of vector.
+     * Returns length of the given vector.
      * 
-     * @param v vector of size 3 for length calculation
-     * @return length of given vector
+     * @param v vector for length calculation
+     * @return length of vector {@code v}
      *
      * @since 1.0.0
      */
@@ -46,11 +46,11 @@ public final class Vector3Math {
     }
 
     /**
-     * Multiplies the components of vector with size 3 by a scalar value.
+     * Multiplies components of given vector by a scalar value and returns it.
      *
-     * @param v          vector of size 3 for multiplication
+     * @param v          vector for multiplication
      * @param multiplier scalar value
-     * @return given vector with multiplied components
+     * @return vector {@code v} multiplied by {@code multiplier}
      *
      * @since 1.0.0
      */
@@ -63,12 +63,13 @@ public final class Vector3Math {
     }
 
     /**
-     * Copies given vector and multiplies its components by a scalar.
-     * value.
+     * Returns the result of multiplying the components of the given vector by a
+     * scalar value.
      *
-     * @param v          vector of size 3 for multiplication
+     * @param v          vector for multiplication
      * @param multiplier scalar value
-     * @return new vector of size 3 with multiplied components of given vector
+     * @return new vector with components of vector {@code v} multiplied by
+     *         {@code multiplier}
      *
      * @since 1.0.0
      */
@@ -77,12 +78,12 @@ public final class Vector3Math {
     }
 
     /**
-     * Divides the components of given vector by a scalar value.
+     * Divides components of given vector by a scalar value and returns it.
      * 
-     * @param v       vector of size 3 for division
+     * @param v       vector for division
      * @param divisor scalar value
-     * @return given vector with divided components
-     * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     * @return vector {@code v} divided by {@code divisor}
+     * @throws ArithmeticException if {@code divisor} is approximately equal to 0
      *
      * @since 1.0.0
      */
@@ -97,12 +98,14 @@ public final class Vector3Math {
     }
 
     /**
-     * Copies given vector and divides its components by a scalar value.
+     * Returns the result of dividing the components of the given vector by a scalar
+     * value.
      *
-     * @param v       vector of size 3 for division
+     * @param v       vector for division
      * @param divisor scalar value
-     * @return new vector of size 3 with divided components of given vector
-     * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     * @return new vector with components of vector {@code v} divided by
+     *         {@code divisor}
+     * @throws ArithmeticException if {@code divisor} is approximately equal to 0
      *
      * @since 1.0.0
      */
@@ -111,11 +114,13 @@ public final class Vector3Math {
     }
 
     /**
-     * Normalizes given vector (divide each component by vector length)
+     * Normalize components of given vector (divide each component by vector length)
+     * and returns it.
      * 
-     * @param v vector of size 3 to be normalized
-     * @return given vector with normalized components
-     * @throws ArithmeticException if length of given vector equals 0
+     * @param v vector to be normalized
+     * @return vector {@code v} with normalized components
+     * @throws ArithmeticException if length of the given vector is approximately
+     *                             equal 0
      *
      * @since 1.0.0
      */
@@ -124,11 +129,13 @@ public final class Vector3Math {
     }
 
     /**
-     * Copies and normalizes given vector (divide each component by vector length)
+     * Returns the result of normalization of the given vector (divide each
+     * component by vector length)
      * 
-     * @param v vector of size 3 to be normalized
-     * @return new vector of size 3 with normalized components of given vector
-     * @throws IllegalArgumentException if length of given vector equals 0
+     * @param v vector to be normalized
+     * @return new vector with normalized components of the given vector
+     * @throws ArithmeticException if length of the given vector is approximately
+     *                             equal 0
      *
      * @since 1.0.0
      */
@@ -137,12 +144,12 @@ public final class Vector3Math {
     }
 
     /**
-     * Adds the {@code addendum} vector components to the {@code target} vector
-     * components.
+     * Adds the components of the addendum vector to the components of the target
+     * vector and returns it.
      *
-     * @param target   vector of size 3 to be added
-     * @param addendum vector of size 3 to add
-     * @return {@code target} vector increased by {@code addendum} vector
+     * @param target   vector to be added
+     * @param addendum vector to add
+     * @return vector {@code target} increased by vector {@code addendum}
      *
      * @since 1.0.0
      */
@@ -155,14 +162,13 @@ public final class Vector3Math {
     }
 
     /**
-     * Copies {@code target} vector and adds the {@code addendum} vector components
-     * to its components.
+     * Returns the result of adding the components of the addendum vector to the
+     * components of the target vector.
      *
-     * @param target   vector of size 3 to be added
-     * @param addendum vector of size 3 to add
-     * @return new vector of size 3 with sum of components of {@code target} vector
-     *         and
-     *         {@code addendum} vector
+     * @param target   vector to be added
+     * @param addendum vector to add
+     * @return new vector with the sum of vector {@code target} and vector
+     *         {@code addendum}
      *
      * @since 1.0.0
      */
@@ -171,12 +177,12 @@ public final class Vector3Math {
     }
 
     /**
-     * Subtracts the {@code subtrahend} vector components from the {@code target}
-     * vector components.
+     * Subtracts components of the subtrahend vector from the components of the
+     * target vector and returns it.
      * 
-     * @param target     vector of size 3 to be subtracted
-     * @param subtrahend vector of size 3 to subtract
-     * @return {@code target} vector subtracted by {@code subtrahend} vector
+     * @param target     vector to be subtracted
+     * @param subtrahend vector to subtract
+     * @return vector {@code target} reduced by vector {@code subtrahend}
      *
      * @since 1.0.0
      */
@@ -189,13 +195,13 @@ public final class Vector3Math {
     }
 
     /**
-     * Copies {@code target} vector and subtracts the {@code subtrahend} vector
-     * components from its components.
+     * Returns the result of subtracting the components of the subtrahend vector
+     * from the components of the target vector.
      * 
-     * @param target     vector of size 3 to be subtracted
-     * @param subtrahend vector of size 3 to subtract
-     * @return new vector of size 3 with components resulting {@code target} vector
-     *         subtracted by {@code subtrahend} vector
+     * @param target     vector to be subtracted
+     * @param subtrahend vector to subtract
+     * @return new vector with result of subtracting vector {@code subtrahend} from
+     *         vector {@code target}
      *
      * @since 1.0.0
      */
@@ -204,11 +210,11 @@ public final class Vector3Math {
     }
 
     /**
-     * Calculates dot product (scalar product) of given vectors.
+     * Returns dot product (scalar product) of the given vectors.
      *
-     * @param v1 first vector of size 3
-     * @param v2 second vector of size 3
-     * @return dot (scalar) product of given vectors
+     * @param v1 first vector for dot product
+     * @param v2 second vector for dot product
+     * @return dot product of the given vectors
      *
      * @since 1.0.0
      */
@@ -217,12 +223,11 @@ public final class Vector3Math {
     }
 
     /**
-     * Calculates cross product (vector product) of given vectors.
+     * Returns result of cross product (vector product) of the given vectors.
      *
-     * @param v1 first vector of size 3
-     * @param v2 second vector of size 3
-     * @return vector of size 3, which represents cross (vector) product of given
-     *         vectors
+     * @param v1 first vector for cross product
+     * @param v2 second vector for cross product
+     * @return new vector, which represents cross product of the given vectors
      *
      * @since 1.0.0
      */
@@ -234,31 +239,73 @@ public final class Vector3Math {
         return new Vec3(x, y, z);
     }
 
+    /**
+     * Transforms the given vector-column by the given transformation operator
+     * matrix and returns it.
+     *
+     * @param vCol     vector-column to be transformed
+     * @param operator transformation matrix
+     * @return vector {@code vCol} transformed by matrix {@code operator}
+     *
+     * @since 3.0.0
+     */
     public static Vector3 transformCol(final Vector3 vCol, final Matrix3 operator) {
         return Matrix3Math.prodColIncr(operator, vCol);
     }
 
+    /**
+     * Returns the result of transforming the given vector-column by the given
+     * transformation operator matrix.
+     *
+     * @param vCol     vector-column to be transformed
+     * @param operator transformation matrix
+     * @return new vector with result of transforming vector {@code vCol} by matrix
+     *         {@code operator}
+     *
+     * @since 3.0.0
+     */
     public static Vector3 transformedCol(final Vector3 vCol, final Matrix3 operator) {
         return Matrix3Math.prodCol(operator, vCol);
     }
 
+    /**
+     * Transforms the given vector-row by the given transformation operator
+     * matrix and returns it.
+     *
+     * @param vRow     vector-row to be transformed
+     * @param operator transformation matrix
+     * @return vector {@code vRow} transformed by matrix {@code operator}
+     *
+     * @since 3.0.0
+     */
     public static Vector3 transformRow(final Vector3 vRow, final Matrix3 operator) {
         return Matrix3Math.prodRowIncr(operator, vRow);
     }
 
+    /**
+     * Returns the result of transforming the given vector-row by the given
+     * transformation operator matrix.
+     *
+     * @param vRow     vector-column to be transformed
+     * @param operator transformation matrix
+     * @return new vector with result of transforming vector {@code vRow} by matrix
+     *         {@code operator}
+     *
+     * @since 3.0.0
+     */
     public static Vector3 transformedRow(final Vector3 vRow, final Matrix3 operator) {
         return Matrix3Math.prodRow(operator, vRow);
     }
 
     /**
-     * Returns {@code true} if components of vectors are equal within
+     * Returns {@code true} if the components of two vectors are equal within
      * {@code epsilon} tolerance.
      * 
-     * @param v1  first vector of size 3 for comparison
-     * @param v2  second vector of size 3 for comparison
+     * @param v1  first vector for comparison
+     * @param v2  second vector for comparison
      * @param eps tolerance
      * @return {@code true} if all components of vectors are equal within
-     *         {@code epsilon} tolerance, and {@code false} otherwise
+     *         {@code eps} tolerance, and {@code false} otherwise
      *
      * @since 1.0.0
      */
@@ -269,10 +316,11 @@ public final class Vector3Math {
     }
 
     /**
-     * Returns {@code true} if components of vectors are approximately equal.
+     * Returns {@code true} if the components of two vectors are approximately
+     * equal.
      * 
-     * @param v1 first vector of size 3 for comparison
-     * @param v2 second vector of size 3 for comparison
+     * @param v1 first vector for comparison
+     * @param v2 second vector for comparison
      * @return {@code true} if all components of vectors are approximately equal,
      *         and {@code false} otherwise
      *
@@ -283,12 +331,13 @@ public final class Vector3Math {
     }
 
     /**
-     * Constructs new vector of size 3 with components of given vector and 1
+     * Constructs 4-dimensional vector with components of given vector and 1 as last
+     * component
      * <p>
      * (x, y, z, 1)
      *
-     * @param v vector of size 3
-     * @return new vector of size 4 including components of given vector and 1 as
+     * @param v 3-dimensional vector
+     * @return new 4-dimensional vector including components of given vector and 1
      *         last component
      *
      * @since 1.0.0
@@ -298,9 +347,9 @@ public final class Vector3Math {
     }
 
     /**
-     * Constructs new vector of size 3 with all 0 components.
+     * Constructs 3-dimensional vector with all 0 components.
      * 
-     * @return new zero vector of size 3
+     * @return new zero 4-dimensional vector
      *
      * @since 1.0.0
      */
@@ -309,9 +358,9 @@ public final class Vector3Math {
     }
 
     /**
-     * Constructs new vector of size 3 with 1 as components.
+     * Constructs 3-dimensional vector with all 1 components.
      * 
-     * @return new unit vector of size 3
+     * @return new unit 3-dimensional vector
      *
      * @since 1.0.0
      */

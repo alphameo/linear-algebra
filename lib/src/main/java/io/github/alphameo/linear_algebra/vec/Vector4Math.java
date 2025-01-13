@@ -20,12 +20,12 @@ public final class Vector4Math {
     }
 
     /**
-     * Calculates square of vector length.
+     * Returns the square of the length of the given vector.
      * <p>
      * You can use it if you need fast comparison.
      * 
-     * @param v vector of size 4 for square length calculation
-     * @return square length of given vector
+     * @param v vector for square length calculation
+     * @return squared length of vector {@code v}
      *
      * @since 1.0.0
      */
@@ -34,10 +34,10 @@ public final class Vector4Math {
     }
 
     /**
-     * Calculates length of vector.
+     * Returns length of the given vector.
      * 
-     * @param v vector of size 4 for length calculation
-     * @return length of given vector
+     * @param v vector for length calculation
+     * @return length of vector {@code v}
      *
      * @since 1.0.0
      */
@@ -46,15 +46,15 @@ public final class Vector4Math {
     }
 
     /**
-     * Multiplies the components of vector with size 4 by a scalar value.
+     * Multiplies components of given vector by a scalar value and returns it.
      *
-     * @param v          vector of size 4 for multiplication
+     * @param v          vector for multiplication
      * @param multiplier scalar value
-     * @return given vector with multiplied components
+     * @return vector {@code v} multiplied by {@code multiplier}
      *
      * @since 1.0.0
      */
-    public static Vector4 mult(final Vector4 v, final float multiplier) {
+    public static Vector4 mulAsgn(final Vector4 v, final float multiplier) {
         v.setX(v.x() * multiplier);
         v.setY(v.y() * multiplier);
         v.setZ(v.z() * multiplier);
@@ -64,30 +64,31 @@ public final class Vector4Math {
     }
 
     /**
-     * Copies given vector and multiplies its components by a scalar.
-     * value.
+     * Returns the result of multiplying the components of the given vector by a
+     * scalar value.
      *
-     * @param v          vector of size 4 for multiplication
+     * @param v          vector for multiplication
      * @param multiplier scalar value
-     * @return new vector of size 4 with multiplied components of given vector
+     * @return new vector with components of vector {@code v} multiplied by
+     *         {@code multiplier}
      *
      * @since 1.0.0
      */
-    public static Vector4 multiplied(final Vector4 v, final float multiplier) {
-        return mult(v.clone(), multiplier);
+    public static Vector4 mul(final Vector4 v, final float multiplier) {
+        return mulAsgn(v.clone(), multiplier);
     }
 
     /**
-     * Divides the components of given vector by a scalar value.
+     * Divides components of given vector by a scalar value and returns it.
      * 
-     * @param v       vector of size 4 for division
+     * @param v       vector for division
      * @param divisor scalar value
-     * @return given vector with divided components
-     * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     * @return vector {@code v} divided by {@code divisor}
+     * @throws ArithmeticException if {@code divisor} is approximately equal to 0
      *
      * @since 1.0.0
      */
-    public static Vector4 divide(final Vector4 v, final float divisor) throws ArithmeticException {
+    public static Vector4 divAsgn(final Vector4 v, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
 
         v.setX(v.x() / divisor);
@@ -99,56 +100,63 @@ public final class Vector4Math {
     }
 
     /**
-     * Copies given vector and divides its components by a scalar value.
+     * Returns the result of dividing the components of the given vector by a scalar
+     * value.
      *
-     * @param v       vector of size 4 for division
+     * @param v       vector for division
      * @param divisor scalar value
-     * @return new vector of size 4 with divided components of given vector
-     * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     * @return new vector with components of vector {@code v} divided by
+     *         {@code divisor}
+     * @throws ArithmeticException if {@code divisor} is approximately equal to 0
      *
      * @since 1.0.0
      */
-    public static Vector4 divided(final Vector4 v, final float divisor) throws ArithmeticException {
-        return divide(v.clone(), divisor);
+    public static Vector4 div(final Vector4 v, final float divisor) throws ArithmeticException {
+        return divAsgn(v.clone(), divisor);
     }
 
     /**
-     * Normalizes given vector (divide each component by vector length)
+     * Normalize components of given vector (divide each component by vector length)
+     * and returns it.
      * 
-     * @param v vector of size 4 to be normalized
-     * @return given vector with normalized components
-     * @throws ArithmeticException if length of given vector equals 0
+     * @param v vector to be normalized
+     * @return vector {@code v} with normalized components
+     * @throws ArithmeticException if length of the given vector is approximately
+     *                             equal 0
      *
      * @since 1.0.0
      */
     public static Vector4 normalize(final Vector4 v) throws ArithmeticException {
-        return divide(v, len(v));
+        return divAsgn(v, len(v));
     }
 
     /**
-     * Copies and normalizes given vector (divide each component by vector length)
+     * Returns the result of normalization of the given vector (divide each
+     * component by vector length)
      * 
-     * @param v vector of size 4 to be normalized
-     * @return new vector of size 4 with normalized components of given vector
-     * @throws ArithmeticException if length of given vector equals 0
+     * @param v vector to be normalized
+     * @return new vector with normalized components of the given vector
+     * @throws ArithmeticException if length of the given vector is approximately
+     *                             equal 0
      *
      * @since 1.0.0
      */
     public static Vector4 normalized(final Vector4 v) throws ArithmeticException {
-        return divided(v.clone(), len(v));
+        return div(v.clone(), len(v));
     }
 
     /**
-     * Adds the {@code addendum} vector components to the {@code target} vector
-     * components.
+     * Adds the components of the addendum vector to the components of the target
+     * vector and returns it.
      *
-     * @param target   vector of size 4 to be added
-     * @param addendum vector of size 4 to add
-     * @return {@code target} vector increased by {@code addendum} vector
+     * @param target   vector to be added
+     * @param addendum vector to add
+     * @return vector {@code target} increased by vector {@code addendum}
+     * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
-    public static Vector4 add(final Vector4 target, final Vector4 addendum) {
+    public static Vector4 addAsgn(final Vector4 target, final Vector4 addendum) {
         target.setX(target.x() + addendum.x());
         target.setY(target.y() + addendum.y());
         target.setZ(target.z() + addendum.z());
@@ -158,32 +166,34 @@ public final class Vector4Math {
     }
 
     /**
-     * Copies {@code target} vector and adds the {@code addendum} vector components
-     * to its components.
+     * Returns the result of adding the components of the addendum vector to the
+     * components of the target vector.
      *
-     * @param target   vector of size 4 to be added
-     * @param addendum vector of size 4 to add
-     * @return new vector of size 4 with sum of components of {@code target} vector
-     *         and
-     *         {@code addendum} vector
+     * @param target   vector to be added
+     * @param addendum vector to add
+     * @return new vector with the sum of vector {@code target} and vector
+     *         {@code addendum}
+     *
+     * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
-    public static Vector4 added(final Vector4 target, final Vector4 addendum) {
-        return add(target.clone(), addendum);
+    public static Vector4 add(final Vector4 target, final Vector4 addendum) {
+        return addAsgn(target.clone(), addendum);
     }
 
     /**
-     * Subtracts the {@code subtrahend} vector components from the {@code target}
-     * vector components.
+     * Subtracts components of the subtrahend vector from the components of the
+     * target vector and returns it.
      * 
-     * @param target     vector of size 4 to be subtracted
-     * @param subtrahend vector of size 4 to subtract
-     * @return {@code target} vector subtracted by {@code subtrahend} vector
+     * @param target     vector to be subtracted
+     * @param subtrahend vector to subtract
+     * @return vector {@code target} reduced by vector {@code subtrahend}
+     * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
-    public static Vector4 sub(final Vector4 target, final Vector4 subtrahend) {
+    public static Vector4 subAsgn(final Vector4 target, final Vector4 subtrahend) {
         target.setX(target.x() - subtrahend.x());
         target.setY(target.y() - subtrahend.y());
         target.setZ(target.z() - subtrahend.z());
@@ -193,26 +203,28 @@ public final class Vector4Math {
     }
 
     /**
-     * Copies {@code target} vector and subtracts the {@code subtrahend} vector
-     * components from its components.
+     * Returns the result of subtracting the components of the subtrahend vector
+     * from the components of the target vector.
      * 
-     * @param target     vector of size 4 to be subtracted
-     * @param subtrahend vector of size 4 to subtract
-     * @return new vector of size 4 with components resulting {@code target} vector
-     *         subtracted by {@code subtrahend} vector
+     * @param target     vector to be subtracted
+     * @param subtrahend vector to subtract
+     * @return new vector with result of subtracting vector {@code subtrahend} from
+     *         vector {@code target}
+     * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
-    public static Vector4 subtracted(final Vector4 target, final Vector4 subtrahend) {
-        return sub(target.clone(), subtrahend);
+    public static Vector4 sub(final Vector4 target, final Vector4 subtrahend) {
+        return subAsgn(target.clone(), subtrahend);
     }
 
     /**
-     * Calculates dot product (scalar product) of given vectors.
+     * Returns dot product (scalar product) of the given vectors.
      *
-     * @param v1 first vector of size 4
-     * @param v2 second vector of size 4
-     * @return dot (scalar) product of given vectors
+     * @param v1 first vector for dot product
+     * @param v2 second vector for dot product
+     * @return dot product of the given vectors
+     * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
@@ -220,31 +232,82 @@ public final class Vector4Math {
         return v1.x() * v2.x() + v1.y() * v2.y() + v1.z() * v2.z() + v1.w() * v2.w();
     }
 
+    /**
+     * Transforms the given vector-column by the given transformation operator
+     * matrix and returns it.
+     *
+     * @param vCol     vector-column to be transformed
+     * @param operator transformation matrix
+     * @return vector {@code vCol} transformed by matrix {@code operator}
+     * @throws IllegalArgumentException if width of the given matrix is not equal
+     *                                  to dimension of the given vector-column
+     *
+     * @since 3.0.0
+     */
     public static Vector4 transformCol(final Vector4 vCol, final Matrix4 operator) {
         return Matrix4Math.prodColIncr(operator, vCol);
     }
 
+    /**
+     * Returns the result of transforming the given vector-column by the given
+     * transformation operator matrix.
+     *
+     * @param vCol     vector-column to be transformed
+     * @param operator transformation matrix
+     * @return new vector with result of transforming vector {@code vCol} by matrix
+     *         {@code operator}
+     * @throws IllegalArgumentException if width of the given matrix is not equal
+     *                                  to dimension of the given vector-column
+     *
+     * @since 3.0.0
+     */
     public static Vector4 transformedCol(final Vector4 vCol, final Matrix4 operator) {
         return Matrix4Math.prodCol(operator, vCol);
     }
 
+    /**
+     * Transforms the given vector-row by the given transformation operator
+     * matrix and returns it.
+     *
+     * @param vRow     vector-row to be transformed
+     * @param operator transformation matrix
+     * @return vector {@code vRow} transformed by matrix {@code operator}
+     * @throws IllegalArgumentException if height of the given matrix is not equal
+     *                                  to the dimension of the given vector-row
+     *
+     * @since 3.0.0
+     */
     public static Vector4 transformRow(final Vector4 vRow, final Matrix4 operator) {
         return Matrix4Math.prodRowIncr(operator, vRow);
     }
 
+    /**
+     * Returns the result of transforming the given vector-row by the given
+     * transformation operator matrix.
+     *
+     * @param vRow     vector-column to be transformed
+     * @param operator transformation matrix
+     * @return new vector with result of transforming vector {@code vRow} by matrix
+     *         {@code operator}
+     * @throws IllegalArgumentException if height of the given matrix is not equal
+     *                                  to dimension of the given vector-row
+     *
+     * @since 3.0.0
+     */
     public static Vector4 transformedRow(final Vector4 vRow, final Matrix4 operator) {
         return Matrix4Math.prodRow(operator, vRow);
     }
 
     /**
-     * Returns {@code true} if components of vectors are equal within
+     * Returns {@code true} if the components of two vectors are equal within
      * {@code epsilon} tolerance.
      * 
-     * @param v1  first vector of size 4 for comparison
-     * @param v2  second vector of size 4 for comparison
+     * @param v1  first vector for comparison
+     * @param v2  second vector for comparison
      * @param eps tolerance
      * @return {@code true} if all components of vectors are equal within
-     *         {@code epsilon} tolerance, and {@code false} otherwise
+     *         {@code eps} tolerance, and {@code false} otherwise
+     * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
@@ -256,12 +319,14 @@ public final class Vector4Math {
     }
 
     /**
-     * Returns {@code true} if components of vectors are approximately equal.
+     * Returns {@code true} if the components of two vectors are approximately
+     * equal.
      * 
-     * @param v1 first vector of size 4 for comparison
-     * @param v2 second vector of size 4 for comparison
+     * @param v1 first vector for comparison
+     * @param v2 second vector for comparison
      * @return {@code true} if all components of vectors are approximately equal,
      *         and {@code false} otherwise
+     * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
@@ -270,9 +335,9 @@ public final class Vector4Math {
     }
 
     /**
-     * Constructs new vector of size 4 with all 0 components.
+     * Constructs 4-dimensional vector with all 0 components.
      * 
-     * @return new zero vector of size 4
+     * @return new zero 4-dimensional vector
      *
      * @since 1.0.0
      */
@@ -281,9 +346,9 @@ public final class Vector4Math {
     }
 
     /**
-     * Constructs new vector of size 4 with 1 as components.
+     * Constructs 4-dimensional vector with all 1 components.
      * 
-     * @return new unit vector of size 4
+     * @return new unit 4-dimensional vector
      *
      * @since 1.0.0
      */

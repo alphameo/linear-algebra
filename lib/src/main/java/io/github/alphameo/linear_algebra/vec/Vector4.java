@@ -97,22 +97,22 @@ public interface Vector4
 
     @Override
     default Vector4 mulAsgn(float multiplier) {
-        return Vector4Math.mult(this, multiplier);
+        return Vector4Math.mulAsgn(this, multiplier);
     }
 
     @Override
     default Vector4 mul(float multiplier) {
-        return Vector4Math.multiplied(this, multiplier);
+        return Vector4Math.mul(this, multiplier);
     }
 
     @Override
     default Vector4 divAsgn(float divisor) throws ArithmeticException {
-        return Vector4Math.divide(this, divisor);
+        return Vector4Math.divAsgn(this, divisor);
     }
 
     @Override
     default Vector4 div(float divisor) throws ArithmeticException {
-        return Vector4Math.divided(this, divisor);
+        return Vector4Math.div(this, divisor);
     }
 
     @Override
@@ -127,27 +127,38 @@ public interface Vector4
 
     @Override
     default Vector4 addAsgn(final Vector4 addendum) {
-        return Vector4Math.add(this, addendum);
+        return Vector4Math.addAsgn(this, addendum);
     }
 
     @Override
     default Vector4 add(final Vector4 addendum) {
-        return Vector4Math.added(this, addendum);
+        return Vector4Math.add(this, addendum);
     }
 
     @Override
     default Vector4 subAsgn(final Vector4 subtrahend) {
-        return Vector4Math.sub(this, subtrahend);
+        return Vector4Math.subAsgn(this, subtrahend);
     }
 
     @Override
     default Vector4 sub(final Vector4 subtrahend) {
-        return Vector4Math.subtracted(this, subtrahend);
+        return Vector4Math.sub(this, subtrahend);
     }
 
     @Override
     default float dot(final Vector4 v) {
         return Vector4Math.dot(this, v);
+    }
+
+    /**
+     * This operation is not supported due to wrong dimension of current vector
+     *
+     * @throws UnsupportedOperationException ALWAYS
+     */
+    @Override
+    default Vector cross(Vector v) {
+        throw new UnsupportedOperationException(
+                String.format("Cross product denied: vectors must be 3-dimensional"));
     }
 
     @Override
@@ -187,16 +198,5 @@ public interface Vector4
      */
     default boolean equals(final Vector4 other) {
         return Vector4Math.equals(this, other);
-    }
-
-    /**
-     * This operation is not supported due to wrong dimension of current vector
-     *
-     * @throws UnsupportedOperationException ALWAYS
-     */
-    @Override
-    default Vector cross(Vector v) {
-        throw new UnsupportedOperationException(
-                String.format("Cross product denied: vectors must be 3-dimensional"));
     }
 }

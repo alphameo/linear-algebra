@@ -3,7 +3,7 @@ package io.github.alphameo.linear_algebra.vec;
 import java.util.Arrays;
 
 /**
- * Default implementation of N-dimensional vector ({@link Vector}).
+ * Default implementation of arbitrary-dimensional vector ({@link Vector}).
  *
  * @since 1.0.0
  */
@@ -98,10 +98,10 @@ public class Vec implements Vector {
     }
 
     /**
-     * Constructs new vector of given {@code size} with all 0 components.
+     * Constructs {@code size}-dimensional vector with all 0 components.
      * 
-     * @param size size of vector to be constructed
-     * @return new zero vector of given {@code size}
+     * @param size dimension of vector to be constructed
+     * @return new zero {@code size}-dimensional vector
      *
      * @since 1.0.0
      */
@@ -110,10 +110,10 @@ public class Vec implements Vector {
     }
 
     /**
-     * Constructs new vector of given {@code size} with 1 as components.
+     * Constructs {@code size}-dimensional vector with all 1 components.
      * 
-     * @param size size of vector to be constructed
-     * @return new unit vector of given {@code size}
+     * @param size dimension of vector to be constructed
+     * @return new unit {@code size}-dimensional vector
      *
      * @since 1.0.0
      */

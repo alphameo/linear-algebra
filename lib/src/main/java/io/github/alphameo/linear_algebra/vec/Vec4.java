@@ -3,7 +3,7 @@ package io.github.alphameo.linear_algebra.vec;
 import java.util.Arrays;
 
 /**
- * Default implementation of vector with size 2 ({@code Vector2 interface}).
+ * Default implementation of 4-dimensional vector ({@link Vector4}).
  *
  * @since 1.0.0
  */
@@ -146,9 +146,9 @@ public class Vec4 implements Vector4 {
     }
 
     /**
-     * Constructs new vector of size 4 with all 0 components.
+     * Constructs 4-dimensional vector with all 0 components.
      * 
-     * @return new zero vector of size 4
+     * @return new zero 4-dimensional vector
      *
      * @since 1.0.0
      */
@@ -157,9 +157,9 @@ public class Vec4 implements Vector4 {
     }
 
     /**
-     * Constructs new vector of size 4 with 1 as components.
+     * Constructs 4-dimensional vector with all 1 components.
      * 
-     * @return new unit vector of size 4
+     * @return new unit 4-dimensional vector
      *
      * @since 1.0.0
      */
