@@ -1,10 +1,9 @@
 package io.github.alphameo.linear_algebra.vec;
 
 import io.github.alphameo.linear_algebra.mat.Matrix;
-import io.github.alphameo.linear_algebra.mat.MatrixMath;
 
 /**
- * Interface for N-dimensional vector.
+ * Interface for Arbitrary-dimensional vector.
  *
  * @since 1.0.0
  */
@@ -24,7 +23,7 @@ public interface Vector extends Cloneable {
      * Sets value into given position inside vector.
      *
      * @param i     position index for putting value
-     * @param value component value to be put
+     * @param value component value to be set
      *
      * @since 1.0.0
      */
@@ -40,18 +39,18 @@ public interface Vector extends Cloneable {
     int size();
 
     /**
-     * Creates and returns a copy of current vector.
+     * Creates and returns a copy of {@code this} vector.
      * 
      * @return copy of vector
      */
     Vector clone();
 
     /**
-     * Calculates square of vector length (or norm).
+     * Returns the square of the length of this vector.
      * <p>
      * You can use it if you need fast comparison.
      * 
-     * @return squared length (or norm) of vector
+     * @return squared length of vector {@code this}
      *
      * @since 1.0.0
      */
@@ -71,10 +70,10 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Multiplies the components of vector by a scalar value.
+     * Multiplies components of this vector by a scalar value and returns it.
      *
      * @param multiplier scalar value
-     * @return current vector with multiplied components
+     * @return vector {@code this} multiplied by {@code multiplier}
      *
      * @since 1.0.0
      */
@@ -83,11 +82,12 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Copies vector and multiplies its components by a scalar.
-     * value.
+     * Returns the result of multiplying the components of this vector by a
+     * scalar value.
      *
      * @param multiplier scalar value
-     * @return new vector with multiplied components of current vector
+     * @return new vector with components of vector {@code v} multiplied by
+     *         {@code multiplier}
      *
      * @since 1.0.0
      */
@@ -96,11 +96,11 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Divides the components of vector by a scalar value.
+     * Divides components of this vector by a scalar value and returns it.
      * 
      * @param divisor scalar value
-     * @return current vector with divided components
-     * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     * @return vector {@code this} divided by {@code divisor}
+     * @throws ArithmeticException if {@code divisor} is approximately equal to 0
      *
      * @since 1.0.0
      */
@@ -109,11 +109,13 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Copies vector and divides its components by a scalar value.
+     * Returns the result of dividing the components of this vector by a scalar
+     * value.
      *
      * @param divisor scalar value
-     * @return new vector with divided components of current vector
-     * @throws ArithmeticException if {@code divisor} approximately equal to 0
+     * @return new vector with components of vector {@code v} divided by
+     *         {@code divisor}
+     * @throws ArithmeticException if {@code divisor} is approximately equal to 0
      *
      * @since 1.0.0
      */
@@ -122,10 +124,12 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Normalizes vector (divide each component by vector length)
+     * Normalize components of this vector (divide each component by vector length)
+     * and returns it.
      * 
-     * @return current vector with normalized components
-     * @throws ArithmeticException if length of vector equals 0
+     * @return vector {@code this} with normalized components
+     * @throws ArithmeticException if length of this vector is approximately
+     *                             equal 0
      *
      * @since 1.0.0
      */
@@ -134,10 +138,12 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Copies and normalizes vector (divide each component by vector length)
+     * Returns the result of normalization of this vector (divide each
+     * component by vector length)
      * 
-     * @return current vector with normalized components of given vector
-     * @throws ArithmeticException if length of vector equals 0
+     * @return new vector with normalized components of this vector
+     * @throws ArithmeticException if length of this vector is approximately
+     *                             equal 0
      *
      * @since 1.0.0
      */
@@ -146,10 +152,12 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Adds the {@code addendum} vector components to the current vector components.
+     * Adds the components of the addendum vector to the components of the target
+     * vector and returns it.
      *
+     * @param target   vector to be added
      * @param addendum vector to add
-     * @return current vector increased by {@code addendum} vector
+     * @return vector {@code target} increased by vector {@code addendum}
      * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
@@ -159,11 +167,11 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Copies current vector and adds the {@code addendum} vector components to its
-     * components.
+     * Copies {@code this} vector and adds the {@code addendum} vector components to
+     * its components.
      *
      * @param addendum vector to add
-     * @return new vector with sum of components of current vector and
+     * @return new vector with sum of components of {@code this} vector and
      *         {@code addendum} vector
      * @throws IllegalArgumentException if vectors have different sizes
      *
@@ -174,97 +182,147 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Subtracts the {@code subtrahend} vector components from the current vector
-     * components.
+     * Subtracts components of the subtrahend vector from the components of the
+     * target vector and returns it.
      * 
      * @param subtrahend vector to subtract
-     * @return current vector subtracted by {@code subtrahend} vector
      * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
-    default Vector subAshn(final Vector subtrahend) {
+    default Vector subAsgn(final Vector subtrahend) throws IllegalArgumentException {
         return VectorMath.subAsgn(this, subtrahend);
     }
 
     /**
-     * Copies current vector and subtracts the {@code subtrahend} vector components
-     * from its components.
+     * Returns the result of subtracting the components of the subtrahend vector
+     * from the components of this vector.
      * 
      * @param subtrahend vector to subtract
-     * @return new vector with components resulting current vector subtracted
-     *         by {@code subtrahend} vector
+     * @return new vector with result of subtracting vector {@code subtrahend} from
+     *         vector {@code target}
      * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
-    default Vector sub(final Vector subtrahend) {
+    default Vector sub(final Vector subtrahend) throws IllegalArgumentException {
         return VectorMath.sub(this, subtrahend);
     }
 
     /**
-     * Calculates dot product (scalar product) of vectors.
+     * Returns dot product (scalar product) of this and given vectors.
      *
-     * @param v second vector
-     * @return dot (scalar) product of vectors
+     * @param v vector for dot product
+     * @return dot product of vector {@code this} and vector {@code v}
+     * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
-    default float dot(final Vector v) {
+    default float dot(final Vector v) throws IllegalArgumentException {
         return VectorMath.dot(this, v);
     }
 
     /**
-     * Calculates cross product (vector product) of vectors.
+     * Returns result of cross product (vector product) of this and given vectors.
      *
-     * @param v second vector
-     * @return vector, which represents cross (vector) product of vectors
+     * @param v second vector for cross product
+     * @return new vector, which represents cross product of vector {@code this} and
+     *         vector {@code v}
      * @throws IllegalArgumentException if vectors' sizes are not equal 3
      *
      * @since 1.0.0
      */
-    default Vector cross(final Vector v) {
+    default Vector cross(final Vector v) throws IllegalArgumentException {
         return VectorMath.cross(this, v);
     }
 
-    default Vector transformCol(final Matrix operator) {
+    /**
+     * Transforms this vector-column by the given transformation operator
+     * matrix and returns it.
+     *
+     * @param operator transformation matrix
+     * @return vector {@code this} transformed by matrix {@code operator}
+     * @throws IllegalArgumentException if width of the given matrix is not equal
+     *                                  to dimension of this vector-column
+     *
+     * @since 3.0.0
+     */
+    default Vector transformCol(final Matrix operator) throws IllegalArgumentException {
         return VectorMath.transformColumn(this, operator);
     }
 
-    default Vector transformedCol(final Matrix operator) {
+    /**
+     * Returns the result of transforming this vector-column by the given
+     * transformation operator matrix.
+     *
+     * @param operator transformation matrix
+     * @return new vector with result of transforming vector {@code this} by matrix
+     *         {@code operator}
+     * @throws IllegalArgumentException if width of the given matrix is not equal
+     *                                  to dimension of this vector-column
+     *
+     * @since 3.0.0
+     */
+    default Vector transformedCol(final Matrix operator) throws IllegalArgumentException {
         return VectorMath.transformedColumn(this, operator);
     }
 
-    default Vector transformRow(final Matrix operator) {
+    /**
+     * Transforms this vector-row by the given transformation operator
+     * matrix and returns it.
+     *
+     * @param operator transformation matrix
+     * @return vector {@code this} transformed by matrix {@code operator}
+     * @throws IllegalArgumentException if height of the given matrix is not equal
+     *                                  to the dimension of this vector-row
+     *
+     * @since 3.0.0
+     */
+    default Vector transformRow(final Matrix operator) throws IllegalArgumentException {
         return VectorMath.transformRow(this, operator);
     }
 
-    default Vector transformedRow(final Matrix operator) {
+    /**
+     * Returns the result of transforming this vector-row by the given
+     * transformation operator matrix.
+     *
+     * @param operator transformation matrix
+     * @return new vector with result of transforming vector {@code this} by matrix
+     *         {@code operator}
+     * @throws IllegalArgumentException if height of the given matrix is not equal
+     *                                  to dimension of this vector-row
+     *
+     * @since 3.0.0
+     */
+    default Vector transformedRow(final Matrix operator) throws IllegalArgumentException {
         return VectorMath.transformedRow(this, operator);
     }
 
     /**
-     * Returns {@code true} if components of current and given vectors are equal
-     * within {@code epsilon} tolerance.
+     * Returns {@code true} if the components of this vector and the components of
+     * the given vector are equal within {@code epsilon} tolerance.
      * 
      * @param v   vector for comparison
      * @param eps tolerance
-     * @return {@code true} if all components of current and given vectors are equal
-     *         within {@code epsilon} tolerance, and {@code false} otherwise
+     * @return {@code true} if all components of vector {@code this} and vector
+     *         {@code v} are equal within {@code eps} tolerance, and {@code false}
+     *         otherwise
+     * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
-    default boolean equalsEpsilon(final Vector v, final float eps) {
+    default boolean equalsEpsilon(final Vector v, final float eps) throws IllegalArgumentException {
         return VectorMath.equalsEpsilon(this, v, eps);
     }
 
     /**
-     * Returns {@code true} if components of current and given vectors are
-     * approximately equal.
+     * Returns {@code true} if the components of this vector and the components the
+     * diven vector are approximately equal.
      * 
      * @param v vector for comparison
-     * @return {@code true} if all components of current and given vectors are
-     *         approximately equal, and {@code false} otherwise
+     * @return {@code true} if all components of vector {@code this} and vector
+     *         {@code v} are approximately equal, and {@code false} otherwise
+     * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
