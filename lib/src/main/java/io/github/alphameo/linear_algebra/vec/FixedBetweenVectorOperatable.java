@@ -26,7 +26,7 @@ public interface FixedBetweenVectorOperatable<V> {
      *
      * @since 1.0.0
      */
-    V add(final V addendum);
+    V addAsgn(final V addendum);
 
     /**
      * Copies current vector and adds the {@code addendum} vector components to its
@@ -38,7 +38,7 @@ public interface FixedBetweenVectorOperatable<V> {
      *
      * @since 1.0.0
      */
-    V added(final V addendum);
+    V add(final V addendum);
 
     /**
      * Subtracts components of 2-dimensional {@code subtrahend} vector from the
@@ -49,7 +49,7 @@ public interface FixedBetweenVectorOperatable<V> {
      *
      * @since 1.0.0
      */
-    V sub(final V subtrahend);
+    V subAsgn(final V subtrahend);
 
     /**
      * Copies current 2-dimensional vector and subtracts the 2-dimensional
@@ -61,7 +61,7 @@ public interface FixedBetweenVectorOperatable<V> {
      *
      * @since 1.0.0
      */
-    V subtracted(final V subtrahend);
+    V sub(final V subtrahend);
 
     /**
      * Calculates dot product (scalar product) of 2-dimensional vectors.

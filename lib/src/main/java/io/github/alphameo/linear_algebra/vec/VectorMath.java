@@ -59,7 +59,7 @@ public final class VectorMath {
      *
      * @since 1.0.0
      */
-    public static Vector mulIncr(final Vector v, final float multiplier) {
+    public static Vector mulAsgn(final Vector v, final float multiplier) {
         for (int i = 0; i < v.size(); i++) {
             v.set(i, v.get(i) * multiplier);
         }
@@ -79,7 +79,7 @@ public final class VectorMath {
      * @since 1.0.0
      */
     public static Vector mul(final Vector v, final float multiplier) {
-        return mulIncr(v.clone(), multiplier);
+        return mulAsgn(v.clone(), multiplier);
     }
 
     /**
@@ -92,7 +92,7 @@ public final class VectorMath {
      *
      * @since 1.0.0
      */
-    public static Vector divIncr(final Vector v, final float divisor) throws ArithmeticException {
+    public static Vector divAsgn(final Vector v, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
         for (int i = 0; i < v.size(); i++) {
             v.set(i, v.get(i) / divisor);
@@ -114,7 +114,7 @@ public final class VectorMath {
      * @since 1.0.0
      */
     public static Vector div(final Vector v, final float divisor) throws ArithmeticException {
-        return divIncr(v.clone(), divisor);
+        return divAsgn(v.clone(), divisor);
     }
 
     /**
@@ -129,7 +129,7 @@ public final class VectorMath {
      * @since 1.0.0
      */
     public static Vector normalize(final Vector v) throws ArithmeticException {
-        return divIncr(v, len(v));
+        return divAsgn(v, len(v));
     }
 
     /**
@@ -158,7 +158,7 @@ public final class VectorMath {
      *
      * @since 1.0.0
      */
-    public static Vector addIncr(final Vector target, final Vector addendum) throws IllegalArgumentException {
+    public static Vector addAsgn(final Vector target, final Vector addendum) throws IllegalArgumentException {
         Validator.validateVectorSizes(target, addendum, "Addition denied");
         for (int i = 0; i < target.size(); i++) {
             target.set(i, target.get(i) + addendum.get(i));
@@ -181,7 +181,7 @@ public final class VectorMath {
      * @since 1.0.0
      */
     public static Vector add(final Vector target, final Vector addendum) throws IllegalArgumentException {
-        return addIncr(target.clone(), addendum);
+        return addAsgn(target.clone(), addendum);
     }
 
     /**
@@ -195,7 +195,7 @@ public final class VectorMath {
      *
      * @since 1.0.0
      */
-    public static Vector subIncr(final Vector target, final Vector subtrahend) {
+    public static Vector subAsgn(final Vector target, final Vector subtrahend) {
         Validator.validateVectorSizes(target, subtrahend, "Subtraction denied");
         for (int i = 0; i < target.size(); i++) {
             target.set(i, target.get(i) - subtrahend.get(i));
@@ -217,7 +217,7 @@ public final class VectorMath {
      * @since 1.0.0
      */
     public static Vector sub(final Vector target, final Vector subtrahend) {
-        return subIncr(target.clone(), subtrahend);
+        return subAsgn(target.clone(), subtrahend);
     }
 
     /**

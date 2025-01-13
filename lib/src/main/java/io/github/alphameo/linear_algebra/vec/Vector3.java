@@ -79,7 +79,7 @@ public interface Vector3
     }
 
     @Override
-    default Vector3 mulIncr(float multiplier) {
+    default Vector3 mulAsgn(float multiplier) {
         return Vector3Math.mult(this, multiplier);
     }
 
@@ -89,7 +89,7 @@ public interface Vector3
     }
 
     @Override
-    default Vector3 divIncr(float divisor) throws ArithmeticException {
+    default Vector3 divAsgn(float divisor) throws ArithmeticException {
         return Vector3Math.divide(this, divisor);
     }
 
@@ -109,22 +109,22 @@ public interface Vector3
     }
 
     @Override
-    default Vector3 add(final Vector3 addendum) {
+    default Vector3 addAsgn(final Vector3 addendum) {
         return Vector3Math.add(this, addendum);
     }
 
     @Override
-    default Vector3 added(final Vector3 addendum) {
+    default Vector3 add(final Vector3 addendum) {
         return Vector3Math.added(this, addendum);
     }
 
     @Override
-    default Vector3 sub(final Vector3 subtrahend) {
+    default Vector3 subAsgn(final Vector3 subtrahend) {
         return Vector3Math.sub(this, subtrahend);
     }
 
     @Override
-    default Vector3 subtracted(final Vector3 subtrahend) {
+    default Vector3 sub(final Vector3 subtrahend) {
         return Vector3Math.subtracted(this, subtrahend);
     }
 

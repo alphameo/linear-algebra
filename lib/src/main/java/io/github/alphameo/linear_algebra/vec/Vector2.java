@@ -57,7 +57,7 @@ public interface Vector2 extends Vector, FixedBetweenVectorOperatable<Vector2> {
     }
 
     @Override
-    default Vector2 mulIncr(float multiplier) {
+    default Vector2 mulAsgn(float multiplier) {
         return Vector2Math.mult(this, multiplier);
     }
 
@@ -67,7 +67,7 @@ public interface Vector2 extends Vector, FixedBetweenVectorOperatable<Vector2> {
     }
 
     @Override
-    default Vector2 divIncr(float divisor) throws ArithmeticException {
+    default Vector2 divAsgn(float divisor) throws ArithmeticException {
         return Vector2Math.divide(this, divisor);
     }
 
@@ -87,22 +87,22 @@ public interface Vector2 extends Vector, FixedBetweenVectorOperatable<Vector2> {
     }
 
     @Override
-    default Vector2 add(final Vector2 addendum) {
+    default Vector2 addAsgn(final Vector2 addendum) {
         return Vector2Math.add(this, addendum);
     }
 
     @Override
-    default Vector2 added(final Vector2 addendum) {
+    default Vector2 add(final Vector2 addendum) {
         return Vector2Math.added(this, addendum);
     }
 
     @Override
-    default Vector2 sub(final Vector2 subtrahend) {
+    default Vector2 subAsgn(final Vector2 subtrahend) {
         return Vector2Math.sub(this, subtrahend);
     }
 
     @Override
-    default Vector2 subtracted(final Vector2 subtrahend) {
+    default Vector2 sub(final Vector2 subtrahend) {
         return Vector2Math.subtracted(this, subtrahend);
     }
 

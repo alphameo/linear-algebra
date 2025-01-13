@@ -96,7 +96,7 @@ public interface Vector4
     }
 
     @Override
-    default Vector4 mulIncr(float multiplier) {
+    default Vector4 mulAsgn(float multiplier) {
         return Vector4Math.mult(this, multiplier);
     }
 
@@ -106,7 +106,7 @@ public interface Vector4
     }
 
     @Override
-    default Vector4 divIncr(float divisor) throws ArithmeticException {
+    default Vector4 divAsgn(float divisor) throws ArithmeticException {
         return Vector4Math.divide(this, divisor);
     }
 
@@ -126,22 +126,22 @@ public interface Vector4
     }
 
     @Override
-    default Vector4 add(final Vector4 addendum) {
+    default Vector4 addAsgn(final Vector4 addendum) {
         return Vector4Math.add(this, addendum);
     }
 
     @Override
-    default Vector4 added(final Vector4 addendum) {
+    default Vector4 add(final Vector4 addendum) {
         return Vector4Math.added(this, addendum);
     }
 
     @Override
-    default Vector4 sub(final Vector4 subtrahend) {
+    default Vector4 subAsgn(final Vector4 subtrahend) {
         return Vector4Math.sub(this, subtrahend);
     }
 
     @Override
-    default Vector4 subtracted(final Vector4 subtrahend) {
+    default Vector4 sub(final Vector4 subtrahend) {
         return Vector4Math.subtracted(this, subtrahend);
     }
 
