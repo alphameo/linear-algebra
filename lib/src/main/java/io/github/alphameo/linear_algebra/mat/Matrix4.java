@@ -320,7 +320,7 @@ public interface Matrix4 extends Matrix {
         return Matrix4Math.prodCol(this, vCol);
     }
 
-    default Vector4 transformColumn(final Vector4 vCol) {
+    default Vector4 prodColIncr(final Vector4 vCol) {
         return Matrix4Math.prodColIncr(this, vCol);
     }
 

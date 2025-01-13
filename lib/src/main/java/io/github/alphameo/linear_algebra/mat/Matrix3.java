@@ -73,13 +73,6 @@ public interface Matrix3 extends Matrix {
         return Matrix3Math.transpose(this);
     }
 
-    /**
-     * Constructs transposed matrix from current matrix.
-     *
-     * @return new matrix, which is result of transposing of current square matrix
-     *
-     * @since 1.0.0
-     */
     default Matrix3 transposed() {
         return Matrix3Math.transposed(this);
     }
@@ -97,29 +90,11 @@ public interface Matrix3 extends Matrix {
         return Matrix3Math.swapRows(this, r1, r2);
     }
 
-    /**
-     * Swaps rows of matrix
-     *
-     * @param r1 first index of row for swapping
-     * @param r2 second index of row for swapping
-     * @return current matrix with swapped rows
-     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
-     *
-     * @since 1.0.0
-     */
+    @Override
     default Matrix3 swapRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
         return Matrix3Math.swapRows(this, r1, r2);
     }
 
-    /**
-     * Copies current matrix and safely swaps its rows.
-     * 
-     * @param r1 first row for swapping
-     * @param r2 second row for swapping
-     * @return new matrix with swapped rows of current matrix
-     *
-     * @since 1.0.0
-     */
     default Matrix3 swappedRows(final Matrix3Row r1, final Matrix3Row r2) {
         return Matrix3Math.swappedRows(this, r1, r2);
     }
@@ -178,28 +153,10 @@ public interface Matrix3 extends Matrix {
         return Matrix3Math.swappedCols(this, c1, c2);
     }
 
-    /**
-     * Copies current matrix and swaps its columns.
-     *
-     * @param c1 first index of column for swapping
-     * @param c2 second index of column for swapping
-     * @return new matrix with swapped columns of current matrix
-     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
-     *
-     * @since 1.0.0
-     */
     default Matrix3 swappedCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
         return Matrix3Math.swappedCols(this, c1, c2);
     }
 
-    /**
-     * Multiplies matrix elements by a scalar value.
-     * 
-     * @param multiplier scalar value
-     * @return current matrix with multiplied elements
-     *
-     * @since 1.0.0
-     */
     default Matrix3 mulIncr(final float multiplier) {
         return Matrix3Math.mult(this, multiplier);
     }
@@ -320,7 +277,7 @@ public interface Matrix3 extends Matrix {
         return Matrix3Math.prodCol(this, vCol);
     }
 
-    default Vector3 transformColumn(final Vector3 vCol) {
+    default Vector3 prodColIncr(final Vector3 vCol) {
         return Matrix3Math.prodColIncr(this, vCol);
     }
 

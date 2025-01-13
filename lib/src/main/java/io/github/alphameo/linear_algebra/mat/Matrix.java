@@ -341,7 +341,7 @@ public interface Matrix extends Cloneable {
         return MatrixMath.prodCol(this, vCol);
     }
 
-    default Vector transformColumn(final Vector vCol) {
+    default Vector prodColIncr(final Vector vCol) {
         return MatrixMath.prodColIncr(this, vCol);
     }
 
