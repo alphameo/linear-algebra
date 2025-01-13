@@ -3,7 +3,7 @@ package io.github.alphameo.linear_algebra.vec;
 import io.github.alphameo.linear_algebra.mat.Matrix;
 
 /**
- * Interface for Arbitrary-dimensional vector.
+ * Interface for arbitrary-dimensional vector.
  *
  * @since 1.0.0
  */
