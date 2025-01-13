@@ -20,6 +20,11 @@ public interface Matrix3 extends Matrix {
      */
     float get(Matrix3Row r, Matrix3Col c);
 
+    @Override
+    default float get(int r, int c) {
+        return get(Matrix3Row.values()[r], Matrix3Col.values()[c]);
+    }
+
     /**
      * Safely sets value into the given row index and column index inside matrix.
      *
@@ -30,6 +35,11 @@ public interface Matrix3 extends Matrix {
      * @since 1.0.0
      */
     void set(Matrix3Row r, Matrix3Col c, float value);
+
+    @Override
+    default void set(int r, int c, final float value) {
+        set(Matrix3Row.values()[r], Matrix3Col.values()[c], value);
+    }
 
     /**
      * Creates and returns a copy of current matrix 3x3.
@@ -324,7 +334,8 @@ public interface Matrix3 extends Matrix {
     }
 
     /**
-     * Safely constructs minor matrix excluding the given row and column from current
+     * Safely constructs minor matrix excluding the given row and column from
+     * current
      * matrix.
      * 
      * @param r row to exclude
@@ -338,7 +349,8 @@ public interface Matrix3 extends Matrix {
     }
 
     /**
-     * Constructs minor matrix excluding the given row and column from current matrix.
+     * Constructs minor matrix excluding the given row and column from current
+     * matrix.
      * 
      * @param r row index to exclude
      * @param c column index to exclude

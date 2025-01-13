@@ -1,11 +1,13 @@
 package io.github.alphameo.linear_algebra.mat;
 
 /**
- * Interface that declares operations between fixed square matrices.
+ * Interface that declares operations between fixed square matrices and with
+ * fixed-dimensional corresponding vectors.
  * <p>
  * {@code M} is a matrix class/interface which should implements this
  * operations
  * <p>
+ * {@code V} is a corresponding fixed-dimensional vector class/interface
  * {@code R} is a matrix row enum-accessor
  * <p>
  * {@code C} is a matrix column enum-accessor
@@ -14,18 +16,18 @@ package io.github.alphameo.linear_algebra.mat;
  */
 public interface FixedMatrixOperatable<M, V, R, C> {
     /**
-     * Safely swaps rows of matrix
+     * Safely swaps the given rows of this matrix and returns it.
      *
      * @param r1 first row for swapping
      * @param r2 second row for swapping
-     * @return current matrix with swapped rows
+     * @return {@code this} matrix with swapped rows
      *
      * @since 1.0.0
      */
     Matrix3 swapRows(final R r1, final R r2);
 
     /**
-     * Copies current matrix and safely swaps its rows.
+     * Returns .
      * 
      * @param r1 first row for swapping
      * @param r2 second row for swapping
