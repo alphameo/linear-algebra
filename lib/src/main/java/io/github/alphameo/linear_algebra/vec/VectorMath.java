@@ -25,7 +25,7 @@ public final class VectorMath {
      * You can use it if you need fast comparison.
      * 
      * @param v vector for square length calculation
-     * @return square length of vector {@code v}
+     * @return squared length of vector {@code v}
      *
      * @since 1.0.0
      */
@@ -51,7 +51,7 @@ public final class VectorMath {
     }
 
     /**
-     * Returns the given vector with its components multiplied by a scalar value.
+     * Multiplies components of given vector by a scalar value and returns it.
      *
      * @param v          vector for multiplication
      * @param multiplier scalar value
@@ -83,7 +83,7 @@ public final class VectorMath {
     }
 
     /**
-     * Returns the given vector with its components divided by a scalar value.
+     * Divides components of given vector by a scalar value and returns it.
      * 
      * @param v       vector for division
      * @param divisor scalar value
@@ -118,13 +118,13 @@ public final class VectorMath {
     }
 
     /**
-     * Returns the given vector with normalized components (divide each component by
-     * vector length)
+     * Normalize components of given vector (divide each component by vector length)
+     * and returns it.
      * 
      * @param v vector to be normalized
      * @return vector {@code v} with normalized components
-     * @throws ArithmeticException if length of given vector is approximately equal
-     *                             0
+     * @throws ArithmeticException if length of the given vector is approximately
+     *                             equal 0
      *
      * @since 1.0.0
      */
@@ -137,8 +137,9 @@ public final class VectorMath {
      * component by vector length)
      * 
      * @param v vector to be normalized
-     * @return new vector with normalized components of given vector
-     * @throws ArithmeticException if length of given vector is approximately equal
+     * @return new vector with normalized components of the given vector
+     * @throws ArithmeticException if length of the given vector is approximately
+     *                             equal
      *                             0
      *
      * @since 1.0.0
@@ -148,13 +149,13 @@ public final class VectorMath {
     }
 
     /**
-     * Returns the target vector whose components the components of the subtracted
-     * vector have been subtracted.
+     * Adds the components of the addendum vector to the components of the target
+     * vector and returns it.
      *
      * @param target   vector to be added
      * @param addendum vector to add
      * @return vector {@code target} increased by vector {@code addendum}
-     * @throws IllegalArgumentException if given vectors have different sizes
+     * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
@@ -176,7 +177,7 @@ public final class VectorMath {
      * @return new vector with the sum of vector {@code target} and vector
      *         {@code addendum}
      *
-     * @throws IllegalArgumentException if given vectors have different sizes
+     * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
@@ -185,13 +186,13 @@ public final class VectorMath {
     }
 
     /**
-     * Returns the target vector from whose components have been subtracted the
-     * components of the subtrahend vector.
+     * Subtracts components of the subtrahend vector from the components of the
+     * target vector and returns it.
      * 
      * @param target     vector to be subtracted
      * @param subtrahend vector to subtract
      * @return vector {@code target} reduced by vector {@code subtrahend}
-     * @throws IllegalArgumentException if given vectors have different sizes
+     * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
@@ -205,14 +206,14 @@ public final class VectorMath {
     }
 
     /**
-     * Returns the result of subracting the components of the subtrahend vector from
-     * the components of the target vector.
+     * Returns the result of subtracting the components of the subtrahend vector
+     * from the components of the target vector.
      * 
      * @param target     vector to be subtracted
      * @param subtrahend vector to subtract
-     * @return new vector with result of subtracting {@code subtrahend} vector from
-     *         {@code target} vector
-     * @throws IllegalArgumentException if given vectors have different sizes
+     * @return new vector with result of subtracting vector {@code subtrahend} from
+     *         vector {@code target}
+     * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
@@ -221,11 +222,12 @@ public final class VectorMath {
     }
 
     /**
-     * Returns dot product (scalar product) of given vectors.
+     * Returns dot product (scalar product) of the given vectors.
      *
      * @param v1 first vector for dot product
      * @param v2 second vector for dot product
-     * @return dot product of given vectors
+     * @return dot product of the given vectors
+     * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
@@ -240,11 +242,11 @@ public final class VectorMath {
     }
 
     /**
-     * Returns result of cross product (vector product) of given vectors.
+     * Returns result of cross product (vector product) of the given vectors.
      *
      * @param v1 first vector for cross product
      * @param v2 second vector for cross product
-     * @return vector, which represents cross product of given vectors
+     * @return new vector, which represents cross product of the given vectors
      * @throws IllegalArgumentException if vectors' sizes are not equal 3
      *
      * @since 1.0.0
@@ -264,8 +266,8 @@ public final class VectorMath {
     }
 
     /**
-     * Returns the given vector-column transformed by the given
-     * transformation operator matrix.
+     * Transforms the given vector-column by the given transformation operator
+     * matrix and returns it.
      *
      * @param vCol     vector-column to be transformed
      * @param operator transformation matrix
@@ -297,8 +299,8 @@ public final class VectorMath {
     }
 
     /**
-     * Returns the given vector-row transformed by the given
-     * transformation operator matrix.
+     * Transforms the given vector-row by the given transformation operator
+     * matrix and returns it.
      *
      * @param vRow     vector-row to be transformed
      * @param operator transformation matrix
@@ -330,7 +332,7 @@ public final class VectorMath {
     }
 
     /**
-     * Returns {@code true} if components of two vectors are equal within
+     * Returns {@code true} if the components of two vectors are equal within
      * {@code epsilon} tolerance.
      * 
      * @param v1  first vector for comparison
@@ -338,7 +340,7 @@ public final class VectorMath {
      * @param eps tolerance
      * @return {@code true} if all components of vectors are equal within
      *         {@code eps} tolerance, and {@code false} otherwise
-     * @throws IllegalArgumentException if given vectors have different sizes
+     * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
@@ -355,13 +357,14 @@ public final class VectorMath {
     }
 
     /**
-     * Returns {@code true} if components of two vectors are approximately equal.
+     * Returns {@code true} if the components of two vectors are approximately
+     * equal.
      * 
      * @param v1 first vector for comparison
      * @param v2 second vector for comparison
      * @return {@code true} if all components of vectors are approximately equal,
      *         and {@code false} otherwise
-     * @throws IllegalArgumentException if given vectors have different sizes
+     * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
      */
@@ -373,7 +376,7 @@ public final class VectorMath {
      * Constructs {@code size}-dimensional vector with all 0 components.
      * 
      * @param size dimension of vector to be constructed
-     * @return zero {@code size}-dimensional vector
+     * @return new zero {@code size}-dimensional vector
      *
      * @since 1.0.0
      */
@@ -385,7 +388,7 @@ public final class VectorMath {
      * Constructs {@code size}-dimensional vector with all 1 components.
      * 
      * @param size dimension of vector to be constructed
-     * @return unit {@code size}-dimensional vector
+     * @return new unit {@code size}-dimensional vector
      *
      * @since 1.0.0
      */
