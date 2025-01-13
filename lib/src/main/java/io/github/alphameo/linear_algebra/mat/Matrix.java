@@ -10,18 +10,18 @@ import io.github.alphameo.linear_algebra.vec.Vector;
 public interface Matrix extends Cloneable {
 
     /**
-     * Returns element at given row index and column index inside matrix.
+     * Returns element at the given row index and column index inside matrix.
      * 
      * @param r row index of element
      * @param c column index of element
-     * @return element at given position
+     * @return element at the given position
      *
      * @since 1.0.0
      */
     float get(int r, int c);
 
     /**
-     * Sets value into given row index and column index inside matrix.
+     * Sets value into the given row index and column index inside matrix.
      *
      * @param r     row index for putting value
      * @param c     column index for putting value
@@ -82,11 +82,11 @@ public interface Matrix extends Cloneable {
 
     /**
      * Calculates cofactor (algebraic complement) from current matrix for position
-     * of given row and column.
+     * of the given row and column.
      * 
      * @param r index of row for cofactor calculation
      * @param c index of column for cofactor calculation
-     * @return cofactor value from given positions in current matrix
+     * @return cofactor value from the given positions in current matrix
      * @throws UnsupportedOperationException if matrix is not square
      *
      * @since 1.0.0
@@ -314,7 +314,7 @@ public interface Matrix extends Cloneable {
     }
 
     /**
-     * Calculates product of current and given matrices.
+     * Calculates product of current and the given matrices.
      *
      * @param m second (right) matrix
      * @return matrix, which represents product of matrices

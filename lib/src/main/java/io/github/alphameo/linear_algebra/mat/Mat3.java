@@ -21,7 +21,7 @@ public class Mat3 implements Matrix3 {
     }
 
     /**
-     * Constructs new matrix 3x3 using given values.
+     * Constructs new matrix 3x3 using the given values.
      * 
      * @param m00 element under row = 0, column = 0
      * @param m01 element under row = 0, column = 1
@@ -55,7 +55,7 @@ public class Mat3 implements Matrix3 {
      * Constructs new matrix 3x3 using values from {@code entries}.
      * 
      * @param entries values for matrix elements
-     * @throws IllegalArgumentException if given two-dimensional array cannot be
+     * @throws IllegalArgumentException if the given two-dimensional array cannot be
      *                                  interpreted as matrix 3x3
      *
      * @since 1.0.0
@@ -77,7 +77,7 @@ public class Mat3 implements Matrix3 {
     }
 
     /**
-     * Copies given matrix 3x3 values into new matrix 3x3.
+     * Copies the given matrix 3x3 values into new matrix 3x3.
      * 
      * @param m matrix 3x3 for copying
      *

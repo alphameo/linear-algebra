@@ -35,7 +35,7 @@ public class Vec2 implements Vector2 {
     }
 
     /**
-     * Copies given vector of size 2 values into new vector of size 2.
+     * Copies the given vector of size 2 values into new vector of size 2.
      * 
      * @param v vector of size 2 for copying
      *

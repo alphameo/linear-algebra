@@ -37,10 +37,10 @@ public final class Matrix4Math {
     }
 
     /**
-     * Transposes given matrix 4x4
+     * Transposes the given matrix 4x4
      *
      * @param m matrix 4x4 for transpose
-     * @return given matrix 4x4, which is transposed
+     * @return the given matrix 4x4, which is transposed
      *
      * @since 1.0.0
      */
@@ -58,10 +58,10 @@ public final class Matrix4Math {
     }
 
     /**
-     * Copies given matrix 4x4 and transpose it.
+     * Copies the given matrix 4x4 and transpose it.
      * 
      * @param m matrix 4x4 for transpose
-     * @return new matrix 4x4, which is result of transposing of given matrix 4x4
+     * @return new matrix 4x4, which is result of transposing of the given matrix 4x4
      *
      * @since 1.0.0
      */
@@ -75,7 +75,7 @@ public final class Matrix4Math {
      * @param m  matrix 4x4 for row swapping
      * @param r1 first row for swapping
      * @param r2 second row for swapping
-     * @return given matrix 4x4 with swapped rows
+     * @return the given matrix 4x4 with swapped rows
      *
      * @since 1.0.0
      */
@@ -96,7 +96,7 @@ public final class Matrix4Math {
      * @param m  matrix 4x4 for row swapping
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
-     * @return given 4x4 matrix with swapped rows
+     * @return the given 4x4 matrix with swapped rows
      * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      *
      * @since 1.0.0
@@ -108,7 +108,7 @@ public final class Matrix4Math {
     }
 
     /**
-     * Copies given matrix 4x4 and safely swaps its rows.
+     * Copies the given matrix 4x4 and safely swaps its rows.
      * 
      * @param m  matrix 4x4 for row swapping
      * @param r1 first row for swapping

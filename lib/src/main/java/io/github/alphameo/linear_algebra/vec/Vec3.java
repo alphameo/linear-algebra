@@ -60,7 +60,7 @@ public class Vec3 implements Vector3 {
     }
 
     /**
-     * Copies given vector of size 3 values into new vector of size 3.
+     * Copies the given vector of size 3 values into new vector of size 3.
      * 
      * @param v vector of size 3 for copying
      *

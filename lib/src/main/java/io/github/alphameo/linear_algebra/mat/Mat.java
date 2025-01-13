@@ -38,7 +38,7 @@ public class Mat implements Matrix {
      * Constructs new matrix using values from {@code entries}.
      * 
      * @param entries values for matrix elements
-     * @throws IllegalArgumentException if given two-dimensional array cannot be
+     * @throws IllegalArgumentException if the given two-dimensional array cannot be
      *                                  interpreted as rectangular matrix
      *
      * @since 1.0.0
@@ -55,7 +55,7 @@ public class Mat implements Matrix {
     }
 
     /**
-     * Copies given matrix values into new matrix.
+     * Copies the given matrix values into new matrix.
      * 
      * @param m matrix for copying
      *
@@ -145,7 +145,7 @@ public class Mat implements Matrix {
     }
 
     /**
-     * Constructs matrix of given sizes with all 0 elements.
+     * Constructs matrix of the given sizes with all 0 elements.
      * 
      * @param height height of matrix to be constructed
      * @param width  width of matrix to be constructed
@@ -158,7 +158,7 @@ public class Mat implements Matrix {
     }
 
     /**
-     * Constructs square matrix of given size with 1 on main diagonal.
+     * Constructs square matrix of the given size with 1 on main diagonal.
      * 
      * @param size height and width of matrix to be constructed
      * @return square matrix {@code size} x {@code size} with 1 on main diagonal

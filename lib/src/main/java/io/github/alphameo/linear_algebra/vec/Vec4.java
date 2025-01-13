@@ -40,7 +40,7 @@ public class Vec4 implements Vector4 {
     }
 
     /**
-     * Copies given vector of size 4 values into new vector of size 2.
+     * Copies the given vector of size 4 values into new vector of size 2.
      * 
      * @param v vector of size 4 for copying
      *

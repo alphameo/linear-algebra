@@ -10,18 +10,18 @@ import io.github.alphameo.linear_algebra.vec.Vector4;
 public interface Matrix4 extends Matrix {
 
     /**
-     * Safely returns element at given row and column inside matrix 4x4.
+     * Safely returns element at the given row and column inside matrix 4x4.
      * 
      * @param r row of element
      * @param c column of element
-     * @return element at given position
+     * @return element at the given position
      *
      * @since 1.0.0
      */
     float get(Matrix4Row r, Matrix4Col c);
 
     /**
-     * Safely sets value into given row index and column index inside matrix.
+     * Safely sets value into the given row index and column index inside matrix.
      *
      * @param r     row for putting value
      * @param c     column for putting value
@@ -296,7 +296,7 @@ public interface Matrix4 extends Matrix {
     }
 
     /**
-     * Calculates product of current and given matrices.
+     * Calculates product of current and the given matrices.
      *
      * @param m second (right) matrix 4x4
      * @return matrix, which represents product of matrices
@@ -312,7 +312,7 @@ public interface Matrix4 extends Matrix {
      *
      * @param v column vector of size 4 (right)
      * @return vector of size 4, which represents product of current matrix and
-     *         given vector
+     *         the given vector
      *
      * @since 1.0.0
      */
@@ -367,12 +367,12 @@ public interface Matrix4 extends Matrix {
     }
 
     /**
-     * Safely constructs minor matrix excluding given row and column from current
+     * Safely constructs minor matrix excluding the given row and column from current
      * matrix.
      * 
      * @param r row to exclude
      * @param c column to exclude
-     * @return minor matrix excluding given row and column
+     * @return minor matrix excluding the given row and column
      *
      * @since 1.0.0
      */
@@ -381,11 +381,11 @@ public interface Matrix4 extends Matrix {
     }
 
     /**
-     * Constructs minor matrix excluding given row and column from current matrix.
+     * Constructs minor matrix excluding the given row and column from current matrix.
      * 
      * @param r row index to exclude
      * @param c column index to exclude
-     * @return minor matrix excluding given row and column
+     * @return minor matrix excluding the given row and column
      *
      * @since 1.0.0
      */
@@ -395,11 +395,11 @@ public interface Matrix4 extends Matrix {
 
     /**
      * Safely calculates cofactor (algebraic complement) from current matrix for
-     * position of given row and column.
+     * position of the given row and column.
      * 
      * @param r index of row for cofactor calculation
      * @param c index of column for cofactor calculation
-     * @return cofactor value from given positions in current matrix
+     * @return cofactor value from the given positions in current matrix
      *
      * @since 1.0.0
      */
@@ -419,7 +419,7 @@ public interface Matrix4 extends Matrix {
     }
 
     /**
-     * Returns {@code true} if elements of current and given matrices are equal
+     * Returns {@code true} if elements of current and the given matrices are equal
      * within {@code epsilon} tolerance.
      * 
      * @param m   object for comparison

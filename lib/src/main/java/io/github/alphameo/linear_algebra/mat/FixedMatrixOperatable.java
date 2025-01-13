@@ -103,7 +103,7 @@ public interface FixedMatrixOperatable<M, V, R, C> {
     M sub(final M subtrahend);
 
     /**
-     * Calculates product of current and given matrices.
+     * Calculates product of current and the given matrices.
      *
      * @param m second (right) matrix 3x3
      * @return matrix, which represents product of matrices
@@ -117,7 +117,7 @@ public interface FixedMatrixOperatable<M, V, R, C> {
      *
      * @param v column vector of size 3 (right)
      * @return vector of size 3, which represents product of current matrix and
-     *         given vector
+     *         the given vector
      *
      * @since 1.0.0
      */

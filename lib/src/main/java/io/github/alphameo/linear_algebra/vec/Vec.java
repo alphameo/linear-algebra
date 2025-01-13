@@ -37,7 +37,7 @@ public class Vec implements Vector {
     }
 
     /**
-     * Copies given vector values into the new one.
+     * Copies the given vector values into the new one.
      * 
      * @param v vector for copying
      *

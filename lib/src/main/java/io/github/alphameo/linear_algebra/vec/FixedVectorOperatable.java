@@ -70,7 +70,7 @@ public interface FixedVectorOperatable<V> {
     V sub(final V subtrahend);
 
     /**
-     * Returns dot product (scalar product) of this and given vectors.
+     * Returns dot product (scalar product) of this and the given vectors.
      *
      * @param v vector for dot product
      * @return dot product of vector {@code this} and vector {@code v}
@@ -82,7 +82,7 @@ public interface FixedVectorOperatable<V> {
 
     /**
      * Returns {@code true} if the components of this vector and the components of
-     * the given vector are equal within {@code epsilon} tolerance.
+     * the the given vector are equal within {@code epsilon} tolerance.
      * 
      * @param v   vector for comparison
      * @param eps tolerance

@@ -24,8 +24,8 @@ public class TestVec3Math {
         Vector3 v1 = new Vec3(-12, 3, 4);
         Vector3 expected = new Vec3(-18, 4.5f, 6);
 
-        Vector3 v = multiplied(v1, 1.5f);
-        mult(v1, 1.5f);
+        Vector3 v = mul(v1, 1.5f);
+        mulAsgn(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -37,8 +37,8 @@ public class TestVec3Math {
         Vector3 v1 = new Vec3(-18, 4.5f, 6);
         Vector3 expected = new Vec3(-12, 3, 4);
 
-        Vector3 v = divided(v1, 1.5f);
-        divide(v1, 1.5f);
+        Vector3 v = div(v1, 1.5f);
+        divAsgn(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -51,8 +51,8 @@ public class TestVec3Math {
         Vector3 v2 = new Vec3(1, 2, 3);
         Vector3 expected = new Vec3(-11, 5, 7);
 
-        Vector3 v = added(v1, v2);
-        add(v1, v2);
+        Vector3 v = add(v1, v2);
+        addAsgn(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -65,8 +65,8 @@ public class TestVec3Math {
         Vector3 v2 = new Vec3(1, 2.03f, 3);
         Vector3 expected = new Vec3(-13, 0.97f, 1);
 
-        Vector3 v = subtracted(v1, v2);
-        sub(v1, v2);
+        Vector3 v = sub(v1, v2);
+        subAsgn(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -121,7 +121,7 @@ public class TestVec3Math {
         Vector3 v1 = new Vec3(-12, 4, 3);
         Vector4 expected = new Vec4(-12, 4, 3, 1);
 
-        Assertions.assertEquals(expected, toVec4(v1));
+        Assertions.assertEquals(expected, toVector4(v1));
     }
 
     @Test

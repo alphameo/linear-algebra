@@ -32,7 +32,7 @@ public class TestVecMath {
         Vector expected = new Vec(-18, 4.5f, 6, 12);
 
         Vector v = mul(v1, 1.5f);
-        mulIncr(v1, 1.5f);
+        mulAsgn(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -45,7 +45,7 @@ public class TestVecMath {
         Vector expected = new Vec(-12, 3, 4, 8);
 
         Vector v = div(v1, 1.5f);
-        divIncr(v1, 1.5f);
+        divAsgn(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -59,7 +59,7 @@ public class TestVecMath {
         Vector expected = new Vec(-11, 5, 7, 12);
 
         Vector v = add(v1, v2);
-        addIncr(v1, v2);
+        addAsgn(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -73,7 +73,7 @@ public class TestVecMath {
         Vector expected = new Vec(-13, 0.97f, 1, 4);
 
         Vector v = sub(v1, v2);
-        subIncr(v1, v2);
+        subAsgn(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);

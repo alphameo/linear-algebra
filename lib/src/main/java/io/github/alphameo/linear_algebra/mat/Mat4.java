@@ -21,7 +21,7 @@ public class Mat4 implements Matrix4 {
     }
 
     /**
-     * Constructs new matrix 4x4 using given values.
+     * Constructs new matrix 4x4 using the the given values.
      * 
      * @param m00 element under row = 0, column = 0
      * @param m01 element under row = 0, column = 1
@@ -70,7 +70,7 @@ public class Mat4 implements Matrix4 {
      * Constructs new matrix 4x4 using values from {@code entries}.
      * 
      * @param entries values for matrix elements
-     * @throws IllegalArgumentException if given two-dimensional array cannot be
+     * @throws IllegalArgumentException if the the given two-dimensional array cannot be
      *                                  interpreted as matrix 4x4
      *
      * @since 1.0.0
@@ -92,7 +92,7 @@ public class Mat4 implements Matrix4 {
     }
 
     /**
-     * Copies given matrix 4x4 values into new matrix 4x4.
+     * Copies the the given matrix 4x4 values into new matrix 4x4.
      * 
      * @param m matrix 4x4 for copying
      *

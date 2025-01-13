@@ -187,11 +187,11 @@ public interface Vector4
     }
 
     /**
-     * Returns {@code true} if components of current and given vectors are
+     * Returns {@code true} if components of current and the given vectors are
      * approximately equal.
      * 
      * @param v vector for comparison
-     * @return {@code true} if all components of current and given vectors are
+     * @return {@code true} if all components of current and the given vectors are
      *         approximately equal, and {@code false} otherwise
      *
      * @since 1.0.0

@@ -20,7 +20,7 @@ public final class VectorMath {
     }
 
     /**
-     * Returns the square of the length of the given vector.
+     * Returns the square of the length of the the given vector.
      * <p>
      * You can use it if you need fast comparison.
      * 
@@ -39,7 +39,7 @@ public final class VectorMath {
     }
 
     /**
-     * Returns length of the given vector.
+     * Returns length of the the given vector.
      * 
      * @param v vector for length calculation
      * @return length of vector {@code v}

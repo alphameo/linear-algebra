@@ -37,10 +37,10 @@ public final class Matrix3Math {
     public static final Matrix3Col[] COLS = Matrix3Col.values();
 
     /**
-     * Transposes given matrix 3x3
+     * Transposes the given matrix 3x3
      *
      * @param m matrix 3x3 for transpose
-     * @return given matrix 3x3, which is transposed
+     * @return the given matrix 3x3, which is transposed
      *
      * @since 1.0.0
      */
@@ -58,10 +58,10 @@ public final class Matrix3Math {
     }
 
     /**
-     * Copies given matrix 3x3 and transpose it.
+     * Copies the given matrix 3x3 and transpose it.
      * 
      * @param m matrix 3x3 for transpose
-     * @return new matrix 3x3, which is result of transposing of given matrix 3x3
+     * @return new matrix 3x3, which is result of transposing of the given matrix 3x3
      *
      * @since 1.0.0
      */
@@ -75,7 +75,7 @@ public final class Matrix3Math {
      * @param m  matrix 3x3 for row swapping
      * @param r1 first row for swapping
      * @param r2 second row for swapping
-     * @return given matrix 3x3 with swapped rows
+     * @return the given matrix 3x3 with swapped rows
      *
      * @since 1.0.0
      */
@@ -96,7 +96,7 @@ public final class Matrix3Math {
      * @param m  matrix 3x3 for row swapping
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
-     * @return given 3x3 matrix with swapped rows
+     * @return the given 3x3 matrix with swapped rows
      * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      *
      * @since 1.0.0
@@ -106,7 +106,7 @@ public final class Matrix3Math {
     }
 
     /**
-     * Copies given matrix 3x3 and safely swaps its rows.
+     * Copies the given matrix 3x3 and safely swaps its rows.
      * 
      * @param m  matrix 3x3 for row swapping
      * @param r1 first row for swapping

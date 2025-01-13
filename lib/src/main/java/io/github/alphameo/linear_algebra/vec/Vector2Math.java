@@ -18,7 +18,7 @@ public final class Vector2Math {
     }
 
     /**
-     * Returns the square of the length of the given vector.
+     * Returns the square of the length of the the given vector.
      * <p>
      * You can use it if you need fast comparison.
      * 
@@ -32,7 +32,7 @@ public final class Vector2Math {
     }
 
     /**
-     * Returns length of the given vector.
+     * Returns length of the the given vector.
      * 
      * @param v vector for length calculation
      * @return length of vector {@code v}
@@ -44,7 +44,7 @@ public final class Vector2Math {
     }
 
     /**
-     * Multiplies components of the given vector by a scalar value and returns it.
+     * Multiplies components of the the given vector by a scalar value and returns it.
      *
      * @param v          vector for multiplication
      * @param multiplier scalar value
@@ -60,7 +60,7 @@ public final class Vector2Math {
     }
 
     /**
-     * Returns the result of multiplying the components of the given vector by a
+     * Returns the result of multiplying the components of the the given vector by a
      * scalar value.
      *
      * @param v          vector for multiplication
@@ -75,7 +75,7 @@ public final class Vector2Math {
     }
 
     /**
-     * Divides components of the given vector by a scalar value and returns it.
+     * Divides components of the the given vector by a scalar value and returns it.
      * 
      * @param v       vector for division
      * @param divisor scalar value
@@ -94,7 +94,7 @@ public final class Vector2Math {
     }
 
     /**
-     * Returns the result of dividing the components of the given vector by a scalar
+     * Returns the result of dividing the components of the the given vector by a scalar
      * value.
      *
      * @param v       vector for division

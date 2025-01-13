@@ -10,18 +10,18 @@ import io.github.alphameo.linear_algebra.vec.Vector3;
 public interface Matrix3 extends Matrix {
 
     /**
-     * Safely returns element at given row and column inside matrix 3x3.
+     * Safely returns element at the given row and column inside matrix 3x3.
      * 
      * @param r row of element
      * @param c column of element
-     * @return element at given position
+     * @return element at the given position
      *
      * @since 1.0.0
      */
     float get(Matrix3Row r, Matrix3Col c);
 
     /**
-     * Safely sets value into given row index and column index inside matrix.
+     * Safely sets value into the given row index and column index inside matrix.
      *
      * @param r     row for putting value
      * @param c     column for putting value
@@ -253,7 +253,7 @@ public interface Matrix3 extends Matrix {
     }
 
     /**
-     * Calculates product of current and given matrices.
+     * Calculates product of current and the given matrices.
      *
      * @param m second (right) matrix 3x3
      * @return matrix, which represents product of matrices
@@ -269,7 +269,7 @@ public interface Matrix3 extends Matrix {
      *
      * @param v column vector of size 3 (right)
      * @return vector of size 3, which represents product of current matrix and
-     *         given vector
+     *         the given vector
      *
      * @since 1.0.0
      */
@@ -324,12 +324,12 @@ public interface Matrix3 extends Matrix {
     }
 
     /**
-     * Safely constructs minor matrix excluding given row and column from current
+     * Safely constructs minor matrix excluding the given row and column from current
      * matrix.
      * 
      * @param r row to exclude
      * @param c column to exclude
-     * @return minor matrix excluding given row and column
+     * @return minor matrix excluding the given row and column
      *
      * @since 1.0.0
      */
@@ -338,7 +338,7 @@ public interface Matrix3 extends Matrix {
     }
 
     /**
-     * Constructs minor matrix excluding given row and column from current matrix.
+     * Constructs minor matrix excluding the given row and column from current matrix.
      * 
      * @param r row index to exclude
      * @param c column index to exclude

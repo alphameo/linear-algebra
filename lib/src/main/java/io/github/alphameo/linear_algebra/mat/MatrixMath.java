@@ -20,10 +20,10 @@ public final class MatrixMath {
     }
 
     /**
-     * Transposes given square matrix
+     * Transposes the given square matrixand returns it.
      *
      * @param m square matrix for transpose
-     * @return given square matrix, which is transposed
+     * @return the given square matrix, which is transposed
      *
      * @since 1.0.0
      */
@@ -45,10 +45,10 @@ public final class MatrixMath {
     }
 
     /**
-     * Constructs transposed matrix from given matrix
+     * Constructs transposed matrix from the given matrix
      *
      * @param m square matrix for transpose
-     * @return new matrix, which is result of transposing of given square matrix
+     * @return new matrix, which is result of transposing of the given square matrix
      *
      * @since 1.0.0
      */
@@ -69,7 +69,7 @@ public final class MatrixMath {
      * @param m  matrix for row swapping
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
-     * @return given matrix with swapped rows
+     * @return the given matrix with swapped rows
      * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      *
      * @since 1.0.0
@@ -86,12 +86,12 @@ public final class MatrixMath {
     }
 
     /**
-     * Copies given matrix and swaps its rows.
+     * Copies the given matrix and swaps its rows.
      * 
      * @param m  matrix for row swapping
      * @param r1 first index of row for swapping
      * @param r2 second index of row for swapping
-     * @return new matrix with swapped rows of given matrix
+     * @return new matrix with swapped rows of the given matrix
      * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
      *
      * @since 1.0.0
@@ -106,7 +106,7 @@ public final class MatrixMath {
      * @param m  matrix for row swapping
      * @param c1 first index of column for swapping
      * @param c2 second index of column for swapping
-     * @return given matrix with swapped columns
+     * @return the given matrix with swapped columns
      * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
      *
      * @since 1.0.0
@@ -340,12 +340,12 @@ public final class MatrixMath {
      * @param m    matrix (left)
      * @param vCol vector-column (right)
      * @return vector, which represents product of given matrix and vector
-     * @throws IllegalArgumentException if width of the matrix is not equal to the
-     *                                  vector size
+     * @throws IllegalArgumentException if width of the given matrix is not equal
+     *                                  to dimension of the given vector-column
      *
-     * @since 1.0.0
+     * @since 3.0.0
      */
-    public static Vector prodCol(final Matrix m, final Vector vCol) {
+    public static Vector prodCol(final Matrix m, final Vector vCol) throws IllegalArgumentException {
         if (m.width() != vCol.size()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -372,12 +372,12 @@ public final class MatrixMath {
      * @param m    matrix (right)
      * @param vRow vector-row (left)
      * @return vector, which represents product of given matrix and vector-row
-     * @throws IllegalArgumentException if width of the matrix is not equal to the
-     *                                  vector size
+     * @throws IllegalArgumentException if height of the given matrix is not equal
+     *                                  to the dimension of the given vector-row
      *
-     * @since 1.0.0
+     * @since 3.0.0
      */
-    public static Vector prodRowIncr(final Matrix m, final Vector vRow) {
+    public static Vector prodRowIncr(final Matrix m, final Vector vRow) throws IllegalArgumentException {
         Vector res = prodCol(m, vRow);
 
         for (int i = 0; i < vRow.size(); i++) {
@@ -391,14 +391,14 @@ public final class MatrixMath {
      * Calculates product of matrix and vector-row.
      *
      * @param m    matrix (right)
-     * @param vCol column vector (left)
+     * @param vRow column vector (left)
      * @return vector, which represents product of given matrix and vector
-     * @throws IllegalArgumentException if width of the matrix is not equal to the
-     *                                  vector size
+     * @throws IllegalArgumentException if height of the given matrix is not equal
+     *                                  to the dimension of the given vector-row
      *
-     * @since 1.0.0
+     * @since 3.0.0
      */
-    public static Vector prodRow(final Matrix m, final Vector vRow) {
+    public static Vector prodRow(final Matrix m, final Vector vRow) throws IllegalArgumentException {
         if (m.height() != vRow.size()) {
             throw new IllegalArgumentException(
                     String.format(

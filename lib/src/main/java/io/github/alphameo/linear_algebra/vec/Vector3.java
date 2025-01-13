@@ -138,11 +138,11 @@ public interface Vector3
     }
 
     /**
-     * Returns {@code true} if components of current and given vectors are
+     * Returns {@code true} if components of current and the given vectors are
      * approximately equal.
      * 
      * @param v vector for comparison
-     * @return {@code true} if all components of current and given vectors are
+     * @return {@code true} if all components of current and the given vectors are
      *         approximately equal, and {@code false} otherwise
      *
      * @since 1.0.0
@@ -187,12 +187,12 @@ public interface Vector3
     }
 
     /**
-     * Constructs 4-dimensional vector with components of the given vector and 1 as last
+     * Constructs 4-dimensional vector with components of the the given vector and 1 as last
      * component
      * <p>
      * (x, y, z, 1)
      *
-     * @return new vector of size 4 including components of the given vector and 1
+     * @return new vector of size 4 including components of the the given vector and 1
      *
      * @since 1.0.0
      */

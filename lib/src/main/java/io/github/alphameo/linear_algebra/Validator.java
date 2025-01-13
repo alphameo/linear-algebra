@@ -77,7 +77,7 @@ public class Validator {
     }
 
     /**
-     * Returns {@code true} if values are equal within given tolerance
+     * Returns {@code true} if values are equal within the given tolerance
      * 
      * @param value1 first value for comparison
      * @param value2 second value for comparison

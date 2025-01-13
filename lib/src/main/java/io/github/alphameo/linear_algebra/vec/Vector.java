@@ -10,17 +10,17 @@ import io.github.alphameo.linear_algebra.mat.Matrix;
 public interface Vector extends Cloneable {
 
     /**
-     * Returns component at given position inside vector.
+     * Returns component at the given position inside vector.
      * 
      * @param i position index of component
-     * @return component at given position
+     * @return component at the given position
      *
      * @since 1.0.0
      */
     float get(int i);
 
     /**
-     * Sets value into given position inside vector.
+     * Sets value into the given position inside vector.
      *
      * @param i     position index for putting value
      * @param value component value to be set
@@ -210,7 +210,7 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Returns dot product (scalar product) of this and given vectors.
+     * Returns dot product (scalar product) of this and the given vectors.
      *
      * @param v vector for dot product
      * @return dot product of vector {@code this} and vector {@code v}
@@ -223,7 +223,7 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Returns result of cross product (vector product) of this and given vectors.
+     * Returns result of cross product (vector product) of this and the given vectors.
      *
      * @param v second vector for cross product
      * @return new vector, which represents cross product of vector {@code this} and
@@ -237,12 +237,12 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Transforms this vector-column by the given transformation operator
+     * Transforms this vector-column by the the given transformation operator
      * matrix and returns it.
      *
      * @param operator transformation matrix
      * @return vector {@code this} transformed by matrix {@code operator}
-     * @throws IllegalArgumentException if width of the given matrix is not equal
+     * @throws IllegalArgumentException if width of the the given matrix is not equal
      *                                  to dimension of this vector-column
      *
      * @since 3.0.0
@@ -252,13 +252,13 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Returns the result of transforming this vector-column by the given
+     * Returns the result of transforming this vector-column by the the given
      * transformation operator matrix.
      *
      * @param operator transformation matrix
      * @return new vector with result of transforming vector {@code this} by matrix
      *         {@code operator}
-     * @throws IllegalArgumentException if width of the given matrix is not equal
+     * @throws IllegalArgumentException if width of the the given matrix is not equal
      *                                  to dimension of this vector-column
      *
      * @since 3.0.0
@@ -268,12 +268,12 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Transforms this vector-row by the given transformation operator
+     * Transforms this vector-row by the the given transformation operator
      * matrix and returns it.
      *
      * @param operator transformation matrix
      * @return vector {@code this} transformed by matrix {@code operator}
-     * @throws IllegalArgumentException if height of the given matrix is not equal
+     * @throws IllegalArgumentException if height of the the given matrix is not equal
      *                                  to the dimension of this vector-row
      *
      * @since 3.0.0

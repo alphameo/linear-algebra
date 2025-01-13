@@ -14,12 +14,12 @@ package io.github.alphameo.linear_algebra.vec;
 public interface FixedVectorTransformable<V, M> {
 
     /**
-     * Transforms this vector-column by the given transformation operator
+     * Transforms this vector-column by the the given transformation operator
      * matrix and returns it.
      *
      * @param operator transformation matrix
      * @return vector {@code this} transformed by matrix {@code operator}
-     * @throws IllegalArgumentException if width of the given matrix is not equal
+     * @throws IllegalArgumentException if width of the the given matrix is not equal
      *                                  to dimension of this vector-column
      *
      * @since 3.0.0
@@ -27,13 +27,13 @@ public interface FixedVectorTransformable<V, M> {
     V transformCol(final M operator);
 
     /**
-     * Returns the result of transforming this vector-column by the given
+     * Returns the result of transforming this vector-column by the the given
      * transformation operator matrix.
      *
      * @param operator transformation matrix
      * @return new vector with result of transforming vector {@code this} by matrix
      *         {@code operator}
-     * @throws IllegalArgumentException if width of the given matrix is not equal
+     * @throws IllegalArgumentException if width of the the given matrix is not equal
      *                                  to dimension of this vector-column
      *
      * @since 3.0.0
