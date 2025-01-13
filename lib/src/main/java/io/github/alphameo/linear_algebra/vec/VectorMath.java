@@ -5,7 +5,7 @@ import io.github.alphameo.linear_algebra.mat.Matrix;
 import io.github.alphameo.linear_algebra.mat.MatrixMath;
 
 /**
- * Class with static functions for arbitrary vectors.
+ * Class with static functions for arbitrary-dimensional vectors.
  *
  * @since 1.0.0
  */

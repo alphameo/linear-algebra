@@ -5,7 +5,7 @@ import io.github.alphameo.linear_algebra.mat.Matrix3;
 import io.github.alphameo.linear_algebra.mat.Matrix3Math;
 
 /**
- * Class with static functions for vectors of size 3.
+ * Class with static functions for 4-dimensional vectors.
  *
  * @since 1.0.0
  */

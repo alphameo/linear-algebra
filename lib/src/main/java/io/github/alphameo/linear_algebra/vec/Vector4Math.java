@@ -5,7 +5,7 @@ import io.github.alphameo.linear_algebra.mat.Matrix4;
 import io.github.alphameo.linear_algebra.mat.Matrix4Math;
 
 /**
- * Class with static functions for vectors of size 4.
+ * Class with static functions for 4-dimensional vectors.
  *
  * @since 1.0.0
  */
@@ -116,7 +116,8 @@ public final class Vector4Math {
     }
 
     /**
-     * Normalize components of the given vector (divide each component by vector length)
+     * Normalize components of the given vector (divide each component by vector
+     * length)
      * and returns it.
      * 
      * @param v vector to be normalized
