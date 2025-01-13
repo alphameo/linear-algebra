@@ -7,7 +7,7 @@ package io.github.alphameo.linear_algebra.vec;
  * {@code V} is a vector class/interface which should implements this
  * operations
  *
- * {@code M} collocated square matrix class
+ * {@code M} corresponding square matrix class
  *
  * @since 3.0.0
  */
