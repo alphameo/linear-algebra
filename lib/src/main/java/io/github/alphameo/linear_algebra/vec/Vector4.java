@@ -8,7 +8,7 @@ import io.github.alphameo.linear_algebra.mat.Matrix4;
  * @since 1.0.0
  */
 public interface Vector4
-        extends Vector, FixedBetweenVectorOperatable<Vector4>, FixedVectorTransformable<Vector4, Matrix4> {
+        extends Vector, FixedVectorOperatable<Vector4>, FixedVectorTransformable<Vector4, Matrix4> {
 
     /**
      * Returns x component (index = 0) of 4-dimensional vector.

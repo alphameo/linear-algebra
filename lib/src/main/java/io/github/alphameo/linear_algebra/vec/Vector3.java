@@ -1,7 +1,6 @@
 package io.github.alphameo.linear_algebra.vec;
 
 import io.github.alphameo.linear_algebra.mat.Matrix3;
-import io.github.alphameo.linear_algebra.mat.Matrix3Math;
 
 /**
  * Interface for 3-dimensional vector.
@@ -9,7 +8,7 @@ import io.github.alphameo.linear_algebra.mat.Matrix3Math;
  * @since 1.0.0
  */
 public interface Vector3
-        extends Vector, FixedBetweenVectorOperatable<Vector3>, FixedVectorTransformable<Vector3, Matrix3> {
+        extends Vector, FixedVectorOperatable<Vector3>, FixedVectorTransformable<Vector3, Matrix3> {
 
     /**
      * Returns x component (index = 0) of 3-dimensional vector.
