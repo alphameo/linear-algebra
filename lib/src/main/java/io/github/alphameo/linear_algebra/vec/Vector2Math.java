@@ -44,7 +44,7 @@ public final class Vector2Math {
     }
 
     /**
-     * Multiplies components of given vector by a scalar value and returns it.
+     * Multiplies components of the given vector by a scalar value and returns it.
      *
      * @param v          vector for multiplication
      * @param multiplier scalar value
@@ -75,7 +75,7 @@ public final class Vector2Math {
     }
 
     /**
-     * Divides components of given vector by a scalar value and returns it.
+     * Divides components of the given vector by a scalar value and returns it.
      * 
      * @param v       vector for division
      * @param divisor scalar value
@@ -110,7 +110,8 @@ public final class Vector2Math {
     }
 
     /**
-     * Normalize components of given vector (divide each component by vector length)
+     * Normalize components of the given vector (divide each component by vector
+     * length)
      * and returns it.
      * 
      * @param v vector to be normalized
@@ -250,13 +251,15 @@ public final class Vector2Math {
     }
 
     /**
-     * Constructs 3-dimensional vector with components of given vector and 1 as last
+     * Constructs 3-dimensional vector with components of the given vector and 1 as
+     * last
      * component
      * <p>
      * (x, y, 1)
      *
      * @param v 2-dimensional vector
-     * @return new 3-dimensional vector including components of given vector and 1
+     * @return new 3-dimensional vector including components of the given vector and
+     *         1
      *
      * @since 1.0.0
      */

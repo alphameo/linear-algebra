@@ -12,7 +12,7 @@ public class Vec implements Vector {
     private final float[] entries;
 
     /**
-     * Constructs new vector of given size with all 0.
+     * Constructs new {@code size}-dimensional vector  with all 0.
      * 
      * @param size size of vector for construction
      *
