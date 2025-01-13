@@ -152,7 +152,7 @@ public interface Vector4
 
     @Override
     default Vector4 transformCol(Matrix4 operator) {
-        return Vector4Math.transformColumn(this, operator);
+        return Vector4Math.transformCol(this, operator);
     }
 
     @Override
@@ -162,7 +162,7 @@ public interface Vector4
 
     @Override
     default Vector4 transformedCol(Matrix4 operator) {
-        return Vector4Math.transformedColumn(this, operator);
+        return Vector4Math.transformedCol(this, operator);
     }
 
     @Override

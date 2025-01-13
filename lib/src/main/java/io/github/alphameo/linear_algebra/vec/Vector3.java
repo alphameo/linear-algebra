@@ -79,22 +79,22 @@ public interface Vector3
 
     @Override
     default Vector3 mulAsgn(float multiplier) {
-        return Vector3Math.mult(this, multiplier);
+        return Vector3Math.mulAsgn(this, multiplier);
     }
 
     @Override
     default Vector3 mul(float multiplier) {
-        return Vector3Math.multiplied(this, multiplier);
+        return Vector3Math.mul(this, multiplier);
     }
 
     @Override
     default Vector3 divAsgn(float divisor) throws ArithmeticException {
-        return Vector3Math.divide(this, divisor);
+        return Vector3Math.divAsgn(this, divisor);
     }
 
     @Override
     default Vector3 div(float divisor) throws ArithmeticException {
-        return Vector3Math.divided(this, divisor);
+        return Vector3Math.div(this, divisor);
     }
 
     @Override
@@ -109,22 +109,22 @@ public interface Vector3
 
     @Override
     default Vector3 addAsgn(final Vector3 addendum) {
-        return Vector3Math.add(this, addendum);
+        return Vector3Math.addAsgn(this, addendum);
     }
 
     @Override
     default Vector3 add(final Vector3 addendum) {
-        return Vector3Math.added(this, addendum);
+        return Vector3Math.add(this, addendum);
     }
 
     @Override
     default Vector3 subAsgn(final Vector3 subtrahend) {
-        return Vector3Math.sub(this, subtrahend);
+        return Vector3Math.subAsgn(this, subtrahend);
     }
 
     @Override
     default Vector3 sub(final Vector3 subtrahend) {
-        return Vector3Math.subtracted(this, subtrahend);
+        return Vector3Math.sub(this, subtrahend);
     }
 
     @Override
@@ -168,7 +168,7 @@ public interface Vector3
 
     @Override
     default Vector3 transformCol(Matrix3 operator) {
-        return Vector3Math.transformColumn(this, operator);
+        return Vector3Math.transformCol(this, operator);
     }
 
     @Override
@@ -178,7 +178,7 @@ public interface Vector3
 
     @Override
     default Vector3 transformedCol(Matrix3 operator) {
-        return Vector3Math.transformedColumn(this, operator);
+        return Vector3Math.transformedCol(this, operator);
     }
 
     @Override
@@ -197,6 +197,6 @@ public interface Vector3
      * @since 1.0.0
      */
     default Vector4 toVector4() {
-        return Vector3Math.toVec4(this);
+        return Vector3Math.toVector4(this);
     }
 }

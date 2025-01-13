@@ -44,15 +44,14 @@ public final class Vector2Math {
     }
 
     /**
-     * Multiplies the components of vector with size 2 by a scalar value.
-     *
-     * @param v          vector of size 2 for multiplication
-     * @param multiplier scalar value
-     * @return given vector with multiplied components
+     * Returns length of the given vector.
+     * 
+     * @param v vector for length calculation
+     * @return length of vector {@code v}
      *
      * @since 1.0.0
      */
-    public static Vector2 mult(final Vector2 v, final float multiplier) {
+    public static Vector2 mulAsgn(final Vector2 v, final float multiplier) {
         v.setX(v.x() * multiplier);
         v.setY(v.y() * multiplier);
 
@@ -60,17 +59,16 @@ public final class Vector2Math {
     }
 
     /**
-     * Copies given vector and multiplies its components by a scalar.
-     * value.
+     * Multiplies components of given vector by a scalar value and returns it.
      *
-     * @param v          vector of size 2 for multiplication
+     * @param v          vector for multiplication
      * @param multiplier scalar value
-     * @return new vector of size 2 with multiplied components of given vector
+     * @return vector {@code v} multiplied by {@code multiplier}
      *
      * @since 1.0.0
      */
-    public static Vector2 multiplied(final Vector2 v, final float multiplier) {
-        return mult(v.clone(), multiplier);
+    public static Vector2 mul(final Vector2 v, final float multiplier) {
+        return mulAsgn(v.clone(), multiplier);
     }
 
     /**
@@ -83,7 +81,7 @@ public final class Vector2Math {
      *
      * @since 1.0.0
      */
-    public static Vector2 divide(final Vector2 v, final float divisor) throws ArithmeticException {
+    public static Vector2 divAsgn(final Vector2 v, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
 
         v.setX(v.x() / divisor);
@@ -102,8 +100,8 @@ public final class Vector2Math {
      *
      * @since 1.0.0
      */
-    public static Vector2 divided(final Vector2 v, final float divisor) throws ArithmeticException {
-        return divide(v.clone(), divisor);
+    public static Vector2 div(final Vector2 v, final float divisor) throws ArithmeticException {
+        return divAsgn(v.clone(), divisor);
     }
 
     /**
@@ -116,7 +114,7 @@ public final class Vector2Math {
      * @since 1.0.0
      */
     public static Vector2 normalize(final Vector2 v) throws ArithmeticException {
-        return divide(v, len(v));
+        return divAsgn(v, len(v));
     }
 
     /**
@@ -129,7 +127,7 @@ public final class Vector2Math {
      * @since 1.0.0
      */
     public static Vector2 normalized(final Vector2 v) throws ArithmeticException {
-        return divided(v.clone(), len(v));
+        return div(v.clone(), len(v));
     }
 
     /**
@@ -142,7 +140,7 @@ public final class Vector2Math {
      *
      * @since 1.0.0
      */
-    public static Vector2 add(final Vector2 target, final Vector2 addendum) {
+    public static Vector2 addAsgn(final Vector2 target, final Vector2 addendum) {
         target.setX(target.x() + addendum.x());
         target.setY(target.y() + addendum.y());
 
@@ -161,8 +159,8 @@ public final class Vector2Math {
      *
      * @since 1.0.0
      */
-    public static Vector2 added(final Vector2 target, final Vector2 addendum) {
-        return add(target.clone(), addendum);
+    public static Vector2 add(final Vector2 target, final Vector2 addendum) {
+        return addAsgn(target.clone(), addendum);
     }
 
     /**
@@ -175,7 +173,7 @@ public final class Vector2Math {
      *
      * @since 1.0.0
      */
-    public static Vector2 sub(final Vector2 target, final Vector2 subtrahend) {
+    public static Vector2 subAsgn(final Vector2 target, final Vector2 subtrahend) {
         target.setX(target.x() - subtrahend.x());
         target.setY(target.y() - subtrahend.y());
 
@@ -193,8 +191,8 @@ public final class Vector2Math {
      *
      * @since 1.0.0
      */
-    public static Vector2 subtracted(final Vector2 target, final Vector2 subtrahend) {
-        return sub(target.clone(), subtrahend);
+    public static Vector2 sub(final Vector2 target, final Vector2 subtrahend) {
+        return subAsgn(target.clone(), subtrahend);
     }
 
     /**
@@ -252,7 +250,7 @@ public final class Vector2Math {
      *
      * @since 1.0.0
      */
-    public static Vector3 toVec3(final Vector2 v) {
+    public static Vector3 toVector3(final Vector2 v) {
         return new Vec3(v.x(), v.y(), 1);
     }
 

@@ -54,7 +54,7 @@ public final class Vector3Math {
      *
      * @since 1.0.0
      */
-    public static Vector3 mult(final Vector3 v, final float multiplier) {
+    public static Vector3 mulAsgn(final Vector3 v, final float multiplier) {
         v.setX(v.x() * multiplier);
         v.setY(v.y() * multiplier);
         v.setZ(v.z() * multiplier);
@@ -72,8 +72,8 @@ public final class Vector3Math {
      *
      * @since 1.0.0
      */
-    public static Vector3 multiplied(final Vector3 v, final float multiplier) {
-        return mult(v.clone(), multiplier);
+    public static Vector3 mul(final Vector3 v, final float multiplier) {
+        return mulAsgn(v.clone(), multiplier);
     }
 
     /**
@@ -86,7 +86,7 @@ public final class Vector3Math {
      *
      * @since 1.0.0
      */
-    public static Vector3 divide(final Vector3 v, final float divisor) throws ArithmeticException {
+    public static Vector3 divAsgn(final Vector3 v, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
 
         v.setX(v.x() / divisor);
@@ -106,8 +106,8 @@ public final class Vector3Math {
      *
      * @since 1.0.0
      */
-    public static Vector3 divided(final Vector3 v, final float divisor) throws ArithmeticException {
-        return divide(v.clone(), divisor);
+    public static Vector3 div(final Vector3 v, final float divisor) throws ArithmeticException {
+        return divAsgn(v.clone(), divisor);
     }
 
     /**
@@ -120,7 +120,7 @@ public final class Vector3Math {
      * @since 1.0.0
      */
     public static Vector3 normalize(final Vector3 v) throws ArithmeticException {
-        return divide(v, len(v));
+        return divAsgn(v, len(v));
     }
 
     /**
@@ -133,7 +133,7 @@ public final class Vector3Math {
      * @since 1.0.0
      */
     public static Vector3 normalized(final Vector3 v) {
-        return divided(v.clone(), len(v));
+        return div(v.clone(), len(v));
     }
 
     /**
@@ -146,7 +146,7 @@ public final class Vector3Math {
      *
      * @since 1.0.0
      */
-    public static Vector3 add(final Vector3 target, final Vector3 addendum) {
+    public static Vector3 addAsgn(final Vector3 target, final Vector3 addendum) {
         target.setX(target.x() + addendum.x());
         target.setY(target.y() + addendum.y());
         target.setZ(target.z() + addendum.z());
@@ -166,8 +166,8 @@ public final class Vector3Math {
      *
      * @since 1.0.0
      */
-    public static Vector3 added(final Vector3 target, final Vector3 addendum) {
-        return add(target.clone(), addendum);
+    public static Vector3 add(final Vector3 target, final Vector3 addendum) {
+        return addAsgn(target.clone(), addendum);
     }
 
     /**
@@ -180,7 +180,7 @@ public final class Vector3Math {
      *
      * @since 1.0.0
      */
-    public static Vector3 sub(final Vector3 target, final Vector3 subtrahend) {
+    public static Vector3 subAsgn(final Vector3 target, final Vector3 subtrahend) {
         target.setX(target.x() - subtrahend.x());
         target.setY(target.y() - subtrahend.y());
         target.setZ(target.z() - subtrahend.z());
@@ -199,8 +199,8 @@ public final class Vector3Math {
      *
      * @since 1.0.0
      */
-    public static Vector3 subtracted(final Vector3 target, final Vector3 subtrahend) {
-        return sub(target.clone(), subtrahend);
+    public static Vector3 sub(final Vector3 target, final Vector3 subtrahend) {
+        return subAsgn(target.clone(), subtrahend);
     }
 
     /**
@@ -234,11 +234,11 @@ public final class Vector3Math {
         return new Vec3(x, y, z);
     }
 
-    public static Vector3 transformColumn(final Vector3 vCol, final Matrix3 operator) {
+    public static Vector3 transformCol(final Vector3 vCol, final Matrix3 operator) {
         return Matrix3Math.prodColIncr(operator, vCol);
     }
 
-    public static Vector3 transformedColumn(final Vector3 vCol, final Matrix3 operator) {
+    public static Vector3 transformedCol(final Vector3 vCol, final Matrix3 operator) {
         return Matrix3Math.prodCol(operator, vCol);
     }
 
@@ -293,7 +293,7 @@ public final class Vector3Math {
      *
      * @since 1.0.0
      */
-    public static Vector4 toVec4(final Vector3 v) {
+    public static Vector4 toVector4(final Vector3 v) {
         return new Vec4(v.x(), v.y(), v.z(), 1);
     }
 

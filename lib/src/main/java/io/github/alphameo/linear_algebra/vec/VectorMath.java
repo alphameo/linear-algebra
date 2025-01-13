@@ -277,7 +277,7 @@ public final class VectorMath {
      *
      * @since 3.0.0
      */
-    public static Vector transformColumn(final Vector vCol, final Matrix operator) throws IllegalArgumentException {
+    public static Vector transformCol(final Vector vCol, final Matrix operator) throws IllegalArgumentException {
         return MatrixMath.prodColIncr(operator, vCol);
     }
 
@@ -294,7 +294,7 @@ public final class VectorMath {
      *
      * @since 3.0.0
      */
-    public static Vector transformedColumn(final Vector vCol, final Matrix operator) throws IllegalArgumentException {
+    public static Vector transformedCol(final Vector vCol, final Matrix operator) throws IllegalArgumentException {
         return MatrixMath.prodCol(operator, vCol);
     }
 

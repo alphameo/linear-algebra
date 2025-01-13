@@ -58,22 +58,22 @@ public interface Vector2 extends Vector, FixedVectorOperatable<Vector2> {
 
     @Override
     default Vector2 mulAsgn(float multiplier) {
-        return Vector2Math.mult(this, multiplier);
+        return Vector2Math.mulAsgn(this, multiplier);
     }
 
     @Override
     default Vector2 mul(float multiplier) {
-        return Vector2Math.multiplied(this, multiplier);
+        return Vector2Math.mul(this, multiplier);
     }
 
     @Override
     default Vector2 divAsgn(float divisor) throws ArithmeticException {
-        return Vector2Math.divide(this, divisor);
+        return Vector2Math.divAsgn(this, divisor);
     }
 
     @Override
     default Vector2 div(float divisor) throws ArithmeticException {
-        return Vector2Math.divided(this, divisor);
+        return Vector2Math.div(this, divisor);
     }
 
     @Override
@@ -88,22 +88,22 @@ public interface Vector2 extends Vector, FixedVectorOperatable<Vector2> {
 
     @Override
     default Vector2 addAsgn(final Vector2 addendum) {
-        return Vector2Math.add(this, addendum);
+        return Vector2Math.addAsgn(this, addendum);
     }
 
     @Override
     default Vector2 add(final Vector2 addendum) {
-        return Vector2Math.added(this, addendum);
+        return Vector2Math.add(this, addendum);
     }
 
     @Override
     default Vector2 subAsgn(final Vector2 subtrahend) {
-        return Vector2Math.sub(this, subtrahend);
+        return Vector2Math.subAsgn(this, subtrahend);
     }
 
     @Override
     default Vector2 sub(final Vector2 subtrahend) {
-        return Vector2Math.subtracted(this, subtrahend);
+        return Vector2Math.sub(this, subtrahend);
     }
 
     @Override
@@ -152,6 +152,6 @@ public interface Vector2 extends Vector, FixedVectorOperatable<Vector2> {
      * @since 1.0.0
      */
     default Vector3 toVector3() {
-        return Vector2Math.toVec3(this);
+        return Vector2Math.toVector3(this);
     }
 }

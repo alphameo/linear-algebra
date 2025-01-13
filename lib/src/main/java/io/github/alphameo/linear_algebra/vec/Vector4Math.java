@@ -220,11 +220,11 @@ public final class Vector4Math {
         return v1.x() * v2.x() + v1.y() * v2.y() + v1.z() * v2.z() + v1.w() * v2.w();
     }
 
-    public static Vector4 transformColumn(final Vector4 vCol, final Matrix4 operator) {
+    public static Vector4 transformCol(final Vector4 vCol, final Matrix4 operator) {
         return Matrix4Math.prodColIncr(operator, vCol);
     }
 
-    public static Vector4 transformedColumn(final Vector4 vCol, final Matrix4 operator) {
+    public static Vector4 transformedCol(final Vector4 vCol, final Matrix4 operator) {
         return Matrix4Math.prodCol(operator, vCol);
     }
 

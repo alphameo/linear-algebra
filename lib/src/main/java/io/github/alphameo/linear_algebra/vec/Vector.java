@@ -248,7 +248,7 @@ public interface Vector extends Cloneable {
      * @since 3.0.0
      */
     default Vector transformCol(final Matrix operator) throws IllegalArgumentException {
-        return VectorMath.transformColumn(this, operator);
+        return VectorMath.transformCol(this, operator);
     }
 
     /**
@@ -264,7 +264,7 @@ public interface Vector extends Cloneable {
      * @since 3.0.0
      */
     default Vector transformedCol(final Matrix operator) throws IllegalArgumentException {
-        return VectorMath.transformedColumn(this, operator);
+        return VectorMath.transformedCol(this, operator);
     }
 
     /**
