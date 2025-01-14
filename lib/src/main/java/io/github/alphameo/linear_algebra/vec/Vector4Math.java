@@ -220,11 +220,11 @@ public final class Vector4Math {
     }
 
     /**
-     * Returns dot product (scalar product) of the given vectors.
+     * Returns the result of dot product (scalar product) of the given vectors.
      *
      * @param v1 first vector for dot product
      * @param v2 second vector for dot product
-     * @return dot product of the given vectors
+     * @return dot product of vector {@code v1} and vector {@code v2}
      * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0

@@ -114,7 +114,8 @@ public final class Vector3Math {
     }
 
     /**
-     * Normalize components of the given vector (divide each component by vector length)
+     * Normalize components of the given vector (divide each component by vector
+     * length)
      * and returns it.
      * 
      * @param v vector to be normalized
@@ -210,11 +211,11 @@ public final class Vector3Math {
     }
 
     /**
-     * Returns dot product (scalar product) of the given vectors.
+     * Returns the result of dot product (scalar product) of the given vectors.
      *
      * @param v1 first vector for dot product
      * @param v2 second vector for dot product
-     * @return dot product of the given vectors
+     * @return dot product of vector {@code v1} and vector {@code v2}
      *
      * @since 1.0.0
      */
@@ -223,11 +224,12 @@ public final class Vector3Math {
     }
 
     /**
-     * Returns result of cross product (vector product) of the given vectors.
+     * Returns the result of cross product (vector product) of the given vectors.
      *
      * @param v1 first vector for cross product
      * @param v2 second vector for cross product
-     * @return new vector, which represents cross product of the given vectors
+     * @return new vector, which represents cross product of vector {@code v1} and
+     *         vector {@code v2}
      *
      * @since 1.0.0
      */
@@ -331,13 +333,15 @@ public final class Vector3Math {
     }
 
     /**
-     * Constructs 4-dimensional vector with components of the given vector and 1 as last
+     * Constructs 4-dimensional vector with components of the given vector and 1 as
+     * last
      * component
      * <p>
      * (x, y, z, 1)
      *
      * @param v 3-dimensional vector
-     * @return new 4-dimensional vector including components of the given vector and 1
+     * @return new 4-dimensional vector including components of the given vector and
+     *         1
      *         last component
      *
      * @since 1.0.0

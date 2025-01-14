@@ -210,7 +210,8 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Returns dot product (scalar product) of this and the given vectors.
+     * Returns the result of dot product (scalar product) of this and the given
+     * vectors.
      *
      * @param v vector for dot product
      * @return dot product of vector {@code this} and vector {@code v}
@@ -223,7 +224,8 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Returns result of cross product (vector product) of this and the given vectors.
+     * Returns the result of cross product (vector product) of this and the given
+     * vectors.
      *
      * @param v second vector for cross product
      * @return new vector, which represents cross product of vector {@code this} and
@@ -242,7 +244,8 @@ public interface Vector extends Cloneable {
      *
      * @param operator transformation matrix
      * @return vector {@code this} transformed by matrix {@code operator}
-     * @throws IllegalArgumentException if width of the the given matrix is not equal
+     * @throws IllegalArgumentException if width of the the given matrix is not
+     *                                  equal
      *                                  to dimension of this vector-column
      *
      * @since 3.0.0
@@ -258,7 +261,8 @@ public interface Vector extends Cloneable {
      * @param operator transformation matrix
      * @return new vector with result of transforming vector {@code this} by matrix
      *         {@code operator}
-     * @throws IllegalArgumentException if width of the the given matrix is not equal
+     * @throws IllegalArgumentException if width of the the given matrix is not
+     *                                  equal
      *                                  to dimension of this vector-column
      *
      * @since 3.0.0
@@ -273,7 +277,8 @@ public interface Vector extends Cloneable {
      *
      * @param operator transformation matrix
      * @return vector {@code this} transformed by matrix {@code operator}
-     * @throws IllegalArgumentException if height of the the given matrix is not equal
+     * @throws IllegalArgumentException if height of the the given matrix is not
+     *                                  equal
      *                                  to the dimension of this vector-row
      *
      * @since 3.0.0

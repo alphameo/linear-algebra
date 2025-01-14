@@ -70,7 +70,7 @@ public interface FixedVectorOperatable<V> {
     V sub(final V subtrahend);
 
     /**
-     * Returns dot product (scalar product) of this and the given vectors.
+     * Returns the result of dot product (scalar product) of this and the given vectors.
      *
      * @param v vector for dot product
      * @return dot product of vector {@code this} and vector {@code v}

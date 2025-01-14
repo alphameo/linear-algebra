@@ -118,7 +118,8 @@ public final class VectorMath {
     }
 
     /**
-     * Normalize components of the given vector (divide each component by vector length)
+     * Normalize components of the given vector (divide each component by vector
+     * length)
      * and returns it.
      * 
      * @param v vector to be normalized
@@ -221,11 +222,11 @@ public final class VectorMath {
     }
 
     /**
-     * Returns dot product (scalar product) of the given vectors.
+     * Returns the result of dot product (scalar product) of the given vectors.
      *
      * @param v1 first vector for dot product
      * @param v2 second vector for dot product
-     * @return dot product of the given vectors
+     * @return dot product of vector {@code v1} and vector {@code v2}
      * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
@@ -241,11 +242,12 @@ public final class VectorMath {
     }
 
     /**
-     * Returns result of cross product (vector product) of the given vectors.
+     * Returns the result of cross product (vector product) of the given vectors.
      *
      * @param v1 first vector for cross product
      * @param v2 second vector for cross product
-     * @return new vector, which represents cross product of the given vectors
+     * @return new vector, which represents cross product of vector {@code v1} and
+     *         vector {@code v2}
      * @throws IllegalArgumentException if vectors' sizes are not equal 3
      *
      * @since 1.0.0
