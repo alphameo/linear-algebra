@@ -64,74 +64,127 @@ public interface Vector3
      */
     void setZ(float value);
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     Vector3 clone();
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default float len2() {
         return Vector3Math.len2(this);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default float len() {
         return Vector3Math.len(this);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector3 mulAsgn(float multiplier) {
         return Vector3Math.mulAsgn(this, multiplier);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector3 mul(float multiplier) {
         return Vector3Math.mul(this, multiplier);
     }
 
+    /**
+     * @throws ArithmeticException if length of the given vector is approximately
+     *
+     * @since 1.0.0
+     */
     @Override
     default Vector3 divAsgn(float divisor) throws ArithmeticException {
         return Vector3Math.divAsgn(this, divisor);
     }
 
+    /**
+     * @throws ArithmeticException if length of the given vector is approximately
+     *
+     * @since 1.0.0
+     */
     @Override
     default Vector3 div(float divisor) throws ArithmeticException {
         return Vector3Math.div(this, divisor);
     }
 
+    /**
+     * @throws ArithmeticException if length of the given vector is approximately
+     *
+     * @since 1.0.0
+     */
     @Override
     default Vector3 normalize() throws ArithmeticException {
         return Vector3Math.normalize(this);
     }
 
+    /**
+     * @throws ArithmeticException if length of the given vector is approximately
+     *
+     * @since 1.0.0
+     */
     @Override
     default Vector3 normalized() throws ArithmeticException {
         return Vector3Math.normalized(this);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector3 addAsgn(final Vector3 addendum) {
         return Vector3Math.addAsgn(this, addendum);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector3 add(final Vector3 addendum) {
         return Vector3Math.add(this, addendum);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector3 subAsgn(final Vector3 subtrahend) {
         return Vector3Math.subAsgn(this, subtrahend);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector3 sub(final Vector3 subtrahend) {
         return Vector3Math.sub(this, subtrahend);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default float dot(final Vector3 v) {
         return Vector3Math.dot(this, v);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default boolean equalsEpsilon(final Vector3 other, final float eps) {
         return Vector3Math.equalsEpsilon(this, other, eps);
@@ -166,33 +219,47 @@ public interface Vector3
         return result;
     }
 
+    /**
+     * @since 3.0.0
+     */
     @Override
     default Vector3 transformCol(Matrix3 operator) {
         return Vector3Math.transformCol(this, operator);
     }
 
+    /**
+     * @since 3.0.0
+     */
     @Override
     default Vector3 transformRow(Matrix3 operator) {
         return Vector3Math.transformRow(this, operator);
     }
 
+    /**
+     * @since 3.0.0
+     */
     @Override
     default Vector3 transformedCol(Matrix3 operator) {
         return Vector3Math.transformedCol(this, operator);
     }
 
+    /**
+     * @since 3.0.0
+     */
     @Override
     default Vector3 transformedRow(Matrix3 operator) {
         return Vector3Math.transformedRow(this, operator);
     }
 
     /**
-     * Constructs 4-dimensional vector with components of the the given vector and 1 as last
+     * Constructs 4-dimensional vector with components of the the given vector and 1
+     * as last
      * component
      * <p>
      * (x, y, z, 1)
      *
-     * @return new 4-dimensional vector including components of the the given vector and 1
+     * @return new 4-dimensional vector including components of the the given vector
+     *         and 1
      *
      * @since 1.0.0
      */

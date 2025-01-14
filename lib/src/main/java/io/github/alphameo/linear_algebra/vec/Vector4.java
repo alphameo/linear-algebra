@@ -82,69 +82,119 @@ public interface Vector4
      */
     void setW(float value);
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     Vector4 clone();
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default float len2() {
         return Vector4Math.len2(this);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default float len() {
         return Vector4Math.len(this);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector4 mulAsgn(float multiplier) {
         return Vector4Math.mulAsgn(this, multiplier);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector4 mul(float multiplier) {
         return Vector4Math.mul(this, multiplier);
     }
 
+    /**
+     * @throws ArithmeticException if length of the given vector is approximately
+     *
+     * @since 1.0.0
+     */
     @Override
     default Vector4 divAsgn(float divisor) throws ArithmeticException {
         return Vector4Math.divAsgn(this, divisor);
     }
 
+    /**
+     * @throws ArithmeticException if length of the given vector is approximately
+     *
+     * @since 1.0.0
+     */
     @Override
     default Vector4 div(float divisor) throws ArithmeticException {
         return Vector4Math.div(this, divisor);
     }
 
+    /**
+     * @throws ArithmeticException if length of the given vector is approximately
+     *
+     * @since 1.0.0
+     */
     @Override
     default Vector4 normalize() throws ArithmeticException {
         return Vector4Math.normalize(this);
     }
 
+    /**
+     * @throws ArithmeticException if length of the given vector is approximately
+     *
+     * @since 1.0.0
+     */
     @Override
     default Vector4 normalized() throws ArithmeticException {
         return Vector4Math.normalized(this);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector4 addAsgn(final Vector4 addendum) {
         return Vector4Math.addAsgn(this, addendum);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector4 add(final Vector4 addendum) {
         return Vector4Math.add(this, addendum);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector4 subAsgn(final Vector4 subtrahend) {
         return Vector4Math.subAsgn(this, subtrahend);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector4 sub(final Vector4 subtrahend) {
         return Vector4Math.sub(this, subtrahend);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default float dot(final Vector4 v) {
         return Vector4Math.dot(this, v);
@@ -161,26 +211,41 @@ public interface Vector4
                 String.format("Cross product denied: vectors must be 3-dimensional"));
     }
 
+    /**
+     * @since 3.0.0
+     */
     @Override
     default Vector4 transformCol(Matrix4 operator) {
         return Vector4Math.transformCol(this, operator);
     }
 
+    /**
+     * @since 3.0.0
+     */
     @Override
     default Vector4 transformRow(Matrix4 operator) {
         return Vector4Math.transformRow(this, operator);
     }
 
+    /**
+     * @since 3.0.0
+     */
     @Override
     default Vector4 transformedCol(Matrix4 operator) {
         return Vector4Math.transformedCol(this, operator);
     }
 
+    /**
+     * @since 3.0.0
+     */
     @Override
     default Vector4 transformedRow(Matrix4 operator) {
         return Vector4Math.transformedRow(this, operator);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default boolean equalsEpsilon(final Vector4 other, final float eps) {
         return Vector4Math.equalsEpsilon(this, other, eps);

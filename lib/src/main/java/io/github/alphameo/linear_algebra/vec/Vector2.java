@@ -43,69 +43,119 @@ public interface Vector2 extends Vector, FixedVectorOperatable<Vector2> {
      */
     void setY(float value);
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     Vector2 clone();
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default float len2() {
         return Vector2Math.len2(this);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default float len() {
         return Vector2Math.len(this);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector2 mulAsgn(float multiplier) {
         return Vector2Math.mulAsgn(this, multiplier);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector2 mul(float multiplier) {
         return Vector2Math.mul(this, multiplier);
     }
 
+    /**
+     * @throws ArithmeticException if length of the given vector is approximately
+     *
+     * @since 1.0.0
+     */
     @Override
     default Vector2 divAsgn(float divisor) throws ArithmeticException {
         return Vector2Math.divAsgn(this, divisor);
     }
 
+    /**
+     * @throws ArithmeticException if length of the given vector is approximately
+     *
+     * @since 1.0.0
+     */
     @Override
     default Vector2 div(float divisor) throws ArithmeticException {
         return Vector2Math.div(this, divisor);
     }
 
+    /**
+     * @throws ArithmeticException if length of the given vector is approximately
+     *
+     * @since 1.0.0
+     */
     @Override
     default Vector2 normalize() throws ArithmeticException {
         return Vector2Math.normalize(this);
     }
 
+    /**
+     * @throws ArithmeticException if length of the given vector is approximately
+     *
+     * @since 1.0.0
+     */
     @Override
     default Vector2 normalized() throws ArithmeticException {
         return Vector2Math.normalized(this);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector2 addAsgn(final Vector2 addendum) {
         return Vector2Math.addAsgn(this, addendum);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector2 add(final Vector2 addendum) {
         return Vector2Math.add(this, addendum);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector2 subAsgn(final Vector2 subtrahend) {
         return Vector2Math.subAsgn(this, subtrahend);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Vector2 sub(final Vector2 subtrahend) {
         return Vector2Math.sub(this, subtrahend);
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default float dot(final Vector2 v) {
         return Vector2Math.dot(this, v);
@@ -122,6 +172,9 @@ public interface Vector2 extends Vector, FixedVectorOperatable<Vector2> {
                 String.format("Cross product denied: vectors must be 3-dimensional"));
     }
 
+    /**
+     * @since 1.0.0
+     */
     @Override
     default boolean equalsEpsilon(final Vector2 v, final float eps) {
         return Vector2Math.equalsEpsilon(this, v, eps);
