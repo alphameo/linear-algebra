@@ -267,24 +267,19 @@ public final class VectorMath {
     }
 
     /**
-     * Transforms the given vector-column by the given transformation operator
-     * matrix and returns it.
+     * Returns the result of product of the given vector-row and the given matrix.
      *
-     * @param vCol     vector-column to be transformed
-     * @param operator transformation matrix
-     * @return vector {@code vCol} transformed by matrix {@code operator}
-     * @throws IllegalArgumentException if width of the given matrix is not equal
-     *                                  to dimension of the given vector-column
+     * @param vRow vector-row for product
+     * @param m    matrix for product
+     * @return new vector, which represents product of {@code vCol} and matrix
+     *         {@code m}
+     * @throws IllegalArgumentException if height of the given matrix is not equal
+     *                                  to the dimension of the given vector-row
      *
      * @since 3.0.0
      */
-    public static Vector transformCol(final Vector vCol, final Matrix operator) throws IllegalArgumentException {
-        Vector v = MatrixMath.prodCol(operator, vCol);
-        for (int i = 0; i < vCol.size(); i++) {
-            vCol.set(i, v.get(i));
-        }
-
-        return vCol;
+    public static Vector prod(final Vector vRow, final Matrix m) throws IllegalArgumentException {
+        return MatrixMath.prodRow(m, vRow);
     }
 
     /**
@@ -302,27 +297,6 @@ public final class VectorMath {
      */
     public static Vector transformedCol(final Vector vCol, final Matrix operator) throws IllegalArgumentException {
         return MatrixMath.prodCol(operator, vCol);
-    }
-
-    /**
-     * Transforms the given vector-row by the given transformation operator
-     * matrix and returns it.
-     *
-     * @param vRow     vector-row to be transformed
-     * @param operator transformation matrix
-     * @return vector {@code vRow} transformed by matrix {@code operator}
-     * @throws IllegalArgumentException if height of the given matrix is not equal
-     *                                  to the dimension of the given vector-row
-     *
-     * @since 3.0.0
-     */
-    public static Vector transformRow(final Vector vRow, final Matrix operator) throws IllegalArgumentException {
-        Vector v = MatrixMath.prodRow(operator, vRow);
-        for (int i = 0; i < vRow.size(); i++) {
-            vRow.set(i, v.get(i));
-        }
-
-        return vRow;
     }
 
     /**

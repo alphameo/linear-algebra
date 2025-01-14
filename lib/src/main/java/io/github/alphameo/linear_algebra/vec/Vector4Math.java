@@ -234,14 +234,30 @@ public final class Vector4Math {
     }
 
     /**
+     * Returns the result of product of the given vector-row and the given matrix.
+     *
+     * @param vRow vector-row for product
+     * @param m    matrix for product
+     * @return new vector, which represents product of {@code vCol} and matrix
+     *         {@code m}
+     * @throws IllegalArgumentException if height of the given matrix is not equal
+     *                                  to the dimension of the given vector-row
+     *
+     * @since 3.0.0
+     */
+    public static Vector4 prod(final Vector4 vRow, final Matrix4 m) throws IllegalArgumentException {
+        return Matrix4Math.prodRow(m, vRow);
+    }
+
+    /**
      * Transforms the given vector-column by the given transformation operator
      * matrix and returns it.
      *
      * @param vCol     vector-column to be transformed
      * @param operator transformation matrix
      * @return vector {@code vCol} transformed by matrix {@code operator}
-     * @throws IllegalArgumentException if width of the given matrix is not equal
-     *                                  to dimension of the given vector-column
+     * @throws IllegalArgumentException if height of the given matrix is not equal
+     *                                  to the dimension of the given vector-row
      *
      * @since 3.0.0
      */

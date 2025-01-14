@@ -204,11 +204,21 @@ public interface Vector4
      * This operation is not supported due to wrong dimension of current vector
      *
      * @throws UnsupportedOperationException ALWAYS
+     *
+     * @since 1.0.0
      */
     @Override
     default Vector cross(Vector v) {
         throw new UnsupportedOperationException(
                 String.format("Cross product denied: vectors must be 3-dimensional"));
+    }
+
+    /**
+     * @since 3.0.0
+     */
+    @Override
+    default Vector4 prod(Matrix4 m) {
+        return Vector4Math.prod(this, m);
     }
 
     /**

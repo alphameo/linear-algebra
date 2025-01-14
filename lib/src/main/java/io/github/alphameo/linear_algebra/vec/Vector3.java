@@ -223,6 +223,14 @@ public interface Vector3
      * @since 3.0.0
      */
     @Override
+    default Vector3 prod(Matrix3 m) {
+        return Vector3Math.prod(this, m);
+    }
+
+    /**
+     * @since 3.0.0
+     */
+    @Override
     default Vector3 transformCol(Matrix3 operator) {
         return Vector3Math.transformCol(this, operator);
     }

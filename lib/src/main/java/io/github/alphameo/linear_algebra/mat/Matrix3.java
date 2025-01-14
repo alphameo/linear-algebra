@@ -218,6 +218,21 @@ public interface Matrix3 extends Matrix, FixedMatrixOperatable<Matrix3, Vector3,
     }
 
     /**
+     * Returns the result of the product of this matrix and the given vector-column.
+     *
+     * @param vCol vector-column (right)
+     * @return new vector with result of product of matrix {@code this} and vector
+     *         {@code vCol}
+     * @throws IllegalArgumentException if width of the given matrix is not equal
+     *                                  to dimension of the given vector-column
+     *
+     * @since 3.0.0
+     */
+    default Vector3 prod(final Vector3 vCol) {
+        return Matrix3Math.prod(this, vCol);
+    }
+
+    /**
      * @since 3.0.0
      */
     @Override

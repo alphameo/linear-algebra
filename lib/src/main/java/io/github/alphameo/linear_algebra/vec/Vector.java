@@ -239,19 +239,39 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Transforms this vector-column by the the given transformation operator
-     * matrix and returns it.
+     * Returns the result of product of this vector-row and the given matrix.
      *
-     * @param operator transformation matrix
-     * @return vector {@code this} transformed by matrix {@code operator}
-     * @throws IllegalArgumentException if width of the the given matrix is not
-     *                                  equal
-     *                                  to dimension of this vector-column
+     * @param m matrix for product
+     * @return new vector, which represents product of {@code this} and matrix
+     *         {@code m}
+     * @throws IllegalArgumentException if height of the given matrix is not equal
+     *                                  to the dimension of the given vector-row
      *
      * @since 3.0.0
      */
-    default Vector transformCol(final Matrix operator) throws IllegalArgumentException {
-        return VectorMath.transformCol(this, operator);
+    public static Vector prod(final Matrix m, final Vector v) {
+        if (m.width() != v.size()) {
+            throw new IllegalArgumentException(
+                    String.format("Matrix and vector product denied: matrix with size %dx%d and vector with size",
+                            m.height(),
+                            m.width(), v.size()));
+        }
+
+        final Vector result = new Vec(m.height());
+        for (int i = 0; i < m.height(); i++) {
+            float value = 0;
+            for (int elem = 0; elem < v.size(); elem++) {
+                value += m.get(i, elem) * v.get(elem);
+            }
+
+            result.set(i, value);
+        }
+
+        return result;
+    }
+
+    default Vector prod(Matrix m) {
+        return VectorMath.prod(this, m);
     }
 
     /**
@@ -269,22 +289,6 @@ public interface Vector extends Cloneable {
      */
     default Vector transformedCol(final Matrix operator) throws IllegalArgumentException {
         return VectorMath.transformedCol(this, operator);
-    }
-
-    /**
-     * Transforms this vector-row by the the given transformation operator
-     * matrix and returns it.
-     *
-     * @param operator transformation matrix
-     * @return vector {@code this} transformed by matrix {@code operator}
-     * @throws IllegalArgumentException if height of the the given matrix is not
-     *                                  equal
-     *                                  to the dimension of this vector-row
-     *
-     * @since 3.0.0
-     */
-    default Vector transformRow(final Matrix operator) throws IllegalArgumentException {
-        return VectorMath.transformRow(this, operator);
     }
 
     /**

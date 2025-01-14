@@ -14,13 +14,22 @@ package io.github.alphameo.linear_algebra.vec;
 public interface FixedVectorTransformable<V, M> {
 
     /**
+     * Returns the result of product of this vector-row and the given matrix.
+     *
+     * @param m matrix for product
+     * @return new vector, which represents product of {@code this} and matrix
+     *         {@code m}
+     *
+     * @since 3.0.0
+     */
+    V prod(M m);
+
+    /**
      * Transforms this vector-column by the the given transformation operator
      * matrix and returns it.
      *
      * @param operator transformation matrix
      * @return vector {@code this} transformed by matrix {@code operator}
-     * @throws IllegalArgumentException if width of the the given matrix is not equal
-     *                                  to dimension of this vector-column
      *
      * @since 3.0.0
      */
@@ -33,8 +42,6 @@ public interface FixedVectorTransformable<V, M> {
      * @param operator transformation matrix
      * @return new vector with result of transforming vector {@code this} by matrix
      *         {@code operator}
-     * @throws IllegalArgumentException if width of the the given matrix is not equal
-     *                                  to dimension of this vector-column
      *
      * @since 3.0.0
      */
@@ -46,8 +53,6 @@ public interface FixedVectorTransformable<V, M> {
      *
      * @param operator transformation matrix
      * @return vector {@code this} transformed by matrix {@code operator}
-     * @throws IllegalArgumentException if height of the given matrix is not equal
-     *                                  to the dimension of this vector-row
      *
      * @since 3.0.0
      */
@@ -60,8 +65,6 @@ public interface FixedVectorTransformable<V, M> {
      * @param operator transformation matrix
      * @return new vector with result of transforming vector {@code this} by matrix
      *         {@code operator}
-     * @throws IllegalArgumentException if height of the given matrix is not equal
-     *                                  to dimension of this vector-row
      *
      * @since 3.0.0
      */

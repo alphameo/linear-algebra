@@ -317,6 +317,23 @@ public final class MatrixMath {
     }
 
     /**
+     * Returns the result of product of the given matrix and the given
+     * vector-column.
+     *
+     * @param m    matrix for product
+     * @param vCol vector-column for product
+     * @return new vector, which represents product of matrix {@code m} and
+     *         vector-column {@code vCol}
+     * @throws IllegalArgumentException if width of the given matrix is not equal
+     *                                  to dimension of the given vector-column
+     *
+     * @since 1.0.0
+     */
+    public static Vector prod(final Matrix m, final Vector vCol) throws IllegalArgumentException {
+        return MatrixMath.prodCol(m, vCol);
+    }
+
+    /**
      * Returns the result of the product of the given matrix and the given
      * vector-column.
      *
@@ -338,10 +355,10 @@ public final class MatrixMath {
         }
 
         final Vector result = new Vec(m.height());
-        for (int i = 0; i < m.width(); i++) {
+        for (int i = 0; i < m.height(); i++) {
             float value = 0;
             for (int elem = 0; elem < vCol.size(); elem++) {
-                value += m.get(elem, i) * vCol.get(elem);
+                value += m.get(i, elem) * vCol.get(elem);
             }
 
             result.set(i, value);
@@ -370,11 +387,11 @@ public final class MatrixMath {
                             m.height(), m.width(), vRow.size()));
         }
 
-        final Vector result = new Vec(m.height());
-        for (int i = 0; i < m.height(); i++) {
+        final Vector result = new Vec(m.width());
+        for (int i = 0; i < m.width(); i++) {
             float value = 0;
             for (int elem = 0; elem < vRow.size(); elem++) {
-                value += m.get(i, elem) * vRow.get(elem);
+                value += m.get(elem, i) * vRow.get(elem);
             }
 
             result.set(i, value);

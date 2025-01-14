@@ -305,6 +305,21 @@ public final class Matrix3Math {
     }
 
     /**
+     * Returns the result of product of the given matrix and the given
+     * vector-column.
+     *
+     * @param m    matrix for product
+     * @param vCol vector-column for product
+     * @return new vector, which represents product of matrix {@code m} and
+     *         vector-column {@code vCol}
+     *
+     * @since 1.0.0
+     */
+    public static Vector3 prod(final Matrix3 m, final Vector3 vCol) {
+        return Matrix3Math.prodCol(m, vCol);
+    }
+
+    /**
      * Returns the result of the product of the given vector-column and the given
      * matrix.
      *

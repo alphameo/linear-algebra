@@ -242,6 +242,22 @@ public final class Vector3Math {
     }
 
     /**
+     * Returns the result of product of the given vector-row and the given matrix.
+     *
+     * @param vRow vector-row for product
+     * @param m    matrix for product
+     * @return new vector, which represents product of {@code vCol} and matrix
+     *         {@code m}
+     * @throws IllegalArgumentException if height of the given matrix is not equal
+     *                                  to the dimension of the given vector-row
+     *
+     * @since 3.0.0
+     */
+    public static Vector3 prod(final Vector3 vRow, final Matrix3 m) throws IllegalArgumentException {
+        return Matrix3Math.prodRow(m, vRow);
+    }
+
+    /**
      * Transforms the given vector-column by the given transformation operator
      * matrix and returns it.
      *
