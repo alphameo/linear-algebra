@@ -192,7 +192,7 @@ public interface Vector3
      * <p>
      * (x, y, z, 1)
      *
-     * @return new vector of size 4 including components of the the given vector and 1
+     * @return new 4-dimensional vector including components of the the given vector and 1
      *
      * @since 1.0.0
      */

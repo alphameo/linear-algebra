@@ -34,7 +34,7 @@ public class Vec3 implements Vector3 {
     private final float[] entries;
 
     /**
-     * Constructs new vector of size 3 with all 0.
+     * Constructs new 3-dimensional vector with all 0.
      *
      * @since 1.0.0
      */
@@ -43,7 +43,7 @@ public class Vec3 implements Vector3 {
     }
 
     /**
-     * Constructs new vector of size 3 using values {@code x}, {@code y} and
+     * Constructs new 3-dimensional vector using values {@code x}, {@code y} and
      * {@code z}.
      * 
      * @param x first component of vector
@@ -60,9 +60,10 @@ public class Vec3 implements Vector3 {
     }
 
     /**
-     * Copies the given vector of size 3 values into new vector of size 3.
+     * Copies values of the given 3-dimensional vector into the new 3-dimensional
+     * vector.
      * 
-     * @param v vector of size 3 for copying
+     * @param v 3-dimensional vector for copying
      *
      * @since 1.0.0
      */

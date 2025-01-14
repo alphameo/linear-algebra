@@ -12,7 +12,7 @@ public class Vec2 implements Vector2 {
     private final float[] entries;
 
     /**
-     * Constructs new vector of size 2 with all 0.
+     * Constructs new 2-dimensional vector with all 0.
      *
      * @since 1.0.0
      */
@@ -21,7 +21,7 @@ public class Vec2 implements Vector2 {
     }
 
     /**
-     * Constructs new vector of size 2 using values {@code x} and {@code y}.
+     * Constructs new 2-dimensional vector using values {@code x} and {@code y}.
      * 
      * @param x first component of vector
      * @param y second component of vector
@@ -35,9 +35,10 @@ public class Vec2 implements Vector2 {
     }
 
     /**
-     * Copies the given vector of size 2 values into new vector of size 2.
+     * Copies values of the given 2-dimensional vector into the new 2-dimensional
+     * vector.
      * 
-     * @param v vector of size 2 for copying
+     * @param v 2-dimensional vector for copying
      *
      * @since 1.0.0
      */

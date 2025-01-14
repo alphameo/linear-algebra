@@ -142,13 +142,13 @@ public interface Vector2 extends Vector, FixedVectorOperatable<Vector2> {
     }
 
     /**
-     * Constructs 3-dimensional vector with components of the the given vector and 1 as
-     * last
-     * component
+     * Constructs 3-dimensional vector with components of the the given vector and 1
+     * as last component
      * <p>
      * (x, y, 1)
      *
-     * @return new vector of size 3 including components of the the given vector and 1
+     * @return new 3-dimensional vector including components of the the given vector
+     *         and 1
      *
      * @since 1.0.0
      */

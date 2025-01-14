@@ -12,7 +12,7 @@ public class Vec4 implements Vector4 {
     private final float[] entries;
 
     /**
-     * Constructs new vector of size 4 with all 0.
+     * Constructs new 4-dimensional vector with all 0.
      *
      * @since 1.0.0
      */
@@ -21,8 +21,8 @@ public class Vec4 implements Vector4 {
     }
 
     /**
-     * Constructs new vector of size 3 using values {@code x}, {@code y}, {@code z}
-     * and {@code w}.
+     * Constructs new 4-dimensional vector using values
+     * {@code x}, {@code y}, {@code z} and {@code w}.
      * 
      * @param x first component of vector
      * @param y second component of vector
@@ -40,9 +40,10 @@ public class Vec4 implements Vector4 {
     }
 
     /**
-     * Copies the given vector of size 4 values into new vector of size 2.
+     * Copies values of the given 4-dimensional vector into the new 4-dimensional
+     * vector.
      * 
-     * @param v vector of size 4 for copying
+     * @param v 4-dimensional vector of for copying
      *
      * @since 1.0.0
      */
