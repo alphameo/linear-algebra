@@ -28,7 +28,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix transposeSquare(final Matrix m) {
+    public static Matrix transposeSquare(final Matrix m) throws IllegalArgumentException {
         if (!square(m)) {
             throw new IllegalArgumentException("Inapplicable method ::transposeSquare for non-square matrix");
         }
@@ -218,7 +218,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix addAsgn(final Matrix target, final Matrix addendum) {
+    public static Matrix addAsgn(final Matrix target, final Matrix addendum) throws IllegalArgumentException {
         Validator.validateMatrixSizes(target, addendum, "Addition denied");
         for (int r = 0; r < target.height(); r++) {
             for (int c = 0; c < addendum.width(); c++) {
@@ -241,7 +241,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix add(final Matrix target, final Matrix addendum) {
+    public static Matrix add(final Matrix target, final Matrix addendum) throws IllegalArgumentException {
         return addAsgn(target.clone(), addendum);
     }
 
@@ -256,7 +256,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix subAsgn(final Matrix target, final Matrix subtrahend) {
+    public static Matrix subAsgn(final Matrix target, final Matrix subtrahend) throws IllegalArgumentException {
         Validator.validateMatrixSizes(target, subtrahend, "Subtraction denied");
         for (int r = 0; r < target.height(); r++) {
             for (int c = 0; c < subtrahend.width(); c++) {
@@ -279,7 +279,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix sub(final Matrix target, final Matrix subtrahend) {
+    public static Matrix sub(final Matrix target, final Matrix subtrahend) throws IllegalArgumentException {
         return subAsgn(target.clone(), subtrahend);
     }
 
@@ -294,7 +294,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix prod(final Matrix m1, final Matrix m2) {
+    public static Matrix prod(final Matrix m1, final Matrix m2) throws IllegalArgumentException {
         if (m1.width() != m2.height()) {
             throw new IllegalArgumentException(
                     String.format("Matrix product denied: matrices with sizes %dx%d and %dx%d", m1.height(),
@@ -466,7 +466,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static float detCof(final Matrix m) {
+    public static float detCof(final Matrix m) throws UnsupportedOperationException {
         if (!square(m)) {
             throw new UnsupportedOperationException("Determinant does not exists: matrix is not square");
         }
@@ -498,7 +498,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static float det(final Matrix m) {
+    public static float det(final Matrix m) throws UnsupportedOperationException {
         if (!square(m)) {
             throw new UnsupportedOperationException("Determinant does not exists: matrix is not square");
         }
@@ -522,7 +522,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix inv(final Matrix m) {
+    public static Matrix inv(final Matrix m) throws UnsupportedOperationException, RuntimeException {
         if (!square(m)) {
             throw new UnsupportedOperationException("Invertible matrix does not exists: matrix is not square");
         }
@@ -555,7 +555,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix minorMatrix(final Matrix m, final int r, final int c) {
+    public static Matrix minorMatrix(final Matrix m, final int r, final int c) throws UnsupportedOperationException {
         if (!square(m)) {
             throw new UnsupportedOperationException("Minors do not exist: matrix is not square");
         }
@@ -594,7 +594,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static float cofactor(final Matrix m, final int r, final int c) {
+    public static float cofactor(final Matrix m, final int r, final int c) throws UnsupportedOperationException {
         if (!square(m)) {
             throw new UnsupportedOperationException("Can not find cofactor: matrix is not square");
         }
@@ -612,7 +612,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix cofactorMatrix(final Matrix m) {
+    public static Matrix cofactorMatrix(final Matrix m) throws UnsupportedOperationException {
         if (!square(m)) {
             throw new UnsupportedOperationException("Cofactor matrix does not exist: matrix is not square");
         }
@@ -703,7 +703,8 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static boolean equalsEpsilon(final Matrix m1, final Matrix m2, final float eps) {
+    public static boolean equalsEpsilon(final Matrix m1, final Matrix m2, final float eps)
+            throws IllegalArgumentException {
         Validator.validateMatrixSizes(m1, m2, "Equalization denied");
         for (int r = 0; r < m1.height(); r++) {
             for (int c = 0; c < m2.width(); c++) {
@@ -728,7 +729,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static boolean equals(final Matrix m1, final Matrix m2) {
+    public static boolean equals(final Matrix m1, final Matrix m2) throws IllegalArgumentException {
         return equalsEpsilon(m1, m2, Validator.EPS);
     }
 
@@ -771,7 +772,7 @@ public final class MatrixMath {
      *
      * @since 2.1.0
      */
-    public static Matrix fromVecRows(Vector... vs) {
+    public static Matrix fromVecRows(Vector... vs) throws IllegalArgumentException {
         Mat result = new Mat(vs.length, vs[0].size());
         for (int r = 0; r < vs.length; r++) {
             if (vs[r].size() != vs[0].size()) {
@@ -794,7 +795,7 @@ public final class MatrixMath {
      *
      * @since 2.1.0
      */
-    public static Matrix fromVecCols(Vector... vs) {
+    public static Matrix fromVecCols(Vector... vs) throws IllegalArgumentException {
         Mat result = new Mat(vs[0].size(), vs.length);
         for (int c = 0; c < vs.length; c++) {
             if (vs[c].size() != vs[0].size()) {
