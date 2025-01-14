@@ -8,7 +8,7 @@ import io.github.alphameo.linear_algebra.vec.Vec4;
 import io.github.alphameo.linear_algebra.vec.Vector4;
 
 /**
- * Class with static functions for matrices 4x4.
+ * Class with static functions for 4x4 matrices.
  *
  * @since 1.0.0
  */
@@ -61,7 +61,8 @@ public final class Matrix4Math {
      * Copies the given matrix 4x4 and transpose it.
      * 
      * @param m matrix 4x4 for transpose
-     * @return new matrix 4x4, which is result of transposing of the given matrix 4x4
+     * @return new matrix 4x4, which is result of transposing of the given matrix
+     *         4x4
      *
      * @since 1.0.0
      */
@@ -70,12 +71,12 @@ public final class Matrix4Math {
     }
 
     /**
-     * Safely swaps rows of matrix 4x4
+     * Swaps the rows of the given matrix and returns it.
      *
-     * @param m  matrix 4x4 for row swapping
+     * @param m  matrix for row swapping
      * @param r1 first row for swapping
      * @param r2 second row for swapping
-     * @return the given matrix 4x4 with swapped rows
+     * @return the given matrix with swapped rows
      *
      * @since 1.0.0
      */
@@ -91,29 +92,12 @@ public final class Matrix4Math {
     }
 
     /**
-     * Swaps rows of matrix 4x4
-     *
-     * @param m  matrix 4x4 for row swapping
-     * @param r1 first index of row for swapping
-     * @param r2 second index of row for swapping
-     * @return the given 4x4 matrix with swapped rows
-     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
-     *
-     * @since 1.0.0
-     */
-    public static Matrix4 swapRows(final Matrix4 m, final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
-        swapRows(m, ROWS[r1], ROWS[r2]);
-
-        return m;
-    }
-
-    /**
-     * Copies the given matrix 4x4 and safely swaps its rows.
+     * Returns the result of row swapping of the given matrix.
      * 
-     * @param m  matrix 4x4 for row swapping
+     * @param m  matrix for row swapping
      * @param r1 first row for swapping
      * @param r2 second row for swapping
-     * @return new matrix 4x4 with swapped rows of given matrix 4x4
+     * @return new matrix with elements of matrix {@code m} after swapping rows
      *
      * @since 1.0.0
      */
@@ -122,28 +106,12 @@ public final class Matrix4Math {
     }
 
     /**
-     * Copies given matrix 4x4 and swaps its rows.
-     * 
-     * @param m  matrix 4x4 for row swapping
-     * @param r1 first index of row for swapping
-     * @param r2 second index of row for swapping
-     * @return new matrix 4x4 with swapped rows of given matrix 4x4
-     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
+     * Swaps the columns of the given matrix and returns it.
      *
-     * @since 1.0.0
-     */
-    public static Matrix4 swappedRows(final Matrix4 m, final int r1, final int r2)
-            throws ArrayIndexOutOfBoundsException {
-        return swappedRows(m, ROWS[r1], ROWS[r2]);
-    }
-
-    /**
-     * Safely swaps columns of matrix 4x4
-     *
-     * @param m  matrix 4x4 for column swapping
+     * @param m  matrix for column swapping
      * @param c1 first column for swapping
      * @param c2 second column for swapping
-     * @return given matrix 4x4 with swapped columns
+     * @return matrix {@code m} with swapped columns
      *
      * @since 1.0.0
      */
@@ -159,27 +127,12 @@ public final class Matrix4Math {
     }
 
     /**
-     * Swaps columns of matrix 4x4
+     * Returns the result of column swapping of the given matrix.
      *
-     * @param m  matrix 4x4 for column swapping
-     * @param c1 first index of column for swapping
-     * @param c2 second index of column for swapping
-     * @return given matrix 4x4 with swapped columns
-     *
-     * @since 1.0.0
-     */
-    public static Matrix4 swapCols(final Matrix4 m, final int c1, final int c2) {
-        return swapCols(m, COLS[c1], COLS[c2]);
-    }
-
-    /**
-     * Copies given matrix 4x4 and safely swaps columns
-     *
-     * @param m  matrix 4x4 for column swapping
+     * @param m  matrix for column swapping
      * @param c1 first column for swapping
      * @param c2 second column for swapping
-     * @return new matrix 4x4 with swapped columns of given matrix 4x4
-     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
+     * @return new matrix with elements of matrix {@code m} after swapping columns
      *
      * @since 1.0.0
      */
@@ -189,31 +142,15 @@ public final class Matrix4Math {
     }
 
     /**
-     * Copies given matrix 4x4 and safely swaps columns
-     *
-     * @param m  matrix 4x4 for column swapping
-     * @param c1 first index of column for swapping
-     * @param c2 second index of column for swapping
-     * @return new matrix 4x4 with swapped columns of given matrix 4x4
-     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
-     *
-     * @since 1.0.0
-     */
-    public static Matrix4 swappedCols(final Matrix4 m, final int c1, final int c2)
-            throws ArrayIndexOutOfBoundsException {
-        return swappedCols(m, COLS[c1], COLS[c2]);
-    }
-
-    /**
-     * Multiplies matrix 4x4 elements by a scalar value.
+     * Multiplies elements of the given matrix by a scalar value and returns it.
      * 
-     * @param m          matrix 4x4 for multiplication
+     * @param m          matrix for multiplication
      * @param multiplier scalar value
-     * @return given matrix 4x4 with multiplied elements
+     * @return matrix {@code m} multiplied by {@code multiplier}
      *
      * @since 1.0.0
      */
-    public static Matrix4 mult(final Matrix4 m, final float multiplier) {
+    public static Matrix4 mulAsgn(final Matrix4 m, final float multiplier) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
                 m.set(r, c, m.get(r, c) * multiplier);
@@ -224,29 +161,31 @@ public final class Matrix4Math {
     }
 
     /**
-     * Copies given matrix 4x4 and multiplies its components by a scalar value.
+     * Returns the result of multiplying the elements of the given matrix by a
+     * scalar value.
      * 
      * @param m          matrix for multiplication
      * @param multiplier scalar value
-     * @return new matrix 4x4 with multiplied elements of given matrix
+     * @return new matrix with components of matrix {@code m} multiplied by
+     *         {@code multiplier}
      *
      * @since 1.0.0
      */
-    public static Matrix4 multiplied(final Matrix4 m, final float multiplier) {
-        return mult(m.clone(), multiplier);
+    public static Matrix4 mul(final Matrix4 m, final float multiplier) {
+        return mulAsgn(m.clone(), multiplier);
     }
 
     /**
-     * Divides matrix 4x4 elements by a scalar value.
+     * Divides elements of the given matrix by a scalar value and returns it.
      * 
-     * @param m       matrix 4x4 for division
+     * @param m       matrix for division
      * @param divisor scalar value
-     * @return given matrix 4x4 with divided elements
-     * @throws ArithmeticException if {@code divisor} approximately equals 0
+     * @return matrix {@code m} divided by {@code divisor}
+     * @throws ArithmeticException if {@code divisor} is approximately equal to 0
      *
      * @since 1.0.0
      */
-    public static Matrix4 divide(final Matrix4 m, final float divisor) throws ArithmeticException {
+    public static Matrix4 divAsgn(final Matrix4 m, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
@@ -258,30 +197,32 @@ public final class Matrix4Math {
     }
 
     /**
-     * Copies given matrix 4x4 and divides its components by a scalar value.
+     * Returns the result of dividing the components of the given vector by a scalar
+     * value.
      *
-     * @param m       matrix 4x4 for division
+     * @param m       matrix for division
      * @param divisor scalar value
-     * @return new matrix 4x4 with divided elements of given matrix
-     * @throws ArithmeticException if {@code divisor} approximately equals 0
+     * @return new matrix with elements of matrix {@code m} divided by
+     *         {@code divisor}
+     * @throws ArithmeticException if {@code divisor} is approximately equal to 0
      *
      * @since 1.0.0
      */
-    public static Matrix4 divided(final Matrix4 m, final float divisor) throws ArithmeticException {
-        return divide(m.clone(), divisor);
+    public static Matrix4 div(final Matrix4 m, final float divisor) throws ArithmeticException {
+        return divAsgn(m.clone(), divisor);
     }
 
     /**
-     * Adds the {@code addendum} matrix 4x4 elements to the {@code target} matrix
-     * 4x4 elements.
+     * Adds the components of the addendum matrix to the components of the target
+     * matrix and returns it.
      * 
-     * @param target   matrix 4x4 to be added
-     * @param addendum matrix 4x4 to add
-     * @return {@code target} matrix 4x4 increased by {@code addendum} matrix 4x4
+     * @param target   matrix to be added
+     * @param addendum matrix to add
+     * @return matrix {@code target} increased by matrix {@code addendum}
      *
      * @since 1.0.0
      */
-    public static Matrix4 addIncr(final Matrix4 target, final Matrix4 addendum) {
+    public static Matrix4 addAsgn(final Matrix4 target, final Matrix4 addendum) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
                 target.set(r, c, target.get(r, c) + addendum.get(r, c));
@@ -292,31 +233,31 @@ public final class Matrix4Math {
     }
 
     /**
-     * Copies {@code target} matrix 4x4 and adds the {@code addendum} matrix 4x4
-     * elements to its elements.
+     * Returns the result of adding the elements of the addendum matrix to the
+     * elements of the target matrix.
      * 
-     * @param target   matrix 4x4 to be added
-     * @param addendum matrix 4x4 to add
-     * @return new matrix 4x4 with sum of elements of {@code target} matrix 4x4 and
-     *         {@code addendum} matrix 4x4
+     * @param target   matrix to be added
+     * @param addendum matrix to add
+     * @return new matrix with the sum of matrix {@code target} and matrix
+     *         {@code addendum}
      *
      * @since 1.0.0
      */
     public static Matrix4 add(final Matrix4 target, final Matrix4 addendum) {
-        return addIncr(target.clone(), addendum);
+        return addAsgn(target.clone(), addendum);
     }
 
     /**
-     * Subtracts the {@code subtrahend} matrix 4x4 elements from the {@code target}
-     * matrix 4x4 elements.
+     * Subtracts elements of the subtrahend matrix from the elements of the
+     * target matrix and returns it.
      * 
-     * @param target     matrix 4x4 to be subtracted
-     * @param subtrahend matrix 4x4 to subtract
-     * @return {@code target} matrix 4x4 subtracted by {@code addendum} matrix 4x4
+     * @param target     matrix to be subtracted
+     * @param subtrahend matrix to subtract
+     * @return matrix {@code target} reduced by matrix {@code subtrahend}
      *
      * @since 1.0.0
      */
-    public static Matrix4 subIncr(final Matrix4 target, final Matrix4 subtrahend) {
+    public static Matrix4 subAsgn(final Matrix4 target, final Matrix4 subtrahend) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
                 target.set(r, c, target.get(r, c) - subtrahend.get(r, c));
@@ -327,26 +268,26 @@ public final class Matrix4Math {
     }
 
     /**
-     * Copies {@code target} matrix 4x4 and subtracts the {@code subtrahend} matrix
-     * 4x4 elements from its elements.
+     * Returns the result of adding the elements of the addendum matrix to the
+     * elements of the target matrix.
      * 
-     * @param target     matrix 4x4 to be subtracted
-     * @param subtrahend matrix 4x4 to subtract
-     * @return new matrix 4x4 with components resulting {@code target} matrix 4x4
-     *         subtracted by {@code subtrahend} matrix 4x4
+     * @param target   matrix to be added
+     * @param addendum matrix to add
+     * @return new matrix with the sum of matrix {@code target} and matrix
+     *         {@code addendum}
      *
      * @since 1.0.0
      */
-    public static Matrix4 subtracted(final Matrix4 target, final Matrix4 subtrahend) {
-        return subIncr(target.clone(), subtrahend);
+    public static Matrix4 sub(final Matrix4 target, final Matrix4 subtrahend) {
+        return subAsgn(target.clone(), subtrahend);
     }
 
     /**
-     * Calculates product of matrices 4x4.
+     * Returns the result of product of the given matrices.
      *
-     * @param m1 first (left) matrix 4x4
-     * @param m2 second (right) matrix 4x4
-     * @return matrix 4x4, which represents product of given matrices
+     * @param m1 left matrix for product
+     * @param m2 right matrix for product
+     * @return product of matrix {@code m1} and matrix {@code m2}
      *
      * @since 1.0.0
      */
@@ -366,13 +307,15 @@ public final class Matrix4Math {
     }
 
     /**
-     * Calculates product of matrix 4x4 and vector of size 4.
+     * Returns the result of the product of the given vector-column and the given
+     * matrix.
      *
-     * @param m    matrix 4x4 (left)
-     * @param vCol column vector of size 4 (right)
-     * @return vector of size 4, which represents product of given matrix and vector
+     * @param m    matrix (left)
+     * @param vCol vector-column (right)
+     * @return new vector with result of product of matrix {@code m} and vector
+     *         {@code vCol}
      *
-     * @since 1.0.0
+     * @since 3.0.0
      */
     public static Vector4 prodCol(final Matrix4 m, final Vector4 vCol) {
         final Vector4 result = new Vec4();
@@ -400,37 +343,16 @@ public final class Matrix4Math {
         return result;
     }
 
-    public static Vector4 prodColIncr(final Matrix4 m, final Vector4 vCol) {
-        float x, y, z, w;
-
-        x = m.get(R0, C0) * vCol.x()
-                + m.get(R0, C1) * vCol.y()
-                + m.get(R0, C2) * vCol.z()
-                + m.get(R0, C3) * vCol.w();
-
-        y = m.get(R1, C0) * vCol.x()
-                + m.get(R1, C1) * vCol.y()
-                + m.get(R1, C2) * vCol.z()
-                + m.get(R1, C3) * vCol.w();
-
-        z = m.get(R2, C0) * vCol.x()
-                + m.get(R2, C1) * vCol.y()
-                + m.get(R2, C2) * vCol.z()
-                + m.get(R2, C3) * vCol.w();
-
-        w = m.get(R3, C0) * vCol.x()
-                + m.get(R3, C1) * vCol.y()
-                + m.get(R3, C2) * vCol.z()
-                + m.get(R3, C3) * vCol.w();
-
-        vCol.setY(x);
-        vCol.setY(y);
-        vCol.setZ(z);
-        vCol.setW(w);
-
-        return vCol;
-    }
-
+    /**
+     * Returns the result of product of the given vector-row and the given matrix.
+     *
+     * @param m    matrix (right)
+     * @param vRow column vector (left)
+     * @return new vector with result of product of vector {@code vCol} and matrix
+     *         {@code m}
+     *
+     * @since 3.0.0
+     */
     public static Vector4 prodRow(final Matrix4 m, final Vector4 vRow) {
         final Vector4 result = new Vec4();
 
@@ -457,42 +379,11 @@ public final class Matrix4Math {
         return result;
     }
 
-    public static Vector4 prodRowIncr(final Matrix4 m, final Vector4 vRow) {
-        float x, y, z, w;
-
-        x = m.get(R0, C0) * vRow.x()
-                + m.get(R0, C1) * vRow.y()
-                + m.get(R0, C2) * vRow.z()
-                + m.get(R0, C3) * vRow.w();
-
-        y = m.get(R1, C0) * vRow.x()
-                + m.get(R1, C1) * vRow.y()
-                + m.get(R1, C2) * vRow.z()
-                + m.get(R1, C3) * vRow.w();
-
-        z = m.get(R2, C0) * vRow.x()
-                + m.get(R2, C1) * vRow.y()
-                + m.get(R2, C2) * vRow.z()
-                + m.get(R2, C3) * vRow.w();
-
-        w = m.get(R3, C0) * vRow.x()
-                + m.get(R3, C1) * vRow.y()
-                + m.get(R3, C2) * vRow.z()
-                + m.get(R3, C3) * vRow.w();
-
-        vRow.setY(x);
-        vRow.setY(y);
-        vRow.setZ(z);
-        vRow.setW(w);
-
-        return vRow;
-    }
-
     /**
-     * Triangulates given matrix 4x4.
+     * Triangulates given matrix and returns it.
      * 
-     * @param m matrix 4x4 to be triangulated
-     * @return given matrix 4x4, which is triangulated
+     * @param m matrix to be triangulated
+     * @return triangulated matrix {@code m}
      *
      * @since 1.0.0
      */
@@ -539,10 +430,10 @@ public final class Matrix4Math {
     }
 
     /**
-     * Copies given matrix 4x4 and triangulates it.
+     * Calculates matrix 3x3 determinant.
      * 
-     * @param m matrix 4x4 to be triangulated
-     * @return new matrix 4x4, which is result of triangulating of given matrix 4x4
+     * @param m matrix 3x3 for determinant calculation
+     * @return matrix 3x3 determinant
      *
      * @since 1.0.0
      */
@@ -551,10 +442,10 @@ public final class Matrix4Math {
     }
 
     /**
-     * Calculates matrix 4x4 determinant.
+     * Returns determinant of the given matrix.
      * 
-     * @param m matrix 4x4 for determinant calculation
-     * @return matrix 4x4 determinant
+     * @param m matrix for determinant calculation
+     * @return determinant of the matrix {@code m}
      *
      * @since 1.0.0
      */
@@ -567,10 +458,10 @@ public final class Matrix4Math {
     }
 
     /**
-     * Constructs invertible matrix 4x4 from given matrix 4x4.
+     * Returns invertible matrix of the given matrix.
      *
-     * @param m matrix 4x4 for invertible matrix 4x4 construction
-     * @return invertible matrix 4x4
+     * @param m matrix for invertible matrix construction
+     * @return new invertible matrix for matrix {@code m}
      * @throws RuntimeException if matrix determinant equals to 0
      *
      * @since 1.0.0
@@ -583,17 +474,19 @@ public final class Matrix4Math {
             throw new RuntimeException("Invertible matrix does not exist: determinant is 0");
         }
         transpose(result);
-        mult(result, 1 / determinant);
+        mulAsgn(result, 1 / determinant);
         return result;
     }
 
     /**
-     * Constructs minor matrix excluding given row and column from given.
+     * Returns minor matrix from the given matrix excluding given row and column
+     * from given matrix.
      * 
      * @param m matrix for minor matrix construction
      * @param r row to exclude
      * @param c column to exclude
-     * @return minor matrix excluding given row and column
+     * @return new minor matrix excluding row {@code r} and column {@code c}
+     *         from matrix {@code m}
      *
      * @since 1.0.0
      */
@@ -624,27 +517,14 @@ public final class Matrix4Math {
     }
 
     /**
-     * Constructs minor matrix excluding given row and column from given matrix 4x4.
-     * 
-     * @param m matrix 4x4 for minor matrix construction
-     * @param r row index to exclude
-     * @param c column index to exclude
-     * @return minor matrix excluding given row and column
-     *
-     * @since 1.0.0
-     */
-    public static Matrix3 minorMatrix(final Matrix4 m, final int r, final int c) {
-        return minorMatrix(m, ROWS[r], COLS[c]);
-    }
-
-    /**
-     * Calculates cofactor (algebraic complement) from given matrix 4x4 for position
-     * of given row and column.
+     * Returns cofactor (algebraic complement) from given matrix for position of
+     * given row and column.
      * 
      * @param m matrix for cofactor calculation
      * @param r row for cofactor calculation
      * @param c column for cofactor calculation
-     * @return cofactor value from given positions in given matrix 4x4
+     * @return cofactor value for row {@code r} and column {@code c} for given
+     *         positions in given matrix
      *
      * @since 1.0.0
      */
@@ -654,25 +534,11 @@ public final class Matrix4Math {
     }
 
     /**
-     * Calculates cofactor (algebraic complement) from given matrix 4x4 for position
-     * of given row and column.
+     * Returns matrix of cofactors (algebraic complements) for the given matrix.
      * 
-     * @param m matrix 4x4 for cofactor calculation
-     * @param r index of row for cofactor calculation
-     * @param c index of column for cofactor calculation
-     * @return cofactor value from given positions in given matrix 4x4
-     *
-     * @since 1.0.0
-     */
-    public static float cofactor(final Matrix4 m, final int r, final int c) {
-        return cofactor(m, ROWS[r], COLS[c]);
-    }
-
-    /**
-     * Constructs matrix 4x4 of cofactors (algebraic complements)
-     * 
-     * @param m matrix 4x4 for matrix of cofactors construction
-     * @return matrix 4x4 of cofactors
+     * @param m matrix for matrix of cofactors construction
+     * @return new matrix of cofactors for matrix {@code m}
+     * @throws UnsupportedOperationException if matrix is not square
      *
      * @since 1.0.0
      */
@@ -688,53 +554,16 @@ public final class Matrix4Math {
     }
 
     /**
-     * Returns {@code true} if elements of matrices 4x4 are equal within
-     * {@code epsilon} tolerance
+     * Returns {@code true} if elementd of the given matrix are approximately equal
+     * 0.
      * 
-     * @param m1  first matrix 4x4 for comparison
-     * @param m2  second matrix 4x4 for comparison
-     * @param eps tolerance
-     * @return {@code true} if all elements of matrices 4x4 are equal within
-     *         {@code epsilon} tolerance, and {@code false} otherwise
+     * @param m matrix for analysis
+     * @return {@code true} if elements of matrix {@code m} are approximately equal
+     *         0, and {@code false} otherwise
      *
      * @since 1.0.0
      */
-    public static boolean equalsEpsilon(final Matrix4 m1, final Matrix4 m2, final float eps) {
-        for (final Matrix4Row r : ROWS) {
-            for (final Matrix4Col c : COLS) {
-                if (!Validator.equalsEpsilon(m1.get(r, c), m2.get(r, c), eps)) {
-                    return false;
-                }
-            }
-        }
-
-        return true;
-    }
-
-    /**
-     * Returns {@code true} if elements of matrices 4x4 are approximately equal
-     * 
-     * @param m1 first matrix 4x4 for comparison
-     * @param m2 second matrix 4x4 for comparison
-     * @return {@code true} if all elements of matrices 4x4 are approximately equal,
-     *         and {@code false} otherwise
-     *
-     * @since 1.0.0
-     */
-    public static boolean equals(final Matrix4 m1, final Matrix4 m2) {
-        return equalsEpsilon(m1, m2, Validator.EPS);
-    }
-
-    /**
-     * Returns {@code true} if matrix 4x4 elements are approximately equal 0.
-     * 
-     * @param m matrix 4x4 for analysis
-     * @return {@code true} if matrix elements are approximately equal 0, and
-     *         {@code false} otherwise
-     *
-     * @since 1.0.0
-     */
-    public static boolean isZeroed(final Matrix4 m) {
+    public static boolean zeroed(final Matrix4 m) {
         for (final Matrix4Row r : ROWS) {
             for (final Matrix4Col c : COLS) {
                 if (m.get(r, c) != 0) {
@@ -747,10 +576,11 @@ public final class Matrix4Math {
     }
 
     /**
-     * Returns {@code true} if matrix 4x4 is diagonal.
+     * Returns {@code true} if the given matrix is diagonal.
      * 
      * @param m matrix for analysis
-     * @return {@code true} if matrix is square diagonal, and {@code false}
+     * @return {@code true} if matrix {@code m} is square diagonal, and
+     *         {@code false}
      *         otherwise
      *
      * @since 1.0.0
@@ -771,9 +601,48 @@ public final class Matrix4Math {
     }
 
     /**
-     * Constructs matrix 4x4 of with all 0 elements.
+     * Returns {@code true} if elements of matrices are equal within
+     * {@code epsilon} tolerance.
      * 
-     * @return matrix 4x4 with all 0 elements
+     * @param m1  first matrix for comparison
+     * @param m2  second matrix for comparison
+     * @param eps tolerance
+     * @return {@code true} if all elements of matrices are equal within
+     *         {@code epsilon} tolerance, and {@code false} otherwise
+     *
+     * @since 1.0.0
+     */
+    public static boolean equalsEpsilon(final Matrix4 m1, final Matrix4 m2, final float eps) {
+        for (final Matrix4Row r : ROWS) {
+            for (final Matrix4Col c : COLS) {
+                if (!Validator.equalsEpsilon(m1.get(r, c), m2.get(r, c), eps)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Returns {@code true} if the elements of the given matrices are approximately
+     * equal.
+     * 
+     * @param m1 first matrix for comparison
+     * @param m2 second matrix for comparison
+     * @return {@code true} if all elements of matrices are approximately equal, and
+     *         {@code false} otherwise
+     *
+     * @since 1.0.0
+     */
+    public static boolean equals(final Matrix4 m1, final Matrix4 m2) {
+        return equalsEpsilon(m1, m2, Validator.EPS);
+    }
+
+    /**
+     * Constructs {@code height}x{@code width}vector with all 0 components.
+     * 
+     * @return new matrix 3x3 with all 0 elements
      *
      * @since 1.0.0
      */
@@ -782,9 +651,9 @@ public final class Matrix4Math {
     }
 
     /**
-     * Constructs square matrix 4x4 with 1 on main diagonal.
+     * Constructs 4x4 matrix with all 1 on main iagonal.
      * 
-     * @return square matrix 4x4 with 1 on main diagonal
+     * @return new 4x4 matrix with 1 on main diagonal
      *
      * @since 1.0.0
      */
@@ -798,13 +667,18 @@ public final class Matrix4Math {
     }
 
     /**
-     * Constructs matrix 4x4 from given vector-rows of size 4.
+     * Constructs 4x4 matrix from the given 4-dimensional vector-rows.
      * 
-     * @param v1 of size 4 for matrix 4x4 construction taken as first row
-     * @param v2 of size 4 for matrix 4x4 construction taken as second row
-     * @param v3 of size 4 for matrix 4x4 construction taken as third row
-     * @param v4 of size 4 for matrix 4x4 construction taken as fourth row
-     * @return matrix 4x4 with values from vectors of size 4
+     * @param v1 4-dimensional vector for 4x4 matrix construction taken as first
+     *           row
+     * @param v2 4-dimensional vector for 4x4 matrix construction taken as second
+     *           row
+     * @param v3 4-dimensional vector for 4x4 matrix construction taken as third
+     *           row
+     * @param v4 4-dimensional vector for 4x4 matrix construction taken as fourth
+     *           row
+     * @return new 4x4 matrix with values from 4-dimensional vectors
+     *         {@code v1}, {@code v2}, {@code v3}, {@code v4} as rows
      *
      * @since 2.1.0
      */
@@ -835,13 +709,18 @@ public final class Matrix4Math {
     }
 
     /**
-     * Constructs matrix 4x4 from given vector-columns of size 4.
+     * Constructs 4x4 matrix from the given 4-dimensional vector-columns.
      * 
-     * @param v1 of size 4 for matrix 4x4 construction taken as first column
-     * @param v2 of size 4 for matrix 4x4 construction taken as second column
-     * @param v3 of size 4 for matrix 4x4 construction taken as third column
-     * @param v4 of size 4 for matrix 4x4 construction taken as fourth column
-     * @return matrix 4x4 with values from vectors of size 4
+     * @param v1 4-dimensional vector for 4x4 matrix construction taken as first
+     *           column
+     * @param v2 4-dimensional vector for 4x4 matrix construction taken as second
+     *           column
+     * @param v3 4-dimensional vector for 4x4 matrix construction taken as third
+     *           column
+     * @param v4 4-dimensional vector for 4x4 matrix construction taken as fourth
+     *           column
+     * @return new 4x4 matrix with values from 4-dimensional vectors
+     *         {@code v1}, {@code v2}, {@code v3}, {@code v4} as columns
      *
      * @since 2.1.0
      */

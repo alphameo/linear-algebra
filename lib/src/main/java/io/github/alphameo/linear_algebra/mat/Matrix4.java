@@ -55,7 +55,7 @@ public interface Matrix4 extends Matrix {
 
     @Override
     default float detViaCofactors() {
-        return MatrixMath.detThroughCofactors(this);
+        return MatrixMath.detCof(this);
     }
 
     @Override
@@ -70,7 +70,7 @@ public interface Matrix4 extends Matrix {
 
     @Override
     default boolean zeroed() {
-        return Matrix4Math.isZeroed(this);
+        return Matrix4Math.zeroed(this);
     }
 
     @Override
@@ -211,7 +211,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 mulIncr(final float multiplier) {
-        return Matrix4Math.mult(this, multiplier);
+        return Matrix4Math.mulAsgn(this, multiplier);
     }
 
     /**
@@ -223,7 +223,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 mul(final float multiplier) {
-        return Matrix4Math.multiplied(this, multiplier);
+        return Matrix4Math.mul(this, multiplier);
     }
 
     /**
@@ -236,7 +236,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 divIncr(final float divisor) throws ArithmeticException {
-        return Matrix4Math.divide(this, divisor);
+        return Matrix4Math.divAsgn(this, divisor);
     }
 
     /**
@@ -249,7 +249,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 div(final float divisor) throws ArithmeticException {
-        return Matrix4Math.divide(this, divisor);
+        return Matrix4Math.div(this, divisor);
     }
 
     /**
@@ -262,7 +262,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 addIncr(final Matrix4 addendum) {
-        return Matrix4Math.addIncr(this, addendum);
+        return Matrix4Math.addAsgn(this, addendum);
     }
 
     /**
@@ -289,7 +289,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 subIncr(final Matrix4 subtrahend) {
-        return Matrix4Math.subIncr(this, subtrahend);
+        return Matrix4Math.subAsgn(this, subtrahend);
     }
 
     /**
@@ -302,7 +302,7 @@ public interface Matrix4 extends Matrix {
      * @since 1.0.0
      */
     default Matrix4 sub(final Matrix4 subtrahend) {
-        return Matrix4Math.subtracted(this, subtrahend);
+        return Matrix4Math.sub(this, subtrahend);
     }
 
     /**

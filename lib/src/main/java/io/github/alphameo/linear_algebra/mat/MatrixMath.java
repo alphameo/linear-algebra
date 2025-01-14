@@ -49,7 +49,7 @@ public final class MatrixMath {
      * Returns the result of the transpose operation of the given matrix.
      *
      * @param m matrix for transpose
-     * @return new matrix, which is result of transposing of the given square matrix
+     * @return new matrix with elements of transposed matrix {@code m}
      *
      * @since 1.0.0
      */
@@ -70,7 +70,7 @@ public final class MatrixMath {
      * @param m  matrix for row swapping
      * @param r1 first row index for swapping
      * @param r2 second row index for swapping
-     * @return the given matrix with swapped rows
+     * @return matrix {@code m} with swapped rows
      *
      * @since 1.0.0
      */
@@ -92,7 +92,7 @@ public final class MatrixMath {
      * @param m  matrix for row swapping
      * @param r1 first row index for swapping
      * @param r2 second row index for swapping
-     * @return new matrix with swapped rows of the given matrix
+     * @return new matrix with elements of matrix {@code m} after swapping rows
      *
      * @since 1.0.0
      */
@@ -106,7 +106,7 @@ public final class MatrixMath {
      * @param m  matrix for column swapping
      * @param c1 first column index for swapping
      * @param c2 second column index for swapping
-     * @return the given matrix with swapped columns
+     * @return matrix {@code m} with swapped columns
      *
      * @since 1.0.0
      */
@@ -128,7 +128,7 @@ public final class MatrixMath {
      * @param m  matrix for column swapping
      * @param c1 first column index for swapping
      * @param c2 second column index for swapping
-     * @return new matrix with swapped columns of given matrix
+     * @return new matrix with elements of matrix {@code m} after swapping columns
      *
      * @since 1.0.0
      */
@@ -180,7 +180,7 @@ public final class MatrixMath {
      *
      * @since 1.0.0
      */
-    public static Matrix divIncr(final Matrix m, final float divisor) throws ArithmeticException {
+    public static Matrix divAsgn(final Matrix m, final float divisor) throws ArithmeticException {
         Validator.validateDivisor(divisor);
         for (int r = 0; r < m.height(); r++) {
             for (int c = 0; c < m.width(); c++) {
@@ -204,7 +204,7 @@ public final class MatrixMath {
      * @since 1.0.0
      */
     public static Matrix div(final Matrix m, final float divisor) throws ArithmeticException {
-        return divIncr(m.clone(), divisor);
+        return divAsgn(m.clone(), divisor);
     }
 
     /**
@@ -736,9 +736,10 @@ public final class MatrixMath {
     /**
      * Constructs {@code height}x{@code width}vector with all 0 components.
      * 
+     * @throws ArithmeticException if {@code divisor} approximately equals 0
      * @param height height of matrix to be constructed
      * @param width  width of matrix to be constructed
-     * @return new matrix {@code height}-x-{@code width} with all 0 elements
+     * @return new {@code height}-x-{@code width} matrix with all 0 elements
      *
      * @since 1.0.0
      */
@@ -750,7 +751,7 @@ public final class MatrixMath {
      * Constructs {@code size}-x-{@code size} matrix with all 1 on main iagonal.
      * 
      * @param size height and width of matrix to be constructed
-     * @return new square matrix {@code size}x{@code size} with 1 on main diagonal
+     * @return new square {@code size}x{@code size} matrix with 1 on main diagonal
      *
      * @since 1.0.0
      */

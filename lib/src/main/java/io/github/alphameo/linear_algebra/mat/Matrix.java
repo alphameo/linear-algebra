@@ -77,7 +77,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default float detViaCofactors() {
-        return MatrixMath.detThroughCofactors(this);
+        return MatrixMath.detCof(this);
     }
 
     /**
@@ -215,7 +215,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix mulIncr(final float multiplier) {
-        return MatrixMath.mulIncr(this, multiplier);
+        return MatrixMath.mulAsgn(this, multiplier);
     }
 
     /**
@@ -240,7 +240,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix divIncr(final float divisor) throws ArithmeticException {
-        return MatrixMath.divIncr(this, divisor);
+        return MatrixMath.divAsgn(this, divisor);
     }
 
     /**
@@ -267,7 +267,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix addIncr(final Matrix addendum) {
-        return MatrixMath.addIncr(this, addendum);
+        return MatrixMath.addAsgn(this, addendum);
     }
 
     /**
@@ -296,7 +296,7 @@ public interface Matrix extends Cloneable {
      * @since 1.0.0
      */
     default Matrix subIncr(final Matrix subtrahend) {
-        return MatrixMath.subIncr(this, subtrahend);
+        return MatrixMath.subAsgn(this, subtrahend);
     }
 
     /**
