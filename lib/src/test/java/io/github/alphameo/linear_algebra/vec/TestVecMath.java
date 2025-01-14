@@ -1,11 +1,29 @@
 package io.github.alphameo.linear_algebra.vec;
 
-import static io.github.alphameo.linear_algebra.vec.VectorMath.*;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.add;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.addAsgn;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.cross;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.div;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.divAsgn;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.dot;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.len;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.len2;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.mul;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.mulAsgn;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.prod;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.sub;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.subAsgn;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.transformedCol;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.transformedRow;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.unitVector;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.zeroVector;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import io.github.alphameo.linear_algebra.Validator;
+import io.github.alphameo.linear_algebra.mat.Mat;
+import io.github.alphameo.linear_algebra.mat.Matrix;
 
 /**
  * TestVec
@@ -97,6 +115,51 @@ public class TestVecMath {
 
         // Assertions.assertTrue(res.equals(expected));
         Assertions.assertEquals(expected, cross(v1, v2));
+    }
+
+    @Test
+    public void testProdVec() {
+        Matrix m = new Mat(new float[][] {
+                { 3, 2, 1 },
+                { 6, 5, 4 },
+                { 9, 8, 7 },
+                { 1, 2, 3 }
+        });
+        Vector v = new Vec(1, 2, 4, 9);
+
+        Vector expected = new Vec(60, 62, 64);
+
+        Assertions.assertEquals(expected, prod(v, m));
+    }
+
+    @Test
+    public void testTransformCol() {
+        Matrix m = new Mat(new float[][] {
+                { 3, 2, 1 },
+                { 6, 5, 4 },
+                { 9, 8, 7 },
+                { 1, 2, 3 }
+        });
+        Vector v = new Vec(1, 2, 4);
+
+        Vector expected = new Vec(11, 32, 53, 17);
+
+        Assertions.assertEquals(expected, transformedCol(v, m));
+    }
+
+    @Test
+    public void testTransformRow() {
+        Matrix m = new Mat(new float[][] {
+                { 3, 2, 1 },
+                { 6, 5, 4 },
+                { 9, 8, 7 },
+                { 1, 2, 3 }
+        });
+        Vector v = new Vec(1, 2, 4, 9);
+
+        Vector expected = new Vec(60, 62, 64);
+
+        Assertions.assertEquals(expected, transformedRow(v, m));
     }
 
     @Test

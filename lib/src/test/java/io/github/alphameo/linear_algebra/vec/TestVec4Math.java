@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import io.github.alphameo.linear_algebra.Validator;
+import io.github.alphameo.linear_algebra.mat.Mat4;
+import io.github.alphameo.linear_algebra.mat.Matrix4;
 
 /**
  * TestVec
@@ -24,8 +26,8 @@ public class TestVec4Math {
         Vector4 v1 = new Vec4(-12, 3, 4, 8);
         Vector4 expected = new Vec4(-18, 4.5f, 6, 12);
 
-        Vector4 v = multiplied(v1, 1.5f);
-        mult(v1, 1.5f);
+        Vector4 v = mul(v1, 1.5f);
+        mulAsgn(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -37,8 +39,8 @@ public class TestVec4Math {
         Vector4 v1 = new Vec4(-18, 4.5f, 6, 12);
         Vector4 expected = new Vec4(-12, 3, 4, 8);
 
-        Vector4 v = divided(v1, 1.5f);
-        divide(v1, 1.5f);
+        Vector4 v = div(v1, 1.5f);
+        divAsgn(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -52,7 +54,7 @@ public class TestVec4Math {
         Vector4 expected = new Vec4(-11, 5, 7, 12);
 
         Vector4 v = add(v1, v2);
-        adaddAsgn1, v2);
+        addAsgn(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -65,7 +67,7 @@ public class TestVec4Math {
         Vector4 v2 = new Vec4(1, 2.03f, 3, 4);
         Vector4 expected = new Vec4(-13, 0.97f, 1, 4);
 
-        Vector4 v = subAsgn(v1, v2);
+        Vector4 v = sub(v1, v2);
         subAsgn(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
@@ -80,6 +82,51 @@ public class TestVec4Math {
 
         // Assertions.assertTrue(Validator.areEquals(dot(v1, v2), 38.09f));
         Assertions.assertEquals(38.09f, dot(v1, v2));
+    }
+
+    @Test
+    public void testProdVec() {
+        Matrix4 m = new Mat4(new float[][] {
+                { 3, 2, 1, 5 },
+                { 6, 5, 4, 7 },
+                { 9, 8, 7, 2 },
+                { 7, 5, 8, 2 }
+        });
+        Vector4 v = new Vec4(1, 2, 4, 1);
+
+        Vector4 expected = new Vec4(58, 49, 45, 29);
+
+        Assertions.assertEquals(expected, prod(v, m));
+    }
+
+    @Test
+    public void testTransformCol() {
+        Matrix4 m = new Mat4(new float[][] {
+                { 3, 2, 1, 5 },
+                { 6, 5, 4, 7 },
+                { 9, 8, 7, 2 },
+                { 7, 5, 8, 2 }
+        });
+        Vector4 v = new Vec4(1, 2, 4, 1);
+
+        Vector4 expected = new Vec4(16, 39, 55, 51);
+
+        Assertions.assertEquals(expected, transformedCol(v, m));
+    }
+
+    @Test
+    public void testTransformRow() {
+        Matrix4 m = new Mat4(new float[][] {
+                { 3, 2, 1, 5 },
+                { 6, 5, 4, 7 },
+                { 9, 8, 7, 2 },
+                { 7, 5, 8, 2 }
+        });
+        Vector4 v = new Vec4(1, 2, 4, 1);
+
+        Vector4 expected = new Vec4(58, 49, 45, 29);
+
+        Assertions.assertEquals(expected, transformedRow(v, m));
     }
 
     @Test

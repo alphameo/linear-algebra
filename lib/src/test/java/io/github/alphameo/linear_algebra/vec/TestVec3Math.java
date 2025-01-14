@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import io.github.alphameo.linear_algebra.Validator;
+import io.github.alphameo.linear_algebra.mat.Mat3;
+import io.github.alphameo.linear_algebra.mat.Matrix3;
 
 /**
  * TestVec
@@ -90,6 +92,48 @@ public class TestVec3Math {
 
         // Assertions.assertTrue(res.equals(expected));
         Assertions.assertEquals(expected, cross(v1, v2));
+    }
+
+    @Test
+    public void testProdVec() {
+        Matrix3 m = new Mat3(new float[][] {
+                { 3, 2, 1 },
+                { 6, 5, 4 },
+                { 9, 8, 7 }
+        });
+        Vector3 v = new Vec3(1, 2, 4);
+
+        Vector3 expected = new Vec3(51, 44, 37);
+
+        Assertions.assertEquals(expected, prod(v, m));
+    }
+
+    @Test
+    public void testTransformCol() {
+        Matrix3 m = new Mat3(new float[][] {
+                { 3, 2, 1 },
+                { 6, 5, 4 },
+                { 9, 8, 7 }
+        });
+        Vector3 v = new Vec3(1, 2, 4);
+
+        Vector3 expected = new Vec3(11, 32, 53);
+
+        Assertions.assertEquals(expected, transformedCol(v, m));
+    }
+
+    @Test
+    public void testTransformRow() {
+        Matrix3 m = new Mat3(new float[][] {
+                { 3, 2, 1 },
+                { 6, 5, 4 },
+                { 9, 8, 7 }
+        });
+        Vector3 v = new Vec3(1, 2, 4);
+
+        Vector3 expected = new Vec3(51, 44, 37);
+
+        Assertions.assertEquals(expected, transformedRow(v, m));
     }
 
     @Test
