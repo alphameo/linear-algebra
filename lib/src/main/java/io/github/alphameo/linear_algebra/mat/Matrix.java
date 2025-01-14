@@ -3,7 +3,7 @@ package io.github.alphameo.linear_algebra.mat;
 import io.github.alphameo.linear_algebra.vec.Vector;
 
 /**
- * Interface for matrix MxN.
+ * Interface for arbitrary matrix.
  *
  * @since 1.0.0
  */
@@ -25,7 +25,7 @@ public interface Matrix extends Cloneable {
      *
      * @param r     row index for putting value
      * @param c     column index for putting value
-     * @param value component value to be put
+     * @param value component value to be set
      *
      * @since 1.0.0
      */
@@ -50,99 +50,25 @@ public interface Matrix extends Cloneable {
     int height();
 
     /**
-     * Creates and returns a copy of current matrix.
+     * Creates and returns a copy of this matrix.
      * 
-     * @return copy of matrix
+     * @return copy of matrix {@code this}
      */
     Matrix clone();
 
     /**
-     * Calculates matrix determinant using triangular table (blazingly fast).
-     * 
-     * @return matrix determinant
-     * @throws UnsupportedOperationException if matrix is not square
+     * Transposes this matrix and returns it.
+     *
+     * @return transposed matrix {@code this}
      *
      * @since 1.0.0
      */
-    default float det() {
-        return MatrixMath.det(this);
-    }
+    Matrix transpose() throws IllegalArgumentException;
 
     /**
-     * Calculates matrix determinant using cofactors (not blazingly fast).
-     * 
-     * @return matrix determinant
-     * @throws UnsupportedOperationException if matrix is not square
+     * Returns the result of the transpose operation of this matrix.
      *
-     * @since 1.0.0
-     */
-    default float detViaCofactors() {
-        return MatrixMath.detCof(this);
-    }
-
-    /**
-     * Calculates cofactor (algebraic complement) from current matrix for position
-     * of the given row and column.
-     * 
-     * @param r index of row for cofactor calculation
-     * @param c index of column for cofactor calculation
-     * @return cofactor value from the given positions in current matrix
-     * @throws UnsupportedOperationException if matrix is not square
-     *
-     * @since 1.0.0
-     */
-    default float cofactor(final int r, final int c) {
-        return MatrixMath.cofactor(this, r, c);
-    }
-
-    /**
-     * Returns {@code true} if matrix is square.
-     * 
-     * @return {@code true} if matrix is square, and {@code false} otherwise
-     *
-     * @since 1.0.0
-     */
-    default boolean square() {
-        return MatrixMath.square(this);
-    }
-
-    /**
-     * Returns {@code true} if matrix elements are approximately equal 0.
-     * 
-     * @return {@code true} if matrix elements are approximately equal 0, and
-     *         {@code false} otherwise
-     *
-     * @since 1.0.0
-     */
-    default boolean zeroed() {
-        return MatrixMath.zeroed(this);
-    }
-
-    /**
-     * Returns {@code true} if matrix is diagonal.
-     * 
-     * @return {@code true} if matrix is square diagonal, and {@code false}
-     *         otherwise
-     *
-     * @since 1.0.0
-     */
-    default boolean diagonal() {
-        return MatrixMath.diagonal(this);
-    }
-
-    /**
-     * Transposes current matrix.
-     *
-     * @return current transposed matrix
-     *
-     * @since 1.0.0
-     */
-    Matrix transpose();
-
-    /**
-     * Constructs transposed matrix from current matrix.
-     *
-     * @return new matrix, which is result of transposing of current square matrix
+     * @return new matrix with elements of transposed matrix {@code this}
      *
      * @since 1.0.0
      */
@@ -151,12 +77,11 @@ public interface Matrix extends Cloneable {
     }
 
     /**
-     * Swaps rows of matrix
+     * Swaps the rows of this matrix with the given indices and returns it.
      *
-     * @param r1 first index of row for swapping
-     * @param r2 second index of row for swapping
-     * @return current matrix with swapped rows
-     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
+     * @param r1 first row index for swapping
+     * @param r2 second row index for swapping
+     * @return matrix {@code this} with swapped rows
      *
      * @since 1.0.0
      */
@@ -165,64 +90,66 @@ public interface Matrix extends Cloneable {
     }
 
     /**
-     * Copies current matrix and swaps its rows.
+     * Returns the result of row swapping of this matrix with the given
+     * indices.
      * 
-     * @param r1 first index of row for swapping
-     * @param r2 second index of row for swapping
-     * @return new matrix with swapped rows of current matrix
-     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
+     * @param r1 first row index for swapping
+     * @param r2 second row index for swapping
+     * @return new matrix with elements of matrix {@code this} after swapping rows
      *
      * @since 1.0.0
      */
-    default Matrix swappedRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
+    default Matrix swappedRows(final int r1, final int r2) {
         return MatrixMath.swappedRows(this, r1, r2);
     }
 
     /**
-     * Swaps columns of matrix.
+     * Swaps the columns of this matrix with the given indices and returns it.
      *
-     * @param c1 first index of column for swapping
-     * @param c2 second index of column for swapping
-     * @return current matrix with swapped columns
-     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
+     * @param c1 first column index for swapping
+     * @param c2 second column index for swapping
+     * @return matrix {@code this} with swapped columns
      *
      * @since 1.0.0
      */
-    default Matrix swapCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
+    default Matrix swapCols(final int c1, final int c2) {
         return MatrixMath.swapCols(this, c1, c2);
     }
 
     /**
-     * Copies current matrix and swaps its columns.
+     * Returns the result of column swapping of this matrix with the given
+     * indices.
      *
-     * @param c1 first index of column for swapping
-     * @param c2 second index of column for swapping
-     * @return new matrix with swapped columns of current matrix
-     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
+     * @param c1 first column index for swapping
+     * @param c2 second column index for swapping
+     * @return new matrix with elements of matrix {@code this} after swapping
+     *         columns
      *
      * @since 1.0.0
      */
-    default Matrix swappedCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
+    default Matrix swappedCols(final int c1, final int c2) {
         return MatrixMath.swappedCols(this, c1, c2);
     }
 
     /**
-     * Multiplies matrix elements by a scalar value.
+     * Multiplies elements of this matrix by a scalar value and returns it.
      * 
      * @param multiplier scalar value
-     * @return current matrix with multiplied elements
+     * @return matrix {@code this} multiplied by {@code multiplier}
      *
      * @since 1.0.0
      */
-    default Matrix mulIncr(final float multiplier) {
+    default Matrix mulAsgn(final float multiplier) {
         return MatrixMath.mulAsgn(this, multiplier);
     }
 
     /**
-     * Copies current matrix and multiplies its components by a scalar value.
+     * Returns the result of multiplying the elements of this matrix by a
+     * scalar value.
      * 
      * @param multiplier scalar value
-     * @return new matrix with multiplied elements of current matrix
+     * @return new matrix with components of matrix {@code this} multiplied by
+     *         {@code multiplier}
      *
      * @since 1.0.0
      */
@@ -231,24 +158,25 @@ public interface Matrix extends Cloneable {
     }
 
     /**
-     * Divides matrix elements by a scalar value.
+     * Divides elements of this matrix by a scalar value and returns it.
      * 
      * @param divisor scalar value
-     * @return current matrix with divided elements
-     * @throws ArithmeticException if {@code divisor} approximately equals 0
+     * @return matrix {@code this} divided by {@code divisor}
+     * @throws ArithmeticException if {@code divisor} is approximately equal to 0
      *
      * @since 1.0.0
      */
-    default Matrix divIncr(final float divisor) throws ArithmeticException {
+    default Matrix divAsgn(final float divisor) throws ArithmeticException {
         return MatrixMath.divAsgn(this, divisor);
     }
 
     /**
-     * Copies current matrix and divides its components by a scalar value.
+     * Returns the result of dividing the elements of this matrix by a scalar value.
      *
      * @param divisor scalar value
-     * @return new matrix with divided elements of current matrix
-     * @throws ArithmeticException if {@code divisor} approximately equals 0
+     * @return new matrix with elements of matrix {@code this} divided by
+     *         {@code divisor}
+     * @throws ArithmeticException if {@code divisor} is approximately equal to 0
      *
      * @since 1.0.0
      */
@@ -257,59 +185,60 @@ public interface Matrix extends Cloneable {
     }
 
     /**
-     * Adds the {@code addendum} matrix elements to the current matrix
-     * elements.
+     * Adds the components of the addendum matrix to the components of this
+     * matrix and returns it.
      * 
      * @param addendum matrix to add
-     * @return current matrix increased by {@code addendum} matrix
+     * @return matrix {@code this} increased by matrix {@code addendum}
      * @throws IllegalArgumentException if matrices have different sizes
      *
      * @since 1.0.0
      */
-    default Matrix addIncr(final Matrix addendum) {
+    default Matrix addAsgn(final Matrix addendum) throws IllegalArgumentException {
         return MatrixMath.addAsgn(this, addendum);
     }
 
     /**
-     * Copies current matrix and adds the {@code addendum} matrix elements to
-     * its elements.
+     * Returns the result of adding the elements of the addendum matrix to the
+     * elements of this matrix.
      * 
      * @param addendum matrix to add
-     * @return new matrix with sum of elements of current matrix and
-     *         {@code addendum} matrix
+     * @return new matrix with the sum of matrix {@code this} and matrix
+     *         {@code addendum}
      * @throws IllegalArgumentException if matrices have different sizes
      *
      * @since 1.0.0
      */
-    default Matrix add(final Matrix addendum) {
+    default Matrix add(final Matrix addendum) throws IllegalArgumentException {
         return MatrixMath.add(this, addendum);
     }
 
     /**
-     * Subtracts the {@code subtrahend} matrix elements from the current
-     * matrix elements.
+     * Subtracts elements of the subtrahend matrix from the elements of this matrix
+     * and returns it.
      * 
      * @param subtrahend matrix to subtract
-     * @return current matrix subtracted by {@code addendum} matrix
+     * @return matrix {@code this} reduced by matrix {@code subtrahend}
      * @throws IllegalArgumentException if matrices have different sizes
      *
      * @since 1.0.0
      */
-    default Matrix subIncr(final Matrix subtrahend) {
+    default Matrix subAsgn(final Matrix subtrahend) throws IllegalArgumentException {
         return MatrixMath.subAsgn(this, subtrahend);
     }
 
     /**
-     * Copies current matrix and subtracts the {@code subtrahend} matrix
-     * elements from its elements.
+     * Returns the result of subtracting the elements of the subtrahend matrix
+     * from the elements of this matrix.
      * 
      * @param subtrahend matrix to subtract
-     * @return current matrix subtracted by {@code addendum} matrix
+     * @return new matrix with result of subtracting matrix {@code subtrahend} from
+     *         matrix {@code this}
      * @throws IllegalArgumentException if matrices have different sizes
      *
      * @since 1.0.0
      */
-    default Matrix sub(final Matrix subtrahend) {
+    default Matrix sub(final Matrix subtrahend) throws IllegalArgumentException {
         return MatrixMath.sub(this, subtrahend);
     }
 
@@ -323,40 +252,44 @@ public interface Matrix extends Cloneable {
      *
      * @since 1.0.0
      */
-    default Matrix prod(final Matrix m) {
+    default Matrix prod(final Matrix m) throws IllegalArgumentException {
         return MatrixMath.prod(this, m);
     }
 
     /**
-     * Calculates product of current matrix and vector.
+     * Returns the result of the product of this matrix and the given vector-column.
      *
-     * @param vCol column vector (right)
-     * @return vector, which represents product of current matrix and given vector
-     * @throws IllegalArgumentException if width of the matrix is not equal to the
-     *                                  vector size
+     * @param vCol vector-column (right)
+     * @return new vector with result of product of matrix {@code this} and vector
+     *         {@code vCol}
+     * @throws IllegalArgumentException if width of the given matrix is not equal
+     *                                  to dimension of the given vector-column
      *
-     * @since 1.0.0
+     * @since 3.0.0
      */
-    default Vector prodCol(final Vector vCol) {
+    default Vector prodCol(final Vector vCol) throws IllegalArgumentException {
         return MatrixMath.prodCol(this, vCol);
     }
 
-    default Vector prodColIncr(final Vector vCol) {
-        return MatrixMath.prodColIncr(this, vCol);
-    }
-
+    /**
+     * Returns the result of product of the given vector-row and this matrix.
+     *
+     * @param vRow column vector (left)
+     * @return new vector with result of product of vector {@code vCol} and matrix
+     *         {@code this}
+     * @throws IllegalArgumentException if height of the given matrix is not equal
+     *                                  to the dimension of the given vector-row
+     *
+     * @since 3.0.0
+     */
     default Vector prodRow(final Vector vRow) {
         return MatrixMath.prodRow(this, vRow);
     }
 
-    default Vector prodRowIncr(final Vector vRow) {
-        return MatrixMath.prodRowIncr(this, vRow);
-    }
-
     /**
-     * Triangulates current matrix.
+     * Triangulates this matrix and returns it.
      * 
-     * @return current matrix, which is triangulated
+     * @return triangulated matrix {@code this}
      *
      * @since 1.0.0
      */
@@ -365,9 +298,10 @@ public interface Matrix extends Cloneable {
     }
 
     /**
-     * Copies current matrix and triangulates it.
+     * Returns result of triangulation of this matrix.
      * 
-     * @return new matrix, which is result of triangulating of current matrix
+     * @param m matrix to be triangulated
+     * @return new matrix, with elements of triangulated matrix {@code this}
      *
      * @since 1.0.0
      */
@@ -376,41 +310,85 @@ public interface Matrix extends Cloneable {
     }
 
     /**
-     * Constructs invertible matrix from current matrix.
+     * Returns determinant of this square matrix calculated via cofactors
+     * (not blazingly fast).
+     * 
+     * @return determinant of the matrix {@code this}
+     * @throws UnsupportedOperationException if matrix is not square
      *
-     * @return invertible matrix
+     * @since 1.0.0
+     */
+    default float detCof() throws UnsupportedOperationException {
+        return MatrixMath.detCof(this);
+    }
+
+    /**
+     * Returns determinant of this matrix calculated via triangular table
+     * (blazingly fast).
+     * 
+     * @return determinant of matrix {@code m}
+     * @throws UnsupportedOperationException if matrix is not square
+     *
+     * @since 1.0.0
+     */
+    default float det() throws UnsupportedOperationException {
+        return MatrixMath.det(this);
+    }
+
+    /**
+     * Returns invertible matrix of this matrix.
+     *
+     * @return new invertible matrix for matrix {@code this}
      * @throws UnsupportedOperationException if matrix is not square
      * @throws RuntimeException              if matrix determinant equals to 0
      *
      * @since 1.0.0
      */
-    default Matrix inv() {
+    default Matrix inv() throws UnsupportedOperationException, RuntimeException {
         return MatrixMath.inv(this);
     }
 
     /**
-     * Constructs minor matrix excluding given row and column from current matrix.
+     * Returns minor matrix from this matrix excluding given row and column
+     * from given matrix.
      * 
      * @param r row index to exclude
      * @param c column index to exclude
-     * @return minor matrix excluding given row and column
+     * @return new minor matrix excluding row {@code r} and column {@code c}
+     *         from matrix {@code this}
      * @throws UnsupportedOperationException if matrix is not square
      *
      * @since 1.0.0
      */
-    default Matrix minorMatrix(final int r, final int c) {
+    default Matrix minorMatrix(final int r, final int c) throws UnsupportedOperationException {
         return MatrixMath.minorMatrix(this, r, c);
     }
 
     /**
-     * Constructs matrix of cofactors (algebraic complements)
+     * Returns cofactor (algebraic complement) from this matrix for position of
+     * given row and column.
      * 
-     * @return matrix of cofactors
+     * @param r index of row for cofactor calculation
+     * @param c index of column for cofactor calculation
+     * @return cofactor value for row {@code r} and column {@code c} for the given
+     *         positions in this matrix
      * @throws UnsupportedOperationException if matrix is not square
      *
      * @since 1.0.0
      */
-    default Matrix cofactorMatrix() {
+    default float cofactor(final int r, final int c) throws UnsupportedOperationException {
+        return MatrixMath.cofactor(this, r, c);
+    }
+
+    /**
+     * Returns matrix of cofactors (algebraic complements) for this matrix.
+     * 
+     * @return new matrix of cofactors for matrix {@code this}
+     * @throws UnsupportedOperationException if matrix is not square
+     *
+     * @since 1.0.0
+     */
+    default Matrix cofactorMatrix() throws UnsupportedOperationException {
         final Matrix result = new Mat(this.height(), this.width());
         MatrixMath.cofactorMatrix(this);
 
@@ -418,31 +396,69 @@ public interface Matrix extends Cloneable {
     }
 
     /**
-     * Returns {@code true} if elements of current and given matrices are equal
-     * within {@code epsilon} tolerance.
+     * Returns {@code true} if this matrix is square.
      * 
-     * @param m   object for comparison
-     * @param eps tolerance
-     * @return {@code true} if elements of current and given matrices are equal
-     *         within {@code epsilon} tolerance, and {@code false} otherwise
+     * @return {@code true} if matrix {@code this} is square, and {@code false}
+     *         otherwise.
      *
      * @since 1.0.0
      */
-    default boolean equalsEpsilon(final Matrix m, final float eps) {
+    default boolean square() {
+        return MatrixMath.square(this);
+    }
+
+    /**
+     * Returns {@code true} if elements of this matrix are approximately equal 0.
+     * 
+     * @return {@code true} if elements of matrix {@code this} are approximately
+     *         equal 0, and {@code false} otherwise
+     *
+     * @since 1.0.0
+     */
+    default boolean zeroed() {
+        return MatrixMath.zeroed(this);
+    }
+
+    /**
+     * Returns {@code true} if this matrix is diagonal.
+     * 
+     * @return {@code true} if matrix {@code this} is square diagonal, and
+     *         {@code false} otherwise
+     *
+     * @since 1.0.0
+     */
+    default boolean diagonal() {
+        return MatrixMath.diagonal(this);
+    }
+
+    /**
+     * Returns {@code true} if elements of matrices are equal within
+     * {@code epsilon} tolerance.
+     * 
+     * @param m   second matrix for comparison
+     * @param eps tolerance
+     * @return {@code true} if all elements of matrices are equal within
+     *         {@code epsilon} tolerance, and {@code false} otherwise
+     * @throws IllegalArgumentException if matrices have different sizes
+     *
+     * @since 1.0.0
+     */
+    default boolean equalsEpsilon(final Matrix m, final float eps) throws IllegalArgumentException {
         return MatrixMath.equalsEpsilon(this, m, eps);
     }
 
     /**
-     * Returns {@code true} if elements of current and given matrices are
-     * approximately equal.
+     * Returns {@code true} if the elements of the given matrices are approximately
+     * equal.
      * 
-     * @param m object for comparison
-     * @return {@code true} if elements of current and given matrices are
-     *         approximately equal, and {@code false} otherwise
+     * @param m second matrix for comparison
+     * @return {@code true} if all elements of matrices are approximately equal, and
+     *         {@code false} otherwise
+     * @throws IllegalArgumentException if matrices have different sizes
      *
      * @since 1.0.0
      */
-    default boolean equals(final Matrix m) {
+    default boolean equals(final Matrix m) throws IllegalArgumentException {
         return MatrixMath.equals(this, m);
     }
 }

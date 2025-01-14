@@ -246,7 +246,13 @@ public final class Vector4Math {
      * @since 3.0.0
      */
     public static Vector4 transformCol(final Vector4 vCol, final Matrix4 operator) {
-        return Matrix4Math.prodColIncr(operator, vCol);
+        Vector4 v = Matrix4Math.prodCol(operator, vCol);
+        vCol.setX(v.x());
+        vCol.setY(v.y());
+        vCol.setZ(v.z());
+        vCol.setW(v.w());
+
+        return vCol;
     }
 
     /**
@@ -279,7 +285,13 @@ public final class Vector4Math {
      * @since 3.0.0
      */
     public static Vector4 transformRow(final Vector4 vRow, final Matrix4 operator) {
-        return Matrix4Math.prodRowIncr(operator, vRow);
+        Vector4 v = Matrix4Math.prodRow(operator, vRow);
+        vRow.setX(v.x());
+        vRow.setY(v.y());
+        vRow.setZ(v.z());
+        vRow.setW(v.w());
+
+        return vRow;
     }
 
     /**

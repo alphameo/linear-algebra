@@ -23,7 +23,7 @@ public final class MatrixMath {
      * Transposes the given square matrix and returns it.
      *
      * @param m square matrix for transpose
-     * @return square matrix {@code m}, which is transposed
+     * @return transposed square matrix {@code m}
      * @throws IllegalArgumentException if the given matrix is not square
      *
      * @since 1.0.0
@@ -192,7 +192,7 @@ public final class MatrixMath {
     }
 
     /**
-     * Returns the result of dividing the components of the given vector by a scalar
+     * Returns the result of dividing the elements of the given matrix by a scalar
      * value.
      *
      * @param m       matrix for division
@@ -317,8 +317,8 @@ public final class MatrixMath {
     }
 
     /**
-     * Returns the result of the product of the given vector-column and the given
-     * matrix.
+     * Returns the result of the product of the given matrix and the given
+     * vector-column.
      *
      * @param m    matrix (left)
      * @param vCol vector-column (right)
@@ -354,7 +354,7 @@ public final class MatrixMath {
      * Returns the result of product of the given vector-row and the given matrix.
      *
      * @param m    matrix (right)
-     * @param vRow column vector (left)
+     * @param vRow vector-row (left)
      * @return new vector with result of product of vector {@code vCol} and matrix
      *         {@code m}
      * @throws IllegalArgumentException if height of the given matrix is not equal
@@ -457,11 +457,11 @@ public final class MatrixMath {
     }
 
     /**
-     * Retutns determinant of the given square matrix calculated via cofactors
+     * Returns determinant of the given square matrix calculated via cofactors
      * (not blazingly fast).
      * 
      * @param m matrix for determinant calculation
-     * @return determinant of the matrix {@code m}
+     * @return determinant of matrix {@code m}
      * @throws UnsupportedOperationException if matrix is not square
      *
      * @since 1.0.0
@@ -493,7 +493,7 @@ public final class MatrixMath {
      * (blazingly fast).
      * 
      * @param m matrix for determinant calculation
-     * @return determinant of the matrix {@code m}
+     * @return determinant of matrix {@code m}
      * @throws UnsupportedOperationException if matrix is not square
      *
      * @since 1.0.0
@@ -582,14 +582,14 @@ public final class MatrixMath {
     }
 
     /**
-     * Returns cofactor (algebraic complement) from given matrix for position of
+     * Returns cofactor (algebraic complement) from the given matrix for position of
      * given row and column.
      * 
      * @param m matrix for cofactor calculation
      * @param r index of row for cofactor calculation
      * @param c index of column for cofactor calculation
-     * @return cofactor value for row {@code r} and column {@code c} for given
-     *         positions in given matrix
+     * @return cofactor value for row {@code r} and column {@code c} for the given
+     *         positions in the given matrix
      * @throws UnsupportedOperationException if matrix is not square
      *
      * @since 1.0.0
@@ -628,10 +628,11 @@ public final class MatrixMath {
     }
 
     /**
-     * Returns {@code true} if matrix is square.
+     * Returns {@code true} if the given matrix is square.
      * 
      * @param m matrix for analysis
-     * @return {@code true} if matrix is square, and {@code false} otherwise.
+     * @return {@code true} if matrix {@code m} is square, and {@code false}
+     *         otherwise.
      *
      * @since 1.0.0
      */
@@ -640,7 +641,7 @@ public final class MatrixMath {
     }
 
     /**
-     * Returns {@code true} if elementd of the given matrix are approximately equal
+     * Returns {@code true} if elements of the given matrix are approximately equal
      * 0.
      * 
      * @param m matrix for analysis
@@ -666,8 +667,7 @@ public final class MatrixMath {
      * 
      * @param m matrix for analysis
      * @return {@code true} if matrix {@code m} is square diagonal, and
-     *         {@code false}
-     *         otherwise
+     *         {@code false} otherwise
      *
      * @since 1.0.0
      */

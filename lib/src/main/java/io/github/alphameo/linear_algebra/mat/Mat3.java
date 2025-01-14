@@ -3,7 +3,7 @@ package io.github.alphameo.linear_algebra.mat;
 import java.util.Arrays;
 
 /**
- * Default implementation of matrix 3x3 ({@code Matrix3 interface}).
+ * Default implementation of 3x3 matrix ({@link Matrix3}).
  *
  * @since 1.0.0
  */

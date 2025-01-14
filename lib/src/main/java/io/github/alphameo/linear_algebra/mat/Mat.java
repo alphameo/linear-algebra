@@ -3,7 +3,7 @@ package io.github.alphameo.linear_algebra.mat;
 import java.util.Arrays;
 
 /**
- * Default implementation of arbitrary matrix ({@code Matrix interface}).
+ * Default implementation of arbitrary matrix ({@link Matrix}).
  *
  * @since 1.0.0
  */

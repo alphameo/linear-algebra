@@ -3,11 +3,11 @@ package io.github.alphameo.linear_algebra.mat;
 import io.github.alphameo.linear_algebra.vec.Vector3;
 
 /**
- * Interface for matrix 3x3.
+ * Interface for 3x3 matrix.
  *
  * @since 1.0.0
  */
-public interface Matrix3 extends Matrix {
+public interface Matrix3 extends Matrix, FixedMatrixOperatable<Matrix3, Vector3, Matrix3Row, Matrix3Col> {
 
     /**
      * Safely returns element at the given row and column inside matrix 3x3.
@@ -20,8 +20,13 @@ public interface Matrix3 extends Matrix {
      */
     float get(Matrix3Row r, Matrix3Col c);
 
+    /**
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
+     *
+     * @since 1.0.0
+     */
     @Override
-    default float get(int r, int c) {
+    default float get(int r, int c) throws ArrayIndexOutOfBoundsException {
         return get(Matrix3Row.values()[r], Matrix3Col.values()[c]);
     }
 
@@ -36,274 +41,199 @@ public interface Matrix3 extends Matrix {
      */
     void set(Matrix3Row r, Matrix3Col c, float value);
 
+    /**
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
+     *
+     * @since 1.0.0
+     */
     @Override
     default void set(int r, int c, final float value) {
         set(Matrix3Row.values()[r], Matrix3Col.values()[c], value);
     }
 
     /**
-     * Creates and returns a copy of current matrix 3x3.
-     * 
-     * @return copy of matrix 3x3
+     * @since 1.0.0
      */
+    @Override
     Matrix3 clone();
 
-    @Override
-    default float det() {
-        return Matrix3Math.det(this);
-    }
-
-    @Override
-    default float detViaCofactors() {
-        return MatrixMath.detCof(this);
-    }
-
-    @Override
-    default float cofactor(final int r, final int c) {
-        return Matrix3Math.cofactor(this, r, c);
-    }
-
-    @Override
-    default boolean square() {
-        return true;
-    }
-
-    @Override
-    default boolean zeroed() {
-        return Matrix3Math.zeroed(this);
-    }
-
-    @Override
-    default boolean diagonal() {
-        return Matrix3Math.diagonal(this);
-    }
-
+    /**
+     * @since 1.0.0
+     */
     @Override
     default Matrix3 transpose() {
         return Matrix3Math.transpose(this);
     }
 
+    /**
+     * @since 1.0.0
+     */
+    @Override
     default Matrix3 transposed() {
         return Matrix3Math.transposed(this);
     }
 
+    @Override
     /**
-     * Safely swaps rows of matrix
-     *
-     * @param r1 first row for swapping
-     * @param r2 second row for swapping
-     * @return current matrix with swapped rows
-     *
      * @since 1.0.0
      */
     default Matrix3 swapRows(final Matrix3Row r1, final Matrix3Row r2) {
         return Matrix3Math.swapRows(this, r1, r2);
     }
 
+    /**
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
+     *
+     * @since 1.0.0
+     */
     @Override
     default Matrix3 swapRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
-        return Matrix3Math.swapRows(this, r1, r2);
+        return Matrix3Math.swapRows(this, Matrix3Row.values()[r1], Matrix3Row.values()[r2]);
     }
 
+    /**
+     * @since 1.0.0
+     */
+    @Override
     default Matrix3 swappedRows(final Matrix3Row r1, final Matrix3Row r2) {
         return Matrix3Math.swappedRows(this, r1, r2);
     }
 
     /**
-     * Copies current matrix and swaps its rows.
-     * 
-     * @param r1 first index of row for swapping
-     * @param r2 second index of row for swapping
-     * @return new matrix with swapped rows of current matrix
-     * @throws ArrayIndexOutOfBoundsException if any row index is out of bounds
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
      *
      * @since 1.0.0
      */
+    @Override
     default Matrix3 swappedRows(final int r1, final int r2) throws ArrayIndexOutOfBoundsException {
-        return Matrix3Math.swappedRows(this, r1, r2);
+        return Matrix3Math.swappedRows(this, Matrix3Row.values()[r1], Matrix3Row.values()[r2]);
     }
 
     /**
-     * Safely swaps columns of matrix.
-     *
-     * @param c1 first column for swapping
-     * @param c2 second column for swapping
-     * @return current matrix with swapped columns
-     *
      * @since 1.0.0
      */
+    @Override
     default Matrix3 swapCols(final Matrix3Col c1, final Matrix3Col c2) {
         return Matrix3Math.swapCols(this, c1, c2);
     }
 
     /**
-     * Swaps columns of matrix.
-     *
-     * @param c1 first index of column for swapping
-     * @param c2 second index of column for swapping
-     * @return current matrix with swapped columns
      * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
      *
      * @since 1.0.0
      */
+    @Override
     default Matrix3 swapCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
-        return Matrix3Math.swapCols(this, c1, c2);
+        return Matrix3Math.swapCols(this, Matrix3Col.values()[c1], Matrix3Col.values()[c2]);
     }
 
     /**
-     * Copies current matrix and safely swaps its columns.
-     *
-     * @param c1 first column for swapping
-     * @param c2 second column for swapping
-     * @return new matrix with swapped columns of current matrix
-     *
      * @since 1.0.0
      */
+    @Override
     default Matrix3 swappedCols(final Matrix3Col c1, final Matrix3Col c2) {
         return Matrix3Math.swappedCols(this, c1, c2);
     }
 
+    /**
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
+     *
+     * @since 1.0.0
+     */
+    @Override
     default Matrix3 swappedCols(final int c1, final int c2) throws ArrayIndexOutOfBoundsException {
-        return Matrix3Math.swappedCols(this, c1, c2);
+        return Matrix3Math.swappedCols(this, Matrix3Col.values()[c1], Matrix3Col.values()[c2]);
     }
 
-    default Matrix3 mulIncr(final float multiplier) {
+    /**
+     * @since 1.0.0
+     */
+    @Override
+    default Matrix3 mulAsgn(final float multiplier) {
         return Matrix3Math.mulAsgn(this, multiplier);
     }
 
     /**
-     * Copies current matrix and multiplies its components by a scalar value.
-     * 
-     * @param multiplier scalar value
-     * @return new matrix with multiplied elements of current matrix
-     *
      * @since 1.0.0
      */
+    @Override
     default Matrix3 mul(final float multiplier) {
         return Matrix3Math.mul(this, multiplier);
     }
 
     /**
-     * Divides matrix elements by a scalar value.
-     * 
-     * @param divisor scalar value
-     * @return current matrix with divided elements
-     * @throws ArithmeticException if {@code divisor} approximately equals 0
-     *
      * @since 1.0.0
      */
-    default Matrix3 divIncr(final float divisor) throws ArithmeticException {
+    @Override
+    default Matrix3 divAsgn(final float divisor) throws ArithmeticException {
         return Matrix3Math.divAsgn(this, divisor);
     }
 
     /**
-     * Copies current matrix and divides its components by a scalar value.
-     *
-     * @param divisor scalar value
-     * @return new matrix with divided elements of current matrix
-     * @throws ArithmeticException if {@code divisor} approximately equals 0
-     *
      * @since 1.0.0
      */
+    @Override
     default Matrix3 div(final float divisor) throws ArithmeticException {
         return Matrix3Math.div(this, divisor);
     }
 
     /**
-     * Adds the {@code addendum} matrix elements to the current matrix
-     * elements.
-     * 
-     * @param addendum matrix 3x3 to add
-     * @return current matrix increased by {@code addendum} matrix
-     *
      * @since 1.0.0
      */
-    default Matrix3 addIncr(final Matrix3 addendum) {
+    @Override
+    default Matrix3 addAsgn(final Matrix3 addendum) {
         return Matrix3Math.addAsgn(this, addendum);
     }
 
     /**
-     * Copies current matrix and adds the {@code addendum} matrix elements to
-     * its elements.
-     * 
-     * @param addendum matrix 3x3 to add
-     * @return new matrix with sum of elements of current matrix and
-     *         {@code addendum} matrix
-     *
      * @since 1.0.0
      */
+    @Override
     default Matrix3 add(final Matrix3 addendum) {
         return Matrix3Math.add(this, addendum);
     }
 
     /**
-     * Subtracts the {@code subtrahend} matrix elements from the current
-     * matrix elements.
-     * 
-     * @param subtrahend matrix 3x3 to subtract
-     * @return current matrix subtracted by {@code addendum} matrix
-     *
      * @since 1.0.0
      */
-    default Matrix3 subIncr(final Matrix3 subtrahend) {
+    @Override
+    default Matrix3 subAsgn(final Matrix3 subtrahend) {
         return Matrix3Math.subAsgn(this, subtrahend);
     }
 
     /**
-     * Copies current matrix and subtracts the {@code subtrahend} matrix
-     * elements from its elements.
-     * 
-     * @param subtrahend matrix 3x3 to subtract
-     * @return current matrix subtracted by {@code addendum} matrix
-     *
      * @since 1.0.0
      */
+    @Override
     default Matrix3 sub(final Matrix3 subtrahend) {
         return Matrix3Math.sub(this, subtrahend);
     }
 
     /**
-     * Calculates product of current and the given matrices.
-     *
-     * @param m second (right) matrix 3x3
-     * @return matrix, which represents product of matrices
-     *
      * @since 1.0.0
      */
+    @Override
     default Matrix3 prod(final Matrix3 m) {
         return Matrix3Math.prod(this, m);
     }
 
     /**
-     * Calculates product of current matrix and vector.
-     *
-     * @param v column vector of size 3 (right)
-     * @return vector of size 3, which represents product of current matrix and
-     *         the given vector
-     *
-     * @since 1.0.0
+     * @since 3.0.0
      */
+    @Override
     default Vector3 prodCol(final Vector3 vCol) {
         return Matrix3Math.prodCol(this, vCol);
     }
 
-    default Vector3 prodColIncr(final Vector3 vCol) {
-        return Matrix3Math.prodColIncr(this, vCol);
-    }
-
+    /**
+     * @since 3.0.0
+     */
+    @Override
     default Vector3 prodRow(final Vector3 vRow) {
         return Matrix3Math.prodRow(this, vRow);
     }
 
-    default Vector3 prodRowIncr(final Vector3 vRow) {
-        return Matrix3Math.prodRowIncr(this, vRow);
-    }
-
     /**
-     * Triangulates current matrix.
-     * 
-     * @return current matrix, which is triangulated
-     *
      * @since 1.0.0
      */
     default Matrix3 triangulate() {
@@ -311,104 +241,123 @@ public interface Matrix3 extends Matrix {
     }
 
     /**
-     * Copies current matrix and triangulates it.
-     * 
-     * @return new matrix, which is result of triangulating of current matrix
-     *
      * @since 1.0.0
      */
+    @Override
     default Matrix3 triangulated() {
         return Matrix3Math.triangulated(this);
     }
 
     /**
-     * Constructs invertible matrix from current matrix.
-     *
-     * @return invertible matrix
-     * @throws RuntimeException if matrix determinant equals to 0
-     *
      * @since 1.0.0
      */
+    @Override
+    default float det() {
+        return Matrix3Math.det(this);
+    }
+
+    /**
+     * @since 1.0.0
+     */
+    @Override
+    default float detCof() {
+        return MatrixMath.detCof(this);
+    }
+
+    /**
+     * @since 1.0.0
+     */
+    @Override
     default Matrix3 inv() {
         return Matrix3Math.inv(this);
     }
 
     /**
-     * Safely constructs minor matrix excluding the given row and column from
-     * current
-     * matrix.
+     * Returns minor matrix from this matrix excluding given row and column
+     * from given matrix.
      * 
-     * @param r row to exclude
-     * @param c column to exclude
-     * @return minor matrix excluding the given row and column
-     *
+     * @param r row index to exclude
+     * @param c column index to exclude
+     * @return new minor matrix excluding row {@code r} and column {@code c}
+     *         from matrix {@code this}
      * @since 1.0.0
+     * 
      */
     default Matrix minorMatrix(final Matrix3Row r, final Matrix3Col c) {
         return Matrix3Math.minorMatrix(this, r, c);
     }
 
     /**
-     * Constructs minor matrix excluding the given row and column from current
-     * matrix.
-     * 
-     * @param r row index to exclude
-     * @param c column index to exclude
-     * @return minor matrix excluding given row and column
-     *
      * @since 1.0.0
      */
+    @Override
     default Matrix minorMatrix(final int r, final int c) {
-        return Matrix3Math.minorMatrix(this, r, c);
+        return Matrix3Math.minorMatrix(this, Matrix3Row.values()[r], Matrix3Col.values()[c]);
     }
 
     /**
-     * Safely calculates cofactor (algebraic complement) from current matrix for
-     * position of given row and column.
-     * 
-     * @param r index of row for cofactor calculation
-     * @param c index of column for cofactor calculation
-     * @return cofactor value from given positions in current matrix
-     *
      * @since 1.0.0
      */
+    @Override
     default float cofactor(final Matrix3Row r, final Matrix3Col c) {
         return Matrix3Math.cofactor(this, r, c);
     }
 
     /**
-     * Constructs matrix of cofactors (algebraic complements)
-     * 
-     * @return matrix of cofactors
-     *
      * @since 1.0.0
      */
+    @Override
+    default float cofactor(final int r, final int c) {
+        return Matrix3Math.cofactor(this, Matrix3Row.values()[r], Matrix3Col.values()[c]);
+    }
+
+    /**
+     * @since 1.0.0
+     */
+    @Override
     default Matrix3 cofactorMatrix() {
         return Matrix3Math.cofactorMatrix(this);
     }
 
     /**
-     * Returns {@code true} if elements of current and given matrices are equal
-     * within {@code epsilon} tolerance.
-     * 
-     * @param m   object for comparison
-     * @param eps tolerance
-     * @return {@code true} if elements of current and given matrices are equal
-     *         within {@code epsilon} tolerance, and {@code false} otherwise
-     *
      * @since 1.0.0
      */
+    @Override
+    default boolean square() {
+        return true;
+    }
+
+    /**
+     * @since 1.0.0
+     */
+    @Override
+    default boolean zeroed() {
+        return Matrix3Math.zeroed(this);
+    }
+
+    /**
+     * @since 1.0.0
+     */
+    @Override
+    default boolean diagonal() {
+        return Matrix3Math.diagonal(this);
+    }
+
+    /**
+     * @since 1.0.0
+     */
+    @Override
     default boolean equalsEpsilon(final Matrix3 m, final float eps) {
         return Matrix3Math.equalsEpsilon(this, m, eps);
     }
 
     /**
-     * Returns {@code true} if elements of current and given matrices are
-     * approximately equal.
+     * Returns {@code true} if the elements of the given matrices are approximately
+     * equal.
      * 
-     * @param m object for comparison
-     * @return {@code true} if elements of current and given matrices are
-     *         approximately equal, and {@code false} otherwise
+     * @param m second matrix for comparison
+     * @return {@code true} if all elements of matrices are approximately equal, and
+     *         {@code false} otherwise
      *
      * @since 1.0.0
      */
@@ -477,10 +426,11 @@ public interface Matrix3 extends Matrix {
      * @param insertionRow row index for insertion 0
      * @param insertionCol column index for insertion 0
      * @return new matrix 4x4
+     * @throws ArrayIndexOutOfBoundsException if any column index is out of bounds
      *
      * @since 1.0.0
      */
-    default Matrix4 toMatrix4(final int insertionRow, final int insertionCol) {
-        return Matrix3Math.toMatrix4(this, insertionRow, insertionCol);
+    default Matrix4 toMatrix4(final int insertionRow, final int insertionCol) throws ArrayIndexOutOfBoundsException {
+        return Matrix3Math.toMatrix4(this, Matrix4Row.values()[insertionRow], Matrix4Col.values()[insertionCol]);
     }
 }

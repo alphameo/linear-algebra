@@ -3,7 +3,7 @@ package io.github.alphameo.linear_algebra.mat;
 import java.util.Arrays;
 
 /**
- * Default implementation of matrix 4x4 ({@code Matrix4 interface}).
+ * Default implementation of 4x4 matrix ({@link Matrix4}).
  *
  * @since 1.0.0
  */
@@ -70,7 +70,8 @@ public class Mat4 implements Matrix4 {
      * Constructs new matrix 4x4 using values from {@code entries}.
      * 
      * @param entries values for matrix elements
-     * @throws IllegalArgumentException if the the given two-dimensional array cannot be
+     * @throws IllegalArgumentException if the the given two-dimensional array
+     *                                  cannot be
      *                                  interpreted as matrix 4x4
      *
      * @since 1.0.0

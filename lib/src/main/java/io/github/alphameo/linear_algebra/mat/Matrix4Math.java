@@ -37,10 +37,10 @@ public final class Matrix4Math {
     }
 
     /**
-     * Transposes the given matrix 4x4
+     * Transposes the given matrix and returns it.
      *
-     * @param m matrix 4x4 for transpose
-     * @return the given matrix 4x4, which is transposed
+     * @param m square matrix for transpose
+     * @return transposed square matrix {@code m}
      *
      * @since 1.0.0
      */
@@ -58,11 +58,10 @@ public final class Matrix4Math {
     }
 
     /**
-     * Copies the given matrix 4x4 and transpose it.
-     * 
-     * @param m matrix 4x4 for transpose
-     * @return new matrix 4x4, which is result of transposing of the given matrix
-     *         4x4
+     * Transposes the given matrix and returns it.
+     *
+     * @param m square matrix for transpose
+     * @return transposed square matrix {@code m}
      *
      * @since 1.0.0
      */
@@ -197,7 +196,7 @@ public final class Matrix4Math {
     }
 
     /**
-     * Returns the result of dividing the components of the given vector by a scalar
+     * Returns the result of dividing the elements of the given matrix by a scalar
      * value.
      *
      * @param m       matrix for division
@@ -307,8 +306,8 @@ public final class Matrix4Math {
     }
 
     /**
-     * Returns the result of the product of the given vector-column and the given
-     * matrix.
+     * Returns the result of the product of the given matrix and the given
+     * vector-column.
      *
      * @param m    matrix (left)
      * @param vCol vector-column (right)
@@ -347,7 +346,7 @@ public final class Matrix4Math {
      * Returns the result of product of the given vector-row and the given matrix.
      *
      * @param m    matrix (right)
-     * @param vRow column vector (left)
+     * @param vRow vector-row (left)
      * @return new vector with result of product of vector {@code vCol} and matrix
      *         {@code m}
      *
@@ -430,10 +429,10 @@ public final class Matrix4Math {
     }
 
     /**
-     * Calculates matrix 3x3 determinant.
+     * Returns result of triangulation of the given matrix.
      * 
-     * @param m matrix 3x3 for determinant calculation
-     * @return matrix 3x3 determinant
+     * @param m matrix to be triangulated
+     * @return new matrix, with elements of triangulated matrix {@code m}
      *
      * @since 1.0.0
      */
@@ -445,7 +444,7 @@ public final class Matrix4Math {
      * Returns determinant of the given matrix.
      * 
      * @param m matrix for determinant calculation
-     * @return determinant of the matrix {@code m}
+     * @return determinant of matrix {@code m}
      *
      * @since 1.0.0
      */
@@ -466,7 +465,7 @@ public final class Matrix4Math {
      *
      * @since 1.0.0
      */
-    public static Matrix4 invertible(final Matrix4 m) throws RuntimeException {
+    public static Matrix4 inv(final Matrix4 m) throws RuntimeException {
         final Matrix4 result = cofactorMatrix(m);
         final float determinant = det(m);
 
@@ -517,14 +516,14 @@ public final class Matrix4Math {
     }
 
     /**
-     * Returns cofactor (algebraic complement) from given matrix for position of
+     * Returns cofactor (algebraic complement) from the given matrix for position of
      * given row and column.
      * 
      * @param m matrix for cofactor calculation
      * @param r row for cofactor calculation
      * @param c column for cofactor calculation
-     * @return cofactor value for row {@code r} and column {@code c} for given
-     *         positions in given matrix
+     * @return cofactor value for row {@code r} and column {@code c} for the given
+     *         positions in the given matrix
      *
      * @since 1.0.0
      */
@@ -554,7 +553,7 @@ public final class Matrix4Math {
     }
 
     /**
-     * Returns {@code true} if elementd of the given matrix are approximately equal
+     * Returns {@code true} if elements of the given matrix are approximately equal
      * 0.
      * 
      * @param m matrix for analysis

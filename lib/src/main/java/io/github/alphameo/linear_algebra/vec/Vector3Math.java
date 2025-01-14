@@ -252,7 +252,12 @@ public final class Vector3Math {
      * @since 3.0.0
      */
     public static Vector3 transformCol(final Vector3 vCol, final Matrix3 operator) {
-        return Matrix3Math.prodColIncr(operator, vCol);
+        Vector3 v = Matrix3Math.prodCol(operator, vCol);
+        vCol.setX(v.x());
+        vCol.setY(v.y());
+        vCol.setZ(v.z());
+
+        return vCol;
     }
 
     /**
@@ -281,7 +286,12 @@ public final class Vector3Math {
      * @since 3.0.0
      */
     public static Vector3 transformRow(final Vector3 vRow, final Matrix3 operator) {
-        return Matrix3Math.prodRowIncr(operator, vRow);
+        Vector3 v = Matrix3Math.prodRow(operator, vRow);
+        vRow.setX(v.x());
+        vRow.setY(v.y());
+        vRow.setZ(v.z());
+
+        return vRow;
     }
 
     /**

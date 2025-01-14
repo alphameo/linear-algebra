@@ -16,89 +16,93 @@ package io.github.alphameo.linear_algebra.mat;
  */
 public interface FixedMatrixOperatable<M, V, R, C> {
     /**
-     * Safely swaps the given rows of this matrix and returns it.
+     * Swaps the rows of this matrix with the given indices and returns it.
      *
-     * @param r1 first row for swapping
-     * @param r2 second row for swapping
-     * @return {@code this} matrix with swapped rows
+     * @param r1 first row index for swapping
+     * @param r2 second row index for swapping
+     * @return matrix {@code this} with swapped rows
      *
      * @since 1.0.0
      */
-    Matrix3 swapRows(final R r1, final R r2);
+    M swapRows(final R r1, final R r2);
 
     /**
-     * Returns .
+     * Returns the result of row swapping of this matrix with the given
+     * indices.
      * 
-     * @param r1 first row for swapping
-     * @param r2 second row for swapping
-     * @return new matrix with swapped rows of current matrix
+     * @param r1 first row index for swapping
+     * @param r2 second row index for swapping
+     * @return new matrix with elements of matrix {@code this} after swapping rows
      *
      * @since 1.0.0
      */
     M swappedRows(final R r1, final R r2);
 
     /**
-     * Safely swaps columns of matrix.
+     * Swaps the columns of this matrix with the given indices and returns it.
      *
-     * @param c1 first column for swapping
-     * @param c2 second column for swapping
-     * @return current matrix with swapped columns
+     * @param c1 first column index for swapping
+     * @param c2 second column index for swapping
+     * @return matrix {@code this} with swapped columns
      *
      * @since 1.0.0
      */
     M swapCols(final C c1, final C c2);
 
     /**
-     * Copies current matrix and safely swaps its columns.
+     * Returns the result of column swapping of this matrix with the given
+     * indices.
      *
-     * @param c1 first column for swapping
-     * @param c2 second column for swapping
-     * @return new matrix with swapped columns of current matrix
+     * @param c1 first column index for swapping
+     * @param c2 second column index for swapping
+     * @return new matrix with elements of matrix {@code this} after swapping
+     *         columns
      *
      * @since 1.0.0
      */
     M swappedCols(final C c1, final C c2);
 
     /**
-     * Adds the {@code addendum} matrix elements to the current matrix
-     * elements.
+     * Adds the components of the addendum matrix to the components of this
+     * matrix and returns it.
      * 
-     * @param addendum matrix 3x3 to add
-     * @return current matrix increased by {@code addendum} matrix
+     * @param addendum matrix to add
+     * @return matrix {@code this} increased by matrix {@code addendum}
      *
      * @since 1.0.0
      */
-    M addIncr(final M addendum);
+    M addAsgn(final M addendum);
 
     /**
-     * Copies current matrix and adds the {@code addendum} matrix elements to
-     * its elements.
+     * Returns the result of adding the elements of the addendum matrix to the
+     * elements of this matrix.
      * 
-     * @param addendum matrix 3x3 to add
-     * @return new matrix with sum of elements of current matrix and
-     *         {@code addendum} matrix
+     * @param addendum matrix to add
+     * @return new matrix with the sum of matrix {@code this} and matrix
+     *         {@code addendum}
      *
      * @since 1.0.0
      */
     M add(final M addendum);
 
     /**
-     * Subtracts the {@code subtrahend} matrix elements from the current
-     * matrix elements.
+     * Subtracts elements of the subtrahend matrix from the elements of this matrix
+     * and returns it.
      * 
-     * @param subtrahend matrix 3x3 to subtract
-     * @return current matrix subtracted by {@code addendum} matrix
+     * @param subtrahend matrix to subtract
+     * @return matrix {@code this} reduced by matrix {@code subtrahend}
      *
      * @since 1.0.0
      */
-    M subIncr(final M subtrahend);
+    M subAsgn(final M subtrahend);
 
     /**
-     * Copies current matrix and subtracts the {@code subtrahend} matrix
-     * elements from its elements.
+     * Returns the result of subtracting the elements of the subtrahend matrix
+     * from the elements of this matrix.
      * 
-     * @param subtrahend matrix 3x3 to subtract
-     * @return current matrix subtracted by {@code addendum} matrix
+     * @param subtrahend matrix to subtract
+     * @return new matrix with result of subtracting matrix {@code subtrahend} from
+     *         matrix {@code this}
      *
      * @since 1.0.0
      */
@@ -107,7 +111,7 @@ public interface FixedMatrixOperatable<M, V, R, C> {
     /**
      * Calculates product of current and the given matrices.
      *
-     * @param m second (right) matrix 3x3
+     * @param m second (right) matrix
      * @return matrix, which represents product of matrices
      *
      * @since 1.0.0
@@ -115,19 +119,50 @@ public interface FixedMatrixOperatable<M, V, R, C> {
     M prod(final M m);
 
     /**
-     * Calculates product of current matrix and vector.
+     * Returns the result of the product of this matrix and the given vector-column.
      *
-     * @param v column vector of size 3 (right)
-     * @return vector of size 3, which represents product of current matrix and
-     *         the given vector
+     * @param vCol vector-column (right)
+     * @return new vector with result of product of matrix {@code this} and vector
+     *         {@code vCol}
      *
-     * @since 1.0.0
+     * @since 3.0.0
      */
     V prodCol(final V vCol);
 
-    V prodColIncr(final V vCol);
-
+    /**
+     * Returns the result of product of the given vector-row and this matrix.
+     *
+     * @param vRow column vector (left)
+     * @return new vector with result of product of vector {@code vCol} and matrix
+     *         {@code this}
+     *
+     * @since 3.0.0
+     */
     V prodRow(final V vRow);
 
-    V prodRowIncr(final V vRow);
+    /**
+     * Returns cofactor (algebraic complement) from this matrix for position of
+     * given row and column.
+     * 
+     * @param r index of row for cofactor calculation
+     * @param c index of column for cofactor calculation
+     * @return cofactor value for row {@code r} and column {@code c} for the given
+     *         positions in this matrix
+     *
+     * @since 1.0.0
+     */
+    float cofactor(final R r, final C c);
+
+    /**
+     * Returns {@code true} if elements of matrices are equal within
+     * {@code epsilon} tolerance.
+     * 
+     * @param m   second matrix for comparison
+     * @param eps tolerance
+     * @return {@code true} if all elements of matrices are equal within
+     *         {@code epsilon} tolerance, and {@code false} otherwise
+     *
+     * @since 1.0.0
+     */
+    boolean equalsEpsilon(final M m, final float eps);
 }

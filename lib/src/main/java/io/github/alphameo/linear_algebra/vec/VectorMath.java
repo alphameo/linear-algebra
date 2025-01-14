@@ -279,7 +279,12 @@ public final class VectorMath {
      * @since 3.0.0
      */
     public static Vector transformCol(final Vector vCol, final Matrix operator) throws IllegalArgumentException {
-        return MatrixMath.prodColIncr(operator, vCol);
+        Vector v = MatrixMath.prodCol(operator, vCol);
+        for (int i = 0; i < vCol.size(); i++) {
+            vCol.set(i, v.get(i));
+        }
+
+        return vCol;
     }
 
     /**
@@ -312,7 +317,12 @@ public final class VectorMath {
      * @since 3.0.0
      */
     public static Vector transformRow(final Vector vRow, final Matrix operator) throws IllegalArgumentException {
-        return MatrixMath.prodRowIncr(operator, vRow);
+        Vector v = MatrixMath.prodRow(operator, vRow);
+        for (int i = 0; i < vRow.size(); i++) {
+            vRow.set(i, v.get(i));
+        }
+
+        return vRow;
     }
 
     /**
