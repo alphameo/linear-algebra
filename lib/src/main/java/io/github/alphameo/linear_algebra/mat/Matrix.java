@@ -315,7 +315,6 @@ public interface Matrix extends Cloneable {
     /**
      * Returns result of triangulation of this matrix.
      * 
-     * @param m matrix to be triangulated
      * @return new matrix, with elements of triangulated matrix {@code this}
      *
      * @since 1.0.0

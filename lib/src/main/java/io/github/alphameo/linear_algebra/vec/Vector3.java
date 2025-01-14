@@ -200,8 +200,8 @@ public interface Vector3
      *
      * @since 1.0.0
      */
-    default boolean equals(final Vector3 other) {
-        return Vector3Math.equals(this, other);
+    default boolean equals(final Vector3 v) {
+        return Vector3Math.equals(this, v);
     }
 
     /**

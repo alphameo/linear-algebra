@@ -271,7 +271,7 @@ public interface Vector4
      *
      * @since 1.0.0
      */
-    default boolean equals(final Vector4 other) {
-        return Vector4Math.equals(this, other);
+    default boolean equals(final Vector4 v) {
+        return Vector4Math.equals(this, v);
     }
 }

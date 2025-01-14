@@ -267,13 +267,14 @@ public final class Matrix4Math {
     }
 
     /**
-     * Returns the result of adding the elements of the addendum matrix to the
-     * elements of the target matrix.
+     * Returns the result of subtracting the elements of the subtrahend matrix
+     * from the elements of the target matrix.
      * 
-     * @param target   matrix to be added
-     * @param addendum matrix to add
-     * @return new matrix with the sum of matrix {@code target} and matrix
-     *         {@code addendum}
+     * @param target     matrix to be subtracted
+     * @param subtrahend matrix to subtract
+     * @return new matrix with result of subtracting matrix {@code subtrahend} from
+     *         matrix {@code target}
+     * @throws IllegalArgumentException if matrices have different sizes
      *
      * @since 1.0.0
      */

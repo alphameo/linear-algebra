@@ -3,14 +3,12 @@ package io.github.alphameo.linear_algebra.mat;
 /**
  * Interface that declares operations between fixed square matrices and with
  * fixed-dimensional corresponding vectors.
- * <p>
- * {@code M} is a matrix class/interface which should implements this
+ *
+ * @param <M> is a matrix class/interface which should implements this
  * operations
- * <p>
- * {@code V} is a corresponding fixed-dimensional vector class/interface
- * {@code R} is a matrix row enum-accessor
- * <p>
- * {@code C} is a matrix column enum-accessor
+ * @param <V> is a corresponding fixed-dimensional vector class/interface
+ * @param <R> is a matrix row enum-accessor
+ * @param <C> is a matrix column enum-accessor
  *
  * @since 3.0.0
  */

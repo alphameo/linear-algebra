@@ -3,11 +3,10 @@ package io.github.alphameo.linear_algebra.vec;
 /**
  * Interface that declares operations between a fixed-dimensional vectors and
  * their corresponding matrices.
- * <p>
- * {@code V} is a vector class/interface which should implements this
- * operations
  *
- * {@code M} corresponding square matrix class/interface
+ * @param <V> is a vector class/interface which should implements this
+ *            operations
+ * @param <M> corresponding square matrix class/interface
  *
  * @since 3.0.0
  */

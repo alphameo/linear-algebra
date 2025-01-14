@@ -3,12 +3,9 @@ package io.github.alphameo.linear_algebra.vec;
 /**
  * An interface that declares operations between fixed-dimensional vectors and
  * their corresponding matrices.
- * <p>
- * {@code V} is a vector class/interface which should implements this
- * operations
- *
- * {@code M} corresponding square matrix class/interface
- *
+ * 
+ * @param <V> is a vector class/interface which should implements this
+ *            operations
  * @since 3.0.0
  */
 public interface FixedVectorOperatable<V> {
@@ -20,12 +17,11 @@ public interface FixedVectorOperatable<V> {
     V clone();
 
     /**
-     * Adds the components of the addendum vector to the components of the target
+     * Adds the components of the addendum vector to the components of this
      * vector and returns it.
      *
-     * @param target   vector to be added
      * @param addendum vector to add
-     * @return vector {@code target} increased by vector {@code addendum}
+     * @return vector {@code this} increased by vector {@code addendum}
      * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
@@ -50,7 +46,7 @@ public interface FixedVectorOperatable<V> {
      * components of 2-dimensional current vector.
      * 
      * @param subtrahend vector to subtract
-     * @return current vector subtracted by {@code subtrahend} vector
+     * @return vector {@code this} reduced by vector {@code subtrahend}
      *
      * @since 1.0.0
      */
@@ -62,7 +58,7 @@ public interface FixedVectorOperatable<V> {
      * 
      * @param subtrahend vector to subtract
      * @return new vector with result of subtracting vector {@code subtrahend} from
-     *         vector {@code target}
+     *         vector {@code this}
      * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
@@ -70,7 +66,8 @@ public interface FixedVectorOperatable<V> {
     V sub(final V subtrahend);
 
     /**
-     * Returns the result of dot product (scalar product) of this and the given vectors.
+     * Returns the result of dot product (scalar product) of this and the given
+     * vectors.
      *
      * @param v vector for dot product
      * @return dot product of vector {@code this} and vector {@code v}

@@ -152,12 +152,11 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Adds the components of the addendum vector to the components of the target
+     * Adds the components of the addendum vector to the components of this
      * vector and returns it.
      *
-     * @param target   vector to be added
      * @param addendum vector to add
-     * @return vector {@code target} increased by vector {@code addendum}
+     * @return vector {@code this} increased by vector {@code addendum}
      * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
@@ -182,10 +181,11 @@ public interface Vector extends Cloneable {
     }
 
     /**
-     * Subtracts components of the subtrahend vector from the components of the
-     * target vector and returns it.
+     * Subtracts components of the subtrahend vector from the components of this
+     * vector and returns it.
      * 
      * @param subtrahend vector to subtract
+     * @return vector {@code this} reduced by vector {@code subtrahend}
      * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
@@ -200,7 +200,7 @@ public interface Vector extends Cloneable {
      * 
      * @param subtrahend vector to subtract
      * @return new vector with result of subtracting vector {@code subtrahend} from
-     *         vector {@code target}
+     *         vector {@code this}
      * @throws IllegalArgumentException if vectors have different sizes
      *
      * @since 1.0.0
@@ -249,27 +249,6 @@ public interface Vector extends Cloneable {
      *
      * @since 3.0.0
      */
-    public static Vector prod(final Matrix m, final Vector v) {
-        if (m.width() != v.size()) {
-            throw new IllegalArgumentException(
-                    String.format("Matrix and vector product denied: matrix with size %dx%d and vector with size",
-                            m.height(),
-                            m.width(), v.size()));
-        }
-
-        final Vector result = new Vec(m.height());
-        for (int i = 0; i < m.height(); i++) {
-            float value = 0;
-            for (int elem = 0; elem < v.size(); elem++) {
-                value += m.get(i, elem) * v.get(elem);
-            }
-
-            result.set(i, value);
-        }
-
-        return result;
-    }
-
     default Vector prod(Matrix m) {
         return VectorMath.prod(this, m);
     }
