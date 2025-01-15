@@ -2,19 +2,17 @@ package io.github.alphameo.linear_algebra.vec;
 
 import java.util.Arrays;
 
-import io.github.alphameo.linear_algebra.Equatable;
-
 /**
- * Default implementation of arbitrary vector ({@code Vector interface}).
+ * Default implementation of arbitrary-dimensional vector ({@link Vector}).
  *
  * @since 1.0.0
  */
-public class Vec implements Vector, Equatable<Vector> {
+public class Vec implements Vector {
 
     private final float[] entries;
 
     /**
-     * Constructs new vector of given size with all 0.
+     * Constructs new {@code size}-dimensional vector  with all 0.
      * 
      * @param size size of vector for construction
      *
@@ -39,7 +37,7 @@ public class Vec implements Vector, Equatable<Vector> {
     }
 
     /**
-     * Copies given vector values into new vector.
+     * Copies the given vector values into the new one.
      * 
      * @param v vector for copying
      *
@@ -65,197 +63,6 @@ public class Vec implements Vector, Equatable<Vector> {
     @Override
     public int size() {
         return entries.length;
-    }
-
-    /**
-     * Calculates square of vector length.
-     * <p>
-     * You can use it if you need fast comparison.
-     * 
-     * @return square length of vector
-     *
-     * @since 1.0.0
-     */
-    public float len2() {
-        return VecMath.len2(this);
-    }
-
-    /**
-     * Calculates length of vector.
-     * 
-     * @return length of vector
-     *
-     * @since 1.0.0
-     */
-    public float len() {
-        return VecMath.len(this);
-    }
-
-    /**
-     * Multiplies the components of vector by a scalar value.
-     *
-     * @param multiplier scalar value
-     * @return current vector with multiplied components
-     *
-     * @since 1.0.0
-     */
-    public Vector mult(final float multiplier) {
-        return VecMath.mult(this, multiplier);
-    }
-
-    /**
-     * Copies vector and multiplies its components by a scalar.
-     * value.
-     *
-     * @param multiplier scalar value
-     * @return new vector with multiplied components of current vector
-     *
-     * @since 1.0.0
-     */
-    public Vector multiplied(final float multiplier) {
-        return VecMath.multiplied(this, multiplier);
-    }
-
-    /**
-     * Divides the components of vector by a scalar value.
-     * 
-     * @param divisor scalar value
-     * @return current vector with divided components
-     * @throws ArithmeticException if {@code divisor} approximately equal to 0
-     *
-     * @since 1.0.0
-     */
-    public Vector divide(final float divisor) throws ArithmeticException {
-        return VecMath.divide(this, divisor);
-    }
-
-    /**
-     * Copies vector and divides its components by a scalar value.
-     *
-     * @param divisor scalar value
-     * @return new vector with divided components of current vector
-     * @throws ArithmeticException if {@code divisor} approximately equal to 0
-     *
-     * @since 1.0.0
-     */
-    public Vector divided(final float divisor) throws ArithmeticException {
-        return VecMath.divided(this, divisor);
-    }
-
-    /**
-     * Normalizes vector (divide each component by vector length)
-     * 
-     * @return current vector with normalized components
-     * @throws ArithmeticException if length of vector equals 0
-     *
-     * @since 1.0.0
-     */
-    public Vector normalize() throws ArithmeticException {
-        return VecMath.normalize(this);
-    }
-
-    /**
-     * Copies and normalizes vector (divide each component by vector length)
-     * 
-     * @return current vector with normalized components of given vector
-     * @throws ArithmeticException if length of vector equals 0
-     *
-     * @since 1.0.0
-     */
-    public Vector normalized() throws ArithmeticException {
-        return VecMath.normalized(new Vec(this));
-    }
-
-    /**
-     * Adds the {@code addendum} vector components to the current vector components.
-     *
-     * @param addendum vector to add
-     * @return current vector increased by {@code addendum} vector
-     * @throws IllegalArgumentException if vectors have different sizes
-     *
-     * @since 1.0.0
-     */
-    public Vector add(final Vector addendum) {
-        return VecMath.add(this, addendum);
-    }
-
-    /**
-     * Copies current vector and adds the {@code addendum} vector components to its
-     * components.
-     *
-     * @param addendum vector to add
-     * @return new vector with sum of components of current vector and
-     *         {@code addendum} vector
-     * @throws IllegalArgumentException if vectors have different sizes
-     *
-     * @since 1.0.0
-     */
-    public Vector added(final Vector addendum) {
-        return VecMath.added(this, addendum);
-    }
-
-    /**
-     * Subtracts the {@code subtrahend} vector components from the current vector
-     * components.
-     * 
-     * @param subtrahend vector to subtract
-     * @return current vector subtracted by {@code subtrahend} vector
-     * @throws IllegalArgumentException if vectors have different sizes
-     *
-     * @since 1.0.0
-     */
-    public Vector sub(final Vector subtrahend) {
-        return VecMath.sub(this, subtrahend);
-    }
-
-    /**
-     * Copies current vector and subtracts the {@code subtrahend} vector components
-     * from its components.
-     * 
-     * @param subtrahend vector to subtract
-     * @return new vector with components resulting current vector subtracted
-     *         by {@code subtrahend} vector
-     * @throws IllegalArgumentException if vectors have different sizes
-     *
-     * @since 1.0.0
-     */
-    public Vector subtracted(final Vector subtrahend) {
-        return VecMath.subtracted(this, subtrahend);
-    }
-
-    /**
-     * Calculates dot product (scalar product) of vectors.
-     *
-     * @param v second vector
-     * @return dot (scalar) product of vectors
-     *
-     * @since 1.0.0
-     */
-    public float dot(final Vector v) {
-        return VecMath.dot(this, v);
-    }
-
-    /**
-     * Calculates cross product (vector product) of vectors.
-     *
-     * @param v second vector
-     * @return vector, which represents cross (vector) product of vectors
-     * @throws IllegalArgumentException if vectors' sizes are not equal 3
-     *
-     * @since 1.0.0
-     */
-    public Vector cross(final Vector v) {
-        return VecMath.cross(this, v);
-    }
-
-    @Override
-    public boolean equalsEpsilonTo(final Vector v, final float eps) {
-        return VecMath.equalsEpsilon(this, v, eps);
-    }
-
-    @Override
-    public boolean equalsTo(final Vector v) {
-        return VecMath.equals(this, v);
     }
 
     @Override
@@ -287,30 +94,30 @@ public class Vec implements Vector, Equatable<Vector> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        return equalsTo((Vector) obj);
+        return VectorMath.equals(this, (Vector) obj);
     }
 
     /**
-     * Constructs new vector of given {@code size} with all 0 components.
+     * Constructs {@code size}-dimensional vector with all 0 components.
      * 
-     * @param size size of vector to be constructed
-     * @return new zero vector of given {@code size}
+     * @param size dimension of vector to be constructed
+     * @return new zero {@code size}-dimensional vector
      *
      * @since 1.0.0
      */
-    public static Vector zeroVec(final int size) {
-        return VecMath.zeroVec(size);
+    public static Vector zeroVector(final int size) {
+        return VectorMath.zeroVector(size);
     }
 
     /**
-     * Constructs new vector of given {@code size} with 1 as components.
+     * Constructs {@code size}-dimensional vector with all 1 components.
      * 
-     * @param size size of vector to be constructed
-     * @return new unit vector of given {@code size}
+     * @param size dimension of vector to be constructed
+     * @return new unit {@code size}-dimensional vector
      *
      * @since 1.0.0
      */
-    public static Vector unitVec(final int size) {
-        return VecMath.unitVec(size);
+    public static Vector unitVector(final int size) {
+        return VectorMath.unitVector(size);
     }
 }

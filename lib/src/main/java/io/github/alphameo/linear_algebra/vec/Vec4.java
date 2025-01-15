@@ -2,19 +2,17 @@ package io.github.alphameo.linear_algebra.vec;
 
 import java.util.Arrays;
 
-import io.github.alphameo.linear_algebra.Equatable;
-
 /**
- * Default implementation of vector with size 2 ({@code Vector2 interface}).
+ * Default implementation of 4-dimensional vector ({@link Vector4}).
  *
  * @since 1.0.0
  */
-public class Vec4 implements Vector4, Equatable<Vector4> {
+public class Vec4 implements Vector4 {
 
     private final float[] entries;
 
     /**
-     * Constructs new vector of size 4 with all 0.
+     * Constructs new 4-dimensional vector with all 0.
      *
      * @since 1.0.0
      */
@@ -23,8 +21,8 @@ public class Vec4 implements Vector4, Equatable<Vector4> {
     }
 
     /**
-     * Constructs new vector of size 3 using values {@code x}, {@code y}, {@code z}
-     * and {@code w}.
+     * Constructs new 4-dimensional vector using values
+     * {@code x}, {@code y}, {@code z} and {@code w}.
      * 
      * @param x first component of vector
      * @param y second component of vector
@@ -42,9 +40,10 @@ public class Vec4 implements Vector4, Equatable<Vector4> {
     }
 
     /**
-     * Copies given vector of size 4 values into new vector of size 2.
+     * Copies values of the given 4-dimensional vector into the new 4-dimensional
+     * vector.
      * 
-     * @param v vector of size 4 for copying
+     * @param v 4-dimensional vector of for copying
      *
      * @since 1.0.0
      */
@@ -53,7 +52,7 @@ public class Vec4 implements Vector4, Equatable<Vector4> {
     }
 
     @Override
-    public float get(final int i) {
+    public float get(final int i) throws IllegalArgumentException {
         if (i < 0 || i > 4) {
             throw new IllegalArgumentException(String.format("Index %d is out of Vec4 bounds", i));
         }
@@ -115,180 +114,6 @@ public class Vec4 implements Vector4, Equatable<Vector4> {
         return 4;
     }
 
-    /**
-     * Calculates square of vector length.
-     * <p>
-     * You can use it if you need fast comparison.
-     * 
-     * @return square length of vector
-     *
-     * @since 1.0.0
-     */
-    public float len2() {
-        return Vec4Math.len2(this);
-    }
-
-    /**
-     * Calculates length of vector.
-     * 
-     * @return length of vector
-     *
-     * @since 1.0.0
-     */
-    public float len() {
-        return Vec4Math.len(this);
-    }
-
-    /**
-     * Multiplies the components of vector by a scalar value.
-     *
-     * @param multiplier scalar value
-     * @return current vector with multiplied components
-     *
-     * @since 1.0.0
-     */
-    public Vector4 mult(final float multiplier) {
-        return Vec4Math.mult(this, multiplier);
-    }
-
-    /**
-     * Copies vector and multiplies its components by a scalar.
-     * value.
-     *
-     * @param multiplier scalar value
-     * @return new vector with multiplied components of current vector
-     *
-     * @since 1.0.0
-     */
-    public Vector4 multiplied(final float multiplier) {
-        return Vec4Math.multiplied(this, multiplier);
-    }
-
-    /**
-     * Divides the components of vector by a scalar value.
-     * 
-     * @param divisor scalar value
-     * @return current vector with divided components
-     * @throws ArithmeticException if {@code divisor} approximately equal to 0
-     *
-     * @since 1.0.0
-     */
-    public Vector4 divide(final float divisor) throws ArithmeticException {
-        return Vec4Math.divide(this, divisor);
-    }
-
-    /**
-     * Copies vector and divides its components by a scalar value.
-     *
-     * @param divisor scalar value
-     * @return new vector with divided components of current vector
-     * @throws ArithmeticException if {@code divisor} approximately equal to 0
-     *
-     * @since 1.0.0
-     */
-    public Vector4 divided(final float divisor) throws ArithmeticException {
-        return Vec4Math.divided(this, divisor);
-    }
-
-    /**
-     * Normalizes vector (divide each component by vector length)
-     * 
-     * @return current vector with normalized components
-     * @throws ArithmeticException if length of vector equals 0
-     *
-     * @since 1.0.0
-     */
-    public Vector4 normalize() throws ArithmeticException {
-        return Vec4Math.normalize(this);
-    }
-
-    /**
-     * Copies and normalizes vector (divide each component by vector length)
-     * 
-     * @return current vector with normalized components of given vector
-     * @throws ArithmeticException if length of vector equals 0
-     *
-     * @since 1.0.0
-     */
-    public Vector4 normalized() throws ArithmeticException {
-        return Vec4Math.normalized(new Vec4(this));
-    }
-
-    /**
-     * Adds the {@code addendum} vector components to the current vector components.
-     *
-     * @param addendum vector to add
-     * @return current vector increased by {@code addendum} vector
-     *
-     * @since 1.0.0
-     */
-    public Vector4 add(final Vector4 addendum) {
-        return Vec4Math.add(this, addendum);
-    }
-
-    /**
-     * Copies current vector and adds the {@code addendum} vector components to its
-     * components.
-     *
-     * @param addendum vector to add
-     * @return new vector with sum of components of current vector and
-     *         {@code addendum} vector
-     *
-     * @since 1.0.0
-     */
-    public Vector4 added(final Vector4 addendum) {
-        return Vec4Math.added(this, addendum);
-    }
-
-    /**
-     * Subtracts the {@code subtrahend} vector components from the current vector
-     * components.
-     * 
-     * @param subtrahend vector to subtract
-     * @return current vector subtracted by {@code subtrahend} vector
-     *
-     * @since 1.0.0
-     */
-    public Vector4 sub(final Vector4 subtrahend) {
-        return Vec4Math.sub(this, subtrahend);
-    }
-
-    /**
-     * Copies current vector and subtracts the {@code subtrahend} vector components
-     * from its components.
-     * 
-     * @param subtrahend vector to subtract
-     * @return new vector with components resulting current vector subtracted
-     *         by {@code subtrahend} vector
-     *
-     * @since 1.0.0
-     */
-    public Vector4 subtracted(final Vector4 subtrahend) {
-        return Vec4Math.subtracted(this, subtrahend);
-    }
-
-    /**
-     * Calculates dot product (scalar product) of vectors.
-     *
-     * @param v second vector
-     * @return dot (scalar) product of vectors
-     *
-     * @since 1.0.0
-     */
-    public float dot(final Vector4 v) {
-        return Vec4Math.dot(this, v);
-    }
-
-    @Override
-    public boolean equalsEpsilonTo(final Vector4 other, final float eps) {
-        return Vec4Math.equalsEpsilon(this, other, eps);
-    }
-
-    @Override
-    public boolean equalsTo(final Vector4 other) {
-        return Vec4Math.equals(this, other);
-    }
-
     @Override
     public Vec4 clone() {
         return new Vec4(this.x(), this.y(), this.z(), this.w());
@@ -318,28 +143,28 @@ public class Vec4 implements Vector4, Equatable<Vector4> {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        return VecMath.equals(this, (Vector) obj);
+        return VectorMath.equals(this, (Vector) obj);
     }
 
     /**
-     * Constructs new vector of size 4 with all 0 components.
+     * Constructs 4-dimensional vector with all 0 components.
      * 
-     * @return new zero vector of size 4
+     * @return new zero 4-dimensional vector
      *
      * @since 1.0.0
      */
     public static Vector4 zeroVector() {
-        return new Vec4();
+        return Vector4Math.zeroVector();
     }
 
     /**
-     * Constructs new vector of size 4 with 1 as components.
+     * Constructs 4-dimensional vector with all 1 components.
      * 
-     * @return new unit vector of size 4
+     * @return new unit 4-dimensional vector
      *
      * @since 1.0.0
      */
     public static Vector4 unitVector() {
-        return Vec4Math.unitVec();
+        return Vector4Math.unitVector();
     }
 }

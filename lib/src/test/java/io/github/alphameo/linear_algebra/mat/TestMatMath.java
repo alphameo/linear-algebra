@@ -1,6 +1,30 @@
 package io.github.alphameo.linear_algebra.mat;
 
-import static io.github.alphameo.linear_algebra.mat.MatMath.*;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.add;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.addAsgn;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.cofactor;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.det;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.detCof;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.diagonal;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.div;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.divAsgn;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.inv;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.minorMatrix;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.mul;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.mulAsgn;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.prod;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.prodCol;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.prodRow;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.square;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.sub;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.subAsgn;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.swapCols;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.swapRows;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.swappedCols;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.swappedRows;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.transposed;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.triangulate;
+import static io.github.alphameo.linear_algebra.mat.MatrixMath.zeroed;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -78,8 +102,8 @@ public class TestMatMath {
                 { 14, 16, 18, 0 }
         });
 
-        Assertions.assertEquals(expected, multiplied(m, 2));
-        Assertions.assertEquals(expected, mult(m, 2));
+        Assertions.assertEquals(expected, mul(m, 2));
+        Assertions.assertEquals(expected, mulAsgn(m, 2));
     }
 
     @Test
@@ -95,8 +119,8 @@ public class TestMatMath {
                 { 7, 8, 9, 0 }
         });
 
-        Assertions.assertEquals(expected, divided(m, 2));
-        Assertions.assertEquals(expected, divide(m, 2));
+        Assertions.assertEquals(expected, div(m, 2));
+        Assertions.assertEquals(expected, divAsgn(m, 2));
     }
 
     @Test
@@ -112,8 +136,8 @@ public class TestMatMath {
                 { 14, 16, 18, 0 }
         });
 
-        Assertions.assertEquals(expected, added(m, m));
         Assertions.assertEquals(expected, add(m, m));
+        Assertions.assertEquals(expected, addAsgn(m, m));
     }
 
     @Test
@@ -129,8 +153,8 @@ public class TestMatMath {
                 { 7, 8, 9, 0 }
         });
 
-        Assertions.assertEquals(expected, subtracted(m, expected));
         Assertions.assertEquals(expected, sub(m, expected));
+        Assertions.assertEquals(expected, subAsgn(m, expected));
     }
 
     @Test
@@ -203,7 +227,7 @@ public class TestMatMath {
     }
 
     @Test
-    public void testProdVec1() {
+    public void testProdVec() {
         Matrix m = new Mat(new float[][] {
                 { 3, 2, 1 },
                 { 6, 5, 4 },
@@ -220,6 +244,54 @@ public class TestMatMath {
     @Test
     public void testProdVecException() {
         Matrix m = new Mat(new float[][] {
+                { 3, 2, 1 },
+                { 6, 5, 4 },
+                { 9, 8, 7 },
+                { 1, 2, 3 }
+        });
+        Vector v = new Vec(1, 2, 4, 4);
+
+        try {
+            prod(m, v);
+            Assertions.fail();
+        } catch (Exception e) {
+            Assertions.assertTrue(true);
+        }
+    }
+
+    @Test
+    public void testProdVecCol() {
+        Matrix m = new Mat(new float[][] {
+                { 3, 2, 1 },
+                { 6, 5, 4 },
+                { 9, 8, 7 },
+                { 1, 2, 3 }
+        });
+        Vector v = new Vec(1, 2, 4);
+
+        Vector expected = new Vec(11, 32, 53, 17);
+
+        Assertions.assertEquals(expected, prodCol(m, v));
+    }
+
+    @Test
+    public void testProdVecRow() {
+        Matrix m = new Mat(new float[][] {
+                { 3, 2, 1 },
+                { 6, 5, 4 },
+                { 9, 8, 7 },
+                { 1, 2, 3 }
+        });
+        Vector v = new Vec(1, 2, 4, 9);
+
+        Vector expected = new Vec(60, 62, 64);
+
+        Assertions.assertEquals(expected, prodRow(m, v));
+    }
+
+    @Test
+    public void testProdVecColException() {
+        Matrix m = new Mat(new float[][] {
                 { 1, 2, 3, 3 },
                 { 4, 5, 6, 4 },
                 { 7, 8, 9, 0 }
@@ -227,7 +299,24 @@ public class TestMatMath {
         Vector v = new Vec(1, 2, 4);
 
         try {
-            prod(m, v);
+            prodCol(m, v);
+            Assertions.fail();
+        } catch (Exception e) {
+            Assertions.assertTrue(true);
+        }
+    }
+
+    @Test
+    public void testProdVecRowException() {
+        Matrix m = new Mat(new float[][] {
+                { 1, 2, 3, 3 },
+                { 4, 5, 6, 4 },
+                { 7, 8, 9, 0 }
+        });
+        Vector v = new Vec(1, 2, 4, 4);
+
+        try {
+            prodRow(m, v);
             Assertions.fail();
         } catch (Exception e) {
             Assertions.assertTrue(true);
@@ -259,7 +348,7 @@ public class TestMatMath {
                 { 2, -1, 1 }
         });
 
-        Assertions.assertEquals(0, detThroughCofactors(m));
+        Assertions.assertEquals(0, detCof(m));
     }
 
     @Test
@@ -269,7 +358,7 @@ public class TestMatMath {
                 { 6, 5 }
         });
 
-        Assertions.assertEquals(3, detThroughCofactors(m));
+        Assertions.assertEquals(3, detCof(m));
     }
 
     @Test
@@ -280,7 +369,7 @@ public class TestMatMath {
                 { 7, 8, 9 }
         });
 
-        Assertions.assertEquals(-84, detThroughCofactors(m));
+        Assertions.assertEquals(-84, detCof(m));
     }
 
     @Test
@@ -292,7 +381,7 @@ public class TestMatMath {
                 { 2, 3, -3, 1 }
         });
 
-        Assertions.assertTrue(Validator.equalsEpsilon(3, MatMath.det(m), 0.0001f));
+        Assertions.assertTrue(Validator.equalsEpsilon(3, MatrixMath.det(m), 0.0001f));
     }
 
     @Test
@@ -322,7 +411,7 @@ public class TestMatMath {
                 { 13f / 21, -1f / 14, -1f / 21 }
         });
 
-        Assertions.assertEquals(expected, invertible(m));
+        Assertions.assertEquals(expected, inv(m));
     }
 
     @Test
@@ -409,7 +498,7 @@ public class TestMatMath {
                 { 7, 8, 9 }
         });
 
-        Assertions.assertTrue(MatMath.equals(m1, m2));
+        Assertions.assertTrue(MatrixMath.equals(m1, m2));
     }
 
     @Test
@@ -426,7 +515,7 @@ public class TestMatMath {
                 { 7, 8, 9 }
         });
 
-        Assertions.assertTrue(!MatMath.equals(m1, m2));
+        Assertions.assertTrue(!MatrixMath.equals(m1, m2));
     }
 
     @Test
@@ -483,7 +572,7 @@ public class TestMatMath {
                 { 0, 0, 0 }
         });
 
-        Assertions.assertTrue(isZeroed(m));
+        Assertions.assertTrue(zeroed(m));
     }
 
     @Test
@@ -495,7 +584,7 @@ public class TestMatMath {
                 { 0, 0, 0 }
         });
 
-        Assertions.assertTrue(!isZeroed(m));
+        Assertions.assertTrue(!zeroed(m));
     }
 
     @Test
@@ -522,7 +611,7 @@ public class TestMatMath {
 
     @Test
     public void testZeroMat() {
-        Matrix m = MatMath.zeroMat(3, 4);
+        Matrix m = MatrixMath.zeroMatrix(3, 4);
         Matrix expected = new Mat(new float[][] {
                 { 0, 0, 0, 0 },
                 { 0, 0, 0, 0 },
@@ -534,7 +623,7 @@ public class TestMatMath {
 
     @Test
     public void testUnitMat() {
-        Matrix m = MatMath.unitMat(3);
+        Matrix m = MatrixMath.unitMatrix(3);
         Matrix expected = new Mat(new float[][] {
                 { 1, 0, 0 },
                 { 0, 1, 0 },
@@ -549,7 +638,7 @@ public class TestMatMath {
         Vector v1 = new Vec(1, 2, 3, 3);
         Vector v2 = new Vec(4, 5, 6, 4);
         Vector v3 = new Vec(7, 8, 9, 6);
-        Matrix m = MatMath.fromVecRows(v1, v2, v3);
+        Matrix m = MatrixMath.fromVecRows(v1, v2, v3);
         Matrix expected = new Mat(new float[][] {
                 { 1, 2, 3, 3 },
                 { 4, 5, 6, 4 },
@@ -565,7 +654,7 @@ public class TestMatMath {
         Vector v2 = new Vec(4, 5);
         Vector v3 = new Vec(7, 8, 9);
         try {
-            Matrix m = MatMath.fromVecRows(v1, v2, v3);
+            MatrixMath.fromVecRows(v1, v2, v3);
             Assertions.fail();
         } catch (Exception e) {
             Assertions.assertTrue(true);
@@ -576,7 +665,7 @@ public class TestMatMath {
     public void testFromVectorCols() {
         Vector v1 = new Vec(1, 2, 3);
         Vector v2 = new Vec(4, 5, 6);
-        Matrix m = MatMath.fromVecCols(v1, v2);
+        Matrix m = MatrixMath.fromVecCols(v1, v2);
         Matrix expected = new Mat(new float[][] {
                 { 1, 4 },
                 { 2, 5 },
@@ -592,7 +681,7 @@ public class TestMatMath {
         Vector v2 = new Vec(4, 5);
         Vector v3 = new Vec(7, 8, 9);
         try {
-            Matrix m = MatMath.fromVecCols(v1, v2, v3);
+            MatrixMath.fromVecCols(v1, v2, v3);
             Assertions.fail();
         } catch (Exception e) {
             Assertions.assertTrue(true);

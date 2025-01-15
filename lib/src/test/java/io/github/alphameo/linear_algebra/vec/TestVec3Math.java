@@ -1,11 +1,13 @@
 package io.github.alphameo.linear_algebra.vec;
 
-import static io.github.alphameo.linear_algebra.vec.Vec3Math.*;
+import static io.github.alphameo.linear_algebra.vec.Vector3Math.*;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import io.github.alphameo.linear_algebra.Validator;
+import io.github.alphameo.linear_algebra.mat.Mat3;
+import io.github.alphameo.linear_algebra.mat.Matrix3;
 
 /**
  * TestVec
@@ -24,8 +26,8 @@ public class TestVec3Math {
         Vector3 v1 = new Vec3(-12, 3, 4);
         Vector3 expected = new Vec3(-18, 4.5f, 6);
 
-        Vector3 v = multiplied(v1, 1.5f);
-        mult(v1, 1.5f);
+        Vector3 v = mul(v1, 1.5f);
+        mulAsgn(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -37,8 +39,8 @@ public class TestVec3Math {
         Vector3 v1 = new Vec3(-18, 4.5f, 6);
         Vector3 expected = new Vec3(-12, 3, 4);
 
-        Vector3 v = divided(v1, 1.5f);
-        divide(v1, 1.5f);
+        Vector3 v = div(v1, 1.5f);
+        divAsgn(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -51,8 +53,8 @@ public class TestVec3Math {
         Vector3 v2 = new Vec3(1, 2, 3);
         Vector3 expected = new Vec3(-11, 5, 7);
 
-        Vector3 v = added(v1, v2);
-        add(v1, v2);
+        Vector3 v = add(v1, v2);
+        addAsgn(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -65,8 +67,8 @@ public class TestVec3Math {
         Vector3 v2 = new Vec3(1, 2.03f, 3);
         Vector3 expected = new Vec3(-13, 0.97f, 1);
 
-        Vector3 v = subtracted(v1, v2);
-        sub(v1, v2);
+        Vector3 v = sub(v1, v2);
+        subAsgn(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -93,11 +95,53 @@ public class TestVec3Math {
     }
 
     @Test
+    public void testProdVec() {
+        Matrix3 m = new Mat3(new float[][] {
+                { 3, 2, 1 },
+                { 6, 5, 4 },
+                { 9, 8, 7 }
+        });
+        Vector3 v = new Vec3(1, 2, 4);
+
+        Vector3 expected = new Vec3(51, 44, 37);
+
+        Assertions.assertEquals(expected, prod(v, m));
+    }
+
+    @Test
+    public void testTransformCol() {
+        Matrix3 m = new Mat3(new float[][] {
+                { 3, 2, 1 },
+                { 6, 5, 4 },
+                { 9, 8, 7 }
+        });
+        Vector3 v = new Vec3(1, 2, 4);
+
+        Vector3 expected = new Vec3(11, 32, 53);
+
+        Assertions.assertEquals(expected, transformedCol(v, m));
+    }
+
+    @Test
+    public void testTransformRow() {
+        Matrix3 m = new Mat3(new float[][] {
+                { 3, 2, 1 },
+                { 6, 5, 4 },
+                { 9, 8, 7 }
+        });
+        Vector3 v = new Vec3(1, 2, 4);
+
+        Vector3 expected = new Vec3(51, 44, 37);
+
+        Assertions.assertEquals(expected, transformedRow(v, m));
+    }
+
+    @Test
     public void testEquals() {
         Vector v1 = new Vec(-12, 3, 4);
         Vector v2 = new Vec(-12, 3, 4);
 
-        Assertions.assertTrue(VecMath.equals(v1, v2));
+        Assertions.assertTrue(VectorMath.equals(v1, v2));
     }
 
     @Test
@@ -105,12 +149,12 @@ public class TestVec3Math {
         Vector v1 = new Vec(-12, 3, 4);
         Vector v2 = new Vec(-12, 4, 4);
 
-        Assertions.assertTrue(!VecMath.equals(v1, v2));
+        Assertions.assertTrue(!VectorMath.equals(v1, v2));
     }
 
     @Test
     public void testZeroVec() {
-        Vector3 v = zeroVec();
+        Vector3 v = zeroVector();
         Vector3 expected = new Vec3(0, 0, 0);
 
         Assertions.assertEquals(expected, v);
@@ -121,12 +165,12 @@ public class TestVec3Math {
         Vector3 v1 = new Vec3(-12, 4, 3);
         Vector4 expected = new Vec4(-12, 4, 3, 1);
 
-        Assertions.assertEquals(expected, toVec4(v1));
+        Assertions.assertEquals(expected, toVector4(v1));
     }
 
     @Test
     public void testUnitVect() {
-        Vector3 v = unitVec();
+        Vector3 v = unitVector();
         Vector3 expected = new Vec3(1, 1, 1);
 
         Assertions.assertEquals(expected, v);

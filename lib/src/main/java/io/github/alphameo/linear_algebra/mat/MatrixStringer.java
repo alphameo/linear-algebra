@@ -1,12 +1,18 @@
 package io.github.alphameo.linear_algebra.mat;
 
 /**
- * MatUtils
+ * MathUtils
  *
  * @since 1.0.0
  */
-class MatStringer {
+class MatrixStringer {
 
+    /**
+     * Constructs string interpretation of the given matrix.
+     *
+     * @param m matrix to be interpreted as string
+     * @return string interpretation of matrix {@code m}
+     */
     public static String matrixToString(Matrix m) {
 
         StringBuilder sb = new StringBuilder();

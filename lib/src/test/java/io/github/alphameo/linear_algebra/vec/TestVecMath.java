@@ -1,11 +1,29 @@
 package io.github.alphameo.linear_algebra.vec;
 
-import static io.github.alphameo.linear_algebra.vec.VecMath.*;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.add;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.addAsgn;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.cross;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.div;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.divAsgn;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.dot;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.len;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.len2;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.mul;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.mulAsgn;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.prod;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.sub;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.subAsgn;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.transformedCol;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.transformedRow;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.unitVector;
+import static io.github.alphameo.linear_algebra.vec.VectorMath.zeroVector;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import io.github.alphameo.linear_algebra.Validator;
+import io.github.alphameo.linear_algebra.mat.Mat;
+import io.github.alphameo.linear_algebra.mat.Matrix;
 
 /**
  * TestVec
@@ -31,8 +49,8 @@ public class TestVecMath {
         Vector v1 = new Vec(-12, 3, 4, 8);
         Vector expected = new Vec(-18, 4.5f, 6, 12);
 
-        Vector v = multiplied(v1, 1.5f);
-        mult(v1, 1.5f);
+        Vector v = mul(v1, 1.5f);
+        mulAsgn(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -44,8 +62,8 @@ public class TestVecMath {
         Vector v1 = new Vec(-18, 4.5f, 6, 12);
         Vector expected = new Vec(-12, 3, 4, 8);
 
-        Vector v = divided(v1, 1.5f);
-        divide(v1, 1.5f);
+        Vector v = div(v1, 1.5f);
+        divAsgn(v1, 1.5f);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -58,8 +76,8 @@ public class TestVecMath {
         Vector v2 = new Vec(1, 2, 3, 4);
         Vector expected = new Vec(-11, 5, 7, 12);
 
-        Vector v = added(v1, v2);
-        add(v1, v2);
+        Vector v = add(v1, v2);
+        addAsgn(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -72,8 +90,8 @@ public class TestVecMath {
         Vector v2 = new Vec(1, 2.03f, 3, 4);
         Vector expected = new Vec(-13, 0.97f, 1, 4);
 
-        Vector v = subtracted(v1, v2);
-        sub(v1, v2);
+        Vector v = sub(v1, v2);
+        subAsgn(v1, v2);
 
         // Assertions.assertTrue(v1.equals(expected));
         Assertions.assertEquals(expected, v);
@@ -100,11 +118,56 @@ public class TestVecMath {
     }
 
     @Test
+    public void testProdVec() {
+        Matrix m = new Mat(new float[][] {
+                { 3, 2, 1 },
+                { 6, 5, 4 },
+                { 9, 8, 7 },
+                { 1, 2, 3 }
+        });
+        Vector v = new Vec(1, 2, 4, 9);
+
+        Vector expected = new Vec(60, 62, 64);
+
+        Assertions.assertEquals(expected, prod(v, m));
+    }
+
+    @Test
+    public void testTransformCol() {
+        Matrix m = new Mat(new float[][] {
+                { 3, 2, 1 },
+                { 6, 5, 4 },
+                { 9, 8, 7 },
+                { 1, 2, 3 }
+        });
+        Vector v = new Vec(1, 2, 4);
+
+        Vector expected = new Vec(11, 32, 53, 17);
+
+        Assertions.assertEquals(expected, transformedCol(v, m));
+    }
+
+    @Test
+    public void testTransformRow() {
+        Matrix m = new Mat(new float[][] {
+                { 3, 2, 1 },
+                { 6, 5, 4 },
+                { 9, 8, 7 },
+                { 1, 2, 3 }
+        });
+        Vector v = new Vec(1, 2, 4, 9);
+
+        Vector expected = new Vec(60, 62, 64);
+
+        Assertions.assertEquals(expected, transformedRow(v, m));
+    }
+
+    @Test
     public void testEquals() {
         Vector v1 = new Vec(-12, 3, 4);
         Vector v2 = new Vec(-12, 3, 4);
 
-        Assertions.assertTrue(VecMath.equals(v1, v2));
+        Assertions.assertTrue(VectorMath.equals(v1, v2));
     }
 
     @Test
@@ -112,12 +175,12 @@ public class TestVecMath {
         Vector v1 = new Vec(-12, 3, 4);
         Vector v2 = new Vec(-12, 4, 4);
 
-        Assertions.assertTrue(!VecMath.equals(v1, v2));
+        Assertions.assertTrue(!VectorMath.equals(v1, v2));
     }
 
     @Test
     public void testZeroVect() {
-        Vector v = zeroVec(4);
+        Vector v = zeroVector(4);
         Vector expected = new Vec(0, 0, 0, 0);
 
         Assertions.assertEquals(expected, v);
@@ -125,7 +188,7 @@ public class TestVecMath {
 
     @Test
     public void testZeroVec() {
-        Vector v = zeroVec(5);
+        Vector v = zeroVector(5);
         Vector expected = new Vec(0, 0, 0, 0, 0);
 
         Assertions.assertEquals(expected, v);
@@ -133,7 +196,7 @@ public class TestVecMath {
 
     @Test
     public void testUnitVect() {
-        Vector v = unitVec(5);
+        Vector v = unitVector(5);
         Vector expected = new Vec(1, 1, 1, 1, 1);
 
         Assertions.assertEquals(expected, v);

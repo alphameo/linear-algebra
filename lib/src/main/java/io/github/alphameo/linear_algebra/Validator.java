@@ -19,7 +19,7 @@ public class Validator {
     }
 
     /**
-     * Default value tolerance.
+     * Default tolerance value.
      *
      * @since 1.0.0
      */
@@ -29,7 +29,7 @@ public class Validator {
      * Checks 0 divisor.
      * 
      * @param divisor divisor value
-     * @throws ArithmeticException if divisor approximately equals 0
+     * @throws ArithmeticException if divisor is approximately equal 0
      *
      * @since 1.0.0
      */
@@ -77,12 +77,12 @@ public class Validator {
     }
 
     /**
-     * Returns {@code true} if values are equal within {@code epsilon} tolerance
+     * Returns {@code true} if values are equal within the given tolerance
      * 
      * @param value1 first value for comparison
      * @param value2 second value for comparison
      * @param eps    tolerance
-     * @return {@code true} if values are equal within {@code epsilon} tolerance,
+     * @return {@code true} if values are equal within {@code eps} tolerance,
      *         and {@code false} otherwise
      *
      * @since 1.0.0
@@ -102,6 +102,6 @@ public class Validator {
      * @since 1.0.0
      */
     public static boolean equals(float value1, float value2) {
-        return Math.abs(value1 - value2) < EPS;
+        return equalsEpsilon(value1, value2, EPS);
     }
 }

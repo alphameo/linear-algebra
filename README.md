@@ -19,14 +19,14 @@ Maven example for `pom.xml`:
 <dependency>
   <groupId>io.github.alphameo</groupId>
   <artifactId>linear_algebra</artifactId>
-  <version>2.1.2</version>
+  <version>3.0.0</version>
 </dependency>
 ```
 
 Gradle (Kotlin) example for `build.gradle.kts`:
 
 ```kts
-implementation("io.github.alphameo:linear_algebra:2.1.2")
+implementation("io.github.alphameo:linear_algebra:3.0.0")
 ```
 
 ### Manual Build
@@ -109,9 +109,9 @@ repositories {
 dependencies {
     // other dependencies
 
-    implementation("io.github.alphameo.linear_algebra:2.1.2")
+    implementation("io.github.alphameo.linear_algebra:3.0.0")
     // implementation() or api() - read the gradle documentation
-    // 2.1.2 is version that you want to use
+    // 3.0.0 is version that you want to use
 }
 ```
 
@@ -127,9 +127,9 @@ If you are using Gradle with the Kotlin DSL, you can do this by yourself. Add to
 dependencies {
     // other dependencies
 
-    implementation(files("../libs/linear_algebra-2.1.2.jar"))
+    implementation(files("../libs/linear_algebra-3.0.0.jar"))
     // implementation() or api() - read the gradle documentation
-    // 2.1.2 is version that you want to use
+    // 3.0.0 is version that you want to use
 }
 ```
 
@@ -148,9 +148,11 @@ Fixed-sized vectors have element-access methods by index (from the arbitrary int
 
 All functionality is located in the classes with static methods (functions). `VecMath` for `Vector`, `Mat3Math` for `Matrix3` and so on.
 
+But you have access to all available functions via interfaces `Matrix`, `Matrix3`, `Vector`, `Vector2`, etc. Because default methods inside interfaces (static classes' functions used under the hood).
+
 Although you can use `Vector2` in `VecMath`, it's recommended to use `Vec2Math` (or other corresponding class) just in case. The reason is the way how classes access the interfaces: the classes always try to use the most of the interface.
 
-You can notice some "duplicated" methods such as `.divide()` and `.divided()`. The difference is that method without `-ed` changes the object while the other returns new object.
+You can notice some "duplicated" methods such as `.div()` and `.divAsgn()`. The difference is that method without `-Asgn` (assignment) creates the new object to show the result the other returns changed (assigned) object that you have passed to the method.
 
 You also have default interface implementations. `Vec` for `Vector`, `Mat3` for `Matrix3` and so on.
 

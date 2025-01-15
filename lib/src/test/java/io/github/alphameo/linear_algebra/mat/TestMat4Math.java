@@ -1,6 +1,31 @@
 package io.github.alphameo.linear_algebra.mat;
 
-import static io.github.alphameo.linear_algebra.mat.Mat4Math.*;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.add;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.addAsgn;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.cofactor;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.det;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.diagonal;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.div;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.divAsgn;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.inv;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.minorMatrix;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.mul;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.mulAsgn;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.prod;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.prodCol;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.prodRow;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.sub;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.subAsgn;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.swapCols;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.swapRows;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.swappedCols;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.swappedRows;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.transpose;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.transposed;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.triangulate;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.unitMatrix;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.zeroMatrix;
+import static io.github.alphameo.linear_algebra.mat.Matrix4Math.zeroed;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -48,10 +73,7 @@ public class TestMat4Math {
         });
 
         Assertions.assertEquals(expected, swappedRows(m, Matrix4Row.R0, Matrix4Row.R2));
-        Assertions.assertEquals(expected, swappedRows(m, 0, 2));
         Assertions.assertEquals(expected, swapRows(m, Matrix4Row.R0, Matrix4Row.R2));
-        swapRows(m, Matrix4Row.R0, Matrix4Row.R2);
-        Assertions.assertEquals(expected, swapRows(m, 0, 2));
     }
 
     @Test
@@ -70,10 +92,7 @@ public class TestMat4Math {
         });
 
         Assertions.assertEquals(expected, swappedCols(m, Matrix4Col.C0, Matrix4Col.C2));
-        Assertions.assertEquals(expected, swappedCols(m, 0, 2));
         Assertions.assertEquals(expected, swapCols(m, Matrix4Col.C0, Matrix4Col.C2));
-        swapCols(m, Matrix4Col.C0, Matrix4Col.C2);
-        Assertions.assertEquals(expected, swapCols(m, 0, 2));
     }
 
     @Test
@@ -91,8 +110,8 @@ public class TestMat4Math {
                 { 6, 12, 18, 6 }
         });
 
-        Assertions.assertEquals(expected, multiplied(m, 2));
-        Assertions.assertEquals(expected, mult(m, 2));
+        Assertions.assertEquals(expected, mul(m, 2));
+        Assertions.assertEquals(expected, mulAsgn(m, 2));
     }
 
     @Test
@@ -110,8 +129,8 @@ public class TestMat4Math {
                 { 3, 6, 9, 3 }
         });
 
-        Assertions.assertEquals(expected, divided(m, 2));
-        Assertions.assertEquals(expected, divide(m, 2));
+        Assertions.assertEquals(expected, div(m, 2));
+        Assertions.assertEquals(expected, divAsgn(m, 2));
     }
 
     @Test
@@ -129,8 +148,8 @@ public class TestMat4Math {
                 { 6, 12, 18, 6 }
         });
 
-        Assertions.assertEquals(expected, added(m, m));
         Assertions.assertEquals(expected, add(m, m));
+        Assertions.assertEquals(expected, addAsgn(m, m));
     }
 
     @Test
@@ -148,8 +167,8 @@ public class TestMat4Math {
                 { 3, 6, 9, 3 }
         });
 
-        Assertions.assertEquals(expected, subtracted(m, expected));
         Assertions.assertEquals(expected, sub(m, expected));
+        Assertions.assertEquals(expected, subAsgn(m, expected));
     }
 
     @Test
@@ -178,7 +197,7 @@ public class TestMat4Math {
     }
 
     @Test
-    public void testProdVec1() {
+    public void testProdVec() {
         Matrix4 m = new Mat4(new float[][] {
                 { 3, 2, 1, 5 },
                 { 6, 5, 4, 7 },
@@ -190,6 +209,36 @@ public class TestMat4Math {
         Vector4 expected = new Vec4(16, 39, 55, 51);
 
         Assertions.assertEquals(expected, prod(m, v));
+    }
+
+    @Test
+    public void testProdVecCol() {
+        Matrix4 m = new Mat4(new float[][] {
+                { 3, 2, 1, 5 },
+                { 6, 5, 4, 7 },
+                { 9, 8, 7, 2 },
+                { 7, 5, 8, 2 }
+        });
+        Vector4 v = new Vec4(1, 2, 4, 1);
+
+        Vector4 expected = new Vec4(16, 39, 55, 51);
+
+        Assertions.assertEquals(expected, prodCol(m, v));
+    }
+
+    @Test
+    public void testProdVecRow() {
+        Matrix4 m = new Mat4(new float[][] {
+                { 3, 2, 1, 5 },
+                { 6, 5, 4, 7 },
+                { 9, 8, 7, 2 },
+                { 7, 5, 8, 2 }
+        });
+        Vector4 v = new Vec4(1, 2, 4, 1);
+
+        Vector4 expected = new Vec4(58, 49, 45, 29);
+
+        Assertions.assertEquals(expected, prodRow(m, v));
     }
 
     @Test
@@ -251,7 +300,7 @@ public class TestMat4Math {
                 { 17f / 90, -1f / 30, -1f / 18, 1f / 15 }
         });
 
-        Assertions.assertEquals(expected, invertible(m));
+        Assertions.assertEquals(expected, inv(m));
     }
 
     @Test
@@ -269,8 +318,7 @@ public class TestMat4Math {
                 { 7, 2, 8 }
         });
 
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, 0, 0)));
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, Matrix4Row.R0, Matrix4Col.C0)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, Matrix4Row.R0, Matrix4Col.C0)));
     }
 
     @Test
@@ -288,8 +336,7 @@ public class TestMat4Math {
                 { 5, 2, 8 }
         });
 
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, 1, 1)));
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, Matrix4Row.R1, Matrix4Col.C1)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, Matrix4Row.R1, Matrix4Col.C1)));
     }
 
     @Test
@@ -307,8 +354,7 @@ public class TestMat4Math {
                 { 5, 7, 8 }
         });
 
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, 2, 2)));
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, Matrix4Row.R2, Matrix4Col.C2)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, Matrix4Row.R2, Matrix4Col.C2)));
     }
 
     @Test
@@ -326,8 +372,7 @@ public class TestMat4Math {
                 { 7, 8, 9 }
         });
 
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, 3, 3)));
-        Assertions.assertTrue(MatMath.equals(expected, minorMatrix(m, Matrix4Row.R3, Matrix4Col.C3)));
+        Assertions.assertTrue(MatrixMath.equals(expected, minorMatrix(m, Matrix4Row.R3, Matrix4Col.C3)));
     }
 
     @Test
@@ -339,7 +384,7 @@ public class TestMat4Math {
                 { 3, 2, 1, 5 }
         });
 
-        Assertions.assertEquals(250, cofactor(m, 0, 0));
+        Assertions.assertEquals(250, cofactor(m, Matrix4Row.R0, Matrix4Col.C0));
     }
 
     @Test
@@ -351,7 +396,7 @@ public class TestMat4Math {
                 { 3, 2, 1, 5 }
         });
 
-        Assertions.assertEquals(32, cofactor(m, 0, 1));
+        Assertions.assertEquals(32, cofactor(m, Matrix4Row.R0, Matrix4Col.C1));
     }
 
     @Test
@@ -370,7 +415,7 @@ public class TestMat4Math {
                 { 5, 7, 2, 8 }
         });
 
-        Assertions.assertTrue(MatMath.equals(m1, m2));
+        Assertions.assertTrue(MatrixMath.equals(m1, m2));
     }
 
     @Test
@@ -389,7 +434,7 @@ public class TestMat4Math {
                 { 5, 7, 2, 8 }
         });
 
-        Assertions.assertTrue(!MatMath.equals(m1, m2));
+        Assertions.assertTrue(!MatrixMath.equals(m1, m2));
     }
 
     @Test
@@ -401,7 +446,7 @@ public class TestMat4Math {
                 { 0, 0, 0, 0 }
         });
 
-        Assertions.assertTrue(isZeroed(m));
+        Assertions.assertTrue(zeroed(m));
     }
 
     @Test
@@ -413,7 +458,7 @@ public class TestMat4Math {
                 { 0, 0, 0, 0 }
         });
 
-        Assertions.assertTrue(!isZeroed(m));
+        Assertions.assertTrue(!zeroed(m));
     }
 
     @Test
@@ -454,7 +499,7 @@ public class TestMat4Math {
 
     @Test
     public void testZeroMat() {
-        Matrix4 m = zeroMat();
+        Matrix4 m = zeroMatrix();
         Matrix4 expected = new Mat4(new float[][] {
                 { 0, 0, 0, 0 },
                 { 0, 0, 0, 0 },
@@ -467,7 +512,7 @@ public class TestMat4Math {
 
     @Test
     public void testUnitMat() {
-        Matrix4 m = unitMat();
+        Matrix4 m = unitMatrix();
         Matrix4 expected = new Mat4(new float[][] {
                 { 1, 0, 0, 0 },
                 { 0, 1, 0, 0 },
@@ -484,7 +529,7 @@ public class TestMat4Math {
         Vector4 v2 = new Vec4(4, 5, 6, 5);
         Vector4 v3 = new Vec4(7, 8, 9, 8);
         Vector4 v4 = new Vec4(1, 6, 5, 0);
-        Matrix4 m = Mat4Math.fromVecRows(v1, v2, v3, v4);
+        Matrix4 m = Matrix4Math.fromVecRows(v1, v2, v3, v4);
         Matrix4 expected = new Mat4(
                 1, 2, 3, 0,
                 4, 5, 6, 5,
@@ -500,7 +545,7 @@ public class TestMat4Math {
         Vector4 v2 = new Vec4(4, 5, 6, 5);
         Vector4 v3 = new Vec4(7, 8, 9, 8);
         Vector4 v4 = new Vec4(1, 6, 5, 0);
-        Matrix4 m = Mat4Math.fromVecCols(v1, v2, v3, v4);
+        Matrix4 m = Matrix4Math.fromVecCols(v1, v2, v3, v4);
         Matrix4 expected = new Mat4(
                 1, 4, 7, 1,
                 2, 5, 8, 6,
